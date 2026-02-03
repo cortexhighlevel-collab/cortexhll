@@ -1,4 +1,6 @@
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import ContentDropdown from "./ContentDropdown";
 
 const Logo = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 26" width="155" height="26" className="fill-foreground">
@@ -39,10 +41,23 @@ export const Header = () => {
         {/* Left Group */}
         <div className="flex items-center gap-1">
           <a href="#" className="nav-link">Sobre</a>
-          <a href="#" className="nav-link flex items-center gap-1">
-            Conteúdos
-            <ChevronDown className="w-2.5 h-2.5" />
-          </a>
+          
+          <Popover>
+            <PopoverTrigger asChild>
+              <button className="nav-link flex items-center gap-1 cursor-pointer">
+                Conteúdos
+                <ChevronDown className="w-2.5 h-2.5" />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent 
+              className="w-auto p-0 border-0 bg-transparent shadow-none" 
+              align="start"
+              sideOffset={12}
+            >
+              <ContentDropdown />
+            </PopoverContent>
+          </Popover>
+          
           <a href="#" className="nav-link">Contato</a>
         </div>
 
