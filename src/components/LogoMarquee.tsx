@@ -59,7 +59,7 @@ const LogoMarquee = () => {
   }) => <div className="logo-item flex items-center justify-center px-6 h-20 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
       {logo.type === 'svg' ? logo.svg : <span className="font-bold text-xl tracking-tight text-foreground">{logo.name}</span>}
     </div>;
-  return <section className="w-full py-16 bg-[#f06800]">
+  return <section className="w-full pt-24 pb-16 bg-gradient-to-b from-background to-[#f06800]">
       {/* Title */}
       
 
