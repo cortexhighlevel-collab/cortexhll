@@ -50,7 +50,7 @@ const MetodologiaSection = () => {
             <div className="card-radius p-6 md:p-8 flex flex-col justify-between bg-secondary-foreground">
               <div className="flex items-start justify-between mb-6">
                 <span className="text-3xl md:text-4xl font-bold text-primary-foreground">100% Prático</span>
-                <span className="tag-pill bg-academy-gray text-xs text-primary-foreground bg-[#f06800]">CERTIFICADO</span>
+                <span className="tag-pill bg-[#F06600] text-xs text-white">CERTIFICADO</span>
               </div>
               <p className="text-lg md:text-xl leading-relaxed text-primary-foreground">
                 Impulsione sua criatividade, do básico ao avançado.
