@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import LogoMarquee from "@/components/LogoMarquee";
+import MetodologiaSection from "@/components/MetodologiaSection";
 
 const Index = () => {
   return (
@@ -8,6 +9,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <LogoMarquee />
+      <MetodologiaSection />
     </div>
   );
 };
