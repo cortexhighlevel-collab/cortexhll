@@ -56,7 +56,7 @@ const LogoMarquee = () => {
     logo
   }: {
     logo: typeof logos[0];
-  }) => <div className="logo-item flex items-center justify-center px-6 h-20 text-white">
+  }) => <div className="logo-item flex items-center justify-center px-6 h-20 text-white opacity-80">
       {logo.type === 'svg' ? logo.svg : <span className="font-bold text-xl tracking-tight text-white">{logo.name}</span>}
     </div>;
   return <section className="w-full pt-24 pb-16 bg-gradient-to-b from-background to-[#f06800]">
