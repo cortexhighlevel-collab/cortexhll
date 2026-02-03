@@ -10,7 +10,7 @@ const Logo = () => (
 );
 
 const NavDivider = () => (
-  <img src={navDividerIcon} alt="" className="w-7 h-7 mx-1" />
+  <img src={navDividerIcon} alt="" className="h-6 w-auto mx-1 object-contain" />
 );
 
 export const Header = () => {
