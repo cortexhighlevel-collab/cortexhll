@@ -1,12 +1,11 @@
 const MetodologiaSection = () => {
-  return (
-    <section id="metodologia" className="w-full px-5 md:px-12 py-10 bg-[#f06800]">
+  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 bg-[#f06800]">
       <div className="max-w-[1200px] mx-auto">
         {/* Main Card Container */}
         <div className="bg-background card-radius p-4 md:p-6 lg:p-8">
           {/* Header */}
           <div className="mb-5 md:mb-8">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight font-medium">
               Uma Escola de <br />IA na Prática
             </h2>
             <p className="text-base md:text-lg text-foreground/80 mt-2">
@@ -63,8 +62,6 @@ const MetodologiaSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default MetodologiaSection;
