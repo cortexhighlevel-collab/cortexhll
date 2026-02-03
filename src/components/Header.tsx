@@ -15,7 +15,8 @@ const NavDivider = () => (
 
 export const Header = () => {
   return (
-    <header className="fixed top-3 left-1/2 -translate-x-1/2 w-full max-w-[1800px] px-5 md:px-12 flex justify-between items-center z-50">
+    <header className="fixed top-0 left-0 right-0 w-full bg-white shadow-sm z-50">
+      <div className="w-full max-w-[1800px] mx-auto px-5 md:px-12 py-3 flex justify-between items-center">
       {/* Logo */}
       <a href="#" className="block hover:opacity-70 transition-opacity" aria-label="Human Academy Home">
         <Logo />
@@ -79,6 +80,7 @@ export const Header = () => {
           </div>
           <span className="text-sm font-medium text-foreground">BR</span>
         </div>
+      </div>
       </div>
     </header>
   );
