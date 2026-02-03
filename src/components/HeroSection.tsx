@@ -28,16 +28,55 @@ const CTAArrowIcon = () => (
   </svg>
 );
 
+const HeroBackground = () => (
+  <>
+    {/* SVG Filter Definition */}
+    <svg style={{ display: 'none' }}>
+      <defs>
+        <filter id="orangeFilter">
+          <feColorMatrix 
+            type="matrix" 
+            values="-0.31 0     0     0   1
+                    0     -0.71 0     0   1
+                    0     0     -1    0   1
+                    0     0     0     1   0" 
+          />
+        </filter>
+      </defs>
+    </svg>
+    
+    {/* Background Image */}
+    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+      <img 
+        decoding="async"
+        width="3216"
+        height="1600"
+        sizes="100vw"
+        srcSet="https://framerusercontent.com/images/PNPQBHVUIE7eCKYqBY2ZUeGwzg.webp?scale-down-to=512&width=3216&height=1600 512w,
+                https://framerusercontent.com/images/PNPQBHVUIE7eCKYqBY2ZUeGwzg.webp?scale-down-to=1024&width=3216&height=1600 1024w,
+                https://framerusercontent.com/images/PNPQBHVUIE7eCKYqBY2ZUeGwzg.webp?scale-down-to=2048&width=3216&height=1600 2048w,
+                https://framerusercontent.com/images/PNPQBHVUIE7eCKYqBY2ZUeGwzg.webp?width=3216&height=1600 3216w"
+        src="https://framerusercontent.com/images/PNPQBHVUIE7eCKYqBY2ZUeGwzg.webp?width=3216&height=1600"
+        alt=""
+        className="w-full h-full object-cover"
+        style={{ filter: 'url(#orangeFilter)' }}
+      />
+    </div>
+  </>
+);
+
 export const HeroSection = () => {
   return (
-    <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20">
+    <main className="relative w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20 min-h-[600px]">
+      <HeroBackground />
+      
       {/* H1 Headline */}
-      <h1 className="hero-title max-w-[800px]">
+      <h1 className="hero-title max-w-[800px] relative z-10">
         Aprenda a dirigir<br />tecnologia com criatividade
       </h1>
 
       {/* Content Row */}
-      <div className="flex items-center gap-12 flex-wrap">
+      <div className="flex items-center gap-12 flex-wrap relative z-10">
         {/* Profile Stack */}
         <ProfileStack />
 
