@@ -37,7 +37,7 @@ export const HeroSection = () => {
       </h1>
 
       {/* Content Column */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 mt-16">
         {/* Profile Stack */}
         <ProfileStack />
 
