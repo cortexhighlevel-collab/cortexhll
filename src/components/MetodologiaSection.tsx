@@ -14,8 +14,8 @@ const MetodologiaSection = () => {
           </div>
 
           {/* Video Placeholder */}
-          <div className="video-radius overflow-hidden bg-foreground/10 aspect-video mb-8 md:mb-12 flex items-center justify-center">
-            <div className="text-foreground/40 text-lg">Video Placeholder</div>
+          <div className="video-radius overflow-hidden aspect-video mb-8 md:mb-12 flex items-center justify-center bg-secondary-foreground">
+            <div className="text-lg text-primary-foreground">Video Placeholder</div>
           </div>
 
           {/* Cards Grid */}
@@ -23,7 +23,7 @@ const MetodologiaSection = () => {
             {/* Metodologia Card */}
             <div className="card-radius p-6 md:p-8 flex flex-col bg-[#f06800]">
               <div className="flex items-start justify-between mb-6">
-                <span className="tag-pill bg-primary-foreground text-white">METODOLOGIA</span>
+                <span className="tag-pill text-white bg-secondary-foreground">METODOLOGIA</span>
                 <div className="w-10 h-10 rounded-full bg-foreground flex items-center justify-center">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M7 17L17 7" />
