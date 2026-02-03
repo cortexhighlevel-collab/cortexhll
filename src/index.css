@@ -169,4 +169,28 @@
     @apply text-[clamp(42px,7vw,89px)] font-light leading-[0.9] tracking-tight;
     color: hsl(var(--hero-text));
   }
+
+  .text-huge {
+    @apply text-[clamp(2.5rem,5vw,4rem)] leading-none tracking-tight;
+  }
+
+  .card-radius {
+    @apply rounded-3xl;
+  }
+
+  .video-radius {
+    border-radius: 34px;
+  }
+
+  .bg-academy-mint {
+    background-color: rgb(182, 211, 210);
+  }
+
+  .bg-academy-gray {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .tag-pill {
+    @apply px-4 py-2 rounded-full uppercase text-sm font-medium;
+  }
 }
