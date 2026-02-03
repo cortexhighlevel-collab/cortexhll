@@ -1,5 +1,5 @@
 const MetodologiaSection = () => {
-  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 bg-[#f06800]">
+  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 bg-[#f06800] rounded-b-[40px]">
       <div className="max-w-[1200px] mx-auto">
         {/* Main Card Container */}
         <div className="bg-background card-radius p-4 md:p-6 lg:p-8">
