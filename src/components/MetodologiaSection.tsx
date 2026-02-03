@@ -2,7 +2,7 @@ const MetodologiaSection = () => {
   return <section id="metodologia" className="w-full px-5 md:px-12 py-16 bg-[#f06800]">
       <div className="max-w-[1800px] mx-auto">
         {/* Main Card Container */}
-        <div className="bg-academy-mint card-radius p-6 md:p-10 lg:p-12 bg-primary-foreground">
+        <div className="bg-background card-radius p-6 md:p-10 lg:p-12">
           {/* Header */}
           <div className="mb-8 md:mb-12">
             <h2 className="text-huge text-foreground">
