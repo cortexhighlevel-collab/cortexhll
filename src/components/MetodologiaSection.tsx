@@ -23,7 +23,7 @@ const MetodologiaSection = () => {
             {/* Metodologia Card */}
             <div className="card-radius p-6 md:p-8 flex flex-col bg-secondary-foreground">
               <div className="flex items-start justify-between mb-6">
-                <span className="tag-pill text-secondary-foreground bg-[#f06800]">METODOLOGIA</span>
+                <span className="tag-pill bg-[#f06800] text-primary-foreground">METODOLOGIA</span>
                 <div className="w-10 h-10 rounded-full flex items-center justify-center bg-[#f06800]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M7 17L17 7" />
