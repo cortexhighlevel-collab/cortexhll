@@ -56,8 +56,8 @@ const LogoMarquee = () => {
     logo
   }: {
     logo: typeof logos[0];
-  }) => <div className="logo-item flex items-center justify-center px-6 h-20 text-white opacity-80">
-      {logo.type === 'svg' ? logo.svg : <span className="font-bold text-xl tracking-tight text-white">{logo.name}</span>}
+  }) => <div className="logo-item flex items-center justify-center px-5 h-12 text-white opacity-80">
+      {logo.type === 'svg' ? logo.svg : <span className="font-bold text-base tracking-tight text-white">{logo.name}</span>}
     </div>;
   return (
     <section className="w-full relative">
@@ -66,7 +66,7 @@ const LogoMarquee = () => {
       {/* Linha divisória */}
       <div className="w-full h-px bg-[#f06800]"></div>
       {/* Área laranja com os logos */}
-      <div className="w-full bg-[#f06800] pt-6 pb-16">
+      <div className="w-full bg-[#f06800] py-4">
         {/* Marquee Container */}
         <div className="marquee-container relative overflow-hidden marquee-mask">
           <div className="marquee-content flex">
