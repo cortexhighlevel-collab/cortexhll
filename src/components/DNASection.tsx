@@ -1,10 +1,10 @@
 const DNASection = () => {
   return (
-    <section className="w-full min-h-screen bg-black">
-      {/* Main Container - 1200px max width, 48px gap */}
-      <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-16 md:py-24 flex flex-col items-center" style={{ gap: '48px' }}>
+    <section className="w-full bg-[#0a0f0f] py-16 md:py-24 px-4 md:px-8">
+      {/* Main Container */}
+      <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center" style={{ gap: '48px' }}>
         
-        {/* Title Section - 24px gap */}
+        {/* Title Section */}
         <div className="flex flex-col items-center justify-center w-full" style={{ gap: '24px' }}>
           
           {/* DNA Verus Pill */}
@@ -16,89 +16,84 @@ const DNASection = () => {
               boxShadow: 'rgba(209, 244, 255, 0.12) 0px 4px 8px 0px inset'
             }}
           >
-            <h5 
-              className="text-xl tracking-wide"
+            <span 
+              className="text-lg tracking-wide"
               style={{ 
                 fontFamily: 'Outfit, sans-serif',
                 fontWeight: 300,
                 color: 'rgba(209, 244, 255, 0.8)',
-                lineHeight: '150%'
               }}
             >
               DNA Verus
-            </h5>
+            </span>
           </div>
 
-          {/* Text Container - 16px gap */}
-          <div className="flex flex-col items-center justify-center w-full" style={{ gap: '16px' }}>
-            
-            {/* Main Title */}
-            <h2 
-              className="text-4xl md:text-5xl text-center"
-              style={{ 
-                fontFamily: 'Outfit, sans-serif',
-                fontWeight: 500,
-                color: 'rgb(209, 244, 255)',
-                lineHeight: '130%'
-              }}
-            >
-              Excelência sem concessões.
-            </h2>
+          {/* Main Title */}
+          <h2 
+            className="text-4xl md:text-5xl lg:text-6xl text-center"
+            style={{ 
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 500,
+              color: 'rgb(209, 244, 255)',
+              lineHeight: '120%'
+            }}
+          >
+            Excelência sem concessões.
+          </h2>
 
-            {/* Description */}
-            <p 
-              className="text-center max-w-[663px] text-lg md:text-xl"
-              style={{ 
-                fontFamily: 'Outfit, sans-serif',
-                fontWeight: 300,
-                color: 'rgba(209, 244, 255, 0.8)',
-                lineHeight: '150%'
-              }}
-            >
-              Na Verus, não entregamos o comum. Nossos projetos são guiados por autenticidade, 
-              sofisticação e inovação. Isso significa criar experiências digitais que vão além 
-              da estética: entregam confiança, credibilidade e resultados reais.
-            </p>
-          </div>
+          {/* Description */}
+          <p 
+            className="text-center max-w-[700px] text-base md:text-lg"
+            style={{ 
+              fontFamily: 'Outfit, sans-serif',
+              fontWeight: 300,
+              color: 'rgba(209, 244, 255, 0.7)',
+              lineHeight: '160%'
+            }}
+          >
+            Na Verus, não entregamos o comum. Nossos projetos são guiados por autenticidade, 
+            sofisticação e inovação. Isso significa criar experiências digitais que vão além 
+            da estética: entregam confiança, credibilidade e resultados reais.
+          </p>
         </div>
 
-        {/* Cards Grid - 2x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+        {/* Cards Grid - Bento Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           
-          {/* Card 1 - Exclusividade (top corners) */}
+          {/* Card 1 - Exclusividade (Left, tall - spans 2 rows) */}
           <div 
-            className="relative p-8 md:p-10 min-h-[200px] md:min-h-[240px] flex flex-col justify-end"
-            style={{ border: '1px solid rgba(209, 244, 255, 0.1)' }}
+            className="relative rounded-2xl overflow-hidden md:row-span-2 min-h-[400px] md:min-h-[500px] flex flex-col justify-end p-6 md:p-8"
+            style={{ 
+              background: 'linear-gradient(180deg, rgba(20, 80, 100, 0.8) 0%, rgba(10, 40, 60, 0.9) 50%, rgba(15, 35, 50, 1) 100%)',
+              border: '1px solid rgba(209, 244, 255, 0.1)'
+            }}
           >
-            {/* Top Left Corner */}
-            <div className="absolute top-0 left-0 w-12 h-12">
-              <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'rgb(209, 244, 255)' }}></div>
-              <div className="absolute top-0 left-0 w-px h-full" style={{ background: 'rgb(209, 244, 255)' }}></div>
-            </div>
-            {/* Top Right Corner */}
-            <div className="absolute top-0 right-0 w-12 h-12">
-              <div className="absolute top-0 right-0 w-full h-px" style={{ background: 'rgb(209, 244, 255)' }}></div>
-              <div className="absolute top-0 right-0 w-px h-full" style={{ background: 'rgb(209, 244, 255)' }}></div>
-            </div>
+            {/* Abstract gradient overlay */}
+            <div 
+              className="absolute inset-0 opacity-60"
+              style={{
+                background: 'radial-gradient(ellipse at 30% 20%, rgba(80, 180, 220, 0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(40, 120, 160, 0.3) 0%, transparent 40%)'
+              }}
+            />
             
             {/* Content */}
-            <div className="mt-auto">
+            <div className="relative z-10 mt-auto">
               <h3 
-                className="text-2xl md:text-3xl mb-3 tracking-wide"
+                className="text-2xl md:text-3xl mb-2"
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
-                  fontWeight: 300,
+                  fontWeight: 500,
                   color: 'rgb(209, 244, 255)'
                 }}
               >
                 Exclusividade
               </h3>
               <p 
-                className="text-sm"
+                className="text-sm md:text-base"
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 300,
-                  color: 'rgba(209, 244, 255, 0.5)'
+                  color: 'rgba(209, 244, 255, 0.6)'
                 }}
               >
                 Cada projeto é único, fiel à essência do cliente.
@@ -106,18 +101,20 @@ const DNASection = () => {
             </div>
           </div>
 
-          {/* Card 2 - Sofisticação (no corners) */}
+          {/* Card 2 - Sofisticação (Top middle) */}
           <div 
-            className="relative p-8 md:p-10 min-h-[200px] md:min-h-[240px] flex flex-col justify-end"
-            style={{ border: '1px solid rgba(209, 244, 255, 0.1)' }}
+            className="relative rounded-2xl overflow-hidden min-h-[160px] flex flex-col justify-end p-6 md:p-8"
+            style={{ 
+              background: 'rgba(25, 50, 60, 0.8)',
+              border: '1px solid rgba(209, 244, 255, 0.1)'
+            }}
           >
-            {/* Content */}
-            <div className="mt-auto">
+            <div className="relative z-10">
               <h3 
-                className="text-2xl md:text-3xl mb-3 tracking-wide"
+                className="text-xl md:text-2xl mb-2"
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
-                  fontWeight: 300,
+                  fontWeight: 500,
                   color: 'rgb(209, 244, 255)'
                 }}
               >
@@ -128,7 +125,7 @@ const DNASection = () => {
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 300,
-                  color: 'rgba(209, 244, 255, 0.5)'
+                  color: 'rgba(209, 244, 255, 0.6)'
                 }}
               >
                 UI/UX premium, minimalista e impactante.
@@ -136,18 +133,20 @@ const DNASection = () => {
             </div>
           </div>
 
-          {/* Card 3 - Autoridade (no corners) */}
+          {/* Card 3 - Autoridade (Top right) */}
           <div 
-            className="relative p-8 md:p-10 min-h-[200px] md:min-h-[240px] flex flex-col justify-end"
-            style={{ border: '1px solid rgba(209, 244, 255, 0.1)' }}
+            className="relative rounded-2xl overflow-hidden min-h-[160px] flex flex-col justify-end p-6 md:p-8"
+            style={{ 
+              background: 'rgba(25, 50, 60, 0.8)',
+              border: '1px solid rgba(209, 244, 255, 0.1)'
+            }}
           >
-            {/* Content */}
-            <div className="mt-auto">
+            <div className="relative z-10">
               <h3 
-                className="text-2xl md:text-3xl mb-3 tracking-wide"
+                className="text-xl md:text-2xl mb-2"
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
-                  fontWeight: 300,
+                  fontWeight: 500,
                   color: 'rgb(209, 244, 255)'
                 }}
               >
@@ -158,7 +157,7 @@ const DNASection = () => {
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 300,
-                  color: 'rgba(209, 244, 255, 0.5)'
+                  color: 'rgba(209, 244, 255, 0.6)'
                 }}
               >
                 Foco em posicionamento e relevância digital.
@@ -166,40 +165,40 @@ const DNASection = () => {
             </div>
           </div>
 
-          {/* Card 4 - Exclusividade (bottom corners) */}
+          {/* Card 4 - Exclusividade (Bottom, spans 2 columns) */}
           <div 
-            className="relative p-8 md:p-10 min-h-[200px] md:min-h-[240px] flex flex-col justify-end"
-            style={{ border: '1px solid rgba(209, 244, 255, 0.1)' }}
+            className="relative rounded-2xl overflow-hidden md:col-span-2 min-h-[280px] flex flex-col justify-end p-6 md:p-8"
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(15, 40, 55, 1) 0%, rgba(20, 60, 80, 0.9) 50%, rgba(10, 35, 50, 1) 100%)',
+              border: '1px solid rgba(209, 244, 255, 0.1)'
+            }}
           >
-            {/* Bottom Left Corner */}
-            <div className="absolute bottom-0 left-0 w-12 h-12">
-              <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: 'rgb(209, 244, 255)' }}></div>
-              <div className="absolute bottom-0 left-0 w-px h-full" style={{ background: 'rgb(209, 244, 255)' }}></div>
-            </div>
-            {/* Bottom Right Corner */}
-            <div className="absolute bottom-0 right-0 w-12 h-12">
-              <div className="absolute bottom-0 right-0 w-full h-px" style={{ background: 'rgb(209, 244, 255)' }}></div>
-              <div className="absolute bottom-0 right-0 w-px h-full" style={{ background: 'rgb(209, 244, 255)' }}></div>
-            </div>
+            {/* Abstract gradient overlay */}
+            <div 
+              className="absolute inset-0 opacity-50"
+              style={{
+                background: 'radial-gradient(ellipse at 80% 30%, rgba(60, 160, 200, 0.3) 0%, transparent 50%), radial-gradient(ellipse at 20% 80%, rgba(40, 100, 140, 0.2) 0%, transparent 40%)'
+              }}
+            />
             
             {/* Content */}
-            <div className="mt-auto">
+            <div className="relative z-10 mt-auto">
               <h3 
-                className="text-2xl md:text-3xl mb-3 tracking-wide"
+                className="text-2xl md:text-3xl mb-2"
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
-                  fontWeight: 300,
+                  fontWeight: 500,
                   color: 'rgb(209, 244, 255)'
                 }}
               >
                 Exclusividade
               </h3>
               <p 
-                className="text-sm"
+                className="text-sm md:text-base"
                 style={{ 
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 300,
-                  color: 'rgba(209, 244, 255, 0.5)'
+                  color: 'rgba(209, 244, 255, 0.6)'
                 }}
               >
                 Cada projeto é único, fiel à essência do cliente.
