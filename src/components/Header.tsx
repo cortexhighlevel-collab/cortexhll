@@ -3,18 +3,14 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import ContentDropdown from "./ContentDropdown";
 import logoImage from "@/assets/logo_cortex_nova_preta.png";
 
+import navDividerIcon from "@/assets/nav-divider-icon.png";
+
 const Logo = () => (
   <img src={logoImage} alt="Cortex Logo" className="h-7" />
 );
 
 const NavDivider = () => (
-  <svg viewBox="0 0 21 21" width="28" height="28" className="opacity-30 mx-1">
-    <path d="M 0 0.974 L 2.64 0 L 2.64 0.412 L 0 1.382 Z" fill="rgb(243, 243, 243)" transform="translate(1.177 10.861)"></path>
-    <path d="M 0 0 L 2.64 0.97 L 2.64 1.381 L 0 0.408 Z" fill="rgb(243, 243, 243)" transform="translate(17.019 8.255)"></path>
-    <path d="M 2.54 2.764 L 1.148 1.41 C 1.13 1.393 1.101 1.393 1.084 1.41 L 0.336 2.138 L 0 1.811 L 1.861 0 L 2.197 0.327 L 1.438 1.065 C 1.421 1.082 1.421 1.11 1.438 1.127 L 2.83 2.481 Z" fill="rgb(243, 243, 243)" transform="translate(2.442 13.382)"></path>
-    <path d="M 0.297 0 L 2.871 1.128 L 2.572 1.419 L 0 0.289 Z" fill="rgb(243, 243, 243)" transform="translate(2.435 5.013)"></path>
-    <circle cx="10.5" cy="10.5" r="2" fill="rgb(243, 243, 243)" opacity="0.5"></circle>
-  </svg>
+  <img src={navDividerIcon} alt="" className="w-7 h-7 mx-1" />
 );
 
 export const Header = () => {
