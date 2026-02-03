@@ -14,15 +14,15 @@ const MetodologiaSection = () => {
             </p>
           </div>
 
-          {/* Video Placeholder - Reduced Size */}
-          <div className="video-radius overflow-hidden aspect-video mb-8 md:mb-12 flex items-center justify-center bg-secondary-foreground max-w-4xl">
+          {/* Video Placeholder - Full Width */}
+          <div className="video-radius overflow-hidden aspect-video mb-8 md:mb-12 flex items-center justify-center bg-secondary-foreground w-full">
             <div className="text-lg text-primary-foreground">Video Placeholder</div>
           </div>
 
           {/* Cards Grid - New Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {/* Left Column - Stacked Cards */}
-            <div className="flex flex-col gap-4 md:gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(280px,400px)_1fr] gap-6 md:gap-12">
+            {/* Left Column - Stacked Cards (narrower) */}
+            <div className="flex flex-col gap-4 md:gap-5 max-w-md">
               {/* Metodologia Card */}
               <div className="card-radius p-6 md:p-8 flex flex-col border border-border bg-background">
                 <div className="flex items-start justify-between mb-4">
