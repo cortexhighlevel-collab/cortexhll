@@ -30,14 +30,14 @@ const CTAArrowIcon = () => (
 
 export const HeroSection = () => {
   return (
-    <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-16 md:mt-32 pb-32">
+    <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20 pb-32">
       {/* H1 Headline */}
-      <h1 className="hero-title max-w-[800px] mt-16">
+      <h1 className="hero-title max-w-[800px] mt-12">
         Aprenda a dirigir<br />tecnologia com criatividade
       </h1>
 
       {/* Content Column */}
-      <div className="flex flex-col gap-6 mt-20">
+      <div className="flex flex-col gap-6 mt-16">
         {/* Profile Stack */}
         <ProfileStack />
 
