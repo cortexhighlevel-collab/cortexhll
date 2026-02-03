@@ -15,7 +15,7 @@ const MetodologiaSection = () => {
           </div>
 
           {/* Video Placeholder - Full Width */}
-          <div className="video-radius overflow-hidden aspect-video mb-8 md:mb-12 flex items-center justify-center bg-secondary-foreground w-full">
+          <div className="video-radius overflow-hidden aspect-[21/9] mb-8 md:mb-12 flex items-center justify-center bg-secondary-foreground w-full">
             <div className="text-lg text-primary-foreground">Video Placeholder</div>
           </div>
 
