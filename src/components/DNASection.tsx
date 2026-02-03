@@ -11,35 +11,35 @@ const DNASection = () => {
       }}>
           
           {/* DNA Verus Pill */}
-          <div className="px-5 py-2 rounded-full flex items-center justify-center bg-[#f06800]" style={{
-          background: 'rgba(209, 244, 255, 0.04)',
-          border: '1px solid rgba(209, 244, 255, 0.2)',
-          boxShadow: 'rgba(209, 244, 255, 0.12) 0px 4px 8px 0px inset'
+          <div className="px-5 py-2 rounded-full flex items-center justify-center" style={{
+          background: 'rgba(31, 31, 31, 0.04)',
+          border: '1px solid rgba(31, 31, 31, 0.2)',
+          boxShadow: 'rgba(31, 31, 31, 0.12) 0px 4px 8px 0px inset'
         }}>
-            <span className="text-lg tracking-wide text-secondary" style={{
+            <span className="text-lg tracking-wide" style={{
             fontFamily: 'Outfit, sans-serif',
             fontWeight: 300,
-            color: 'rgba(209, 244, 255, 0.8)'
+            color: '#1f1f1f'
           }}>
               DNA Cortex 
             </span>
           </div>
 
           {/* Main Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-center text-secondary-foreground" style={{
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-center" style={{
           fontFamily: 'Outfit, sans-serif',
           fontWeight: 500,
-          color: 'rgb(209, 244, 255)',
+          color: '#1f1f1f',
           lineHeight: '120%'
         }}>
             Excelência sem concessões.
           </h2>
 
           {/* Description */}
-          <p className="text-center max-w-[700px] text-base md:text-lg text-secondary-foreground" style={{
+          <p className="text-center max-w-[700px] text-base md:text-lg" style={{
           fontFamily: 'Outfit, sans-serif',
           fontWeight: 300,
-          color: 'rgba(209, 244, 255, 0.7)',
+          color: 'rgba(31, 31, 31, 0.7)',
           lineHeight: '160%'
         }}>
             Na Verus, não entregamos o comum. Nossos projetos são guiados por autenticidade, 
