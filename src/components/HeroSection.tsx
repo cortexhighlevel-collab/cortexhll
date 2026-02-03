@@ -6,7 +6,7 @@ const ProfileStack = () => {
   ];
 
   return (
-    <div className="flex items-center relative h-12 mr-6">
+    <div className="flex items-center relative h-12 mr-6 translate-y-16">
       {profiles.map((src, index) => (
         <div key={index} className="profile-bubble">
           <img src={src} alt="Student" className="w-full h-full object-cover" />
