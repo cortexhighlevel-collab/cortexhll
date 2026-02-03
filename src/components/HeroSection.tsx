@@ -42,7 +42,7 @@ export const HeroSection = () => {
         <ProfileStack />
 
         {/* Subtext */}
-        <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90 translate-y-12">
+        <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90 translate-y-16">
           <span className="font-light">Somos a</span> <strong className="font-bold">Human Academy</strong><br />
           A maior escola de IA para<br />profissionais criativos.
         </p>
