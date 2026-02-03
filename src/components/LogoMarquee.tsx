@@ -59,21 +59,25 @@ const LogoMarquee = () => {
   }) => <div className="logo-item flex items-center justify-center px-6 h-20 text-white opacity-80">
       {logo.type === 'svg' ? logo.svg : <span className="font-bold text-xl tracking-tight text-white">{logo.name}</span>}
     </div>;
-  return <section className="w-full pt-8 pb-16 bg-[#f06800] relative">
+  return (
+    <section className="w-full relative">
+      {/* Área branca acima da linha */}
+      <div className="w-full h-8 bg-white"></div>
       {/* Linha divisória */}
-      <div className="w-full h-px bg-white/30 mb-6"></div>
-      {/* Title */}
-      
-
-      {/* Marquee Container */}
-      <div className="marquee-container relative overflow-hidden marquee-mask">
-        <div className="marquee-content flex">
-          {/* First set of logos */}
-          {logos.map((logo, index) => <LogoItem key={`first-${index}`} logo={logo} />)}
-          {/* Duplicate set for seamless loop */}
-          {logos.map((logo, index) => <LogoItem key={`second-${index}`} logo={logo} />)}
+      <div className="w-full h-px bg-[#f06800]"></div>
+      {/* Área laranja com os logos */}
+      <div className="w-full bg-[#f06800] pt-6 pb-16">
+        {/* Marquee Container */}
+        <div className="marquee-container relative overflow-hidden marquee-mask">
+          <div className="marquee-content flex">
+            {/* First set of logos */}
+            {logos.map((logo, index) => <LogoItem key={`first-${index}`} logo={logo} />)}
+            {/* Duplicate set for seamless loop */}
+            {logos.map((logo, index) => <LogoItem key={`second-${index}`} logo={logo} />)}
+          </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default LogoMarquee;
