@@ -99,7 +99,7 @@
   }
 
   .btn-accent {
-    @apply bg-accent text-accent-foreground text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 flex items-center gap-1.5;
+    @apply bg-orange-500 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-200 flex items-center gap-1.5;
   }
 
   .btn-accent:hover {
