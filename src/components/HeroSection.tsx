@@ -48,7 +48,7 @@ export const HeroSection = () => {
         </p>
 
         {/* CTA Button */}
-        <a href="#metodologia" className="btn-cta">
+        <a href="#metodologia" className="btn-cta mt-8">
           Comece sua jornada agora
           <CTAArrowIcon />
         </a>
