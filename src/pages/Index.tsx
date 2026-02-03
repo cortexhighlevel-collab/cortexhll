@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import LogoMarquee from "@/components/LogoMarquee";
 import MetodologiaSection from "@/components/MetodologiaSection";
 import DNASection from "@/components/DNASection";
+import FormatoSection from "@/components/FormatoSection";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <LogoMarquee />
       <MetodologiaSection />
       <DNASection />
+      <FormatoSection />
     </div>
   );
 };
