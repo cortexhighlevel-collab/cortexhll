@@ -32,7 +32,7 @@ export const HeroSection = () => {
   return (
     <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20">
       {/* H1 Headline */}
-      <h1 className="hero-title max-w-[800px] mt-24">
+      <h1 className="hero-title max-w-[800px] mt-12">
         Aprenda a dirigir<br />tecnologia com criatividade
       </h1>
 
