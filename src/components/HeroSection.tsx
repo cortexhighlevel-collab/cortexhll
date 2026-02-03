@@ -1,5 +1,3 @@
-import starShape from "@/assets/star-shape.svg";
-
 const ProfileStack = () => {
   const profiles = [
     "https://framerusercontent.com/images/W25OSdXNijQzs6HFOy5Tnx7SI.jpg",
@@ -32,40 +30,28 @@ const CTAArrowIcon = () => (
 
 export const HeroSection = () => {
   return (
-    <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col md:flex-row gap-12 mt-10 md:mt-20 relative">
-      {/* Left Content */}
-      <div className="flex flex-col gap-12 flex-1">
-        {/* H1 Headline */}
-        <h1 className="hero-title max-w-[800px] mt-12">
-          Aprenda a dirigir<br />tecnologia com criatividade
-        </h1>
+    <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20">
+      {/* H1 Headline */}
+      <h1 className="hero-title max-w-[800px] mt-12">
+        Aprenda a dirigir<br />tecnologia com criatividade
+      </h1>
 
-        {/* Content Column */}
-        <div className="flex flex-col gap-6 mt-16">
-          {/* Profile Stack */}
-          <ProfileStack />
+      {/* Content Column */}
+      <div className="flex flex-col gap-6 mt-16">
+        {/* Profile Stack */}
+        <ProfileStack />
 
-          {/* Subtext */}
-          <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90">
-            <span className="font-light">Somos a</span> <strong className="font-bold">Human Academy</strong><br />
-            A maior escola de IA para<br />profissionais criativos.
-          </p>
+        {/* Subtext */}
+        <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90">
+          <span className="font-light">Somos a</span> <strong className="font-bold">Human Academy</strong><br />
+          A maior escola de IA para<br />profissionais criativos.
+        </p>
 
-          {/* CTA Button */}
-          <a href="#metodologia" className="btn-cta">
-            Comece sua jornada agora
-            <CTAArrowIcon />
-          </a>
-        </div>
-      </div>
-
-      {/* Right Star Shape */}
-      <div className="hidden md:flex items-center justify-center flex-1">
-        <img 
-          src={starShape} 
-          alt="Star decoration" 
-          className="w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] animate-shine"
-        />
+        {/* CTA Button */}
+        <a href="#metodologia" className="btn-cta">
+          Comece sua jornada agora
+          <CTAArrowIcon />
+        </a>
       </div>
     </main>
   );
