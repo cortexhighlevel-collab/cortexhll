@@ -36,18 +36,16 @@ export const HeroSection = () => {
         Aprenda a dirigir<br />tecnologia com criatividade
       </h1>
 
-      {/* Content Row */}
-      <div className="flex items-center gap-12 flex-wrap">
+      {/* Content Column */}
+      <div className="flex flex-col gap-6">
         {/* Profile Stack */}
         <ProfileStack />
 
         {/* Subtext */}
-        <div className="flex flex-col gap-6">
-          <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90">
-            <span className="font-light">Somos a</span> <strong className="font-bold">Human Academy</strong><br />
-            A maior escola de IA para<br />profissionais criativos.
-          </p>
-        </div>
+        <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90">
+          <span className="font-light">Somos a</span> <strong className="font-bold">Human Academy</strong><br />
+          A maior escola de IA para<br />profissionais criativos.
+        </p>
 
         {/* CTA Button */}
         <a href="#metodologia" className="btn-cta">
