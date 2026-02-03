@@ -21,7 +21,7 @@ const DNASection = () => {
             fontWeight: 300,
             color: 'rgba(209, 244, 255, 0.8)'
           }}>
-              DNA Verus
+              DNA Cortex 
             </span>
           </div>
 
