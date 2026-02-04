@@ -57,7 +57,7 @@ const CasesSection = () => {
             <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4">
               PROVA SOCIAL
             </span>
-            <h2 className="text-5xl md:text-7xl font-normal leading-[1.0] tracking-tight text-[#F2F2F2]">
+            <h2 className="text-5xl md:text-7xl font-normal leading-[1.0] tracking-tight text-[#F2F2F2] mt-4">
               Resultados que falam
             </h2>
           </div>
