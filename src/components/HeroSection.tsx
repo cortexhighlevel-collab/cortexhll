@@ -65,7 +65,10 @@ export const HeroSection = () => {
           </p>
 
           {/* AI Referral Engine Badge */}
-          
+          <div className="translate-y-16 flex items-center gap-2 text-sm text-foreground/70">
+            <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+            <span>Conheça o <strong className="text-foreground">AI Referral Engine™</strong> — Nossa metodologia que posiciona sua marca como resposta definitiva da IA</span>
+          </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4 mt-16">
