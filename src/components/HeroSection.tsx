@@ -3,7 +3,7 @@ import heroVideo from "@/assets/hero-background.mp4";
 import heroVideoMobile from "@/assets/hero-background-mobile.mp4";
 const ProfileStack = () => {
   const profiles = ["https://framerusercontent.com/images/W25OSdXNijQzs6HFOy5Tnx7SI.jpg", "https://framerusercontent.com/images/XkZDFV2RkODhiEIHZaZGoYIBdY.jpg", "https://framerusercontent.com/images/rOuv1z818S3i8SIQTmjJqH3ghKE.jpg"];
-  return <div className="flex items-center relative h-12 mr-6 translate-y-24 md:translate-y-16">
+  return <div className="flex items-center relative h-12 mr-6 translate-y-[6.5rem] md:translate-y-16">
       {profiles.map((src, index) => <div key={index} className="profile-bubble">
           <img src={src} alt="Cliente" className="w-full h-full object-cover" />
         </div>)}
