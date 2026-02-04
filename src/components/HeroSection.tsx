@@ -64,7 +64,7 @@ export const HeroSection = () => {
       </video>
       
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/70 z-10" />
+      <div className="absolute inset-0 bg-white/20 z-10" />
 
       {/* Content */}
       <main className="relative z-20 w-full max-w-[1800px] mx-auto px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20 pb-16">
