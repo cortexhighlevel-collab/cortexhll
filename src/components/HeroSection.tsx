@@ -71,8 +71,8 @@ export const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4 mt-16">
-            <a href="#contato" className="btn-cta">
+          <div className="flex flex-wrap items-center gap-4 mt-16 md:mt-16">
+            <a href="#contato" className="btn-cta mt-8 md:mt-0">
               Diagnóstico Grátis
               <CTAArrowIcon />
             </a>
