@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import heroVideo from "@/assets/hero-background.mp4";
+import heroVideoMobile from "@/assets/hero-background-mobile.mp4";
 const ProfileStack = () => {
   const profiles = ["https://framerusercontent.com/images/W25OSdXNijQzs6HFOy5Tnx7SI.jpg", "https://framerusercontent.com/images/XkZDFV2RkODhiEIHZaZGoYIBdY.jpg", "https://framerusercontent.com/images/rOuv1z818S3i8SIQTmjJqH3ghKE.jpg"];
   return <div className="flex items-center relative h-12 mr-6 translate-y-16">
@@ -32,9 +33,14 @@ const AnimatedWord = () => {
 };
 export const HeroSection = () => {
   return <section className="relative w-full h-[90vh] flex items-center overflow-hidden pb-0">
-      {/* Video Background - positioned to align with bottom */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0">
+      {/* Video Background - Desktop */}
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0 hidden md:block">
         <source src={heroVideo} type="video/mp4" />
+      </video>
+      
+      {/* Video Background - Mobile */}
+      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 md:hidden">
+        <source src={heroVideoMobile} type="video/mp4" />
       </video>
       
       {/* Overlay for better text readability */}
