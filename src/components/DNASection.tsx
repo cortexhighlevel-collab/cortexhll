@@ -22,7 +22,7 @@ const DNASection = () => {
             <span className="text-lg tracking-wide" style={{
             fontFamily: 'Outfit, sans-serif',
             fontWeight: 300,
-            color: 'rgb(209, 244, 255)'
+            color: '#1f1f1f'
           }}>
               DNA Cortex
             </span>
@@ -32,7 +32,7 @@ const DNASection = () => {
           <p className="text-sm uppercase tracking-widest" style={{
           fontFamily: 'Outfit, sans-serif',
           fontWeight: 400,
-          color: 'rgba(209, 244, 255, 0.6)'
+          color: '#1f1f1f'
         }}>
             Excelência sem concessões
           </p>
@@ -41,7 +41,7 @@ const DNASection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-center" style={{
           fontFamily: 'Outfit, sans-serif',
           fontWeight: 500,
-          color: 'rgb(209, 244, 255)',
+          color: '#1f1f1f',
           lineHeight: '120%'
         }}>
             Diferenciais que importam.
