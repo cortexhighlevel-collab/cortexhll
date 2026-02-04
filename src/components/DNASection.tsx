@@ -1,6 +1,6 @@
 const DNASection = () => {
-  return <section className="w-full py-16 md:py-24 px-4 md:px-8 bg-primary-foreground" style={{
-    background: 'linear-gradient(180deg, rgb(10, 50, 70) 0%, rgb(5, 25, 40) 50%, rgb(8, 32, 48) 100%)'
+  return <section className="w-full py-16 md:py-24 px-4 md:px-8" style={{
+    background: '#f2f2f2'
   }}>
       {/* Main Container */}
       <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center" style={{
