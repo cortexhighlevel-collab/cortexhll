@@ -104,18 +104,20 @@ const CasesSection = () => {
         </div>
 
         {/* TESTIMONIAL SECTION (Large Card) */}
-        <div className="relative w-full h-[550px] md:h-[480px] rounded-[40px] overflow-hidden group">
-          {/* Full Background Image - covers entire card */}
-          <img 
-            src={casesBackground} 
-            alt="Background" 
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-          />
+        <div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black">
+          {/* Full Background Image - contained to show complete image on the right */}
+          <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end">
+            <img 
+              src={casesBackground} 
+              alt="Background" 
+              className="h-full w-auto object-contain object-right transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
 
           {/* Glass Card Content - positioned on left side */}
-          <div className="absolute left-0 top-0 bottom-0 w-full md:w-[420px] overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-full md:w-[45%] overflow-hidden">
             {/* Blurred background for glass effect */}
-            <div className="absolute inset-0 bg-black/30 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
             
             {/* Content */}
             <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-between">
