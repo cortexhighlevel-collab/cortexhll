@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import heroVideo from "@/assets/hero-background.mp4";
+
 const ProfileStack = () => {
   const profiles = ["https://framerusercontent.com/images/W25OSdXNijQzs6HFOy5Tnx7SI.jpg", "https://framerusercontent.com/images/XkZDFV2RkODhiEIHZaZGoYIBdY.jpg", "https://framerusercontent.com/images/rOuv1z818S3i8SIQTmjJqH3ghKE.jpg"];
   return <div className="flex items-center relative h-12 mr-6 translate-y-16">
@@ -30,15 +30,47 @@ const AnimatedWord = () => {
       {words[currentIndex]}
     </span>;
 };
+
+declare global {
+  interface Window {
+    UnicornStudio?: {
+      isInitialized?: boolean;
+      init: () => void;
+    };
+  }
+}
+
+const UnicornBackground = () => {
+  useEffect(() => {
+    // Load Unicorn Studio script
+    const existingScript = document.querySelector('script[src*="unicornStudio"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.4/dist/unicornStudio.umd.js";
+      script.onload = () => {
+        if (window.UnicornStudio) {
+          window.UnicornStudio.init();
+        }
+      };
+      document.body.appendChild(script);
+    } else if (window.UnicornStudio) {
+      window.UnicornStudio.init();
+    }
+  }, []);
+
+  return (
+    <div 
+      data-us-project="NbLIg20kF2nPoPQo79D3" 
+      className="absolute inset-0 w-full h-full z-0"
+      style={{ width: '100%', height: '100%' }}
+    />
+  );
+};
+
 export const HeroSection = () => {
   return <section className="relative w-full h-[90vh] flex items-center overflow-hidden pb-0">
-      {/* Video Background - positioned to align with bottom */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0">
-        <source src={heroVideo} type="video/mp4" />
-      </video>
-      
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/20 z-10" />
+      {/* Unicorn Studio Background */}
+      <UnicornBackground />
 
       {/* Content */}
       <main className="relative z-20 w-full max-w-[1800px] mx-auto px-5 md:px-12 flex flex-col gap-12 pt-24 pb-8">
