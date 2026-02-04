@@ -14,7 +14,7 @@ const MetodologiaSection = () => {
           </div>
 
           {/* Quote Block */}
-          <div className="video-radius overflow-hidden p-8 md:p-12 mb-5 md:mb-8 flex flex-col items-center justify-center bg-secondary-foreground text-primary-foreground w-full py-[150px]">
+          <div className="video-radius overflow-hidden px-8 md:px-12 mb-5 md:mb-8 flex flex-col items-center justify-center bg-secondary-foreground text-primary-foreground w-full py-[150px]">
             <p className="text-lg md:text-xl lg:text-2xl text-center leading-relaxed max-w-[800px]">
               "O SEO tradicional morreu. As decisões de compra começam em conversas com ChatGPT, Claude e Gemini. 
               <strong> Se a IA não confia em você, você é invisível.</strong>"
