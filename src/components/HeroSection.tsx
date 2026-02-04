@@ -31,7 +31,7 @@ const AnimatedWord = () => {
     </span>;
 };
 export const HeroSection = () => {
-  return <section className="relative w-full h-[85vh] flex items-center overflow-hidden pb-0">
+  return <section className="relative w-full h-[70vh] flex items-center overflow-hidden pb-0">
       {/* Video Background - positioned to align with bottom */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0">
         <source src={heroVideo} type="video/mp4" />
