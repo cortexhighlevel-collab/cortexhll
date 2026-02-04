@@ -2,9 +2,9 @@ import React from 'react';
 
 const CTASection = () => {
   return (
-    <div id="contato" className="min-h-screen bg-black text-white p-8 flex items-center justify-center font-sans antialiased selection:bg-[#E7F99A] selection:text-black">
+    <div id="contato" className="min-h-screen bg-[#f06800] text-white p-8 flex items-center justify-center font-sans antialiased selection:bg-[#E7F99A] selection:text-black">
       {/* Container principal horizontal (flex-row em telas grandes) */}
-      <div className="w-full max-w-[1280px] bg-black relative z-10 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:gap-24 border-y border-white/10 py-12 lg:py-20">
+      <div className="w-full max-w-[1280px] bg-[#f06800] relative z-10 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:gap-24 border-y border-white/10 py-12 lg:py-20">
         {/* Seção Esquerda: Texto e Informações */}
         <div className="flex flex-col gap-8 lg:max-w-[60%] flex-shrink-0">
           {/* Header Line */}
