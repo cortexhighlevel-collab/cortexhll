@@ -50,35 +50,30 @@ const CasesSection = () => {
     <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-28">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col gap-16 md:gap-32">
         
-        {/* TOP SECTION: Header & CTA */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          {/* Title */}
-          <div className="max-w-xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4">
-              PROVA SOCIAL
-            </span>
+        {/* TOP SECTION: Two columns - Left: Title & CTA, Right: Description & Stats */}
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+          
+          {/* LEFT COLUMN: Title & CTA Button */}
+          <div className="flex flex-col gap-8 max-w-xl">
             <h2 className="text-5xl md:text-7xl font-normal leading-[1.0] tracking-tight text-[#F2F2F2]">
               Resultados que falam
             </h2>
+            
+            {/* CTA Button - Below title */}
+            <a 
+              href="#contato" 
+              className="group flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300 w-fit"
+            >
+              <span className="text-sm font-bold tracking-wide text-[#F2F2F2]">Ver Cases</span>
+              <span className="bg-white text-black p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
+                <svg viewBox="0 0 20 20" className="w-3 h-3 fill-current">
+                  <path d="M12.25 6.5L1.75 6.5M1.75 6.5L7 11.75M1.75 6.5L7 1.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </a>
           </div>
 
-          {/* CTA Button */}
-          <a 
-            href="#contato" 
-            className="group flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300"
-          >
-            <span className="text-sm font-bold tracking-wide text-[#F2F2F2]">Ver Cases</span>
-            <span className="bg-white text-black p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
-              <svg viewBox="0 0 20 20" className="w-3 h-3 fill-current">
-                <path d="M12.25 6.5L1.75 6.5M1.75 6.5L7 11.75M1.75 6.5L7 1.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
-          </a>
-        </div>
-
-        {/* MIDDLE SECTION: Description & Stats */}
-        <div className="flex flex-col md:flex-row justify-end items-end gap-12 relative">
-          {/* Right Column Layout */}
+          {/* RIGHT COLUMN: Description, Avatars & Decorative */}
           <div className="flex flex-col gap-6 items-end w-full md:w-auto">
             {/* Description Text */}
             <p className="text-xl md:text-2xl text-[#C9C9C9] text-right max-w-md leading-relaxed">
