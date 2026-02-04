@@ -51,14 +51,14 @@ const AnimatedWord = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden pb-0">
-      {/* Video Background - positioned to align with bottom */}
+    <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden">
+      {/* Video Background */}
       <video 
         autoPlay 
         muted 
         loop 
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-[center_70%] z-0"
+        className="absolute inset-x-0 bottom-0 w-full h-[110%] object-cover object-bottom z-0"
       >
         <source src={heroVideo} type="video/mp4" />
       </video>
@@ -67,7 +67,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-white/20 z-10" />
 
       {/* Content */}
-      <main className="relative z-20 w-full max-w-[1800px] mx-auto px-5 md:px-12 flex flex-col gap-12 pt-24 pb-8">
+      <main className="relative z-20 w-full max-w-[1800px] mx-auto px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20 pb-16">
         {/* H1 Headline */}
         <h1 className="hero-title max-w-[900px] mt-12 translate-y-40">
           Seu Negócio Acelerado com<br /><AnimatedWord />
