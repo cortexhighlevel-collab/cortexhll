@@ -5,16 +5,15 @@ const ArrowIcon = () => (
   </svg>
 );
 
-interface CourseCardProps {
+interface ServiceCardProps {
   tag: string;
   title: string;
   subtitle: string;
+  items: string[];
   imageUrl: string;
-  buttonText: string;
-  isComingSoon?: boolean;
 }
 
-const CourseCard = ({ tag, title, subtitle, imageUrl, buttonText, isComingSoon = false }: CourseCardProps) => (
+const ServiceCard = ({ tag, title, subtitle, items, imageUrl }: ServiceCardProps) => (
   <div className="course-card group">
     <img 
       src={imageUrl} 
@@ -36,52 +35,51 @@ const CourseCard = ({ tag, title, subtitle, imageUrl, buttonText, isComingSoon =
       <div className="flex flex-col gap-4">
         <div>
           <p className="text-white/80 text-sm mb-1">{subtitle}</p>
-          <h3 className="text-white text-2xl md:text-3xl font-medium leading-tight">{title}</h3>
+          <h3 className="text-white text-2xl md:text-3xl font-medium leading-tight mb-3">{title}</h3>
+          <ul className="space-y-1">
+            {items.map((item, index) => (
+              <li key={index} className="text-white/70 text-sm flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-orange-500"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
         
-        {isComingSoon ? (
-          <span className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/20 text-white text-sm font-semibold uppercase w-fit">
-            {buttonText}
-          </span>
-        ) : (
-          <a 
-            href="#" 
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground text-sm font-semibold uppercase w-fit hover:bg-white/90 transition-colors"
-          >
-            {buttonText}
-            <ArrowIcon />
-          </a>
-        )}
+        <a 
+          href="#contato" 
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-foreground text-sm font-semibold uppercase w-fit hover:bg-white/90 transition-colors"
+        >
+          Saiba Mais
+          <ArrowIcon />
+        </a>
       </div>
     </div>
   </div>
 );
 
 const FormatoSection = () => {
-  const courses = [
+  const services = [
     {
-      tag: "PASS",
-      title: "Cursos Online",
-      subtitle: "Criação com IA",
+      tag: "AI INTELLIGENCE",
+      title: "AI Intelligence & CRM",
+      subtitle: "Automação inteligente",
+      items: ["Funis de Venda", "Bots de IA", "Email Automation", "Predictions"],
       imageUrl: "https://framerusercontent.com/images/LLEdm7hWVMfprlCCIi2LHXlJKE.jpg",
-      buttonText: "SABER MAIS",
-      isComingSoon: false,
     },
     {
-      tag: "EXPERIENCE",
-      title: "Cursos Presenciais",
-      subtitle: "Imersões e experiências ao vivo",
+      tag: "DESIGN",
+      title: "Design & Performance",
+      subtitle: "Experiências premium",
+      items: ["Landing Pages", "Sites Premium", "Branding Digital", "Motion Design"],
       imageUrl: "https://framerusercontent.com/images/oVMN8WwOgbNj16xxfJLPAo3jKI.jpg",
-      buttonText: "EM BREVE",
-      isComingSoon: true,
     },
     {
-      tag: "COMPANY",
-      title: "Treinamento Para Empresas",
-      subtitle: "Líderes e equipes criativas",
+      tag: "GROWTH",
+      title: "Growth & Traffic",
+      subtitle: "Crescimento acelerado",
+      items: ["SEO Avançado", "Tráfego Pago", "Growth Hacking", "AI Referral Engine™"],
       imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg",
-      buttonText: "SABER MAIS",
-      isComingSoon: false,
     },
   ];
 
@@ -89,14 +87,19 @@ const FormatoSection = () => {
     <section className="w-full px-5 md:px-12 py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-tight mb-10 md:mb-16 max-w-[600px]">
-          Um jeito fácil de aprender, no formato que você precisa.
-        </h2>
+        <div className="mb-10 md:mb-16">
+          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4">
+            NOSSOS SERVIÇOS
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-foreground leading-tight max-w-[600px]">
+            Uma gama completa de soluções para seu crescimento.
+          </h2>
+        </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {courses.map((course, index) => (
-            <CourseCard key={index} {...course} />
+          {services.map((service, index) => (
+            <ServiceCard key={index} {...service} />
           ))}
         </div>
       </div>
