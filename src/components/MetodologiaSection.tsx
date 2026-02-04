@@ -1,6 +1,5 @@
 const MetodologiaSection = () => {
-  return (
-    <section id="metodologia" className="w-full px-5 md:px-12 py-10 bg-[#f06800] rounded-b-[40px]">
+  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px] bg-primary-foreground">
       <div className="max-w-[1200px] mx-auto">
         {/* Main Card Container */}
         <div className="bg-background card-radius p-4 md:p-6 lg:p-8">
@@ -73,8 +72,6 @@ const MetodologiaSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default MetodologiaSection;
