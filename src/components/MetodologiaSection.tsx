@@ -2,7 +2,7 @@ const MetodologiaSection = () => {
   return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px] bg-secondary">
       <div className="max-w-[1200px] mx-auto">
         {/* Main Card Container */}
-        <div className="bg-background card-radius p-4 md:p-6 lg:p-8">
+        <div className="card-radius p-4 md:p-6 lg:p-8 bg-secondary">
           {/* Header */}
           <div className="mb-5 md:mb-8">
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight font-medium">
@@ -14,7 +14,7 @@ const MetodologiaSection = () => {
           </div>
 
           {/* Quote Block */}
-          <div className="video-radius overflow-hidden p-8 md:p-12 mb-5 md:mb-8 flex flex-col items-center justify-center bg-secondary-foreground text-primary-foreground w-full">
+          <div className="video-radius overflow-hidden p-8 md:p-12 mb-5 md:mb-8 flex flex-col items-center justify-center bg-secondary-foreground text-primary-foreground w-full py-[150px]">
             <p className="text-lg md:text-xl lg:text-2xl text-center leading-relaxed max-w-[800px]">
               "O SEO tradicional morreu. As decisões de compra começam em conversas com ChatGPT, Claude e Gemini. 
               <strong> Se a IA não confia em você, você é invisível.</strong>"
