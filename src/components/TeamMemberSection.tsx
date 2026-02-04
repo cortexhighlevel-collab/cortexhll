@@ -1,7 +1,51 @@
+import { useState } from "react";
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 import logoEstrela from "@/assets/logo_estrela.webp";
 
 const TeamMemberSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const teamMembers = [
+    {
+      name: "Sr. Primus",
+      role: "Mente Estratégica - AI Referral Engine™",
+      quote: "Líder visionário por trás do AI Referral Engine™, a metodologia que posiciona marcas como resposta definitiva da IA.",
+      description: "Criador do AI Referral Engine™ e líder visionário por trás da metodologia que está revolucionando como empresas são recomendadas pela IA.",
+      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+    },
+    {
+      name: "Pablo Figueiredo",
+      role: "Diretor Criativo",
+      quote: "A criatividade é a ponte entre a estratégia e a conexão emocional com o público.",
+      description: "Responsável por transformar conceitos em experiências visuais impactantes que conectam marcas ao seu público.",
+      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+    },
+    {
+      name: "Victor Lisboa",
+      role: "Dev Lead",
+      quote: "Código limpo e arquitetura sólida são a base de qualquer solução digital escalável.",
+      description: "Lidera o desenvolvimento técnico, garantindo que cada projeto seja construído com excelência e performance.",
+      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+    },
+    {
+      name: "Marcos Colacino",
+      role: "Head Comercial",
+      quote: "Entender as necessidades do cliente é o primeiro passo para entregar resultados extraordinários.",
+      description: "Conecta empresas às soluções certas, construindo parcerias de longo prazo baseadas em resultados.",
+      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+    },
+  ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+  };
+
+  const currentMember = teamMembers[currentIndex];
+
   return (
     <section id="equipe" className="w-full bg-secondary py-16 md:py-24 px-5 md:px-12">
       <div className="max-w-[1400px] mx-auto">
@@ -23,7 +67,7 @@ const TeamMemberSection = () => {
           
           {/* Left Column: Text Content */}
           <div className="flex flex-col justify-between py-4">
-            {/* Quote Icon */}
+            {/* Star Icon */}
             <div className="mb-8">
               <img src={logoEstrela} alt="Estrela decorativa" className="w-14 h-14 object-contain" />
             </div>
@@ -31,22 +75,28 @@ const TeamMemberSection = () => {
             {/* Main Quote */}
             <div className="flex-1 flex flex-col justify-center">
               <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.15] tracking-tight text-foreground mb-8" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                Líder visionário por trás do AI Referral Engine™, a metodologia que posiciona marcas como resposta definitiva da IA.
+                {currentMember.quote}
               </p>
               
               {/* Attribution */}
               <div className="flex flex-col gap-1">
-                <span className="text-foreground font-medium text-lg">Sr. Primus</span>
-                <span className="text-foreground/60 text-sm">Mente Estratégica - AI Referral Engine™</span>
+                <span className="text-foreground font-medium text-lg">{currentMember.name}</span>
+                <span className="text-foreground/60 text-sm">{currentMember.role}</span>
               </div>
             </div>
 
             {/* Navigation Arrows */}
             <div className="flex gap-3 mt-8">
-              <button className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground/5 transition-all duration-300">
+              <button 
+                onClick={handlePrev}
+                className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground/5 transition-all duration-300"
+              >
                 <ArrowLeft className="w-5 h-5 text-foreground" />
               </button>
-              <button className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center hover:bg-foreground/90 transition-all duration-300">
+              <button 
+                onClick={handleNext}
+                className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center hover:bg-foreground/90 transition-all duration-300"
+              >
                 <ArrowRight className="w-5 h-5 text-background" />
               </button>
             </div>
@@ -56,9 +106,9 @@ const TeamMemberSection = () => {
           <div className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden">
             {/* Background Image */}
             <img 
-              src="https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024" 
-              alt="Sr. Primus" 
-              className="absolute inset-0 w-full h-full object-cover"
+              src={currentMember.image} 
+              alt={currentMember.name} 
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
             />
             
             {/* Gradient Overlay */}
@@ -69,12 +119,12 @@ const TeamMemberSection = () => {
               <div className="flex flex-col gap-3">
                 {/* Name in Card */}
                 <h3 className="text-white font-semibold text-lg tracking-wide">
-                  Sr. Primus
+                  {currentMember.name}
                 </h3>
                 
                 {/* Description in Card */}
                 <p className="text-white/80 text-sm leading-relaxed">
-                  Criador do AI Referral Engine™ e líder visionário por trás da metodologia que está revolucionando como empresas são recomendadas pela IA.
+                  {currentMember.description}
                 </p>
 
                 {/* Social Links */}
@@ -85,31 +135,20 @@ const TeamMemberSection = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Other Team Members Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-          {[
-            { name: "Pablo Figueiredo", role: "Diretor Criativo" },
-            { name: "Victor Lisboa", role: "Dev Lead" },
-            { name: "Reinan França", role: "Growth Lead" },
-            { name: "Marcos Colacino", role: "Head Comercial" },
-          ].map((member, index) => (
-            <div 
-              key={index}
-              className="group relative rounded-2xl overflow-hidden bg-background border border-border p-6 hover:border-orange-500/50 transition-all duration-300"
-            >
-              {/* Placeholder Avatar */}
-              <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl text-foreground/60">
-                  {member.name.charAt(0)}
-                </span>
-              </div>
-              <h4 className="text-foreground font-medium text-center">{member.name}</h4>
-              <p className="text-foreground/60 text-sm text-center">{member.role}</p>
+            {/* Carousel Indicators */}
+            <div className="absolute top-6 right-6 flex gap-2">
+              {teamMembers.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? 'bg-white w-6' : 'bg-white/30'
+                  }`}
+                />
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
