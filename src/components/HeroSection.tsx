@@ -49,7 +49,7 @@ export const HeroSection = () => {
       {/* Content */}
       <main className="relative z-20 w-full max-w-[1800px] mx-auto px-5 md:px-12 flex flex-col gap-12 pt-24 pb-8">
         {/* H1 Headline */}
-        <h1 className="hero-title max-w-[900px] mt-12 -translate-y-[60%] md:translate-y-40">
+        <h1 className="hero-title max-w-[900px] mt-12 -translate-y-[50%] md:translate-y-40">
           Seu Negócio Acelerado com<br /><AnimatedWord />
         </h1>
 
