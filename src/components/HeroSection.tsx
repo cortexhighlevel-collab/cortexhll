@@ -58,7 +58,7 @@ export const HeroSection = () => {
         muted 
         loop 
         playsInline
-        className="absolute inset-x-0 bottom-0 w-full h-[110%] object-cover object-[center_30%] z-0"
+        className="absolute inset-x-0 bottom-0 w-full h-[110%] object-cover object-[center_40%] z-0"
       >
         <source src={heroVideo} type="video/mp4" />
       </video>
