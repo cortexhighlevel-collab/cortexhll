@@ -130,12 +130,12 @@ const CasesSection = () => {
 
         {/* TESTIMONIAL SECTION (Large Card with Carousel) */}
         <div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black">
-          {/* Full Background Image - contained to show complete image on the right */}
+          {/* Full Background Image - covers the right side */}
           <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end transition-opacity duration-500">
             <img 
               src={currentTestimonial.background} 
               alt="Background" 
-              className="h-full w-auto object-contain object-right transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
             />
           </div>
 
