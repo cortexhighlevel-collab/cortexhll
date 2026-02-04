@@ -19,7 +19,7 @@ const LogoMarquee = () => {
   return (
     <section className="w-full relative">
       {/* Área branca acima da linha */}
-      <div className="w-full h-8 bg-white"></div>
+      <div className="w-full h-0 bg-white"></div>
       {/* Linha divisória */}
       <div className="w-full h-px bg-[#f06800]"></div>
       {/* Área laranja com as dores */}
