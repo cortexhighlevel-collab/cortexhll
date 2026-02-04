@@ -1,16 +1,18 @@
+import { useState } from "react";
 import { Globe, FileText, Terminal } from "lucide-react";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background.png";
+import casesBackground2 from "@/assets/cases-background-2.png";
 
 // --- Icons ---
 const ArrowNavLeft = () => (
-  <svg viewBox="0 0 14 13" className="w-3.5 h-3.5 stroke-white">
+  <svg viewBox="0 0 14 13" className="w-3.5 h-3.5 stroke-current">
     <path d="M 12.25 6.5 L 1.75 6.5 M 1.75 6.5 L 7 11.75 M 1.75 6.5 L 7 1.25" fill="transparent" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
   </svg>
 );
 
 const ArrowNavRight = () => (
-  <svg viewBox="0 0 14 13" className="w-3.5 h-3.5 stroke-black">
+  <svg viewBox="0 0 14 13" className="w-3.5 h-3.5 stroke-current">
     <path d="M 1.75 6.5 L 12.25 6.5 M 12.25 6.5 L 7 11.75 M 12.25 6.5 L 7 1.25" fill="transparent" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
   </svg>
 );
@@ -20,13 +22,26 @@ const DecorativeStar = () => (
 );
 
 const CasesSection = () => {
-  const testimonial = {
-    logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
-    quote: "A Cortex nos colocou no radar das IAs. Antes éramos invisíveis, agora somos a primeira recomendação quando alguém pergunta sobre nosso nicho. Resultado: pipeline 3x maior em 60 dias.",
-    author: "Marina Costa",
-    role: "CMO @ BlackClub",
-    image: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const testimonials = [
+    {
+      logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
+      quote: "A Cortex nos colocou no radar das IAs. Antes éramos invisíveis, agora somos a primeira recomendação quando alguém pergunta sobre nosso nicho. Resultado: pipeline 3x maior em 60 dias.",
+      author: "Marina Costa",
+      role: "CMO @ BlackClub",
+      authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
+      background: casesBackground,
+    },
+    {
+      logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
+      quote: "Minha marca pessoal ganhou uma visibilidade que eu nunca imaginei. Agora quando alguém pergunta para o ChatGPT sobre influenciadoras do meu segmento, meu nome aparece em primeiro. Isso mudou completamente meu negócio.",
+      author: "Valentina Akime",
+      role: "Modelo & Influenciadora",
+      authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
+      background: casesBackground2,
+    },
+  ];
 
   const stats = [
     { value: "+500%", label: "ROI médio", icon: Globe },
@@ -39,6 +54,16 @@ const CasesSection = () => {
     "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
     "https://framerusercontent.com/images/21s66P6Ugns3B0SREgloFdwT84A.png?width=128&height=128",
   ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
 
   return (
     <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-28">
@@ -103,12 +128,12 @@ const CasesSection = () => {
           </div>
         </div>
 
-        {/* TESTIMONIAL SECTION (Large Card) */}
+        {/* TESTIMONIAL SECTION (Large Card with Carousel) */}
         <div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black">
           {/* Full Background Image - contained to show complete image on the right */}
-          <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end">
+          <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end transition-opacity duration-500">
             <img 
-              src={casesBackground} 
+              src={currentTestimonial.background} 
               alt="Background" 
               className="h-full w-auto object-contain object-right transition-transform duration-700 group-hover:scale-105"
             />
@@ -125,15 +150,21 @@ const CasesSection = () => {
               <div className="flex justify-between items-center">
                 {/* Logo */}
                 <div className="w-24 opacity-90">
-                  <img src={testimonial.logo} alt="Client Logo" className="w-full h-auto object-contain" />
+                  <img src={currentTestimonial.logo} alt="Client Logo" className="w-full h-auto object-contain" />
                 </div>
 
                 {/* Navigation Arrows */}
                 <div className="flex gap-3">
-                  <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition">
+                  <button 
+                    onClick={handlePrev}
+                    className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition text-white"
+                  >
                     <ArrowNavLeft />
                   </button>
-                  <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition">
+                  <button 
+                    onClick={handleNext}
+                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition text-black"
+                  >
                     <ArrowNavRight />
                   </button>
                 </div>
@@ -141,20 +172,33 @@ const CasesSection = () => {
 
               {/* Testimonial Text */}
               <div className="mt-8 mb-8">
-                <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light">
-                  "{testimonial.quote}"
+                <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light transition-opacity duration-300">
+                  "{currentTestimonial.quote}"
                 </p>
               </div>
 
               {/* Author */}
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full overflow-hidden">
-                  <img src={testimonial.image} alt={testimonial.author} className="w-full h-full object-cover" />
+                  <img src={currentTestimonial.authorImage} alt={currentTestimonial.author} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white font-medium text-sm leading-tight">{testimonial.author}</span>
-                  <span className="text-white/60 text-xs leading-tight">{testimonial.role}</span>
+                  <span className="text-white font-medium text-sm leading-tight">{currentTestimonial.author}</span>
+                  <span className="text-white/60 text-xs leading-tight">{currentTestimonial.role}</span>
                 </div>
+              </div>
+
+              {/* Carousel Indicators */}
+              <div className="flex gap-2 mt-4">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex ? 'bg-white w-6' : 'bg-white/30'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
