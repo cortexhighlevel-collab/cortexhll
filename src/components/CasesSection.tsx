@@ -1,4 +1,5 @@
 import { Globe, FileText, Terminal } from "lucide-react";
+import logoEstrela from "@/assets/logo_estrela.webp";
 
 // --- Icons ---
 const ArrowNavLeft = () => (
@@ -13,16 +14,8 @@ const ArrowNavRight = () => (
   </svg>
 );
 
-const DecorativeArrowIcon = () => (
-  <svg viewBox="0 0 68 59" className="w-full h-full" preserveAspectRatio="none">
-    <path d="M 0 0 L 52 0 C 60.837 0 68 7.163 68 16 L 68 59 L 16 59 C 7.163 59 0 51.837 0 43 Z" fill="transparent"></path>
-    <path d="M 3 33.218 L 9.714 30.691 L 9.714 31.76 L 3 34.277 Z" fill="#C6C6C6"></path>
-    <path d="M 43.286 23.927 L 50 26.444 L 50 27.512 L 43.286 24.987 Z" fill="#C6C6C6"></path>
-    <path d="M 12.675 44.409 L 9.135 40.894 C 9.09 40.849 9.017 40.849 8.973 40.894 L 7.071 42.783 L 6.216 41.935 L 10.949 37.234 L 11.804 38.083 L 9.874 39.999 C 9.829 40.044 9.829 40.115 9.874 40.16 L 13.414 43.675 Z" fill="#C6C6C6"></path>
-    <path d="M 40.315 13.813 L 43.854 17.328 C 43.899 17.373 43.971 17.373 44.016 17.328 L 45.946 15.412 L 46.8 16.26 L 42.067 20.961 L 41.212 20.112 L 43.115 18.223 C 43.16 18.178 43.16 18.105 43.115 18.06 L 39.576 14.545 L 40.315 13.811 Z" fill="#C6C6C6"></path>
-    <path d="M 5.827 30.218 L 5.827 25.246 C 5.827 25.183 5.776 25.132 5.712 25.132 L 3.022 25.132 L 3.022 23.931 L 9.716 23.931 L 9.716 25.132 L 6.988 25.132 C 6.924 25.132 6.874 25.183 6.874 25.244 L 6.874 30.216 L 5.829 30.216 Z" fill="#C6C6C6"></path>
-    <path d="M 41.9 42.823 L 38.36 46.338 L 40.29 48.416 L 39.435 49.264 L 34.702 44.563 L 35.556 43.715 L 37.459 45.605 L 41.162 42.089 L 41.901 42.823 Z" fill="#C6C6C6"></path>
-  </svg>
+const DecorativeStar = () => (
+  <img src={logoEstrela} alt="" className="w-full h-full object-contain" />
 );
 
 const CasesSection = () => {
@@ -99,8 +92,8 @@ const CasesSection = () => {
 
             {/* Decorative Link/Tagline */}
             <div className="flex items-center gap-4 mt-4">
-              <div className="w-16 h-14 opacity-60">
-                <DecorativeArrowIcon />
+              <div className="w-14 h-14">
+                <DecorativeStar />
               </div>
               <p className="text-right text-lg text-[#C9C9C9] max-w-[150px] leading-tight">
                 Resultados comprovados em 30 dias.
