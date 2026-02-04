@@ -14,10 +14,10 @@ const DNASection = () => {
           
           {/* Badge Pill with Glassmorphic Styling */}
           <div className="px-5 py-2 rounded-full flex items-center justify-center" style={{
-          background: 'rgba(209, 244, 255, 0.05)',
+          background: 'rgba(200, 200, 200, 0.3)',
           backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(209, 244, 255, 0.2)',
-          boxShadow: 'rgba(209, 244, 255, 0.12) 0px 4px 8px 0px inset'
+          border: '1px solid rgba(150, 150, 150, 0.3)',
+          boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 8px 0px inset'
         }}>
             <span className="text-lg tracking-wide" style={{
             fontFamily: 'Outfit, sans-serif',
