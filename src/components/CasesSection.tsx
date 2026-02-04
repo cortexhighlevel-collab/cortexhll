@@ -105,62 +105,54 @@ const CasesSection = () => {
 
         {/* TESTIMONIAL SECTION (Large Card) */}
         <div className="relative w-full h-[550px] md:h-[480px] rounded-[40px] overflow-hidden group">
-          {/* Right Side - Clear Image (visible on right half) */}
-          <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2">
-            <img 
-              src={casesBackground} 
-              alt="Background" 
-              className="absolute inset-0 w-full h-full object-cover object-right transition-transform duration-700 group-hover:scale-105"
-            />
-          </div>
+          {/* Full Background Image - covers entire card */}
+          <img 
+            src={casesBackground} 
+            alt="Background" 
+            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
 
-          {/* Left Side - Blurred Glass Effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 overflow-hidden">
-            {/* Blurred background image */}
-            <img 
-              src={casesBackground} 
-              alt="" 
-              className="absolute inset-0 w-[200%] h-full object-cover object-left blur-xl scale-110"
-            />
-            {/* Glass overlay */}
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
-          </div>
+          {/* Glass Card Content - positioned on left side */}
+          <div className="absolute left-0 top-0 bottom-0 w-full md:w-[420px] overflow-hidden">
+            {/* Blurred background for glass effect */}
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-xl" />
+            
+            {/* Content */}
+            <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-between">
+              {/* Header: Logo & Nav */}
+              <div className="flex justify-between items-center">
+                {/* Logo */}
+                <div className="w-24 opacity-90">
+                  <img src={testimonial.logo} alt="Client Logo" className="w-full h-auto object-contain" />
+                </div>
 
-          {/* Glass Card Content */}
-          <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between z-10">
-            {/* Header: Logo & Nav */}
-            <div className="flex justify-between items-center">
-              {/* Logo */}
-              <div className="w-24 opacity-90">
-                <img src={testimonial.logo} alt="Client Logo" className="w-full h-auto object-contain" />
+                {/* Navigation Arrows */}
+                <div className="flex gap-3">
+                  <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition">
+                    <ArrowNavLeft />
+                  </button>
+                  <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition">
+                    <ArrowNavRight />
+                  </button>
+                </div>
               </div>
 
-              {/* Navigation Arrows */}
-              <div className="flex gap-3">
-                <button className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition">
-                  <ArrowNavLeft />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition">
-                  <ArrowNavRight />
-                </button>
+              {/* Testimonial Text */}
+              <div className="mt-8 mb-8">
+                <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light">
+                  "{testimonial.quote}"
+                </p>
               </div>
-            </div>
 
-            {/* Testimonial Text */}
-            <div className="mt-8 mb-8">
-              <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light">
-                "{testimonial.quote}"
-              </p>
-            </div>
-
-            {/* Author */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full overflow-hidden">
-                <img src={testimonial.image} alt={testimonial.author} className="w-full h-full object-cover" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-medium text-sm leading-tight">{testimonial.author}</span>
-                <span className="text-white/60 text-xs leading-tight">{testimonial.role}</span>
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full overflow-hidden">
+                  <img src={testimonial.image} alt={testimonial.author} className="w-full h-full object-cover" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-white font-medium text-sm leading-tight">{testimonial.author}</span>
+                  <span className="text-white/60 text-xs leading-tight">{testimonial.role}</span>
+                </div>
               </div>
             </div>
           </div>
