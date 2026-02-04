@@ -105,17 +105,29 @@ const CasesSection = () => {
 
         {/* TESTIMONIAL SECTION (Large Card) */}
         <div className="relative w-full h-[550px] md:h-[480px] rounded-[40px] overflow-hidden group">
-          {/* Background Image */}
-          <img 
-            src={casesBackground} 
-            alt="Background" 
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          {/* Dark Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          {/* Right Side - Clear Image (visible on right half) */}
+          <div className="absolute right-0 top-0 bottom-0 w-full md:w-1/2">
+            <img 
+              src={casesBackground} 
+              alt="Background" 
+              className="absolute inset-0 w-full h-full object-cover object-right transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Left Side - Blurred Glass Effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 overflow-hidden">
+            {/* Blurred background image */}
+            <img 
+              src={casesBackground} 
+              alt="" 
+              className="absolute inset-0 w-[200%] h-full object-cover object-left blur-xl scale-110"
+            />
+            {/* Glass overlay */}
+            <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+          </div>
 
           {/* Glass Card Content */}
-          <div className="absolute left-0 top-0 bottom-0 w-full md:w-[480px] bg-black/20 backdrop-blur-xl border-r border-white/10 p-8 md:p-12 flex flex-col justify-between">
+          <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between z-10">
             {/* Header: Logo & Nav */}
             <div className="flex justify-between items-center">
               {/* Logo */}
