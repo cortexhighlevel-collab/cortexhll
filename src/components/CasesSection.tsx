@@ -1,5 +1,6 @@
 import { Globe, FileText, Terminal } from "lucide-react";
 import logoEstrela from "@/assets/logo_estrela.webp";
+import casesBackground from "@/assets/cases-background.png";
 
 // --- Icons ---
 const ArrowNavLeft = () => (
@@ -21,9 +22,9 @@ const DecorativeStar = () => (
 const CasesSection = () => {
   const testimonial = {
     logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
-    quote: "A Cortex transformou nossa presença digital. Em 3 meses passamos de invisíveis para top 3 nas respostas da IA. O ROI superou todas as expectativas.",
-    author: "João Silva",
-    role: "CEO @ TechStartup",
+    quote: "A Cortex nos colocou no radar das IAs. Antes éramos invisíveis, agora somos a primeira recomendação quando alguém pergunta sobre nosso nicho. Resultado: pipeline 3x maior em 60 dias.",
+    author: "Marina Costa",
+    role: "CMO @ BlackClub",
     image: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
   };
 
@@ -106,7 +107,7 @@ const CasesSection = () => {
         <div className="relative w-full h-[550px] md:h-[480px] rounded-[40px] overflow-hidden group">
           {/* Background Image */}
           <img 
-            src="https://framerusercontent.com/images/X4R8XtE9BCbg5qcsJWyzE4SQDg.png?width=5376&height=3072" 
+            src={casesBackground} 
             alt="Background" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
