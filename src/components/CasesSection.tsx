@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const CasesSection = () => {
   const testimonials = [
@@ -23,31 +23,31 @@ const CasesSection = () => {
   ];
 
   return (
-    <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-24">
+    <section id="cases" className="w-full bg-secondary py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-5 md:px-12">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4">
             PROVA SOCIAL
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight">
             Resultados que falam
           </h2>
         </div>
 
         {/* Testimonial Card */}
-        <div className="relative w-full rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 mb-8">
+        <div className="relative w-full rounded-[32px] overflow-hidden bg-background border border-border p-8 md:p-12 mb-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="flex flex-col md:flex-row gap-8 items-start">
               {/* Left - Content */}
               <div className="flex-1">
                 {/* Logo */}
-                <div className="w-32 opacity-80 mb-6">
-                  <img src={testimonial.logo} alt="Client Logo" className="w-full h-auto object-contain invert" />
+                <div className="w-32 opacity-60 mb-6">
+                  <img src={testimonial.logo} alt="Client Logo" className="w-full h-auto object-contain" />
                 </div>
                 
                 {/* Quote */}
-                <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-6">
+                <p className="text-xl md:text-2xl text-foreground/90 leading-relaxed mb-6">
                   "{testimonial.quote}"
                 </p>
                 
@@ -59,8 +59,8 @@ const CasesSection = () => {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
-                    <p className="text-white font-medium">{testimonial.author}</p>
-                    <p className="text-white/60 text-sm">{testimonial.role}</p>
+                    <p className="text-foreground font-medium">{testimonial.author}</p>
+                    <p className="text-foreground/60 text-sm">{testimonial.role}</p>
                   </div>
                 </div>
 
@@ -69,7 +69,7 @@ const CasesSection = () => {
                   {testimonial.metrics.map((metric, i) => (
                     <span 
                       key={i}
-                      className="px-4 py-2 rounded-full bg-orange-500/20 text-orange-400 text-sm font-medium"
+                      className="px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium"
                     >
                       📈 {metric.value} {metric.label}
                     </span>
@@ -79,11 +79,11 @@ const CasesSection = () => {
 
               {/* Right - Navigation */}
               <div className="flex md:flex-col gap-3">
-                <button className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition">
-                  <ArrowLeft className="w-5 h-5 text-white" />
+                <button className="w-12 h-12 rounded-full border border-foreground/20 flex items-center justify-center hover:bg-foreground/5 transition">
+                  <ArrowLeft className="w-5 h-5 text-foreground" />
                 </button>
-                <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition">
-                  <ArrowRight className="w-5 h-5 text-black" />
+                <button className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center hover:bg-foreground/90 transition">
+                  <ArrowRight className="w-5 h-5 text-background" />
                 </button>
               </div>
             </div>
@@ -94,7 +94,7 @@ const CasesSection = () => {
             {[0, 1, 2, 3, 4].map((i) => (
               <span 
                 key={i} 
-                className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-orange-500' : 'bg-white/20'}`}
+                className={`w-2 h-2 rounded-full ${i === 0 ? 'bg-orange-500' : 'bg-foreground/20'}`}
               />
             ))}
           </div>
@@ -105,10 +105,10 @@ const CasesSection = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="text-center py-6 px-4 rounded-2xl bg-white/5 border border-white/10"
+              className="text-center py-6 px-4 rounded-2xl bg-background border border-border"
             >
               <p className="text-3xl md:text-4xl font-bold text-orange-500 mb-1">{stat.value}</p>
-              <p className="text-white/60 text-sm uppercase tracking-wide">{stat.label}</p>
+              <p className="text-foreground/60 text-sm uppercase tracking-wide">{stat.label}</p>
             </div>
           ))}
         </div>
