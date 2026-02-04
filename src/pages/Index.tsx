@@ -6,6 +6,7 @@ import DNASection from "@/components/DNASection";
 import FormatoSection from "@/components/FormatoSection";
 import BlogSection from "@/components/BlogSection";
 import TreinamentoSection from "@/components/TreinamentoSection";
+import TeamMemberSection from "@/components/TeamMemberSection";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <FormatoSection />
       <BlogSection />
       <TreinamentoSection />
+      <TeamMemberSection />
     </div>
   );
 };
