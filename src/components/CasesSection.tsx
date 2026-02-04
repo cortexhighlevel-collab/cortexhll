@@ -161,17 +161,17 @@ const CasesSection = () => {
         </div>
 
         {/* BOTTOM SECTION: Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="flex items-center justify-center gap-3 p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
-                <div className="text-white/90">
-                  <Icon className="w-6 h-6" />
+              <div key={index} className="flex items-center justify-center gap-4 py-8 px-10 rounded-[20px] border border-white/10 bg-[#141414]">
+                <div className="text-white/80">
+                  <Icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
-                <div className="flex flex-col items-center">
-                  <span className="text-3xl md:text-4xl font-bold text-orange-500">{stat.value}</span>
-                  <span className="text-[#C9C9C9] text-sm tracking-wide uppercase">{stat.label}</span>
+                <div className="flex flex-col">
+                  <span className="text-4xl md:text-5xl font-bold text-orange-500 leading-none">{stat.value}</span>
+                  <span className="text-[#808080] text-xs tracking-[0.15em] uppercase mt-1">{stat.label}</span>
                 </div>
               </div>
             );
