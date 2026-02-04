@@ -48,23 +48,6 @@ const AnimatedWord = () => {
   );
 };
 
-const LLMBadges = () => {
-  const badges = ["OpenAI", "Google", "Claude", "Perplexity", "Gemini"];
-  
-  return (
-    <div className="flex flex-wrap items-center gap-3 mt-8 translate-y-16">
-      {badges.map((badge, index) => (
-        <span 
-          key={index} 
-          className="px-3 py-1.5 rounded-full bg-foreground/5 text-foreground/60 text-xs font-medium border border-foreground/10"
-        >
-          {badge}
-        </span>
-      ))}
-    </div>
-  );
-};
-
 export const HeroSection = () => {
   return (
     <main className="w-full max-w-[1800px] px-5 md:px-12 flex flex-col gap-12 mt-10 md:mt-20 pb-16">
@@ -108,9 +91,6 @@ export const HeroSection = () => {
             WhatsApp
           </a>
         </div>
-
-        {/* LLM Badges */}
-        <LLMBadges />
       </div>
     </main>
   );
