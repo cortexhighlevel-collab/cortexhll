@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
+import logoEstrela from "@/assets/logo_estrela.webp";
 
 const TeamMemberSection = () => {
   return (
@@ -24,11 +25,7 @@ const TeamMemberSection = () => {
           <div className="flex flex-col justify-between py-4">
             {/* Quote Icon */}
             <div className="mb-8">
-              <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-6 h-6 text-foreground" fill="currentColor">
-                  <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                </svg>
-              </div>
+              <img src={logoEstrela} alt="Estrela decorativa" className="w-14 h-14 object-contain" />
             </div>
 
             {/* Main Quote */}
