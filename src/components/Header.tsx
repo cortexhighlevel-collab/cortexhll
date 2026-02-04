@@ -2,6 +2,7 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import ContentDropdown from "./ContentDropdown";
 import logoImage from "@/assets/logo_cortex_nova_preta.png";
+import dividerIcon from "@/assets/nav-divider-icon.png";
 
 const Logo = () => (
   <img src={logoImage} alt="Cortex High Level" className="h-7" />
@@ -39,6 +40,14 @@ export const Header = () => {
             </Popover>
             
             <a href="#metodologia" className="nav-link">Método</a>
+            
+            {/* Divider Icon */}
+            <img 
+              src={dividerIcon} 
+              alt="" 
+              className="h-6 w-auto object-contain mx-1"
+            />
+            
             <a href="#cases" className="nav-link">Cases</a>
             <a href="#equipe" className="nav-link">Equipe</a>
           </div>
