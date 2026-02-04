@@ -59,7 +59,7 @@ export const HeroSection = () => {
           <ProfileStack />
 
           {/* Subtext */}
-          <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90 translate-y-32 md:translate-y-16">
+          <p className="text-[clamp(18px,2vw,25px)] leading-[1.2] text-foreground/90 translate-y-28 md:translate-y-16">
             <span className="font-light">Inteligência Digital que Gera</span><br />
             <strong className="font-bold">Crescimento & Resultados Reais</strong>
           </p>
