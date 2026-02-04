@@ -10,10 +10,8 @@ import OfertaSection from "@/components/OfertaSection";
 import TeamMemberSection from "@/components/TeamMemberSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background flex flex-col items-center pt-3">
+  return <div className="min-h-screen flex flex-col items-center pt-3 bg-[#f2f2f2]">
       {/* Seção 1: Header/Navbar */}
       <Header />
       
@@ -49,8 +47,6 @@ const Index = () => {
       
       {/* Seção 13: Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
