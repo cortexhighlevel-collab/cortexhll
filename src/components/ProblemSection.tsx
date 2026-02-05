@@ -71,7 +71,7 @@ const ProblemSection = () => {
           amount: 0.3
         }} variants={fadeInLeft}>
             {/* Background Image */}
-            <img src={brainFunnel} alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src="/lovable-uploads/95138712-b50d-475a-b415-cf7f31426aa0.webp" />
             {/* Tags at top */}
             <div className="relative z-20 p-6 flex gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
