@@ -80,7 +80,7 @@ const CTASection = () => {
     }} variants={scaleCenter}>
         {/* Left Section: Image Card with Text Overlay */}
         <motion.div 
-          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] lg:min-h-[650px] rounded-3xl overflow-hidden"
+          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden lg:my-8"
           variants={slideUp}
           style={{
             background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
