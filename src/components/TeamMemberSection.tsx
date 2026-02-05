@@ -1,6 +1,45 @@
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
+
+// Animation variants - Subtle rotation + fade
+const rotateIn: Variants = {
+  hidden: {
+    opacity: 0,
+    rotate: -3,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    rotate: 0,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const scaleRotate: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+    rotate: 2,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
 
 const TeamMemberSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,7 +89,13 @@ const TeamMemberSection = () => {
     <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12 font-dm">
       <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.5 }}
+          variants={fadeUp}
+        >
           <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
             QUEM SOMOS
           </span>
@@ -60,13 +105,19 @@ const TeamMemberSection = () => {
           <p className="text-foreground/60 mt-4 text-lg font-light">
             "Mentes brilhantes apaixonadas por tecnologia"
           </p>
-        </div>
+        </motion.div>
 
         {/* Featured Member - Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 min-h-[500px]">
           
           {/* Left Column: Text Content */}
-          <div className="flex flex-col justify-between py-4">
+          <motion.div 
+            className="flex flex-col justify-between py-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={rotateIn}
+          >
             {/* Star Icon */}
             <div className="mb-8">
               <img src={logoEstrela} alt="Estrela decorativa" className="w-14 h-14 object-contain" />
@@ -100,10 +151,16 @@ const TeamMemberSection = () => {
                 <ArrowRight className="w-5 h-5 text-background" />
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Image & Overlay */}
-          <div className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden">
+          <motion.div 
+            className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={scaleRotate}
+          >
             {/* Background Image */}
             <img 
               src={currentMember.image} 
@@ -148,7 +205,7 @@ const TeamMemberSection = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
