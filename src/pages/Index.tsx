@@ -10,6 +10,7 @@ import OfertaSection from "@/components/OfertaSection";
 import TeamMemberSection from "@/components/TeamMemberSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+ import FAQSection from "@/components/FAQSection";
 const Index = () => {
   return <div className="min-h-screen flex flex-col items-center pt-3">
       {/* Seção 1: Header/Navbar */}
@@ -42,10 +43,13 @@ const Index = () => {
       {/* Seção 11: Oferta/Pacotes */}
       <OfertaSection />
       
-      {/* Seção 12: CTA Final */}
+       {/* Seção 12: FAQ */}
+       <FAQSection />
+       
+       {/* Seção 13: CTA Final */}
       <CTASection />
       
-      {/* Seção 13: Footer */}
+       {/* Seção 14: Footer */}
       <Footer />
     </div>;
 };
