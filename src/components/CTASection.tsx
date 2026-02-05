@@ -1,6 +1,6 @@
 import React from 'react';
 const CTASection = () => {
-  return <div id="contato" className="min-h-screen text-black p-8 flex items-center justify-center font-sans antialiased selection:bg-[#f06800] selection:text-white">
+  return <div id="contato" className="min-h-screen text-black p-8 flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white">
       {/* Container principal horizontal (flex-row em telas grandes) */}
       <div className="w-full max-w-[1280px] relative z-10 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:gap-24 border-y border-black/10 py-12 lg:py-20">
         {/* Seção Esquerda: Texto e Informações */}
@@ -13,26 +13,26 @@ const CTASection = () => {
               <div className="h-full w-1 bg-[#f06800]/50"></div>
               <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent"></div>
             </div>
-            <h4 className="text-[28px] lg:text-[38px] font-light tracking-[-0.04em] text-gray-800 leading-[1.1]">
+            <h4 className="text-[28px] lg:text-[38px] font-light tracking-tight text-gray-800 leading-[1.1]">
               Diagnóstico
             </h4>
           </div>
 
           <div className="flex flex-col gap-4">
-            <h4 className="text-[36px] lg:text-[56px] leading-[1.05] font-normal tracking-[-0.04em] text-gray-900">
+            <h4 className="text-[36px] lg:text-[56px] leading-[1.05] font-medium tracking-tight text-gray-900">
               O custo de não agir é maior que o investimento
             </h4>
-            <p className="text-[18px] lg:text-[22px] leading-[1.5] text-gray-600 tracking-[-0.02em] max-w-xl">
+            <p className="text-[18px] lg:text-[22px] leading-[1.5] text-gray-500 font-light max-w-xl">
               Enquanto você espera, seus concorrentes estão sendo recomendados pela IA. A cada dia de inércia, você perde mercado para quem já se posicionou.
             </p>
           </div>
           {/* Tags posicionadas abaixo do texto */}
           <div className="flex flex-wrap gap-3 mt-2">
             <div className="px-5 py-1.5 rounded-full border border-[#f06800]/30 bg-[#f06800]/10 backdrop-blur-md flex items-center">
-              <span className="text-xs text-gray-800 uppercase tracking-wider font-medium">Diagnóstico Gratuito</span>
+              <span className="text-xs text-gray-800 uppercase tracking-[0.2em] font-medium">Diagnóstico Gratuito</span>
             </div>
             <div className="px-5 py-1.5 rounded-full bg-[#f06800] border border-[#f06800]">
-              <span className="text-xs text-white uppercase tracking-wider font-medium">Sua Marca</span>
+              <span className="text-xs text-white uppercase tracking-[0.2em] font-medium">Sua Marca</span>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ const CTASection = () => {
           <div className="flex flex-col gap-4">
             <form className="w-full relative" onSubmit={e => e.preventDefault()}>
               <button type="submit" className="group w-full bg-[#f06800] text-white rounded-full h-[72px] pl-8 pr-4 flex items-center justify-between hover:bg-[#d95c00] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 ease-out cursor-pointer shadow-[0_0_30px_rgba(240,104,0,0.25)]">
-                <span className="text-lg uppercase tracking-wider font-medium">
+                <span className="text-lg uppercase tracking-[0.15em] font-medium">
                   Agendar Diagnóstico
                 </span>
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300 shadow-sm">

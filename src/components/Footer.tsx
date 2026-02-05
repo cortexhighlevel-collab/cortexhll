@@ -24,7 +24,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-[#0A0B0E] text-white py-16 md:py-24">
+    <footer className="w-full bg-[#0A0B0E] text-white py-16 md:py-24 font-dm">
       <div className="max-w-[1400px] mx-auto px-5 md:px-12">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -35,20 +35,20 @@ const Footer = () => {
               alt="Cortex High Level" 
               className="h-8 mb-4 invert"
             />
-            <p className="text-white/60 text-sm leading-relaxed">
+            <p className="text-white/60 text-sm leading-relaxed font-light">
               "Inteligência Digital que Gera Crescimento"
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wide">Navegação</h4>
+            <h4 className="text-white font-medium mb-4 uppercase text-xs tracking-[0.2em]">Navegação</h4>
             <ul className="space-y-3">
               {navigationLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm font-light"
                   >
                     {link.label}
                   </a>
@@ -59,13 +59,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wide">Serviços</h4>
+            <h4 className="text-white font-medium mb-4 uppercase text-xs tracking-[0.2em]">Serviços</h4>
             <ul className="space-y-3">
               {serviceLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm font-light"
                   >
                     {link.label}
                   </a>
@@ -76,7 +76,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4 uppercase text-sm tracking-wide">Contato</h4>
+            <h4 className="text-white font-medium mb-4 uppercase text-xs tracking-[0.2em]">Contato</h4>
             <ul className="space-y-3">
               {contactLinks.map((link, index) => (
                 <li key={index}>
@@ -84,7 +84,7 @@ const Footer = () => {
                     href={link.href} 
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-sm font-light"
                   >
                     {link.label}
                   </a>
@@ -112,14 +112,14 @@ const Footer = () => {
 
         {/* Bottom Row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">
+          <p className="text-white/40 text-sm font-light">
             © 2026 Cortex High Level. Todos os direitos reservados.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white/60 text-sm transition-colors">
+            <a href="#" className="text-white/40 hover:text-white/60 text-sm transition-colors font-light">
               Políticas de Privacidade
             </a>
-            <a href="#" className="text-white/40 hover:text-white/60 text-sm transition-colors">
+            <a href="#" className="text-white/40 hover:text-white/60 text-sm transition-colors font-light">
               Termos de Uso
             </a>
           </div>

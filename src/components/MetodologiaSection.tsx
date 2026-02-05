@@ -1,5 +1,5 @@
 const MetodologiaSection = () => {
-  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px]">
+  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px] font-dm">
       <div className="max-w-[1200px] mx-auto">
         {/* Main Card Container */}
         <div className="card-radius p-4 md:p-6 lg:p-8">
@@ -8,14 +8,14 @@ const MetodologiaSection = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight font-medium">
               A Resposta Está na IA
             </h2>
-            <p className="text-base md:text-lg text-foreground/80 mt-2">
+            <p className="text-base md:text-lg text-foreground/80 mt-2 font-light">
               Mas não qualquer IA — a nossa metodologia proprietária.
             </p>
           </div>
 
           {/* Quote Block */}
           <div className="video-radius overflow-hidden px-8 md:px-12 mb-5 md:mb-8 flex flex-col items-center justify-center bg-secondary-foreground text-primary-foreground w-full py-[150px]">
-            <p className="text-lg md:text-xl lg:text-2xl text-center leading-relaxed max-w-[800px]">
+            <p className="text-lg md:text-xl lg:text-2xl text-center leading-relaxed max-w-[800px] font-light">
               "O SEO tradicional morreu. As decisões de compra começam em conversas com ChatGPT, Claude e Gemini. 
               <strong> Se a IA não confia em você, você é invisível.</strong>"
             </p>
@@ -55,10 +55,10 @@ const MetodologiaSection = () => {
             {/* Right Column - Text Only (no card) */}
             <div className="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
               <div className="flex items-center gap-2 mb-4">
-                <span className="tag-pill bg-foreground text-background text-xs">METODOLOGIA EXCLUSIVA</span>
-                <span className="text-xs font-medium text-foreground/70 uppercase tracking-wide">6 ETAPAS</span>
+                <span className="tag-pill bg-foreground text-background text-xs tracking-wider">METODOLOGIA EXCLUSIVA</span>
+                <span className="text-xs font-medium text-foreground/70 uppercase tracking-[0.2em]">6 ETAPAS</span>
               </div>
-              <p className="text-xl md:text-2xl lg:text-3xl leading-tight text-foreground font-light">
+              <p className="text-xl md:text-2xl lg:text-3xl leading-tight text-foreground font-light tracking-tight">
                 Domine as respostas<br />da IA e conquiste<br />novos clientes.
               </p>
               <a href="#contato" className="mt-6 inline-flex items-center gap-2 text-orange-500 font-medium hover:gap-3 transition-all">

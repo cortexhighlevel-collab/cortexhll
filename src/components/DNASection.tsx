@@ -1,5 +1,5 @@
 const DNASection = () => {
-  return <section className="w-full py-16 md:py-24 px-4 md:px-8">
+  return <section className="w-full py-16 md:py-24 px-4 md:px-8 font-dm">
       {/* Main Container */}
       <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center" style={{
       gap: '48px'
@@ -17,8 +17,7 @@ const DNASection = () => {
           border: '1px solid rgba(150, 150, 150, 0.3)',
           boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 8px 0px inset'
         }}>
-            <span className="text-lg tracking-wide" style={{
-            fontFamily: 'Outfit, sans-serif',
+            <span className="text-lg tracking-wide font-light" style={{
             fontWeight: 300,
             color: '#1f1f1f'
           }}>
@@ -27,21 +26,12 @@ const DNASection = () => {
           </div>
 
           {/* Tagline */}
-          <p className="text-sm uppercase tracking-widest" style={{
-          fontFamily: 'Outfit, sans-serif',
-          fontWeight: 400,
-          color: '#1f1f1f'
-        }}>
+          <p className="text-sm uppercase tracking-[0.2em] font-normal text-[#1f1f1f]">
             Excelência sem concessões
           </p>
 
           {/* Main Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-center" style={{
-          fontFamily: 'Outfit, sans-serif',
-          fontWeight: 500,
-          color: '#1f1f1f',
-          lineHeight: '120%'
-        }}>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-center font-medium text-[#1f1f1f] leading-tight">
             Diferenciais que importam.
           </h2>
         </div>
@@ -65,19 +55,10 @@ const DNASection = () => {
             background: 'radial-gradient(ellipse at 30% 20%, rgba(80, 180, 220, 0.4) 0%, transparent 50%)'
           }} />
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl mb-3" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 500,
-              color: 'rgb(209, 244, 255)'
-            }}>
+              <h3 className="text-2xl md:text-3xl mb-3 font-medium text-[rgb(209,244,255)]">
                 Exclusividade
               </h3>
-              <p className="text-sm md:text-base" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 300,
-              color: 'rgba(209, 244, 255, 0.6)',
-              lineHeight: '160%'
-            }}>
+              <p className="text-sm md:text-base font-light text-[rgba(209,244,255,0.6)] leading-relaxed">
                 Atendimento limitado a poucos clientes por vez. Cada projeto recebe dedicação total da equipe sênior. AI Referral Engine™ exclusivo.
               </p>
             </div>
@@ -94,18 +75,10 @@ const DNASection = () => {
               <div className="absolute top-0 right-0 w-[2px] h-full bg-[rgb(209,244,255)] opacity-30"></div>
             </div>
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 500,
-              color: 'rgb(209, 244, 255)'
-            }}>
+              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[rgb(209,244,255)]">
                 Sofisticação
               </h3>
-              <p className="text-sm" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 300,
-              color: 'rgba(209, 244, 255, 0.6)'
-            }}>
+              <p className="text-sm font-light text-[rgba(209,244,255,0.6)]">
                 Design premium e metodologia proprietária integrada em cada entrega.
               </p>
             </div>
@@ -122,18 +95,10 @@ const DNASection = () => {
               <div className="absolute top-0 right-0 w-[2px] h-full bg-[rgb(209,244,255)] opacity-30"></div>
             </div>
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 500,
-              color: 'rgb(209, 244, 255)'
-            }}>
+              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[rgb(209,244,255)]">
                 Autoridade
               </h3>
-              <p className="text-sm" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 300,
-              color: 'rgba(209, 244, 255, 0.6)'
-            }}>
+              <p className="text-sm font-light text-[rgba(209,244,255,0.6)]">
                 Posicione sua marca como referência absoluta nas respostas da IA.
               </p>
             </div>
@@ -153,18 +118,10 @@ const DNASection = () => {
             background: 'radial-gradient(ellipse at 70% 80%, rgba(80, 180, 220, 0.3) 0%, transparent 60%)'
           }} />
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 500,
-              color: 'rgb(209, 244, 255)'
-            }}>
+              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[rgb(209,244,255)]">
                 Resultados Comprovados
               </h3>
-              <p className="text-sm md:text-base" style={{
-              fontFamily: 'Outfit, sans-serif',
-              fontWeight: 300,
-              color: 'rgba(209, 244, 255, 0.6)'
-            }}>
+              <p className="text-sm md:text-base font-light text-[rgba(209,244,255,0.6)]">
                 +500% ROI médio. 47 empresas transformadas. Resultados em até 30 dias. Métricas claras e mensuráveis em cada projeto.
               </p>
             </div>
