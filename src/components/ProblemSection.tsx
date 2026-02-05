@@ -2,6 +2,7 @@ import { Globe, ArrowUpRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import problemCardBg from "@/assets/problem-card-bg.jpg";
 import googleAdsBurning from "@/assets/google-ads-burning.jpg";
+import brainFunnel from "@/assets/brain-funnel.jpg";
 const fadeInLeft: Variants = {
   hidden: {
     opacity: 0,
@@ -69,7 +70,7 @@ const ProblemSection = () => {
           amount: 0.3
         }} variants={fadeInLeft}>
             {/* Background Image */}
-            <img src={problemCardBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+            <img src={brainFunnel} alt="" className="absolute inset-0 w-full h-full object-cover" />
             {/* Tags at top */}
             <div className="relative z-20 p-6 flex gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
@@ -113,12 +114,12 @@ const ProblemSection = () => {
           </motion.div>
 
           {/* Card */}
-          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2 border border-zinc-700" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2 border border-zinc-600" initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
         }} variants={fadeInRight}>
             {/* Background Image */}
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src="/lovable-uploads/ee04cb1a-f1a2-4c44-88ae-7112d2d9a445.jpg" />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-100" src="/lovable-uploads/ee04cb1a-f1a2-4c44-88ae-7112d2d9a445.jpg" />
             {/* Tags at top */}
             <div className="relative z-10 p-6 flex flex-wrap gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
