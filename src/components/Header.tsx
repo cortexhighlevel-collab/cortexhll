@@ -85,10 +85,10 @@ export const Header = () => {
                 </svg>
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full sm:w-[400px] bg-zinc-900 p-0 border-none">
+            <SheetContent side="right" className="w-[85%] max-w-[360px] bg-zinc-900 p-0 border-none rounded-l-2xl">
               <div className="flex flex-col h-full text-white">
                 {/* Header do menu mobile */}
-                <div className="flex items-center justify-between p-6">
+                <div className="flex items-center justify-between p-5">
                   <LogoWhite />
                   <SheetClose asChild>
                     <button className="p-2 border border-white/30 rounded-md hover:bg-white/10 transition-colors">
@@ -98,7 +98,7 @@ export const Header = () => {
                 </div>
                 
                 {/* Links de navegação centralizados */}
-                <nav className="flex flex-col items-center py-8 gap-6">
+                <nav className="flex flex-col items-center py-6 gap-5">
                   <a 
                     href="#" 
                     className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
@@ -176,10 +176,10 @@ export const Header = () => {
                 </nav>
                 
                 {/* CTA Button */}
-                <div className="mt-auto px-8 pb-8 flex flex-col items-center gap-6">
+                <div className="mt-auto px-6 pb-6 flex flex-col items-center gap-5">
                   <a 
                     href="#contato" 
-                    className="flex items-center justify-center gap-2 w-full py-4 px-8 bg-[#f06600] text-white font-medium rounded-full hover:bg-[#d95b00] transition-colors text-sm tracking-wide"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 px-6 bg-[#f06600] text-white font-medium rounded-full hover:bg-[#d95b00] transition-colors text-sm tracking-wide"
                     onClick={() => setIsOpen(false)}
                   >
                     Fale Conosco
