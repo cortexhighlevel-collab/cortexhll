@@ -96,27 +96,27 @@ const FormatoSection = () => {
 
   const services = [{
     tag: "AI INTELLIGENCE",
-    title: "AI Intelligence & CRM",
+    title: "Inteligência Estratégica com IA",
     subtitle: "Automação inteligente",
-    items: ["Funis de Venda", "Bots de IA", "Email Automation", "Predictions"],
+    items: ["Automação", "Análise", "AEO & SEO", "Agentes de IA", "Engenharia de Prompt"],
     imageUrl: "https://framerusercontent.com/images/LLEdm7hWVMfprlCCIi2LHXlJKE.jpg"
   }, {
-    tag: "DESIGN",
-    title: "Design & Performance",
-    subtitle: "Experiências premium",
-    items: ["Landing Pages", "Sites Premium", "Branding Digital", "Motion Design"],
+    tag: "CRM",
+    title: "CRM & Gestão de Leads",
+    subtitle: "Relacionamento otimizado",
+    items: ["Funis de Venda", "Email Automation", "Gestão de Contatos", "Predictions"],
     imageUrl: "https://framerusercontent.com/images/oVMN8WwOgbNj16xxfJLPAo3jKI.jpg"
   }, {
-    tag: "GROWTH",
-    title: "Growth & Traffic",
-    subtitle: "Crescimento acelerado",
-    items: ["SEO Avançado", "Tráfego Pago", "Growth Hacking", "AI Referral Engine™"],
+    tag: "AI REFERRAL",
+    title: "AI Referral Genie™",
+    subtitle: "Sistema de indicações",
+    items: ["Referral Engine", "Growth Hacking", "Automação de Indicações", "Rewards System"],
     imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg"
   }, {
-    tag: "INFRAESTRUTURA",
-    title: "Infraestrutura",
-    subtitle: "Soluções técnicas robustas",
-    items: ["Hospedagem Cloud", "APIs & Integrações", "Segurança & Compliance", "DevOps"],
+    tag: "DESIGN & PERFORMANCE",
+    title: "Design & Performance",
+    subtitle: "Experiências premium",
+    items: ["Landing Pages", "Sites Premium", "Tráfego Pago", "SEO Avançado", "APIs & Integrações", "Segurança"],
     imageUrl: "https://framerusercontent.com/images/IB4CnbF9zAC2ERLBGxhUt8Jmwcs.jpg"
   }];
 
