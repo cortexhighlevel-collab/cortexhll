@@ -124,28 +124,48 @@ export const Header = () => {
                       <a 
                         href="#servicos" 
                         className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setTimeout(() => {
+                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 100);
+                        }}
                       >
                         AI Intelligence
                       </a>
                       <a 
                         href="#servicos" 
                         className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setTimeout(() => {
+                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 100);
+                        }}
                       >
                         Design
                       </a>
                       <a 
                         href="#servicos" 
                         className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setTimeout(() => {
+                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 100);
+                        }}
                       >
                         Growth
                       </a>
                       <a 
                         href="#servicos" 
                         className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setTimeout(() => {
+                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 100);
+                        }}
                       >
                         Infraestrutura
                       </a>
