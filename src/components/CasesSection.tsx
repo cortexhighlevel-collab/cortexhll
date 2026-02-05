@@ -187,7 +187,7 @@ const CasesSection = () => {
 
         {/* TESTIMONIAL SECTION (Large Card with Carousel) */}
         <motion.div 
-          className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black border-2 border-white"
+          className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black border border-white/40"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
