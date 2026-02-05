@@ -91,24 +91,27 @@ const DNASection = () => {
           <motion.div 
             className="relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" 
             style={{
-          background: 'linear-gradient(180deg, rgba(20, 80, 100, 0.8) 0%, rgba(10, 40, 60, 0.9) 50%, rgba(15, 35, 50, 1) 100%)',
-          border: '1px solid rgba(209, 244, 255, 0.1)'
+              background: 'linear-gradient(180deg, rgba(240, 104, 0, 0.15) 0%, rgba(240, 104, 0, 0.25) 100%)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(240, 104, 0, 0.3)',
+              boxShadow: '0 8px 32px rgba(240, 104, 0, 0.1)'
             }}
             variants={cardFloat}
           >
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 left-4 w-8 h-8">
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-40"></div>
-              <div className="absolute top-0 left-0 w-[2px] h-full bg-[rgb(209,244,255)] opacity-40"></div>
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-[#f06800] opacity-60"></div>
+              <div className="absolute top-0 left-0 w-[2px] h-full bg-[#f06800] opacity-60"></div>
             </div>
             <div className="absolute inset-0 opacity-60" style={{
-            background: 'radial-gradient(ellipse at 30% 20%, rgba(80, 180, 220, 0.4) 0%, transparent 50%)'
-          }} />
+              background: 'radial-gradient(ellipse at 30% 20%, rgba(240, 104, 0, 0.3) 0%, transparent 50%)'
+            }} />
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl mb-3 font-medium text-[rgb(209,244,255)]">
+              <h3 className="text-2xl md:text-3xl mb-3 font-medium text-[#f06800]">
                 Exclusividade
               </h3>
-              <p className="text-sm md:text-base font-light text-[rgba(209,244,255,0.6)] leading-relaxed">
+              <p className="text-sm md:text-base font-light text-[#1f1f1f] leading-relaxed">
                 Atendimento limitado a poucos clientes por vez. Cada projeto recebe dedicação total da equipe sênior. AI Referral Engine™ exclusivo.
               </p>
             </div>
@@ -118,21 +121,24 @@ const DNASection = () => {
           <motion.div 
             className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" 
             style={{
-          background: 'rgba(25, 50, 60, 0.8)',
-          border: '1px solid rgba(209, 244, 255, 0.1)'
+              background: 'rgba(240, 104, 0, 0.12)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(240, 104, 0, 0.25)',
+              boxShadow: '0 8px 32px rgba(240, 104, 0, 0.08)'
             }}
             variants={cardFloat}
           >
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 right-4 w-6 h-6">
-              <div className="absolute top-0 right-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-30"></div>
-              <div className="absolute top-0 right-0 w-[2px] h-full bg-[rgb(209,244,255)] opacity-30"></div>
+              <div className="absolute top-0 right-0 w-full h-[2px] bg-[#f06800] opacity-50"></div>
+              <div className="absolute top-0 right-0 w-[2px] h-full bg-[#f06800] opacity-50"></div>
             </div>
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[rgb(209,244,255)]">
+              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[#f06800]">
                 Sofisticação
               </h3>
-              <p className="text-sm font-light text-[rgba(209,244,255,0.6)]">
+              <p className="text-sm font-light text-[#1f1f1f]">
                 Design premium e metodologia proprietária integrada em cada entrega.
               </p>
             </div>
@@ -142,21 +148,24 @@ const DNASection = () => {
           <motion.div 
             className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" 
             style={{
-          background: 'rgba(25, 50, 60, 0.8)',
-          border: '1px solid rgba(209, 244, 255, 0.1)'
+              background: 'rgba(240, 104, 0, 0.12)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(240, 104, 0, 0.25)',
+              boxShadow: '0 8px 32px rgba(240, 104, 0, 0.08)'
             }}
             variants={cardFloat}
           >
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 right-4 w-6 h-6">
-              <div className="absolute top-0 right-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-30"></div>
-              <div className="absolute top-0 right-0 w-[2px] h-full bg-[rgb(209,244,255)] opacity-30"></div>
+              <div className="absolute top-0 right-0 w-full h-[2px] bg-[#f06800] opacity-50"></div>
+              <div className="absolute top-0 right-0 w-[2px] h-full bg-[#f06800] opacity-50"></div>
             </div>
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[rgb(209,244,255)]">
+              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[#f06800]">
                 Autoridade
               </h3>
-              <p className="text-sm font-light text-[rgba(209,244,255,0.6)]">
+              <p className="text-sm font-light text-[#1f1f1f]">
                 Posicione sua marca como referência absoluta nas respostas da IA.
               </p>
             </div>
@@ -166,24 +175,27 @@ const DNASection = () => {
           <motion.div 
             className="relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" 
             style={{
-          background: 'linear-gradient(135deg, rgba(30, 60, 80, 0.9) 0%, rgba(20, 45, 65, 0.95) 100%)',
-          border: '1px solid rgba(209, 244, 255, 0.1)'
+              background: 'linear-gradient(135deg, rgba(240, 104, 0, 0.18) 0%, rgba(240, 104, 0, 0.12) 100%)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(240, 104, 0, 0.3)',
+              boxShadow: '0 8px 32px rgba(240, 104, 0, 0.1)'
             }}
             variants={cardFloat}
           >
             {/* Decorative L-shaped corner */}
             <div className="absolute bottom-4 right-4 w-8 h-8">
-              <div className="absolute bottom-0 right-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-40"></div>
-              <div className="absolute bottom-0 right-0 w-[2px] h-full bg-[rgb(209,244,255)] opacity-40"></div>
+              <div className="absolute bottom-0 right-0 w-full h-[2px] bg-[#f06800] opacity-60"></div>
+              <div className="absolute bottom-0 right-0 w-[2px] h-full bg-[#f06800] opacity-60"></div>
             </div>
             <div className="absolute inset-0 opacity-40" style={{
-            background: 'radial-gradient(ellipse at 70% 80%, rgba(80, 180, 220, 0.3) 0%, transparent 60%)'
-          }} />
+              background: 'radial-gradient(ellipse at 70% 80%, rgba(240, 104, 0, 0.25) 0%, transparent 60%)'
+            }} />
             <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[rgb(209,244,255)]">
+              <h3 className="text-xl md:text-2xl mb-2 font-medium text-[#f06800]">
                 Resultados Comprovados
               </h3>
-              <p className="text-sm md:text-base font-light text-[rgba(209,244,255,0.6)]">
+              <p className="text-sm md:text-base font-light text-[#1f1f1f]">
                 +500% ROI médio. 47 empresas transformadas. Resultados em até 30 dias. Métricas claras e mensuráveis em cada projeto.
               </p>
             </div>
