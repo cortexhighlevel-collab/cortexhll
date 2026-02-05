@@ -3,6 +3,7 @@ import { motion, type Variants } from "framer-motion";
 import problemCardBg from "@/assets/problem-card-bg.jpg";
 import googleAdsBurning from "@/assets/google-ads-burning.jpg";
 import brainFunnel from "@/assets/brain-funnel.jpg";
+import aiLogos from "@/assets/ai-logos.jpg";
 const fadeInLeft: Variants = {
   hidden: {
     opacity: 0,
@@ -137,16 +138,12 @@ const ProblemSection = () => {
         {/* Row 3: Card Left + Text Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Card - Orange gradient */}
-          <motion.div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-orange-600 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:from-orange-600 hover:to-orange-700 transition-all duration-300 cursor-pointer" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="relative overflow-hidden rounded-3xl min-h-[350px] lg:min-h-[400px] flex flex-col group transition-all duration-300 cursor-pointer border border-[#f06800]" initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
         }} variants={fadeInLeft}>
-            {/* Icon at top */}
-            <div className="relative z-10 p-6">
-              <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-orange-500 transition-colors duration-300">
-                <ArrowUpRight className="w-6 h-6" />
-              </div>
-            </div>
+            {/* Background Image */}
+            <img src={aiLogos} alt="" className="absolute inset-0 w-full h-full object-cover" />
           </motion.div>
 
           {/* Text Content */}
