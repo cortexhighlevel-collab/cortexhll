@@ -27,7 +27,7 @@ const AnimatedWord = () => {
     }, 2500);
     return () => clearInterval(interval);
   }, []);
-  return <span className="text-orange-500 inline-block min-w-[200px] transition-opacity duration-500 font-semibold">
+  return <span className="text-orange-500 inline-block min-w-[200px] transition-opacity duration-500 font-medium">
       {words[currentIndex]}
     </span>;
 };
