@@ -6,71 +6,78 @@ import { User, Mail, Building2, Phone, MessageSquare, Send, Sparkles } from "luc
 const scaleCenter: Variants = {
   hidden: {
     opacity: 0,
-    scale: 0.85,
+    scale: 0.85
   },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.805, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
+    transition: {
+      duration: 0.805,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
 };
-
 const slideUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: {
+    opacity: 0,
+    y: 50
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.69, ease: "easeOut" },
-  },
+    transition: {
+      duration: 0.69,
+      ease: "easeOut"
+    }
+  }
 };
-
 const staggerForm: Variants = {
   hidden: {},
   visible: {
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
+      delayChildren: 0.2
+    }
+  }
 };
-
 const inputReveal: Variants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: {
+    opacity: 0,
+    x: -20
+  },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
 };
-
 const CTASection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     phone: '',
-    message: '',
+    message: ''
   });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Form submission logic here
     console.log('Form submitted:', formData);
   };
-
-  return (
-    <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-16 md:py-24">
-      <motion.div 
-        className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch gap-12 lg:gap-16 px-6 md:px-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={scaleCenter}
-      >
+  return <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-16 md:py-24">
+      <motion.div className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch gap-12 lg:gap-16 px-6 md:px-8" initial="hidden" whileInView="visible" viewport={{
+      once: false,
+      amount: 0.2
+    }} variants={scaleCenter}>
         {/* Left Section: Text and Information */}
         <motion.div className="flex flex-col gap-8 lg:max-w-[45%] flex-shrink-0 justify-center" variants={slideUp}>
           {/* Header Line */}
@@ -108,26 +115,17 @@ const CTASection = () => {
           {/* Contact info */}
           <div className="flex flex-col gap-3 mt-4 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-400 uppercase tracking-wider">Ou entre em contato direto</p>
-            <a href="mailto:contato@cortexhll.com" className="text-gray-700 hover:text-[#f06800] transition-colors text-lg font-light">
-              contato@cortexhll.com
-            </a>
+            
           </div>
         </motion.div>
 
         {/* Right Section: Form */}
-        <motion.div 
-          className="flex-1 w-full"
-          variants={staggerForm}
-        >
-          <form 
-            onSubmit={handleSubmit}
-            className="relative rounded-3xl p-8 md:p-10 overflow-hidden"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.9) 100%)',
-              border: '1px solid rgba(0, 0, 0, 0.06)',
-              boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.15), 0 10px 30px -10px rgba(240, 104, 0, 0.08)',
-            }}
-          >
+        <motion.div className="flex-1 w-full" variants={staggerForm}>
+          <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden" style={{
+          background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.9) 100%)',
+          border: '1px solid rgba(0, 0, 0, 0.06)',
+          boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.15), 0 10px 30px -10px rgba(240, 104, 0, 0.08)'
+        }}>
             {/* Decorative corner elements */}
             <div className="absolute top-6 right-6 w-12 h-12">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-[#f06800]/30"></div>
@@ -158,15 +156,7 @@ const CTASection = () => {
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Seu nome"
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300"
-                      required
-                    />
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Seu nome" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" required />
                   </div>
                 </motion.div>
 
@@ -176,15 +166,7 @@ const CTASection = () => {
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="seu@email.com"
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300"
-                      required
-                    />
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="seu@email.com" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" required />
                   </div>
                 </motion.div>
               </div>
@@ -197,14 +179,7 @@ const CTASection = () => {
                   </label>
                   <div className="relative">
                     <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Nome da empresa"
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300"
-                    />
+                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Nome da empresa" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" />
                   </div>
                 </motion.div>
 
@@ -214,14 +189,7 @@ const CTASection = () => {
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="(00) 00000-0000"
-                      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300"
-                    />
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="(00) 00000-0000" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" />
                   </div>
                 </motion.div>
               </div>
@@ -233,23 +201,13 @@ const CTASection = () => {
                 </label>
                 <div className="relative">
                   <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Conte um pouco sobre seu projeto ou desafio atual..."
-                    rows={4}
-                    className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300 resize-none"
-                  />
+                  <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Conte um pouco sobre seu projeto ou desafio atual..." rows={4} className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300 resize-none" />
                 </div>
               </motion.div>
 
               {/* Submit Button */}
               <motion.div className="pt-4" variants={inputReveal}>
-                <button
-                  type="submit"
-                  className="group w-full bg-[#f06800] text-white rounded-xl h-[60px] px-8 flex items-center justify-center gap-3 hover:bg-[#d95c00] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 ease-out cursor-pointer shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]"
-                >
+                <button type="submit" className="group w-full bg-[#f06800] text-white rounded-xl h-[60px] px-8 flex items-center justify-center gap-3 hover:bg-[#d95c00] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 ease-out cursor-pointer shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]">
                   <span className="text-lg uppercase tracking-[0.12em] font-medium">
                     Enviar Solicitação
                   </span>
@@ -266,8 +224,6 @@ const CTASection = () => {
           </form>
         </motion.div>
       </motion.div>
-    </div>
-  );
+    </div>;
 };
-
 export default CTASection;
