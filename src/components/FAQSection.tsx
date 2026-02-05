@@ -2,6 +2,12 @@
  import { motion } from "framer-motion";
  
  const FAQSection = () => {
+   // Dotted pattern style
+   const dottedBgStyle = {
+     backgroundImage: `radial-gradient(circle, #9ca3af 1px, transparent 1px)`,
+     backgroundSize: '24px 24px',
+   };
+ 
    const faqs = [
      {
        question: "Quanto tempo leva para ver resultados?",
@@ -30,7 +36,7 @@
    ];
  
    return (
-     <section id="faq" className="w-full py-24 md:py-32 bg-[#0A0B0E] font-dm">
+     <section id="faq" className="w-full py-24 md:py-32 bg-[#f06800] font-dm relative" style={dottedBgStyle}>
        <div className="max-w-[900px] mx-auto px-5 md:px-12">
          {/* Header */}
          <motion.div 
@@ -40,7 +46,7 @@
            viewport={{ once: true }}
            transition={{ duration: 0.6 }}
          >
-           <span className="inline-block text-white/60 text-xs font-medium uppercase tracking-[0.2em] mb-4">
+            <span className="inline-block text-white/80 text-xs font-medium uppercase tracking-[0.2em] mb-4">
              Dúvidas Frequentes
            </span>
            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight">
@@ -60,12 +66,12 @@
                <AccordionItem 
                  key={index} 
                  value={`item-${index}`}
-                 className="border border-white/10 rounded-2xl px-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors"
+                  className="border border-white/20 rounded-2xl px-6 bg-white/10 hover:bg-white/15 transition-colors"
                >
                  <AccordionTrigger className="text-white text-left font-medium py-6 hover:no-underline">
                    {faq.question}
                  </AccordionTrigger>
-                 <AccordionContent className="text-white/60 font-light leading-relaxed pb-6">
+                  <AccordionContent className="text-white/80 font-light leading-relaxed pb-6">
                    {faq.answer}
                  </AccordionContent>
                </AccordionItem>
