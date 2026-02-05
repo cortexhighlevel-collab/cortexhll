@@ -76,6 +76,13 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    background-color: #ffffff;
+    background-image: 
+      linear-gradient(to bottom, #ffffff 40%, rgba(255, 255, 255, 0) 100%),
+      radial-gradient(#d1d5db 2px, transparent 2px);
+    background-size: 100% 100%, 30px 30px;
+    background-repeat: no-repeat, repeat;
+    min-height: 100vh;
   }
 
   html {
