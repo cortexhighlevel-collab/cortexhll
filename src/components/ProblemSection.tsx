@@ -36,23 +36,18 @@ const ProblemSection = () => {
 
         {/* Section Header */}
         <motion.div 
-          className="flex items-center gap-4 mb-12"
+          className="flex flex-col items-center text-center gap-3 mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.5 }}
           variants={fadeInUp}
         >
-          <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500">
-            <Globe className="w-5 h-5" />
-          </div>
-          <div>
-            <span className="text-zinc-500 text-xs uppercase tracking-wider font-medium block mb-1">
-              Você se identifica?
-            </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight">
-              Problemas que impedem seu crescimento
-            </h2>
-          </div>
+          <span className="text-orange-500 text-xs uppercase tracking-[0.2em] font-medium font-dm">
+            Você se identifica?
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight font-dm">
+            Problemas que impedem seu crescimento
+          </h2>
         </motion.div>
 
         {/* Row 1: Card Left + Text Right */}
@@ -92,10 +87,10 @@ const ProblemSection = () => {
             viewport={{ once: false, amount: 0.5 }}
             variants={fadeInRight}
           >
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
               Seu site é lindo mas...
             </h3>
-            <p className="text-zinc-500 text-base md:text-lg leading-relaxed">
+            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-dm font-light">
               Você investiu em um site bonito, mas ele não converte visitantes em clientes. Falta estratégia de conversão e posicionamento. O design impressiona, mas sem a estrutura certa, ele é apenas uma vitrine vazia.
             </p>
           </motion.div>
@@ -111,10 +106,10 @@ const ProblemSection = () => {
             viewport={{ once: false, amount: 0.5 }}
             variants={fadeInLeft}
           >
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
               Gastou em ads mas...
             </h3>
-            <p className="text-zinc-500 text-base md:text-lg leading-relaxed">
+            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-dm font-light">
               Você queima dinheiro em anúncios pagos sem ver retorno real. O problema não é o tráfego, é a estratégia por trás. Sem uma fundação sólida, cada clique é dinheiro jogado fora.
             </p>
           </motion.div>
@@ -167,10 +162,10 @@ const ProblemSection = () => {
             viewport={{ once: false, amount: 0.5 }}
             variants={fadeInRight}
           >
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
               ChatGPT não recomenda...
             </h3>
-            <p className="text-zinc-500 text-base md:text-lg leading-relaxed">
+            <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-dm font-light">
               Quando alguém pergunta ao ChatGPT, Claude ou Gemini sobre seu nicho, sua empresa não aparece. Você é invisível para a nova era da busca. É hora de se posicionar onde o futuro já está acontecendo.
             </p>
           </motion.div>
