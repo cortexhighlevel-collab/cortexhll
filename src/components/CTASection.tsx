@@ -74,13 +74,13 @@ const CTASection = () => {
     console.log('Form submitted:', formData);
   };
   return <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-16 md:py-24">
-      <motion.div className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-6 md:px-8" initial="hidden" whileInView="visible" viewport={{
+      <motion.div className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch px-6 md:px-8" initial="hidden" whileInView="visible" viewport={{
       once: false,
       amount: 0.2
     }} variants={scaleCenter}>
         {/* Left Section: Image Card with Text Overlay */}
         <motion.div 
-          className="relative flex flex-col justify-center lg:w-[45%] min-h-[400px] lg:min-h-[600px] rounded-l-3xl lg:rounded-l-3xl rounded-t-3xl lg:rounded-tr-none overflow-hidden"
+          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] lg:min-h-[650px] rounded-3xl overflow-hidden"
           variants={slideUp}
           style={{
             background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
@@ -95,8 +95,8 @@ const CTASection = () => {
             <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#f06800]/5 rounded-full blur-2xl"></div>
           </div>
           
-          {/* Content */}
-          <div className="relative z-10 p-8 lg:p-12 flex flex-col justify-center h-full">
+          {/* Content - with padding-right to account for form overlap */}
+          <div className="relative z-10 p-8 lg:p-12 lg:pr-20 flex flex-col justify-center h-full">
             {/* Header Line */}
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[23px] w-[80px] flex items-center gap-1">
@@ -142,10 +142,10 @@ const CTASection = () => {
           </div>
         </motion.div>
 
-        {/* Right Section: Form */}
-        <motion.div className="flex-1 w-full lg:w-[55%]" variants={staggerForm}>
-          <form onSubmit={handleSubmit} className="relative rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl p-8 md:p-10 overflow-hidden h-full" style={{
-          background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.95) 100%)',
+        {/* Right Section: Form - overlapping the left card */}
+        <motion.div className="relative lg:w-[55%] lg:-ml-12 mt-[-40px] lg:mt-0 lg:my-8 z-10" variants={staggerForm}>
+          <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden h-full" style={{
+          background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
           border: '1px solid rgba(240, 104, 0, 0.15)',
           boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
         }}>
