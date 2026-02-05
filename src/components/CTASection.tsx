@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, type Variants } from "framer-motion";
-import { User, Mail, Building2, Phone, MessageSquare, Send, Sparkles, Shield, Clock, CheckCircle2 } from "lucide-react";
+import { User, Mail, Building2, Phone, MessageSquare, Send, Shield, Clock, CheckCircle2 } from "lucide-react";
 
 // Animation variants
 const scaleCenter: Variants = {
@@ -79,13 +79,9 @@ const CTASection = () => {
       amount: 0.2
     }} variants={scaleCenter}>
         {/* Left Section: Image Card with Text Overlay */}
-        <motion.div 
-          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden"
-          variants={slideUp}
-          style={{
-            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
-          }}
-        >
+        <motion.div className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden" variants={slideUp} style={{
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
+      }}>
           {/* Background image placeholder - você pode adicionar uma imagem aqui */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#f06800]/20 via-transparent to-black/40"></div>
           
@@ -165,7 +161,7 @@ const CTASection = () => {
 
             {/* Premium badge */}
             <div className="absolute top-6 left-6 flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg">
-              <Sparkles className="w-3 h-3" />
+              
               <span>Exclusivo</span>
             </div>
 
