@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, type Variants } from "framer-motion";
-import { User, Mail, Building2, Phone, MessageSquare, Send, Sparkles } from "lucide-react";
+import { User, Mail, Building2, Phone, MessageSquare, Send } from "lucide-react";
 
 // Animation variants
 const scaleCenter: Variants = {
@@ -104,7 +104,7 @@ const CTASection = () => {
           {/* Trust badges */}
           <div className="flex flex-wrap gap-3 mt-2">
             <div className="px-5 py-2 rounded-full border border-[#f06800]/30 bg-[#f06800]/5 backdrop-blur-md flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#f06800]" />
+              
               <span className="text-xs text-gray-800 uppercase tracking-[0.15em] font-medium">100% Gratuito</span>
             </div>
             <div className="px-5 py-2 rounded-full border border-gray-200 bg-white/50 backdrop-blur-md">
