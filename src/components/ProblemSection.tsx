@@ -143,7 +143,7 @@ const ProblemSection = () => {
           amount: 0.3
         }} variants={fadeInLeft}>
             {/* Background Image */}
-            <img src={aiLogos} alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src="/lovable-uploads/2a577a61-464d-43b2-87f8-0246e269da16.webp" />
           </motion.div>
 
           {/* Text Content */}
