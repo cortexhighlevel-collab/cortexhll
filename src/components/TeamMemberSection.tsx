@@ -47,7 +47,7 @@ const TeamMemberSection = () => {
   const currentMember = teamMembers[currentIndex];
 
   return (
-    <section id="equipe" className="w-full bg-secondary py-16 md:py-24 px-5 md:px-12">
+    <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12">
       <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">

@@ -11,7 +11,7 @@ import TeamMemberSection from "@/components/TeamMemberSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 const Index = () => {
-  return <div className="min-h-screen flex flex-col items-center pt-3 bg-[#f2f2f2]">
+  return <div className="min-h-screen flex flex-col items-center pt-3">
       {/* Seção 1: Header/Navbar */}
       <Header />
       
