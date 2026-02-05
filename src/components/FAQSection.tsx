@@ -30,8 +30,8 @@
    ];
  
    return (
-     <section id="faq" className="w-full py-24 md:py-32 bg-[#0D0D0D] dark-dotted-bg font-dm">
-       <div className="max-w-[900px] mx-auto px-5 md:px-12">
+      <section id="faq" className="w-full py-24 md:py-32 bg-[#0D0D0D] dark-dotted-bg font-dm relative">
+        <div className="max-w-[900px] mx-auto px-5 md:px-12 relative z-10">
          {/* Header */}
          <motion.div 
            className="text-center mb-16"

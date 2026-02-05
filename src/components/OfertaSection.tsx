@@ -48,7 +48,7 @@ const fadeSlide: Variants = {
 
 const OfertaSection = () => {
   return (
-    <section className="w-full bg-[#0D0D0D] text-white dark-dotted-bg font-dm">
+    <section className="w-full bg-[#0D0D0D] text-white dark-dotted-fade-in font-dm">
       <div className="max-w-[1440px] mx-auto px-6 py-16 md:px-12 md:py-28 flex flex-col gap-16 md:gap-24 relative z-10">
         {/* TOP SECTION: Header & CTA */}
         <motion.div 

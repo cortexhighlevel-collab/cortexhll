@@ -37,10 +37,10 @@ const pulseIn: Variants = {
 };
 
 const CTASection = () => {
-  return <div id="contato" className="min-h-screen text-black p-8 flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white">
+  return <div id="contato" className="min-h-screen text-black p-8 flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in">
       {/* Container principal horizontal (flex-row em telas grandes) */}
       <motion.div 
-        className="w-full max-w-[1280px] relative z-10 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:gap-24 border-y border-black/10 py-12 lg:py-20"
+        className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-12 lg:gap-24 border-y border-black/10 py-12 lg:py-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
