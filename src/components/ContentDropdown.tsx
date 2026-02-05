@@ -1,24 +1,19 @@
-import { ExternalLink, Mail, Brain, Palette, TrendingUp, Server } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 interface FeatureCardProps {
   title: string;
   subtitle: string;
-  icon: React.ReactNode;
-  link?: string;
+  link: string;
 }
 
-const FeatureCard = ({ title, subtitle, icon }: FeatureCardProps) => (
-  <div 
-    className="flex items-center gap-4 p-4 rounded-2xl bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] transition-all duration-200 group"
+const FeatureCard = ({ title, subtitle, link }: FeatureCardProps) => (
+  <a 
+    href={link}
+    className="flex flex-col p-4 rounded-2xl bg-[rgba(255,255,255,0.03)] hover:bg-[rgba(255,255,255,0.08)] transition-all duration-200 group"
   >
-    <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.05)] flex items-center justify-center text-white/70 group-hover:text-white transition-colors">
-      {icon}
-    </div>
-    <div className="flex flex-col">
-      <span className="text-white font-medium text-sm">{title}</span>
-      <span className="text-white/50 text-xs">{subtitle}</span>
-    </div>
-  </div>
+    <span className="text-white font-medium text-sm">{title}</span>
+    <span className="text-white/50 text-xs">{subtitle}</span>
+  </a>
 );
 
 export const ContentDropdown = () => {
@@ -26,22 +21,22 @@ export const ContentDropdown = () => {
     {
       title: "AI Intelligence & CRM",
       subtitle: "Automação e inteligência artificial",
-      icon: <Brain className="w-5 h-5" />
+      link: "#servicos"
     },
     {
       title: "Design & Performance",
       subtitle: "Identidade visual e conversão",
-      icon: <Palette className="w-5 h-5" />
+      link: "#servicos"
     },
     {
       title: "Growth & Traffic",
       subtitle: "Estratégias de crescimento",
-      icon: <TrendingUp className="w-5 h-5" />
+      link: "#servicos"
     },
     {
       title: "Infraestrutura",
       subtitle: "Soluções técnicas robustas",
-      icon: <Server className="w-5 h-5" />
+      link: "#servicos"
     }
   ];
 
