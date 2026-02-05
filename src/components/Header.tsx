@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import ContentDropdown from "./ContentDropdown";
 import logoImage from "@/assets/logo_cortex_nova_preta.png";
 import dividerIcon from "@/assets/nav-divider-icon.png";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const Logo = () => (
@@ -75,26 +75,25 @@ export const Header = () => {
         {/* Mobile Menu Button */}
         {/* Mobile: Region Picker + Menu Button */}
         <div className="md:hidden flex items-center gap-2">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <button className="p-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[85%] max-w-[360px] bg-zinc-900 p-0 border-none rounded-l-2xl">
-              <div className="flex flex-col h-full text-white">
+          <button className="p-3" onClick={() => setIsOpen(true)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogContent className="w-[90%] max-w-[340px] bg-zinc-900 p-0 border-none rounded-2xl top-[35%] translate-y-[-35%]">
+              <div className="flex flex-col text-white">
                 {/* Header do menu mobile */}
                 <div className="flex items-center justify-between p-5">
                   <LogoWhite />
-                  <SheetClose asChild>
+                  <DialogClose asChild>
                     <button className="p-2 border border-white/30 rounded-md hover:bg-white/10 transition-colors">
                       <X className="w-5 h-5 text-white" />
                     </button>
-                  </SheetClose>
+                  </DialogClose>
                 </div>
                 
                 {/* Links de navegação centralizados */}
@@ -176,7 +175,7 @@ export const Header = () => {
                 </nav>
                 
                 {/* CTA Button */}
-                <div className="mt-auto px-6 pb-6 flex flex-col items-center gap-5">
+                <div className="px-6 pb-6 flex flex-col items-center gap-5">
                   <a 
                     href="#contato" 
                     className="flex items-center justify-center gap-2 w-full py-3.5 px-6 bg-[#f06600] text-white font-medium rounded-full hover:bg-[#d95b00] transition-colors text-sm tracking-wide"
@@ -200,8 +199,8 @@ export const Header = () => {
                   </div>
                 </div>
               </div>
-            </SheetContent>
-          </Sheet>
+            </DialogContent>
+          </Dialog>
           <div className="region-pill">
             <div className="w-8 h-8 rounded-full overflow-hidden">
               <img 
