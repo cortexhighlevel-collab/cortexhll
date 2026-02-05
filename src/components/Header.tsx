@@ -73,15 +73,15 @@ export const Header = () => {
 
         {/* Region Picker */}
         <div className="hidden md:block">
-          <div className="flex items-center gap-2 bg-zinc-800 rounded-full px-3 py-2 cursor-pointer hover:bg-zinc-700 transition-colors">
-            <div className="w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
+          <div className="region-pill">
+            <div className="w-8 h-8 rounded-full overflow-hidden">
               <img 
                 src="https://framerusercontent.com/images/80WuBBdsE94W3tmgnQr2bjV2a2E.png" 
                 alt="Brazil Flag"
                 className="w-full h-full object-cover"
               />
             </div>
-            <ChevronDown className="w-4 h-4 text-white" />
+            <span className="text-sm font-medium text-foreground">BR</span>
           </div>
         </div>
       </div>
