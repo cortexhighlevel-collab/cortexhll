@@ -5,36 +5,42 @@ import dnaExclusividade from "@/assets/dna-exclusividade.jpg";
 const blurFade: Variants = {
   hidden: {
     opacity: 0,
-    filter: "blur(10px)",
+    filter: "blur(10px)"
   },
   visible: {
     opacity: 1,
     filter: "blur(0px)",
-    transition: { duration: 0.805, ease: "easeOut" },
-  },
+    transition: {
+      duration: 0.805,
+      ease: "easeOut"
+    }
+  }
 };
-
 const staggerGrid: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.115, delayChildren: 0.23 },
-  },
+    transition: {
+      staggerChildren: 0.115,
+      delayChildren: 0.23
+    }
+  }
 };
-
 const cardFloat: Variants = {
   hidden: {
     opacity: 0,
     y: 40,
-    filter: "blur(8px)",
+    filter: "blur(8px)"
   },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.69, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
+    transition: {
+      duration: 0.69,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
 };
-
 const DNASection = () => {
   return <section className="w-full py-16 md:py-24 px-4 md:px-8 font-dm light-dotted-fade-in">
       {/* Main Container */}
@@ -43,14 +49,12 @@ const DNASection = () => {
     }}>
         
         {/* Title Section */}
-        <motion.div 
-          className="flex flex-col items-center justify-center w-full" 
-          style={{ gap: '24px' }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
-          variants={blurFade}
-        >
+        <motion.div className="flex flex-col items-center justify-center w-full" style={{
+        gap: '24px'
+      }} initial="hidden" whileInView="visible" viewport={{
+        once: false,
+        amount: 0.5
+      }} variants={blurFade}>
           
           {/* Badge Pill with Glassmorphic Styling */}
           <div className="px-5 py-2 rounded-full flex items-center justify-center" style={{
@@ -79,37 +83,27 @@ const DNASection = () => {
         </motion.div>
 
         {/* Bento Grid - Asymmetric Layout */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full" 
-          style={{ gridTemplateRows: 'auto auto' }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={staggerGrid}
-        >
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full" style={{
+        gridTemplateRows: 'auto auto'
+      }} initial="hidden" whileInView="visible" viewport={{
+        once: false,
+        amount: 0.2
+      }} variants={staggerGrid}>
           
           {/* Card 1 - Tall card on left (spans 2 rows) */}
-          <motion.div 
-            className="relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" 
-            style={{
-              background: 'linear-gradient(180deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.85) 100%)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid #f06800',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
-            }}
-            variants={cardFloat}
-          >
+          <motion.div className="relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" style={{
+          background: 'linear-gradient(180deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.85) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid #f06800',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
+        }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 left-4 w-8 h-8">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-white opacity-40"></div>
               <div className="absolute top-0 left-0 w-[2px] h-full bg-white opacity-40"></div>
             </div>
-            <img 
-              src={dnaExclusividade} 
-              alt="" 
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" src="/lovable-uploads/ada54440-d599-4143-a95e-7d465267aa19.jpg" />
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl mb-3 font-medium text-white">
                 Exclusividade
@@ -121,17 +115,13 @@ const DNASection = () => {
           </motion.div>
 
           {/* Card 2 - Top right (Sofisticação) */}
-          <motion.div 
-            className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" 
-            style={{
-              background: 'rgba(13, 13, 13, 0.65)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
-            }}
-            variants={cardFloat}
-          >
+          <motion.div className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
+          background: 'rgba(13, 13, 13, 0.65)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
+        }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 right-4 w-6 h-6">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-white opacity-30"></div>
@@ -148,17 +138,13 @@ const DNASection = () => {
           </motion.div>
 
           {/* Card 3 - Top right beside (Autoridade) */}
-          <motion.div 
-            className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" 
-            style={{
-              background: 'rgba(13, 13, 13, 0.65)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
-            }}
-            variants={cardFloat}
-          >
+          <motion.div className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
+          background: 'rgba(13, 13, 13, 0.65)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
+        }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 right-4 w-6 h-6">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-white opacity-30"></div>
@@ -175,25 +161,21 @@ const DNASection = () => {
           </motion.div>
 
           {/* Card 4 - Wide card bottom right (spans 2 columns) */}
-          <motion.div 
-            className="relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" 
-            style={{
-              background: 'linear-gradient(135deg, rgba(13, 13, 13, 0.75) 0%, rgba(13, 13, 13, 0.65) 100%)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
-            }}
-            variants={cardFloat}
-          >
+          <motion.div className="relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" style={{
+          background: 'linear-gradient(135deg, rgba(13, 13, 13, 0.75) 0%, rgba(13, 13, 13, 0.65) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
+        }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
             <div className="absolute bottom-4 right-4 w-8 h-8">
               <div className="absolute bottom-0 right-0 w-full h-[2px] bg-white opacity-40"></div>
               <div className="absolute bottom-0 right-0 w-[2px] h-full bg-white opacity-40"></div>
             </div>
             <div className="absolute inset-0 opacity-40" style={{
-              background: 'radial-gradient(ellipse at 70% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 60%)'
-            }} />
+            background: 'radial-gradient(ellipse at 70% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 60%)'
+          }} />
             <div className="relative z-10">
               <h3 className="text-xl md:text-2xl mb-2 font-medium text-white">
                 Resultados Comprovados
