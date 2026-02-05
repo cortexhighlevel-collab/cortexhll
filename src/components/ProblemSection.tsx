@@ -2,7 +2,7 @@ import { Globe, TrendingDown, EyeOff, ArrowUpRight } from "lucide-react";
 
 const ProblemSection = () => {
   return (
-    <section className="w-full px-5 md:px-12 py-16 md:py-24 bg-secondary">
+    <section className="w-full px-5 md:px-12 py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto">
         
         {/* Main Grid Layout */}

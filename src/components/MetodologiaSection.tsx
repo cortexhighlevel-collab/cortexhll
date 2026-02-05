@@ -1,8 +1,8 @@
 const MetodologiaSection = () => {
-  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px] bg-secondary">
+  return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px]">
       <div className="max-w-[1200px] mx-auto">
         {/* Main Card Container */}
-        <div className="card-radius p-4 md:p-6 lg:p-8 bg-secondary">
+        <div className="card-radius p-4 md:p-6 lg:p-8">
           {/* Header */}
           <div className="mb-5 md:mb-8">
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight font-medium">

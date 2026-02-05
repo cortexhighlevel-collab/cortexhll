@@ -1,7 +1,5 @@
 const DNASection = () => {
-  return <section className="w-full py-16 md:py-24 px-4 md:px-8" style={{
-    background: '#f2f2f2'
-  }}>
+  return <section className="w-full py-16 md:py-24 px-4 md:px-8">
       {/* Main Container */}
       <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center" style={{
       gap: '48px'
