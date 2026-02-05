@@ -152,7 +152,7 @@ const ProblemSection = () => {
           amount: 0.5
         }} variants={fadeInRight}>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
-              ChatGPT não recomenda...
+                As IA's não recomenda...
             </h3>
             <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-dm font-light">
               Quando alguém pergunta ao ChatGPT, Claude ou Gemini sobre seu nicho, sua empresa não aparece. Você é invisível para a nova era da busca. É hora de se posicionar onde o futuro já está acontecendo.
