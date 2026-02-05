@@ -115,12 +115,12 @@ const ProblemSection = () => {
           </motion.div>
 
           {/* Card */}
-          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2 border border-[#f06800]" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="relative overflow-hidden rounded-3xl min-h-[350px] lg:min-h-[400px] flex flex-col group transition-colors duration-300 order-1 lg:order-2 border border-[#f06800]" initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
         }} variants={fadeInRight}>
-            {/* Background Image */}
-            <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-100" src="/lovable-uploads/ee04cb1a-f1a2-4c44-88ae-7112d2d9a445.jpg" />
+            {/* Background Image - no overlay */}
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src="/lovable-uploads/ee04cb1a-f1a2-4c44-88ae-7112d2d9a445.jpg" />
             {/* Tags at top */}
             <div className="relative z-10 p-6 flex flex-wrap gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">

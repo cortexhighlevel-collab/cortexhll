@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import dnaExclusividade from "@/assets/dna-exclusividade.jpg";
 
 // Animation variants - Blur to clear effect
 const blurFade: Variants = {
@@ -104,9 +105,11 @@ const DNASection = () => {
               <div className="absolute top-0 left-0 w-full h-[2px] bg-white opacity-40"></div>
               <div className="absolute top-0 left-0 w-[2px] h-full bg-white opacity-40"></div>
             </div>
-            <div className="absolute inset-0 opacity-60" style={{
-              background: 'radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%)'
-            }} />
+            <img 
+              src={dnaExclusividade} 
+              alt="" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
+            />
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl mb-3 font-medium text-white">
                 Exclusividade
