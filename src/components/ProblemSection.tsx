@@ -120,7 +120,7 @@ const ProblemSection = () => {
           amount: 0.3
         }} variants={fadeInRight}>
             {/* Background Image - no overlay */}
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src="/lovable-uploads/ee04cb1a-f1a2-4c44-88ae-7112d2d9a445.jpg" />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src="/lovable-uploads/d036f2db-b488-409d-8131-fe3dc8905365.webp" />
             {/* Tags at top */}
             <div className="relative z-10 p-6 flex flex-wrap gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
