@@ -2,12 +2,6 @@
  import { motion } from "framer-motion";
  
  const FAQSection = () => {
-   // Dotted pattern style
-   const dottedBgStyle = {
-     backgroundImage: `radial-gradient(circle, #9ca3af 1px, transparent 1px)`,
-     backgroundSize: '24px 24px',
-   };
- 
    const faqs = [
      {
        question: "Quanto tempo leva para ver resultados?",
@@ -36,7 +30,7 @@
    ];
  
    return (
-     <section id="faq" className="w-full py-24 md:py-32 bg-[#f06800] font-dm relative" style={dottedBgStyle}>
+     <section id="faq" className="w-full py-24 md:py-32 bg-[#0D0D0D] dark-dotted-bg font-dm">
        <div className="max-w-[900px] mx-auto px-5 md:px-12">
          {/* Header */}
          <motion.div 
