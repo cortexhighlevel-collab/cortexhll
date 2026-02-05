@@ -80,7 +80,7 @@ const CTASection = () => {
     }} variants={scaleCenter}>
         {/* Left Section: Image Card with Text Overlay */}
         <motion.div 
-          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden lg:my-8"
+          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden"
           variants={slideUp}
           style={{
             background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
@@ -143,7 +143,7 @@ const CTASection = () => {
         </motion.div>
 
         {/* Right Section: Form - overlapping the left card */}
-        <motion.div className="relative lg:w-[55%] lg:-ml-12 mt-[-40px] lg:mt-0 lg:my-8 z-10" variants={staggerForm}>
+        <motion.div className="relative lg:w-[55%] lg:-ml-12 mt-[-40px] lg:mt-0 z-10" variants={staggerForm}>
           <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden h-full" style={{
           background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
           border: '1px solid rgba(240, 104, 0, 0.15)',
