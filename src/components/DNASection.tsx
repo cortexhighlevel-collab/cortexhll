@@ -103,7 +103,7 @@ const DNASection = () => {
               <div className="absolute top-0 left-0 w-full h-[2px] bg-white opacity-40"></div>
               <div className="absolute top-0 left-0 w-[2px] h-full bg-white opacity-40"></div>
             </div>
-            <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{ objectPosition: 'center 30%' }} src="/lovable-uploads/ada54440-d599-4143-a95e-7d465267aa19.jpg" />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{ objectPosition: 'center 35%' }} src="/lovable-uploads/ada54440-d599-4143-a95e-7d465267aa19.jpg" />
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl mb-3 font-medium text-white">
                 Exclusividade
