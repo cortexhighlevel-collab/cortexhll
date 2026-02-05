@@ -67,6 +67,12 @@ const FormatoSection = () => {
     subtitle: "Crescimento acelerado",
     items: ["SEO Avançado", "Tráfego Pago", "Growth Hacking", "AI Referral Engine™"],
     imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg"
+  }, {
+    tag: "INFRAESTRUTURA",
+    title: "Infraestrutura",
+    subtitle: "Soluções técnicas robustas",
+    items: ["Hospedagem Cloud", "APIs & Integrações", "Segurança & Compliance", "DevOps"],
+    imageUrl: "https://framerusercontent.com/images/IB4CnbF9zAC2ERLBGxhUt8Jmwcs.jpg"
   }];
   return <section id="servicos" className="w-full px-5 md:px-12 py-16 md:py-24 font-dm scroll-mt-24">
       <div className="max-w-[1400px] mx-auto">
