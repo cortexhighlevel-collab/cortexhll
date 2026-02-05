@@ -68,7 +68,7 @@ const FormatoSection = () => {
     items: ["SEO Avançado", "Tráfego Pago", "Growth Hacking", "AI Referral Engine™"],
     imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg"
   }];
-  return <section className="w-full px-5 md:px-12 py-16 md:py-24 font-dm">
+  return <section id="servicos" className="w-full px-5 md:px-12 py-16 md:py-24 font-dm scroll-mt-24">
       <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
         <div className="mb-10 md:mb-16">
