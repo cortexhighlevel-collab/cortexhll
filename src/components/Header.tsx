@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronDown, ArrowRight, X } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import ContentDropdown from "./ContentDropdown";
 import logoImage from "@/assets/logo_cortex_nova_preta.png";
 import dividerIcon from "@/assets/nav-divider-icon.png";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const Logo = () => (
   <img src={logoImage} alt="Cortex High Level" className="h-7" />
 );
 
+const LogoWhite = () => (
+  <img src={logoImage} alt="Cortex High Level" className="h-7 brightness-0 invert" />
+);
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-white z-50 rounded-b-3xl border-b-4 border-orange-500 shadow-lg">
@@ -79,51 +85,90 @@ export const Header = () => {
                 </svg>
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white p-0">
-              <div className="flex flex-col h-full">
+            <SheetContent side="right" className="w-full sm:w-[400px] bg-zinc-900 p-0 border-none">
+              <div className="flex flex-col h-full text-white">
                 {/* Header do menu mobile */}
-                <div className="flex items-center justify-between p-5 border-b border-gray-100">
-                  <img src={logoImage} alt="Cortex High Level" className="h-6" />
+                <div className="flex items-center justify-between p-6">
+                  <LogoWhite />
                   <SheetClose asChild>
-                    <button className="p-2">
-                      <X className="w-5 h-5 text-gray-600" />
+                    <button className="p-2 border border-white/30 rounded-md hover:bg-white/10 transition-colors">
+                      <X className="w-5 h-5 text-white" />
                     </button>
                   </SheetClose>
                 </div>
                 
-                {/* Links de navegação */}
-                <nav className="flex flex-col p-5 gap-1">
+                {/* Links de navegação centralizados */}
+                <nav className="flex flex-col items-center py-8 gap-6">
                   <a 
                     href="#" 
-                    className="py-3 px-4 text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors"
+                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Início
+                    INÍCIO
                   </a>
+                  
+                  {/* Dropdown de Serviços */}
+                  <Collapsible open={servicesOpen} onOpenChange={setServicesOpen}>
+                    <CollapsibleTrigger className="flex items-center justify-center gap-2 px-16 py-3 border border-white/30 rounded-full text-white/80 text-sm font-medium tracking-widest uppercase hover:bg-white/10 transition-colors">
+                      SERVIÇOS
+                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="mt-4 flex flex-col items-center gap-3">
+                      <a 
+                        href="#servicos" 
+                        className="text-white/60 text-sm hover:text-white transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        AI Intelligence
+                      </a>
+                      <a 
+                        href="#servicos" 
+                        className="text-white/60 text-sm hover:text-white transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Design
+                      </a>
+                      <a 
+                        href="#servicos" 
+                        className="text-white/60 text-sm hover:text-white transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Growth
+                      </a>
+                      <a 
+                        href="#servicos" 
+                        className="text-white/60 text-sm hover:text-white transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Infraestrutura
+                      </a>
+                    </CollapsibleContent>
+                  </Collapsible>
+                  
                   <a 
                     href="#metodologia" 
-                    className="py-3 px-4 text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors"
+                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Método
+                    MÉTODO
                   </a>
                   <a 
                     href="#cases" 
-                    className="py-3 px-4 text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors"
+                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Cases
+                    CASES
                   </a>
                   <a 
                     href="#equipe" 
-                    className="py-3 px-4 text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors"
+                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Equipe
+                    EQUIPE
                   </a>
                   <a 
                     href="#faq" 
-                    className="py-3 px-4 text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors"
+                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     FAQ
@@ -131,15 +176,28 @@ export const Header = () => {
                 </nav>
                 
                 {/* CTA Button */}
-                <div className="mt-auto p-5 border-t border-gray-100">
+                <div className="mt-auto px-8 pb-8 flex flex-col items-center gap-6">
                   <a 
                     href="#contato" 
-                    className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-[#f06600] text-white font-medium rounded-full hover:bg-[#d95b00] transition-colors"
+                    className="flex items-center justify-center gap-2 w-full py-4 px-8 bg-[#f06600] text-white font-medium rounded-full hover:bg-[#d95b00] transition-colors text-sm tracking-wide"
                     onClick={() => setIsOpen(false)}
                   >
                     Fale Conosco
                     <ArrowRight className="w-4 h-4" />
                   </a>
+                  
+                  {/* Language Selector */}
+                  <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800 rounded-full">
+                    <div className="w-6 h-6 rounded-full overflow-hidden">
+                      <img 
+                        src="https://framerusercontent.com/images/80WuBBdsE94W3tmgnQr2bjV2a2E.png" 
+                        alt="Brazil Flag"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <span className="text-sm text-white/80">BR</span>
+                    <ChevronDown className="w-3 h-3 text-white/60" />
+                  </div>
                 </div>
               </div>
             </SheetContent>
