@@ -91,7 +91,7 @@ const DNASection = () => {
       }} variants={staggerGrid}>
           
           {/* Card 1 - Tall card on left (spans 2 rows) */}
-          <motion.div className="relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" style={{
+          <motion.div className="group relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" style={{
           background: 'linear-gradient(180deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.85) 100%)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -99,25 +99,27 @@ const DNASection = () => {
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
-            <div className="absolute top-4 left-4 w-8 h-8">
+            <div className="absolute top-4 left-4 w-8 h-8 z-20">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-white opacity-40"></div>
               <div className="absolute top-0 left-0 w-[2px] h-full bg-white opacity-40"></div>
             </div>
             <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" style={{
             objectPosition: 'center 35%'
           }} src="/lovable-uploads/47939c19-85cb-4393-80f4-edfeb862a20c.webp" />
-            <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl mb-3 font-medium text-white">
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="relative z-20">
+              <h3 className="text-2xl md:text-3xl font-medium text-white">
                 Exclusividade
               </h3>
-              <p className="text-sm md:text-base font-light text-white/70 leading-relaxed">
+              <p className="text-sm md:text-base font-light text-white/90 leading-relaxed mt-3 max-h-0 md:group-hover:max-h-40 overflow-hidden transition-all duration-500 ease-out opacity-0 md:group-hover:opacity-100">
                 Atendimento limitado a poucos clientes por vez. Cada projeto recebe dedicação total da equipe sênior. AI Referral Engine™ exclusivo.
               </p>
             </div>
           </motion.div>
 
           {/* Card 2 - Top right (Sofisticação) */}
-          <motion.div className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
+          <motion.div className="group relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
           background: 'rgba(13, 13, 13, 0.65)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -125,22 +127,24 @@ const DNASection = () => {
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
-            <div className="absolute top-4 right-4 w-6 h-6">
+            <div className="absolute top-4 right-4 w-6 h-6 z-20">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-white opacity-30"></div>
               <div className="absolute top-0 right-0 w-[2px] h-full bg-white opacity-30"></div>
             </div>
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2 font-medium text-white">
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="relative z-20">
+              <h3 className="text-xl md:text-2xl font-medium text-white">
                 Sofisticação
               </h3>
-              <p className="text-sm font-light text-white/70">
+              <p className="text-sm font-light text-white/90 mt-2 max-h-0 md:group-hover:max-h-32 overflow-hidden transition-all duration-500 ease-out opacity-0 md:group-hover:opacity-100">
                 Design premium e metodologia proprietária integrada em cada entrega.
               </p>
             </div>
           </motion.div>
 
           {/* Card 3 - Top right beside (Autoridade) */}
-          <motion.div className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
+          <motion.div className="group relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
           background: 'rgba(13, 13, 13, 0.65)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -148,22 +152,24 @@ const DNASection = () => {
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
-            <div className="absolute top-4 right-4 w-6 h-6">
+            <div className="absolute top-4 right-4 w-6 h-6 z-20">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-white opacity-30"></div>
               <div className="absolute top-0 right-0 w-[2px] h-full bg-white opacity-30"></div>
             </div>
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2 font-medium text-white">
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="relative z-20">
+              <h3 className="text-xl md:text-2xl font-medium text-white">
                 Autoridade
               </h3>
-              <p className="text-sm font-light text-white/70">
+              <p className="text-sm font-light text-white/90 mt-2 max-h-0 md:group-hover:max-h-32 overflow-hidden transition-all duration-500 ease-out opacity-0 md:group-hover:opacity-100">
                 Posicione sua marca como referência absoluta nas respostas da IA.
               </p>
             </div>
           </motion.div>
 
           {/* Card 4 - Wide card bottom right (spans 2 columns) */}
-          <motion.div className="relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" style={{
+          <motion.div className="group relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" style={{
           background: 'linear-gradient(135deg, rgba(13, 13, 13, 0.75) 0%, rgba(13, 13, 13, 0.65) 100%)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
@@ -171,18 +177,20 @@ const DNASection = () => {
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
-            <div className="absolute bottom-4 right-4 w-8 h-8">
+            <div className="absolute bottom-4 right-4 w-8 h-8 z-20">
               <div className="absolute bottom-0 right-0 w-full h-[2px] bg-white opacity-40"></div>
               <div className="absolute bottom-0 right-0 w-[2px] h-full bg-white opacity-40"></div>
             </div>
             <div className="absolute inset-0 opacity-40" style={{
             background: 'radial-gradient(ellipse at 70% 80%, rgba(255, 255, 255, 0.06) 0%, transparent 60%)'
           }} />
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl mb-2 font-medium text-white">
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="relative z-20">
+              <h3 className="text-xl md:text-2xl font-medium text-white">
                 Resultados Comprovados
               </h3>
-              <p className="text-sm md:text-base font-light text-white/70">
+              <p className="text-sm md:text-base font-light text-white/90 mt-2 max-h-0 md:group-hover:max-h-32 overflow-hidden transition-all duration-500 ease-out opacity-0 md:group-hover:opacity-100">
                 +500% ROI médio. 47 empresas transformadas. Resultados em até 30 dias. Métricas claras e mensuráveis em cada projeto.
               </p>
             </div>
