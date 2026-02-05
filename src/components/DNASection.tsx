@@ -95,7 +95,7 @@ const DNASection = () => {
               background: 'linear-gradient(180deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.85) 100%)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              border: '1px solid #f06800',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
             }}
             variants={cardFloat}
