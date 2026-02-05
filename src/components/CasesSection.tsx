@@ -3,7 +3,7 @@ import { Globe, FileText, Terminal } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background-blackclub.webp";
-import casesBackground2 from "@/assets/cases-background-2.png";
+import casesBackground2 from "@/assets/cases-background-valentina.webp";
 
 // Animation variants - Slide from sides
 const slideFromLeft: Variants = {
