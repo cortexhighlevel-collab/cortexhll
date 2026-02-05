@@ -49,13 +49,15 @@ interface ServiceCardProps {
   subtitle: string;
   items: string[];
   imageUrl: string;
+  link?: string;
 }
 const ServiceCard = ({
   tag,
   title,
   subtitle,
   items,
-  imageUrl
+  imageUrl,
+  link = "https://fluxo.cortexhl.com/"
 }: ServiceCardProps) => <div className="course-card group font-dm h-[420px] lg:h-[450px]">
     <img src={imageUrl} alt={title} className="absolute inset-0 w-full h-full object-cover" />
     <div className="course-overlay absolute inset-0" />
@@ -82,7 +84,7 @@ const ServiceCard = ({
           </ul>
         </div>
         
-        <a href="https://fluxo.cortexhl.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-foreground text-xs lg:text-sm font-medium uppercase tracking-wider w-fit hover:bg-white/90 transition-colors">
+        <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-foreground text-xs lg:text-sm font-medium uppercase tracking-wider w-fit hover:bg-white/90 transition-colors">
           Saiba Mais
           <ArrowIcon />
         </a>
@@ -99,7 +101,8 @@ const FormatoSection = () => {
     title: "Inteligência Estratégica com IA",
     subtitle: "Automação inteligente",
     items: ["Automação", "Análise", "AEO & SEO", "Agentes de IA", "Engenharia de Prompt"],
-    imageUrl: "https://framerusercontent.com/images/LLEdm7hWVMfprlCCIi2LHXlJKE.jpg"
+    imageUrl: "https://framerusercontent.com/images/LLEdm7hWVMfprlCCIi2LHXlJKE.jpg",
+    link: "https://ops.cortexhl.com/"
   }, {
     tag: "CRM",
     title: "CRM & Gestão de Leads",
