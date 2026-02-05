@@ -65,7 +65,7 @@ const ProblemSection = () => {
         {/* Row 1: Card Left + Text Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 lg:mb-20">
           {/* Card - "Seu site é lindo mas..." */}
-          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 border border-zinc-700" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 border border-[#f06800]" initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
         }} variants={fadeInLeft}>
@@ -114,7 +114,7 @@ const ProblemSection = () => {
           </motion.div>
 
           {/* Card */}
-          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2 border border-zinc-800" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2 border border-[#f06800]" initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
         }} variants={fadeInRight}>
