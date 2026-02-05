@@ -66,7 +66,7 @@ const CasesSection = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-28 dark-dotted-bg">
+    <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-28 dark-dotted-bg font-dm">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col gap-16 md:gap-32">
         
         {/* TOP SECTION: Two columns - Left: Title & CTA, Right: Description & Stats */}
@@ -74,7 +74,7 @@ const CasesSection = () => {
           
           {/* LEFT COLUMN: Title & CTA Button */}
           <div className="flex flex-col gap-8 max-w-xl">
-            <h2 className="text-5xl md:text-7xl font-normal leading-[1.0] tracking-tight text-[#F2F2F2]">
+            <h2 className="text-5xl md:text-7xl font-medium leading-[1.0] tracking-tight text-[#F2F2F2]">
               Resultados que falam
             </h2>
             
@@ -83,7 +83,7 @@ const CasesSection = () => {
               href="#contato" 
               className="group flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300 w-fit"
             >
-              <span className="text-sm font-bold tracking-wide text-[#F2F2F2]">Ver Cases</span>
+              <span className="text-sm font-medium tracking-wider uppercase text-[#F2F2F2]">Ver Cases</span>
               <span className="bg-white text-black p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
                 <svg viewBox="0 0 20 20" className="w-3 h-3 fill-current">
                   <path d="M12.25 6.5L1.75 6.5M1.75 6.5L7 11.75M1.75 6.5L7 1.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -95,14 +95,14 @@ const CasesSection = () => {
           {/* RIGHT COLUMN: Description, Avatars & Decorative */}
           <div className="flex flex-col gap-6 items-end w-full md:w-auto">
             {/* Description Text */}
-            <p className="text-xl md:text-2xl text-[#C9C9C9] text-right max-w-md leading-relaxed">
+            <p className="text-xl md:text-2xl text-[#C9C9C9] text-right max-w-md leading-relaxed font-light">
               Empresas que confiaram na Cortex para dominar as respostas da IA.
             </p>
 
             {/* Avatars & Counter */}
             <div className="flex flex-col md:flex-row items-center gap-6 p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
               {/* Counter */}
-              <span className="text-xs font-normal tracking-[0.2em] text-[#C9C9C9]">
+              <span className="text-xs font-medium tracking-[0.2em] text-[#C9C9C9] uppercase">
                 +47 EMPRESAS ATENDIDAS
               </span>
 
@@ -121,7 +121,7 @@ const CasesSection = () => {
               <div className="w-14 h-14">
                 <DecorativeStar />
               </div>
-              <p className="text-right text-lg text-[#C9C9C9] max-w-[150px] leading-tight">
+              <p className="text-right text-lg text-[#C9C9C9] max-w-[150px] leading-tight font-light">
                 Resultados comprovados em 30 dias.
               </p>
             </div>
@@ -172,7 +172,7 @@ const CasesSection = () => {
 
               {/* Testimonial Text */}
               <div className="mt-8 mb-8">
-                <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light transition-opacity duration-300">
+                <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light transition-opacity duration-300 tracking-wide">
                   "{currentTestimonial.quote}"
                 </p>
               </div>
@@ -184,7 +184,7 @@ const CasesSection = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white font-medium text-sm leading-tight">{currentTestimonial.author}</span>
-                  <span className="text-white/60 text-xs leading-tight">{currentTestimonial.role}</span>
+                  <span className="text-white/60 text-xs leading-tight font-light">{currentTestimonial.role}</span>
                 </div>
               </div>
 
@@ -215,7 +215,7 @@ const CasesSection = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-4xl md:text-5xl font-bold text-orange-500 leading-none">{stat.value}</span>
-                  <span className="text-[#808080] text-xs tracking-[0.15em] uppercase mt-1">{stat.label}</span>
+                  <span className="text-[#808080] text-xs tracking-[0.2em] uppercase mt-1 font-medium">{stat.label}</span>
                 </div>
               </div>
             );

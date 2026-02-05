@@ -11,7 +11,7 @@ const Logo = () => (
 export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-white z-50 rounded-b-3xl border-b-4 border-orange-500 shadow-lg">
-      <div className="w-full max-w-[1800px] mx-auto px-5 md:px-12 py-3 flex justify-between items-center">
+      <div className="w-full max-w-[1800px] mx-auto px-5 md:px-12 py-3 flex justify-between items-center font-dm">
         {/* Logo */}
         <a href="#" className="block hover:opacity-70 transition-opacity" aria-label="Cortex High Level">
           <Logo />
@@ -21,11 +21,11 @@ export const Header = () => {
         <nav className="nav-pill rounded-full py-1.5 px-2 md:px-2 flex items-center gap-3 h-16 shadow-lg mx-8 flex-1 max-w-[716px] hidden md:flex">
           {/* Left Group */}
           <div className="flex items-center gap-1">
-            <a href="#" className="nav-link">Início</a>
+            <a href="#" className="nav-link tracking-wide">Início</a>
             
             <Popover>
               <PopoverTrigger asChild>
-                <button className="nav-link flex items-center gap-1 cursor-pointer">
+                <button className="nav-link flex items-center gap-1 cursor-pointer tracking-wide">
                   Serviços
                   <ChevronDown className="w-2.5 h-2.5" />
                 </button>
@@ -39,7 +39,7 @@ export const Header = () => {
               </PopoverContent>
             </Popover>
             
-            <a href="#metodologia" className="nav-link">Método</a>
+            <a href="#metodologia" className="nav-link tracking-wide">Método</a>
             
             {/* Divider Icon */}
             <img 
@@ -48,13 +48,13 @@ export const Header = () => {
               className="h-6 w-auto object-contain mx-1"
             />
             
-            <a href="#cases" className="nav-link">Cases</a>
-            <a href="#equipe" className="nav-link">Equipe</a>
+            <a href="#cases" className="nav-link tracking-wide">Cases</a>
+            <a href="#equipe" className="nav-link tracking-wide">Equipe</a>
           </div>
 
           {/* Right Group */}
           <div className="flex items-center gap-2 ml-auto">
-            <a href="#contato" className="btn-accent">
+            <a href="#contato" className="btn-accent tracking-wider">
               Fale Conosco
               <ArrowRight className="w-2.5 h-2.5" />
             </a>

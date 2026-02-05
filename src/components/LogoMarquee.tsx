@@ -11,8 +11,8 @@ const LogoMarquee = () => {
   ];
 
   const PainItem = ({ text }: { text: string }) => (
-    <div className="flex items-center justify-center px-6 h-12 text-white opacity-90">
-      <span className="text-sm md:text-base font-medium whitespace-nowrap">→ "{text}"</span>
+    <div className="flex items-center justify-center px-6 h-12 text-white opacity-90 font-dm">
+      <span className="text-sm md:text-base font-medium whitespace-nowrap tracking-wide">→ "{text}"</span>
     </div>
   );
 

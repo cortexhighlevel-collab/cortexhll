@@ -47,17 +47,17 @@ const TeamMemberSection = () => {
   const currentMember = teamMembers[currentIndex];
 
   return (
-    <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12">
+    <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12 font-dm">
       <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
             QUEM SOMOS
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight">
             Conheça nossa equipe
           </h2>
-          <p className="text-foreground/60 mt-4 text-lg">
+          <p className="text-foreground/60 mt-4 text-lg font-light">
             "Mentes brilhantes apaixonadas por tecnologia"
           </p>
         </div>
@@ -74,14 +74,14 @@ const TeamMemberSection = () => {
 
             {/* Main Quote */}
             <div className="flex-1 flex flex-col justify-center">
-              <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.15] tracking-tight text-foreground mb-8" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-light leading-[1.15] tracking-tight text-foreground mb-8 font-dm">
                 {currentMember.quote}
               </p>
               
               {/* Attribution */}
               <div className="flex flex-col gap-1">
                 <span className="text-foreground font-medium text-lg">{currentMember.name}</span>
-                <span className="text-foreground/60 text-sm">{currentMember.role}</span>
+                <span className="text-foreground/60 text-sm font-light">{currentMember.role}</span>
               </div>
             </div>
 
@@ -118,12 +118,12 @@ const TeamMemberSection = () => {
             <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20">
               <div className="flex flex-col gap-3">
                 {/* Name in Card */}
-                <h3 className="text-white font-semibold text-lg tracking-wide">
+                <h3 className="text-white font-medium text-lg tracking-wide">
                   {currentMember.name}
                 </h3>
                 
                 {/* Description in Card */}
-                <p className="text-white/80 text-sm leading-relaxed">
+                <p className="text-white/80 text-sm leading-relaxed font-light">
                   {currentMember.description}
                 </p>
 

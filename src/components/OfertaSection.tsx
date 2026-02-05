@@ -2,16 +2,16 @@ import { Globe, FileText, Zap, ArrowRight } from "lucide-react";
 
 const OfertaSection = () => {
   return (
-    <section className="w-full bg-[#0D0D0D] text-white dark-dotted-bg">
+    <section className="w-full bg-[#0D0D0D] text-white dark-dotted-bg font-dm">
       <div className="max-w-[1440px] mx-auto px-6 py-16 md:px-12 md:py-28 flex flex-col gap-16 md:gap-24">
         {/* TOP SECTION: Header & CTA */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           {/* Title */}
           <div className="max-w-xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
               IDEAL PARA / NÃO É PARA
             </span>
-            <h2 className="text-5xl md:text-7xl font-normal leading-[1.0] tracking-tight text-[#F2F2F2]">
+            <h2 className="text-5xl md:text-7xl font-medium leading-[1.0] tracking-tight text-[#F2F2F2]">
               O que você recebe
             </h2>
           </div>
@@ -21,7 +21,7 @@ const OfertaSection = () => {
             href="#contato" 
             className="group flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300"
           >
-            <span className="text-sm font-bold tracking-wide text-[#F2F2F2]">Começar Diagnóstico</span>
+            <span className="text-sm font-medium tracking-wider uppercase text-[#F2F2F2]">Começar Diagnóstico</span>
             <span className="bg-white text-black p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
               <ArrowRight className="w-3 h-3" />
             </span>
@@ -34,7 +34,7 @@ const OfertaSection = () => {
           <div className="rounded-[32px] p-8 md:p-10 bg-green-500/10 border border-green-500/20">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-2xl">✅</span>
-              <h3 className="text-2xl font-semibold text-white">IDEAL PARA</h3>
+              <h3 className="text-2xl font-medium text-white tracking-wide">IDEAL PARA</h3>
             </div>
             <ul className="space-y-4">
               {[
@@ -44,7 +44,7 @@ const OfertaSection = () => {
                 "Líderes que buscam resultados reais",
                 "Marcas que querem ser recomendadas pela IA",
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-white/80">
+                <li key={index} className="flex items-start gap-3 text-white/80 font-light">
                   <span className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></span>
                   {item}
                 </li>
@@ -56,7 +56,7 @@ const OfertaSection = () => {
           <div className="rounded-[32px] p-8 md:p-10 bg-red-500/10 border border-red-500/20">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-2xl">❌</span>
-              <h3 className="text-2xl font-semibold text-white">NÃO É PARA</h3>
+              <h3 className="text-2xl font-medium text-white tracking-wide">NÃO É PARA</h3>
             </div>
             <ul className="space-y-4">
               {[
@@ -66,7 +66,7 @@ const OfertaSection = () => {
                 "Empresas que querem só o barato",
                 "Quem não acredita no poder da IA",
               ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-white/80">
+                <li key={index} className="flex items-start gap-3 text-white/80 font-light">
                   <span className="w-2 h-2 rounded-full bg-red-500 mt-2 flex-shrink-0"></span>
                   {item}
                 </li>
@@ -79,17 +79,17 @@ const OfertaSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="flex items-center justify-center gap-3 p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
             <Globe className="w-6 h-6 text-white/90" />
-            <span className="text-[#C9C9C9] text-sm md:text-base tracking-wide uppercase">METODOLOGIA EXCLUSIVA</span>
+            <span className="text-[#C9C9C9] text-sm md:text-base tracking-[0.15em] uppercase font-medium">METODOLOGIA EXCLUSIVA</span>
           </div>
 
           <div className="flex items-center justify-center gap-3 p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
             <FileText className="w-6 h-6 text-white/90" />
-            <span className="text-[#C9C9C9] text-sm md:text-base tracking-wide uppercase">RELATÓRIOS DETALHADOS</span>
+            <span className="text-[#C9C9C9] text-sm md:text-base tracking-[0.15em] uppercase font-medium">RELATÓRIOS DETALHADOS</span>
           </div>
 
           <div className="flex items-center justify-center gap-3 p-8 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm">
             <Zap className="w-6 h-6 text-white/90" />
-            <span className="text-[#C9C9C9] text-sm md:text-base tracking-wide uppercase">RESULTADOS EM 30 DIAS</span>
+            <span className="text-[#C9C9C9] text-sm md:text-base tracking-[0.15em] uppercase font-medium">RESULTADOS EM 30 DIAS</span>
           </div>
         </div>
       </div>
