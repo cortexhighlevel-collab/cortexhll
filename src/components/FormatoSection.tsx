@@ -12,7 +12,7 @@ const staggerCards: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.14,
     },
   },
 };
@@ -28,7 +28,7 @@ const cardReveal: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.575,
       ease: [0.25, 0.46, 0.45, 0.94],
     },
   },
@@ -39,7 +39,7 @@ const headerSlide: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.69, ease: "easeOut" },
   },
 };
 

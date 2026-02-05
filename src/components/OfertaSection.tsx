@@ -9,9 +9,9 @@ const springUp: Variants = {
     y: 0,
     transition: {
       type: "spring",
-      stiffness: 100,
-      damping: 15,
-      duration: 0.8,
+      stiffness: 87,
+      damping: 13,
+      duration: 0.92,
     },
   },
 };
@@ -19,7 +19,7 @@ const springUp: Variants = {
 const staggerCards: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.17 },
   },
 };
 
@@ -31,8 +31,8 @@ const cardBounce: Variants = {
     scale: 1,
     transition: {
       type: "spring",
-      stiffness: 120,
-      damping: 12,
+      stiffness: 104,
+      damping: 10,
     },
   },
 };
@@ -42,7 +42,7 @@ const fadeSlide: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.575, ease: "easeOut" },
   },
 };
 

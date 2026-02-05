@@ -9,7 +9,7 @@ const fadeScale: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.6,
+        duration: 0.69,
       ease: [0.25, 0.46, 0.45, 0.94],
     },
   },
@@ -19,7 +19,7 @@ const staggerContainer: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.17,
     },
   },
 };
@@ -29,7 +29,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.575, ease: "easeOut" },
   },
 };
 

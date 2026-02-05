@@ -10,7 +10,7 @@ const scaleCenter: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.805, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
@@ -19,7 +19,7 @@ const slideUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.69, ease: "easeOut" },
   },
 };
 
@@ -30,8 +30,8 @@ const pulseIn: Variants = {
     scale: 1,
     transition: {
       type: "spring",
-      stiffness: 150,
-      damping: 15,
+      stiffness: 130,
+      damping: 13,
     },
   },
 };

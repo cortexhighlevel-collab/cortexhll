@@ -9,14 +9,14 @@ const blurFade: Variants = {
   visible: {
     opacity: 1,
     filter: "blur(0px)",
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: 0.805, ease: "easeOut" },
   },
 };
 
 const staggerGrid: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.115, delayChildren: 0.23 },
   },
 };
 
@@ -30,7 +30,7 @@ const cardFloat: Variants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.69, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 

@@ -11,7 +11,7 @@ const fadeInLeft: Variants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.805,
       ease: [0.25, 0.46, 0.45, 0.94]
     }
   }
@@ -25,7 +25,7 @@ const fadeInRight: Variants = {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.805,
       ease: [0.25, 0.46, 0.45, 0.94]
     }
   }
@@ -39,7 +39,7 @@ const fadeInUp: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.58,
+      duration: 0.667,
       ease: [0.25, 0.46, 0.45, 0.94]
     }
   }
