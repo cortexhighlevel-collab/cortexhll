@@ -65,6 +65,13 @@ export const Header = () => {
         {/* Mobile Menu Button */}
         {/* Mobile: Region Picker + Menu Button */}
         <div className="md:hidden flex items-center gap-2">
+          <button className="nav-pill rounded-full p-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
           <div className="region-pill">
             <div className="w-8 h-8 rounded-full overflow-hidden">
               <img 
@@ -75,13 +82,6 @@ export const Header = () => {
             </div>
             <span className="text-sm font-medium text-foreground">BR</span>
           </div>
-          <button className="nav-pill rounded-full p-3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
         </div>
 
         {/* Desktop: Region Picker */}
