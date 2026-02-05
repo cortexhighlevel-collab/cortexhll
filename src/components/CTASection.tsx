@@ -92,7 +92,7 @@ const CTASection = () => {
           </div>
           
           {/* Content - with padding-right to account for form overlap */}
-          <div className="relative z-10 p-8 lg:p-12 lg:pr-20 flex flex-col justify-center h-full">
+          <div className="relative z-10 p-8 lg:p-12 lg:pr-20 flex flex-col justify-center h-full bg-secondary-foreground">
             {/* Header Line */}
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[23px] w-[80px] flex items-center gap-1">
