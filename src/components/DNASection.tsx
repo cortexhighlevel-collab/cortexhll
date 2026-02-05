@@ -35,9 +35,9 @@ const cardFloat: Variants = {
 };
 
 const DNASection = () => {
-  return <section className="w-full py-16 md:py-24 px-4 md:px-8 font-dm">
+  return <section className="w-full py-16 md:py-24 px-4 md:px-8 font-dm light-dotted-fade-in">
       {/* Main Container */}
-      <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center" style={{
+      <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center relative z-10" style={{
       gap: '48px'
     }}>
         

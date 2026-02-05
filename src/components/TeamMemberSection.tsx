@@ -86,8 +86,8 @@ const TeamMemberSection = () => {
   const currentMember = teamMembers[currentIndex];
 
   return (
-    <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12 font-dm">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12 font-dm light-dotted-bg">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-12"
