@@ -2,47 +2,57 @@ import { Globe, ArrowUpRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import problemCardBg from "@/assets/problem-card-bg.jpg";
 import googleAdsBurning from "@/assets/google-ads-burning.jpg";
-
 const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -60 },
-  visible: { 
-    opacity: 1, 
+  hidden: {
+    opacity: 0,
+    x: -60
+  },
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+    transition: {
+      duration: 0.7,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
-
 const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 60 },
-  visible: { 
-    opacity: 1, 
+  hidden: {
+    opacity: 0,
+    x: 60
+  },
+  visible: {
+    opacity: 1,
     x: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }
+    transition: {
+      duration: 0.7,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
-
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
+  hidden: {
+    opacity: 0,
+    y: 40
+  },
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.58, ease: [0.25, 0.46, 0.45, 0.94] }
+    transition: {
+      duration: 0.58,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
-
 const ProblemSection = () => {
-  return (
-    <section className="w-full px-5 md:px-12 py-16 md:py-24 overflow-hidden">
+  return <section className="w-full px-5 md:px-12 py-16 md:py-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
 
         {/* Section Header */}
-        <motion.div 
-          className="flex flex-col items-center text-center gap-3 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
-          variants={fadeInUp}
-        >
+        <motion.div className="flex flex-col items-center text-center gap-3 mb-16" initial="hidden" whileInView="visible" viewport={{
+        once: false,
+        amount: 0.5
+      }} variants={fadeInUp}>
           <span className="text-orange-500 text-xs uppercase tracking-[0.2em] font-medium font-dm">
             Você se identifica?
           </span>
@@ -54,19 +64,12 @@ const ProblemSection = () => {
         {/* Row 1: Card Left + Text Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 lg:mb-20">
           {/* Card - "Seu site é lindo mas..." */}
-          <motion.div 
-            className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={fadeInLeft}
-          >
+          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300" initial="hidden" whileInView="visible" viewport={{
+          once: false,
+          amount: 0.3
+        }} variants={fadeInLeft}>
             {/* Background Image */}
-            <img 
-              src={problemCardBg} 
-              alt="" 
-              className="absolute inset-0 w-full h-full object-cover opacity-40"
-            />
+            <img src={problemCardBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
             {/* Tags at top */}
             <div className="relative z-20 p-6 flex gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
@@ -81,13 +84,10 @@ const ProblemSection = () => {
           </motion.div>
 
           {/* Text Content */}
-          <motion.div 
-            className="flex flex-col justify-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={fadeInRight}
-          >
+          <motion.div className="flex flex-col justify-center" initial="hidden" whileInView="visible" viewport={{
+          once: false,
+          amount: 0.5
+        }} variants={fadeInRight}>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
               Seu site é lindo mas...
             </h3>
@@ -100,13 +100,10 @@ const ProblemSection = () => {
         {/* Row 2: Text Left + Card Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 lg:mb-20">
           {/* Text Content - Order changes on mobile */}
-          <motion.div 
-            className="flex flex-col justify-center order-2 lg:order-1"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={fadeInLeft}
-          >
+          <motion.div className="flex flex-col justify-center order-2 lg:order-1" initial="hidden" whileInView="visible" viewport={{
+          once: false,
+          amount: 0.5
+        }} variants={fadeInLeft}>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
               Gastou em ads mas...
             </h3>
@@ -116,19 +113,12 @@ const ProblemSection = () => {
           </motion.div>
 
           {/* Card */}
-          <motion.div 
-            className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={fadeInRight}
-          >
+          <motion.div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:bg-zinc-800 transition-colors duration-300 order-1 lg:order-2" initial="hidden" whileInView="visible" viewport={{
+          once: false,
+          amount: 0.3
+        }} variants={fadeInRight}>
             {/* Background Image */}
-            <img 
-              src={googleAdsBurning} 
-              alt="" 
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
-            />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" src="/lovable-uploads/ee04cb1a-f1a2-4c44-88ae-7112d2d9a445.jpg" />
             {/* Tags at top */}
             <div className="relative z-10 p-6 flex flex-wrap gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
@@ -146,13 +136,10 @@ const ProblemSection = () => {
         {/* Row 3: Card Left + Text Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Card - Orange gradient */}
-          <motion.div 
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-orange-600 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:from-orange-600 hover:to-orange-700 transition-all duration-300 cursor-pointer"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={fadeInLeft}
-          >
+          <motion.div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-orange-600 min-h-[350px] lg:min-h-[400px] flex flex-col group hover:from-orange-600 hover:to-orange-700 transition-all duration-300 cursor-pointer" initial="hidden" whileInView="visible" viewport={{
+          once: false,
+          amount: 0.3
+        }} variants={fadeInLeft}>
             {/* Icon at top */}
             <div className="relative z-10 p-6">
               <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-orange-500 transition-colors duration-300">
@@ -162,13 +149,10 @@ const ProblemSection = () => {
           </motion.div>
 
           {/* Text Content */}
-          <motion.div 
-            className="flex flex-col justify-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={fadeInRight}
-          >
+          <motion.div className="flex flex-col justify-center" initial="hidden" whileInView="visible" viewport={{
+          once: false,
+          amount: 0.5
+        }} variants={fadeInRight}>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-foreground leading-tight mb-4 font-dm">
               ChatGPT não recomenda...
             </h3>
@@ -179,8 +163,6 @@ const ProblemSection = () => {
         </div>
 
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProblemSection;
