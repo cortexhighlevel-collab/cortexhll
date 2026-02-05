@@ -66,7 +66,7 @@ const CasesSection = () => {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-28">
+    <section id="cases" className="w-full bg-[#0D0D0D] text-white py-16 md:py-28 dark-dotted-bg">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col gap-16 md:gap-32">
         
         {/* TOP SECTION: Two columns - Left: Title & CTA, Right: Description & Stats */}

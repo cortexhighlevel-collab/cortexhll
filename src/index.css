@@ -238,4 +238,9 @@
   .tag-pill {
     @apply px-4 py-2 rounded-full uppercase text-sm font-medium;
   }
+
+  .dark-dotted-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+  }
 }
