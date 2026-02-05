@@ -1,6 +1,7 @@
 import { Globe, ArrowUpRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import problemCardBg from "@/assets/problem-card-bg.jpg";
+import googleAdsBurning from "@/assets/google-ads-burning.jpg";
 
 const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -60 },
@@ -122,6 +123,12 @@ const ProblemSection = () => {
             viewport={{ once: false, amount: 0.3 }}
             variants={fadeInRight}
           >
+            {/* Background Image */}
+            <img 
+              src={googleAdsBurning} 
+              alt="" 
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
+            />
             {/* Tags at top */}
             <div className="relative z-10 p-6 flex flex-wrap gap-2">
               <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
