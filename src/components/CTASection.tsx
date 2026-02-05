@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, type Variants } from "framer-motion";
-import { User, Mail, Building2, Phone, MessageSquare, Send } from "lucide-react";
+import { User, Mail, Building2, Phone, MessageSquare, Send, Sparkles, Shield, Clock, CheckCircle2 } from "lucide-react";
 
 // Animation variants
 const scaleCenter: Variants = {
@@ -104,7 +104,6 @@ const CTASection = () => {
           {/* Trust badges */}
           <div className="flex flex-wrap gap-3 mt-2">
             <div className="px-5 py-2 rounded-full border border-[#f06800]/30 bg-[#f06800]/5 backdrop-blur-md flex items-center gap-2">
-              
               <span className="text-xs text-gray-800 uppercase tracking-[0.15em] font-medium">100% Gratuito</span>
             </div>
             <div className="px-5 py-2 rounded-full border border-gray-200 bg-white/50 backdrop-blur-md">
@@ -112,37 +111,57 @@ const CTASection = () => {
             </div>
           </div>
 
-          {/* Contact info */}
-          <div className="flex flex-col gap-3 mt-4 pt-6 border-t border-gray-200">
-            
-            
+          {/* Stats/Social Proof */}
+          <div className="grid grid-cols-3 gap-4 mt-4 pt-6 border-t border-gray-200">
+            <div className="text-center">
+              <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">+150</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Clientes</div>
+            </div>
+            <div className="text-center border-x border-gray-200">
+              <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">98%</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Satisfação</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">24h</div>
+              <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Resposta</div>
+            </div>
           </div>
         </motion.div>
 
         {/* Right Section: Form */}
         <motion.div className="flex-1 w-full" variants={staggerForm}>
           <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden" style={{
-          background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.9) 100%)',
-          border: '1px solid rgba(0, 0, 0, 0.06)',
-          boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.15), 0 10px 30px -10px rgba(240, 104, 0, 0.08)'
+          background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.95) 100%)',
+          border: '1px solid rgba(240, 104, 0, 0.15)',
+          boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
         }}>
+            {/* Glowing accent */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#f06800]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#f06800]/5 rounded-full blur-2xl pointer-events-none"></div>
+            
             {/* Decorative corner elements */}
-            <div className="absolute top-6 right-6 w-12 h-12">
-              <div className="absolute top-0 right-0 w-full h-[2px] bg-[#f06800]/30"></div>
-              <div className="absolute top-0 right-0 w-[2px] h-full bg-[#f06800]/30"></div>
+            <div className="absolute top-6 right-6 w-16 h-16">
+              <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#f06800] to-transparent"></div>
+              <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#f06800] to-transparent"></div>
             </div>
-            <div className="absolute bottom-6 left-6 w-12 h-12">
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gray-200"></div>
-              <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gray-200"></div>
+            <div className="absolute bottom-6 left-6 w-16 h-16">
+              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-gray-300 to-transparent"></div>
+            </div>
+
+            {/* Premium badge */}
+            <div className="absolute top-6 left-6 flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg">
+              <Sparkles className="w-3 h-3" />
+              <span>Exclusivo</span>
             </div>
 
             {/* Form header */}
-            <div className="mb-8">
+            <div className="mb-8 mt-8">
               <h3 className="text-2xl md:text-3xl font-medium text-gray-900 mb-2">
                 Agende seu Diagnóstico
               </h3>
               <p className="text-gray-500 font-light">
-                Preencha os campos abaixo
+                Descubra o potencial oculto do seu negócio digital
               </p>
             </div>
 
