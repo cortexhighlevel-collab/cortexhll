@@ -50,6 +50,7 @@ export const Header = () => {
             
             <a href="#cases" className="nav-link tracking-wide">Cases</a>
             <a href="#equipe" className="nav-link tracking-wide">Equipe</a>
+             <a href="#faq" className="nav-link tracking-wide">FAQ</a>
           </div>
 
           {/* Right Group */}
