@@ -82,7 +82,7 @@ const ServiceCard = ({
           </ul>
         </div>
         
-        <a href="#contato" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-foreground text-xs lg:text-sm font-medium uppercase tracking-wider w-fit hover:bg-white/90 transition-colors">
+        <a href="https://ops.cortexhl.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-foreground text-xs lg:text-sm font-medium uppercase tracking-wider w-fit hover:bg-white/90 transition-colors">
           Saiba Mais
           <ArrowIcon />
         </a>
