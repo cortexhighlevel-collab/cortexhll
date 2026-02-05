@@ -211,7 +211,7 @@
 
 @layer utilities {
   .hero-title {
-    @apply text-[clamp(42px,7vw,89px)] font-medium leading-[0.9] tracking-tight;
+    @apply text-[clamp(42px,7vw,89px)] font-light leading-[0.9] tracking-tight;
     color: hsl(var(--hero-text));
   }
 
