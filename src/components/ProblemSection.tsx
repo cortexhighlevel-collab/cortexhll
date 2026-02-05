@@ -33,7 +33,7 @@ const ProblemSection = () => {
               <img 
                 src={problemCardBg} 
                 alt="" 
-                className="absolute inset-0 w-full h-full object-cover opacity-40"
+                className="absolute inset-0 w-full h-full object-cover opacity-30"
               />
               {/* Tags at top left */}
               <div className="relative z-20 p-6 flex gap-2">
