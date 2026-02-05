@@ -74,63 +74,77 @@ const CTASection = () => {
     console.log('Form submitted:', formData);
   };
   return <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-16 md:py-24">
-      <motion.div className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch gap-12 lg:gap-16 px-6 md:px-8" initial="hidden" whileInView="visible" viewport={{
+      <motion.div className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch gap-0 px-6 md:px-8" initial="hidden" whileInView="visible" viewport={{
       once: false,
       amount: 0.2
     }} variants={scaleCenter}>
-        {/* Left Section: Text and Information */}
-        <motion.div className="flex flex-col gap-8 lg:max-w-[45%] flex-shrink-0 justify-center" variants={slideUp}>
-          {/* Header Line */}
-          <div className="flex items-center gap-4">
-            <div className="h-[23px] w-[100px] flex items-center gap-1 opacity-80">
-              <div className="h-full w-1 bg-[#f06800]"></div>
-              <div className="h-full w-1 bg-[#f06800]/50"></div>
-              <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent"></div>
-            </div>
-            <h4 className="text-[28px] lg:text-[38px] font-light tracking-tight text-gray-800 leading-[1.1]">
-              Diagnóstico
-            </h4>
+        {/* Left Section: Image Card with Text Overlay */}
+        <motion.div 
+          className="relative flex flex-col justify-center lg:w-[45%] min-h-[400px] lg:min-h-[600px] rounded-l-3xl lg:rounded-l-3xl rounded-t-3xl lg:rounded-tr-none overflow-hidden"
+          variants={slideUp}
+          style={{
+            background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
+          }}
+        >
+          {/* Background image placeholder - você pode adicionar uma imagem aqui */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f06800]/20 via-transparent to-black/40"></div>
+          
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#f06800]/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#f06800]/5 rounded-full blur-2xl"></div>
           </div>
+          
+          {/* Content */}
+          <div className="relative z-10 p-8 lg:p-12 flex flex-col justify-center h-full">
+            {/* Header Line */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-[23px] w-[80px] flex items-center gap-1">
+                <div className="h-full w-1 bg-[#f06800]"></div>
+                <div className="h-full w-1 bg-[#f06800]/50"></div>
+                <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent"></div>
+              </div>
+              <span className="text-sm text-white/60 uppercase tracking-[0.2em] font-medium">Diagnóstico</span>
+            </div>
 
-          <div className="flex flex-col gap-4">
-            <h4 className="text-[32px] lg:text-[48px] leading-[1.05] font-medium tracking-tight text-gray-900">
-              Transforme sua presença digital agora
+            <h4 className="text-[32px] lg:text-[48px] leading-[1.05] font-medium tracking-tight text-white mb-4">
+              Transforme sua presença digital
             </h4>
-            <p className="text-[16px] lg:text-[18px] leading-[1.6] text-gray-500 font-light max-w-lg">
+            <p className="text-[16px] lg:text-[18px] leading-[1.6] text-white/70 font-light max-w-md mb-8">
               Preencha o formulário e nossa equipe entrará em contato em até 24 horas para agendar seu diagnóstico gratuito.
             </p>
-          </div>
 
-          {/* Trust badges */}
-          <div className="flex flex-wrap gap-3 mt-2">
-            <div className="px-5 py-2 rounded-full border border-[#f06800]/30 bg-[#f06800]/5 backdrop-blur-md flex items-center gap-2">
-              <span className="text-xs text-gray-800 uppercase tracking-[0.15em] font-medium">100% Gratuito</span>
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <div className="px-4 py-2 rounded-full border border-[#f06800]/40 bg-[#f06800]/10 backdrop-blur-md">
+                <span className="text-xs text-white uppercase tracking-[0.15em] font-medium">100% Gratuito</span>
+              </div>
+              <div className="px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md">
+                <span className="text-xs text-white/80 uppercase tracking-[0.15em] font-medium">Sem Compromisso</span>
+              </div>
             </div>
-            <div className="px-5 py-2 rounded-full border border-gray-200 bg-white/50 backdrop-blur-md">
-              <span className="text-xs text-gray-600 uppercase tracking-[0.15em] font-medium">Sem Compromisso</span>
-            </div>
-          </div>
 
-          {/* Stats/Social Proof */}
-          <div className="grid grid-cols-3 gap-4 mt-4 pt-6 border-t border-gray-200">
-            <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">+150</div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Clientes</div>
-            </div>
-            <div className="text-center border-x border-gray-200">
-              <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">98%</div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Satisfação</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">24h</div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">Resposta</div>
+            {/* Stats/Social Proof */}
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">+150</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Clientes</div>
+              </div>
+              <div className="text-center border-x border-white/10">
+                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">98%</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Satisfação</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">24h</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Resposta</div>
+              </div>
             </div>
           </div>
         </motion.div>
 
         {/* Right Section: Form */}
-        <motion.div className="flex-1 w-full" variants={staggerForm}>
-          <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden" style={{
+        <motion.div className="flex-1 w-full lg:w-[55%]" variants={staggerForm}>
+          <form onSubmit={handleSubmit} className="relative rounded-b-3xl lg:rounded-b-none lg:rounded-r-3xl p-8 md:p-10 overflow-hidden h-full" style={{
           background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.95) 100%)',
           border: '1px solid rgba(240, 104, 0, 0.15)',
           boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
