@@ -1,8 +1,53 @@
 import { useState } from "react";
 import { Globe, FileText, Terminal } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background.png";
 import casesBackground2 from "@/assets/cases-background-2.png";
+
+// Animation variants - Slide from sides
+const slideFromLeft: Variants = {
+  hidden: { opacity: 0, x: -80 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const slideFromRight: Variants = {
+  hidden: { opacity: 0, x: 80 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const scaleUp: Variants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const staggerStats: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const statItem: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 // --- Icons ---
 const ArrowNavLeft = () => (
@@ -73,7 +118,13 @@ const CasesSection = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           
           {/* LEFT COLUMN: Title & CTA Button */}
-          <div className="flex flex-col gap-8 max-w-xl">
+          <motion.div 
+            className="flex flex-col gap-8 max-w-xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.5 }}
+            variants={slideFromLeft}
+          >
             <h2 className="text-5xl md:text-7xl font-medium leading-[1.0] tracking-tight text-[#F2F2F2]">
               Resultados que falam
             </h2>
@@ -90,10 +141,16 @@ const CasesSection = () => {
                 </svg>
               </span>
             </a>
-          </div>
+          </motion.div>
 
           {/* RIGHT COLUMN: Description, Avatars & Decorative */}
-          <div className="flex flex-col gap-6 items-end w-full md:w-auto">
+          <motion.div 
+            className="flex flex-col gap-6 items-end w-full md:w-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.5 }}
+            variants={slideFromRight}
+          >
             {/* Description Text */}
             <p className="text-xl md:text-2xl text-[#C9C9C9] text-right max-w-md leading-relaxed font-light">
               Empresas que confiaram na Cortex para dominar as respostas da IA.
@@ -125,11 +182,17 @@ const CasesSection = () => {
                 Resultados comprovados em 30 dias.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* TESTIMONIAL SECTION (Large Card with Carousel) */}
-        <div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black">
+        <motion.div 
+          className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={scaleUp}
+        >
           {/* Full Background Image - covers the right side */}
           <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end transition-opacity duration-500">
             <img 
@@ -202,14 +265,20 @@ const CasesSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* BOTTOM SECTION: Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={staggerStats}
+        >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="flex items-center justify-center gap-4 py-8 px-10 rounded-[20px] border border-white/10 bg-[#141414]">
+              <motion.div key={index} className="flex items-center justify-center gap-4 py-8 px-10 rounded-[20px] border border-white/10 bg-[#141414]" variants={statItem}>
                 <div className="text-white/80">
                   <Icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
@@ -217,10 +286,10 @@ const CasesSection = () => {
                   <span className="text-4xl md:text-5xl font-bold text-orange-500 leading-none">{stat.value}</span>
                   <span className="text-[#808080] text-xs tracking-[0.2em] uppercase mt-1 font-medium">{stat.label}</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

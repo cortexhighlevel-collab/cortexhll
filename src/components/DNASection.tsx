@@ -1,3 +1,39 @@
+import { motion, type Variants } from "framer-motion";
+
+// Animation variants - Blur to clear effect
+const blurFade: Variants = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(10px)",
+  },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const staggerGrid: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
+
+const cardFloat: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+    filter: "blur(8px)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
 const DNASection = () => {
   return <section className="w-full py-16 md:py-24 px-4 md:px-8 font-dm">
       {/* Main Container */}
@@ -6,9 +42,14 @@ const DNASection = () => {
     }}>
         
         {/* Title Section */}
-        <div className="flex flex-col items-center justify-center w-full" style={{
-        gap: '24px'
-      }}>
+        <motion.div 
+          className="flex flex-col items-center justify-center w-full" 
+          style={{ gap: '24px' }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.5 }}
+          variants={blurFade}
+        >
           
           {/* Badge Pill with Glassmorphic Styling */}
           <div className="px-5 py-2 rounded-full flex items-center justify-center" style={{
@@ -34,18 +75,27 @@ const DNASection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-center font-medium text-[#1f1f1f] leading-tight">
             Diferenciais que importam.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Bento Grid - Asymmetric Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full" style={{
-        gridTemplateRows: 'auto auto'
-      }}>
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full" 
+          style={{ gridTemplateRows: 'auto auto' }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={staggerGrid}
+        >
           
           {/* Card 1 - Tall card on left (spans 2 rows) */}
-          <div className="relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" style={{
+          <motion.div 
+            className="relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" 
+            style={{
           background: 'linear-gradient(180deg, rgba(20, 80, 100, 0.8) 0%, rgba(10, 40, 60, 0.9) 50%, rgba(15, 35, 50, 1) 100%)',
           border: '1px solid rgba(209, 244, 255, 0.1)'
-        }}>
+            }}
+            variants={cardFloat}
+          >
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 left-4 w-8 h-8">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-40"></div>
@@ -62,13 +112,17 @@ const DNASection = () => {
                 Atendimento limitado a poucos clientes por vez. Cada projeto recebe dedicação total da equipe sênior. AI Referral Engine™ exclusivo.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 2 - Top right (Sofisticação) */}
-          <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
+          <motion.div 
+            className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" 
+            style={{
           background: 'rgba(25, 50, 60, 0.8)',
           border: '1px solid rgba(209, 244, 255, 0.1)'
-        }}>
+            }}
+            variants={cardFloat}
+          >
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 right-4 w-6 h-6">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-30"></div>
@@ -82,13 +136,17 @@ const DNASection = () => {
                 Design premium e metodologia proprietária integrada em cada entrega.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 3 - Top right beside (Autoridade) */}
-          <div className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
+          <motion.div 
+            className="relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" 
+            style={{
           background: 'rgba(25, 50, 60, 0.8)',
           border: '1px solid rgba(209, 244, 255, 0.1)'
-        }}>
+            }}
+            variants={cardFloat}
+          >
             {/* Decorative L-shaped corner */}
             <div className="absolute top-4 right-4 w-6 h-6">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-30"></div>
@@ -102,13 +160,17 @@ const DNASection = () => {
                 Posicione sua marca como referência absoluta nas respostas da IA.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Card 4 - Wide card bottom right (spans 2 columns) */}
-          <div className="relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" style={{
+          <motion.div 
+            className="relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" 
+            style={{
           background: 'linear-gradient(135deg, rgba(30, 60, 80, 0.9) 0%, rgba(20, 45, 65, 0.95) 100%)',
           border: '1px solid rgba(209, 244, 255, 0.1)'
-        }}>
+            }}
+            variants={cardFloat}
+          >
             {/* Decorative L-shaped corner */}
             <div className="absolute bottom-4 right-4 w-8 h-8">
               <div className="absolute bottom-0 right-0 w-full h-[2px] bg-[rgb(209,244,255)] opacity-40"></div>
@@ -125,8 +187,8 @@ const DNASection = () => {
                 +500% ROI médio. 47 empresas transformadas. Resultados em até 30 dias. Métricas claras e mensuráveis em cada projeto.
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>;
 };

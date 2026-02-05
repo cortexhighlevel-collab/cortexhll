@@ -1,11 +1,48 @@
 import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
 const ArrowIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M7 17L17 7" />
     <path d="M7 7h10v10" />
   </svg>;
+
+const staggerCards: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardReveal: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
+
+const headerSlide: Variants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 interface ServiceCardProps {
   tag: string;
   title: string;
@@ -103,21 +140,35 @@ const FormatoSection = () => {
   return <section id="servicos" className="w-full px-5 md:px-12 py-16 md:py-24 font-dm scroll-mt-24">
       <div className="max-w-[1400px] mx-auto">
         {/* Section Header */}
-        <div className="mb-10 md:mb-16">
+        <motion.div 
+          className="mb-10 md:mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.5 }}
+          variants={headerSlide}
+        >
           <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
             NOSSOS SERVIÇOS
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight max-w-[600px]">
             Uma gama completa de soluções para seu crescimento.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Desktop: 4-column grid */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-4">
+        <motion.div 
+          className="hidden lg:grid lg:grid-cols-4 gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={staggerCards}
+        >
           {services.map((service, index) => (
-            <ServiceCard key={index} {...service} />
+            <motion.div key={index} variants={cardReveal}>
+              <ServiceCard {...service} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile/Tablet: Carousel */}
         <div className="lg:hidden">
