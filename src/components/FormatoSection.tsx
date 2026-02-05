@@ -84,10 +84,12 @@ const ServiceCard = ({
           </ul>
         </div>
         
-        <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-foreground text-xs lg:text-sm font-medium uppercase tracking-wider w-fit hover:bg-white/90 transition-colors">
-          Saiba Mais
-          <ArrowIcon />
-        </a>
+        {link && (
+          <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-foreground text-xs lg:text-sm font-medium uppercase tracking-wider w-fit hover:bg-white/90 transition-colors">
+            Saiba Mais
+            <ArrowIcon />
+          </a>
+        )}
       </div>
     </div>
   </div>;
@@ -114,13 +116,15 @@ const FormatoSection = () => {
     title: "AI Referral Genie™",
     subtitle: "Sistema de indicações",
     items: ["Referral Engine", "Growth Hacking", "Automação de Indicações", "Rewards System"],
-    imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg"
+    imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg",
+    link: ""
   }, {
     tag: "DESIGN & PERFORMANCE",
     title: "Design & Performance",
     subtitle: "Experiências premium",
     items: ["Landing Pages", "Sites Premium", "Tráfego Pago", "SEO Avançado", "APIs & Integrações", "Segurança"],
-    imageUrl: "https://framerusercontent.com/images/IB4CnbF9zAC2ERLBGxhUt8Jmwcs.jpg"
+    imageUrl: "https://framerusercontent.com/images/IB4CnbF9zAC2ERLBGxhUt8Jmwcs.jpg",
+    link: ""
   }];
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
