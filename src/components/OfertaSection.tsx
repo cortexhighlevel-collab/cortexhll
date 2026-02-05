@@ -2,7 +2,7 @@ import { Globe, FileText, Zap, ArrowRight } from "lucide-react";
 
 const OfertaSection = () => {
   return (
-    <section className="w-full bg-[#0D0D0D] text-white">
+    <section className="w-full bg-[#0D0D0D] text-white dark-dotted-bg">
       <div className="max-w-[1440px] mx-auto px-6 py-16 md:px-12 md:py-28 flex flex-col gap-16 md:gap-24">
         {/* TOP SECTION: Header & CTA */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
