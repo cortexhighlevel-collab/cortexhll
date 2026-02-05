@@ -1,4 +1,5 @@
 import { Globe, TrendingDown, EyeOff, ArrowUpRight } from "lucide-react";
+import problemCardBg from "@/assets/problem-card-bg.jpg";
 
 const ProblemSection = () => {
   return (
@@ -28,8 +29,14 @@ const ProblemSection = () => {
 
             {/* Large Card - "Seu site é lindo mas..." */}
             <div className="relative overflow-hidden rounded-3xl bg-zinc-900 min-h-[250px] lg:min-h-[290px] flex-1 flex flex-col group hover:bg-zinc-800 transition-colors duration-300">
+              {/* Background Image */}
+              <img 
+                src={problemCardBg} 
+                alt="" 
+                className="absolute inset-0 w-full h-full object-cover opacity-40"
+              />
               {/* Tags at top left */}
-              <div className="relative z-10 p-6 flex gap-2">
+              <div className="relative z-20 p-6 flex gap-2">
                 <span className="px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
                   Site que não vende
@@ -41,7 +48,7 @@ const ProblemSection = () => {
               </div>
 
               {/* Content at bottom */}
-              <div className="relative z-10 mt-auto p-6 md:p-8">
+              <div className="relative z-20 mt-auto p-6 md:p-8">
                 <h3 className="text-2xl md:text-3xl font-medium text-white leading-tight mb-3">
                   Seu site é lindo mas...
                 </h3>
