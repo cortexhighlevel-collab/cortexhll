@@ -243,4 +243,53 @@
     background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
     background-size: 30px 30px;
   }
+
+  /* Light dotted background (full, no fade) */
+  .light-dotted-bg {
+    position: relative;
+  }
+
+  .light-dotted-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#d1d5db 2px, transparent 2px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Light dotted background with fade-in from top */
+  .light-dotted-fade-in {
+    position: relative;
+  }
+
+  .light-dotted-fade-in::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#d1d5db 2px, transparent 2px);
+    background-size: 30px 30px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgb(0, 0, 0) 80%, rgb(0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 40%, rgb(0, 0, 0) 80%, rgb(0, 0, 0) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Dark dotted background with fade-in from top */
+  .dark-dotted-fade-in {
+    position: relative;
+  }
+
+  .dark-dotted-fade-in::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+    background-size: 30px 30px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, rgb(0, 0, 0) 70%, rgb(0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 30%, rgb(0, 0, 0) 70%, rgb(0, 0, 0) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
 }
