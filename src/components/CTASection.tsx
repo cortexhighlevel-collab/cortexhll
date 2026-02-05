@@ -114,7 +114,7 @@ const CTASection = () => {
 
           {/* Contact info */}
           <div className="flex flex-col gap-3 mt-4 pt-6 border-t border-gray-200">
-            <p className="text-sm text-gray-400 uppercase tracking-wider">Ou entre em contato direto</p>
+            
             
           </div>
         </motion.div>
