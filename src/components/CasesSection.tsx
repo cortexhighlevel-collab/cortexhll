@@ -11,7 +11,7 @@ const slideFromLeft: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.805, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
@@ -20,7 +20,7 @@ const slideFromRight: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.805, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
@@ -29,14 +29,14 @@ const scaleUp: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.92, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
 const staggerStats: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.115 },
   },
 };
 
@@ -45,7 +45,7 @@ const statItem: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.575, ease: "easeOut" },
   },
 };
 

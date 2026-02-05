@@ -38,7 +38,7 @@
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           transition={{ duration: 0.6 }}
+            transition={{ duration: 0.69 }}
          >
             <span className="inline-block text-white/80 text-xs font-medium uppercase tracking-[0.2em] mb-4">
              Dúvidas Frequentes
@@ -53,7 +53,7 @@
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-           transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.69, delay: 0.23 }}
          >
            <Accordion type="single" collapsible className="space-y-4">
              {faqs.map((faq, index) => (

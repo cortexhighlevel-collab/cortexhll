@@ -14,7 +14,7 @@ const rotateIn: Variants = {
     opacity: 1,
     rotate: 0,
     y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.805, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
@@ -23,7 +23,7 @@ const fadeUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.69, ease: "easeOut" },
   },
 };
 
@@ -37,7 +37,7 @@ const scaleRotate: Variants = {
     opacity: 1,
     scale: 1,
     rotate: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.92, ease: [0.25, 0.46, 0.45, 0.94] },
   },
 };
 
