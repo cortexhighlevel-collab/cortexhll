@@ -33,6 +33,8 @@ export const Header = () => {
           <div className="flex items-center gap-1">
             <a href="#" className="nav-link tracking-wide">Início</a>
             
+            <a href="#metodologia" className="nav-link tracking-wide">Método</a>
+            
             <Popover>
               <PopoverTrigger asChild>
                 <button className="nav-link flex items-center gap-1 cursor-pointer tracking-wide">
@@ -48,8 +50,6 @@ export const Header = () => {
                 <ContentDropdown />
               </PopoverContent>
             </Popover>
-            
-            <a href="#metodologia" className="nav-link tracking-wide">Método</a>
             
             {/* Divider Icon */}
             <img 
@@ -106,6 +106,14 @@ export const Header = () => {
                     INÍCIO
                   </a>
                   
+                  <a 
+                    href="#metodologia" 
+                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    MÉTODO
+                  </a>
+                  
                   {/* Dropdown de Serviços */}
                   <Collapsible open={servicesOpen} onOpenChange={setServicesOpen}>
                     <CollapsibleTrigger className="flex items-center justify-center gap-2 px-16 py-3 border border-white/30 rounded-full text-white/80 text-sm font-medium tracking-widest uppercase hover:bg-white/10 transition-colors">
@@ -144,13 +152,6 @@ export const Header = () => {
                     </CollapsibleContent>
                   </Collapsible>
                   
-                  <a 
-                    href="#metodologia" 
-                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    MÉTODO
-                  </a>
                   <a 
                     href="#cases" 
                     className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
