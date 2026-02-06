@@ -151,7 +151,7 @@ const TeamMemberSection = () => {
           </motion.div>
 
           {/* Right Column: Image & Overlay */}
-          <motion.div className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden" initial="hidden" whileInView="visible" viewport={{
+          <motion.div className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden border border-foreground/20" initial="hidden" whileInView="visible" viewport={{
           once: false,
           amount: 0.3
         }} variants={scaleRotate}>
