@@ -79,72 +79,8 @@ const CTASection = () => {
       once: false,
       amount: 0.2
     }} variants={scaleCenter}>
-        {/* Left Section: Image Card with Text Overlay */}
-        <motion.div className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden" variants={slideUp} style={{
-        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
-      }}>
-        {/* Background image */}
-          <img 
-            src={ctaBackground} 
-            alt="CTA Background" 
-            className="absolute inset-0 w-full h-full object-cover object-top"
-          />
-          
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-            <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#f06800]/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#f06800]/5 rounded-full blur-2xl"></div>
-          </div>
-          
-          {/* Content - with padding-right to account for form overlap */}
-          <div className="relative z-10 p-8 lg:p-12 lg:pr-20 flex flex-col justify-center h-full">
-            {/* Header Line */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-[23px] w-[80px] flex items-center gap-1">
-                <div className="h-full w-1 bg-[#f06800]"></div>
-                <div className="h-full w-1 bg-[#f06800]/50"></div>
-                <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent"></div>
-              </div>
-              <span className="text-sm text-white/60 uppercase tracking-[0.2em] font-medium">Diagnóstico</span>
-            </div>
-
-            <h4 className="text-[32px] lg:text-[48px] leading-[1.05] font-medium tracking-tight text-white mb-4">
-              Transforme sua presença digital
-            </h4>
-            <p className="text-[16px] lg:text-[18px] leading-[1.6] text-white/70 font-light max-w-md mb-8">
-              Preencha o formulário e nossa equipe entrará em contato em até 24 horas para agendar seu diagnóstico gratuito.
-            </p>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              <div className="px-4 py-2 rounded-full border border-[#f06800]/40 bg-[#f06800]/10 backdrop-blur-md">
-                <span className="text-xs text-white uppercase tracking-[0.15em] font-medium">100% Gratuito</span>
-              </div>
-              <div className="px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md">
-                <span className="text-xs text-white/80 uppercase tracking-[0.15em] font-medium">Sem Compromisso</span>
-              </div>
-            </div>
-
-            {/* Stats/Social Proof */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">+150</div>
-                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Clientes</div>
-              </div>
-              <div className="text-center border-x border-white/10">
-                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">98%</div>
-                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Satisfação</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">24h</div>
-                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Resposta</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Section: Form - overlapping the left card */}
-        <motion.div className="relative lg:w-[55%] lg:-ml-12 mt-[-40px] lg:mt-0 z-10" variants={staggerForm}>
+        {/* Left Section: Form */}
+        <motion.div className="relative lg:w-[55%] lg:-mr-12 mt-[-40px] lg:mt-0 z-10 order-2 lg:order-1" variants={staggerForm}>
           <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden h-full" style={{
           background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
           border: '1px solid rgba(240, 104, 0, 0.15)',
@@ -256,6 +192,70 @@ const CTASection = () => {
               </p>
             </div>
           </form>
+        </motion.div>
+
+        {/* Right Section: Image Card with Text Overlay */}
+        <motion.div className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden order-1 lg:order-2" variants={slideUp} style={{
+        background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
+      }}>
+        {/* Background image */}
+          <img 
+            src={ctaBackground} 
+            alt="CTA Background" 
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
+          
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#f06800]/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#f06800]/5 rounded-full blur-2xl"></div>
+          </div>
+          
+          {/* Content - with padding-left to account for form overlap */}
+          <div className="relative z-10 p-8 lg:p-12 lg:pl-20 flex flex-col justify-center h-full">
+            {/* Header Line */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-[23px] w-[80px] flex items-center gap-1">
+                <div className="h-full w-1 bg-[#f06800]"></div>
+                <div className="h-full w-1 bg-[#f06800]/50"></div>
+                <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent"></div>
+              </div>
+              <span className="text-sm text-white/60 uppercase tracking-[0.2em] font-medium">Diagnóstico</span>
+            </div>
+
+            <h4 className="text-[32px] lg:text-[48px] leading-[1.05] font-medium tracking-tight text-white mb-4">
+              Transforme sua presença digital
+            </h4>
+            <p className="text-[16px] lg:text-[18px] leading-[1.6] text-white/70 font-light max-w-md mb-8">
+              Preencha o formulário e nossa equipe entrará em contato em até 24 horas para agendar seu diagnóstico gratuito.
+            </p>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              <div className="px-4 py-2 rounded-full border border-[#f06800]/40 bg-[#f06800]/10 backdrop-blur-md">
+                <span className="text-xs text-white uppercase tracking-[0.15em] font-medium">100% Gratuito</span>
+              </div>
+              <div className="px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md">
+                <span className="text-xs text-white/80 uppercase tracking-[0.15em] font-medium">Sem Compromisso</span>
+              </div>
+            </div>
+
+            {/* Stats/Social Proof */}
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">+150</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Clientes</div>
+              </div>
+              <div className="text-center border-x border-white/10">
+                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">98%</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Satisfação</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-[#f06800]">24h</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider mt-1">Resposta</div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>;
