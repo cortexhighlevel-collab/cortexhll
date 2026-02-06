@@ -5,6 +5,7 @@ import logoEstrela from "@/assets/logo_estrela.webp";
 import srPrimusImage from "@/assets/sr-primus.webp";
 import pabloFigueiredoImage from "@/assets/pablo-figueiredo.webp";
 import victorLisboaImage from "@/assets/victor-lisboa.webp";
+import angeloFelipeImage from "@/assets/angelo-felipe.webp";
 
 // Animation variants - Subtle rotation + fade
 const rotateIn: Variants = {
@@ -74,7 +75,7 @@ const TeamMemberSection = () => {
       role: "Growth Specialist",
       quote: "Crescimento sustentável é construído com dados, criatividade e execução impecável.",
       description: "Especialista em estratégias de crescimento, combinando análise de dados com ações criativas para escalar negócios.",
-      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+      image: angeloFelipeImage,
     },
     {
       name: "João",
