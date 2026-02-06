@@ -183,7 +183,7 @@ const TeamMemberSection = () => {
 
             {/* Carousel Indicators */}
             <div className="absolute top-6 right-6 flex gap-2">
-              {teamMembers.map((_, index) => <button key={index} onClick={() => setCurrentIndex(index)} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white w-6' : 'bg-white/30'}`} />)}
+              {teamMembers.map((_, index) => <button key={index} onClick={() => setCurrentIndex(index)} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white w-6' : 'bg-foreground/40'}`} />)}
             </div>
           </motion.div>
         </div>
