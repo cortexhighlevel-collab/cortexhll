@@ -6,6 +6,7 @@ import srPrimusImage from "@/assets/sr-primus.webp";
 import pabloFigueiredoImage from "@/assets/pablo-figueiredo.webp";
 import victorLisboaImage from "@/assets/victor-lisboa.webp";
 import angeloFelipeImage from "@/assets/angelo-felipe.webp";
+import joaoImage from "@/assets/joao.webp";
 
 // Animation variants - Subtle rotation + fade
 const rotateIn: Variants = {
@@ -82,7 +83,7 @@ const TeamMemberSection = () => {
       role: "Head Comercial",
       quote: "A excelência no atendimento transforma clientes em parceiros de longo prazo.",
       description: "Lidera a área comercial com foco em construir relacionamentos sólidos e entregar valor real aos clientes.",
-      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+      image: joaoImage,
     },
   ];
 
