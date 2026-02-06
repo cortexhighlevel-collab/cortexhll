@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import srPrimusImage from "@/assets/sr-primus.webp";
+import pabloFigueiredoImage from "@/assets/pablo-figueiredo.webp";
 
 // Animation variants - Subtle rotation + fade
 const rotateIn: Variants = {
@@ -58,7 +59,7 @@ const TeamMemberSection = () => {
       role: "Diretor Criativo",
       quote: "A criatividade é a ponte entre a estratégia e a conexão emocional com o público.",
       description: "Responsável por transformar conceitos em experiências visuais impactantes que conectam marcas ao seu público.",
-      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+      image: pabloFigueiredoImage,
     },
     {
       name: "Victor Lisboa",
