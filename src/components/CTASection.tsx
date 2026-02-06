@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { motion, type Variants } from "framer-motion";
-import { User, Mail, Building2, Phone, MessageSquare, Send, Shield, Clock, CheckCircle2 } from "lucide-react";
+import { motion, type Variants, AnimatePresence } from "framer-motion";
+import { User, Mail, Building2, Phone, MessageSquare, Send, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import ctaBackground from "@/assets/cta-background.jpg";
 
 // Animation variants
@@ -55,7 +56,33 @@ const inputReveal: Variants = {
     }
   }
 };
+
+// Quiz step animation
+const stepVariants: Variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 100 : -100,
+    opacity: 0
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? 100 : -100,
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn"
+    }
+  })
+};
+
 const CTASection = () => {
+  const isMobile = useIsMobile();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -63,17 +90,305 @@ const CTASection = () => {
     phone: '',
     message: ''
   });
+  const [currentStep, setCurrentStep] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const quizSteps = [
+    { field: 'name', label: 'Nome completo', placeholder: 'Seu nome', icon: User, type: 'text', required: true },
+    { field: 'email', label: 'E-mail', placeholder: 'seu@email.com', icon: Mail, type: 'email', required: true },
+    { field: 'company', label: 'Empresa', placeholder: 'Nome da empresa', icon: Building2, type: 'text', required: false },
+    { field: 'phone', label: 'Telefone', placeholder: '(00) 00000-0000', icon: Phone, type: 'tel', required: false },
+    { field: 'message', label: 'Mensagem', placeholder: 'Conte um pouco sobre seu projeto...', icon: MessageSquare, type: 'textarea', required: false }
+  ];
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic here
     console.log('Form submitted:', formData);
   };
+
+  const nextStep = () => {
+    if (currentStep < quizSteps.length - 1) {
+      setDirection(1);
+      setCurrentStep(prev => prev + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setDirection(-1);
+      setCurrentStep(prev => prev - 1);
+    }
+  };
+
+  const currentStepData = quizSteps[currentStep];
+  const isLastStep = currentStep === quizSteps.length - 1;
+  const canProceed = !currentStepData.required || formData[currentStepData.field as keyof typeof formData];
+
+  // Mobile Quiz Form
+  const MobileQuizForm = () => (
+    <form onSubmit={handleSubmit} className="relative rounded-3xl p-6 overflow-hidden" style={{
+      background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
+      border: '1px solid rgba(240, 104, 0, 0.15)',
+      boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
+    }}>
+      {/* Glowing accent */}
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#f06800]/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      {/* Premium badge */}
+      <div className="flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg w-fit mb-4">
+        <span>Exclusivo</span>
+      </div>
+
+      {/* Form header */}
+      <div className="mb-6">
+        <h3 className="text-xl font-medium text-gray-900 mb-1">
+          Agende seu Diagnóstico
+        </h3>
+        <p className="text-gray-500 font-light text-sm">
+          Passo {currentStep + 1} de {quizSteps.length}
+        </p>
+      </div>
+
+      {/* Progress bar */}
+      <div className="w-full h-1 bg-gray-200 rounded-full mb-6 overflow-hidden">
+        <motion.div 
+          className="h-full bg-[#f06800] rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: `${((currentStep + 1) / quizSteps.length) * 100}%` }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+
+      {/* Step indicators */}
+      <div className="flex justify-center gap-2 mb-6">
+        {quizSteps.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => {
+              setDirection(index > currentStep ? 1 : -1);
+              setCurrentStep(index);
+            }}
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-300 ${
+              index === currentStep 
+                ? 'bg-[#f06800] text-white' 
+                : index < currentStep 
+                  ? 'bg-green-500 text-white' 
+                  : 'bg-gray-200 text-gray-500'
+            }`}
+          >
+            {index < currentStep ? <Check className="w-4 h-4" /> : index + 1}
+          </button>
+        ))}
+      </div>
+
+      {/* Quiz field */}
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={currentStep}
+          custom={direction}
+          variants={stepVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          className="min-h-[140px]"
+        >
+          <label className="block text-sm font-medium text-gray-700 mb-3">
+            {currentStepData.label}
+            {currentStepData.required && <span className="text-[#f06800] ml-1">*</span>}
+          </label>
+          <div className="relative">
+            <currentStepData.icon className={`absolute left-4 ${currentStepData.type === 'textarea' ? 'top-4' : 'top-1/2 -translate-y-1/2'} w-5 h-5 text-gray-400`} />
+            {currentStepData.type === 'textarea' ? (
+              <textarea
+                name={currentStepData.field}
+                value={formData[currentStepData.field as keyof typeof formData]}
+                onChange={handleChange}
+                placeholder={currentStepData.placeholder}
+                rows={3}
+                className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300 resize-none"
+              />
+            ) : (
+              <input
+                type={currentStepData.type}
+                name={currentStepData.field}
+                value={formData[currentStepData.field as keyof typeof formData]}
+                onChange={handleChange}
+                placeholder={currentStepData.placeholder}
+                className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300"
+                required={currentStepData.required}
+              />
+            )}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Navigation buttons */}
+      <div className="flex gap-3 mt-6">
+        {currentStep > 0 && (
+          <button
+            type="button"
+            onClick={prevStep}
+            className="flex-1 h-[52px] rounded-xl border border-gray-200 text-gray-600 flex items-center justify-center gap-2 hover:bg-gray-50 transition-all duration-300"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="text-sm font-medium">Voltar</span>
+          </button>
+        )}
+        {isLastStep ? (
+          <button
+            type="submit"
+            className="flex-1 h-[52px] bg-[#f06800] text-white rounded-xl flex items-center justify-center gap-2 hover:bg-[#d95c00] transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]"
+          >
+            <span className="text-sm font-medium uppercase tracking-wider">Enviar</span>
+            <Send className="w-4 h-4" />
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={nextStep}
+            disabled={!canProceed}
+            className={`flex-1 h-[52px] rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${
+              canProceed 
+                ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]' 
+                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            }`}
+          >
+            <span className="text-sm font-medium">Próximo</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        )}
+      </div>
+
+      {/* Privacy note */}
+      <p className="text-center text-xs text-gray-400 mt-4">
+        Ao enviar, você concorda com nossa{' '}
+        <a href="#" className="text-[#f06800] hover:underline">Política de Privacidade</a>
+      </p>
+    </form>
+  );
+
+  // Desktop Full Form
+  const DesktopForm = () => (
+    <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden h-full" style={{
+      background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
+      border: '1px solid rgba(240, 104, 0, 0.15)',
+      boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
+    }}>
+      {/* Glowing accent */}
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#f06800]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#f06800]/5 rounded-full blur-2xl pointer-events-none"></div>
+      
+      {/* Decorative corner elements */}
+      <div className="absolute top-6 right-6 w-16 h-16 overflow-hidden rounded-tr-lg">
+        <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#f06800] to-transparent rounded-r-full" />
+        <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#f06800] to-transparent rounded-t-full" />
+      </div>
+      <div className="absolute bottom-6 left-6 w-16 h-16 overflow-hidden rounded-bl-lg">
+        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-transparent rounded-l-full" />
+        <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-gray-300 to-transparent rounded-b-full" />
+      </div>
+
+      {/* Premium badge */}
+      <div className="absolute top-6 left-6 flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg">
+        <span>Exclusivo</span>
+      </div>
+
+      {/* Form header */}
+      <div className="mb-8 mt-8">
+        <h3 className="text-2xl md:text-3xl font-medium text-gray-900 mb-2">
+          Agende seu Diagnóstico
+        </h3>
+        <p className="text-gray-500 font-light">
+          Descubra o potencial oculto do seu negócio digital
+        </p>
+      </div>
+
+      {/* Form fields */}
+      <div className="space-y-5">
+        {/* Row 1: Name and Email */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <motion.div className="relative" variants={inputReveal}>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Nome completo
+            </label>
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Seu nome" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" required />
+            </div>
+          </motion.div>
+
+          <motion.div className="relative" variants={inputReveal}>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              E-mail
+            </label>
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="seu@email.com" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" required />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Row 2: Company and Phone */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <motion.div className="relative" variants={inputReveal}>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Empresa
+            </label>
+            <div className="relative">
+              <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Nome da empresa" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" />
+            </div>
+          </motion.div>
+
+          <motion.div className="relative" variants={inputReveal}>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Telefone
+            </label>
+            <div className="relative">
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="(00) 00000-0000" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Row 3: Message */}
+        <motion.div className="relative" variants={inputReveal}>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Mensagem
+          </label>
+          <div className="relative">
+            <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+            <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Conte um pouco sobre seu projeto ou desafio atual..." rows={4} className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300 resize-none" />
+          </div>
+        </motion.div>
+
+        {/* Submit Button */}
+        <motion.div className="pt-4" variants={inputReveal}>
+          <button type="submit" className="group w-full bg-[#f06800] text-white rounded-xl h-[60px] px-8 flex items-center justify-center gap-3 hover:bg-[#d95c00] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 ease-out cursor-pointer shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]">
+            <span className="text-lg uppercase tracking-[0.12em] font-medium">
+              Enviar Solicitação
+            </span>
+            <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
+        </motion.div>
+
+        {/* Privacy note */}
+        <p className="text-center text-xs text-gray-400 mt-4">
+          Ao enviar, você concorda com nossa{' '}
+          <a href="#" className="text-[#f06800] hover:underline">Política de Privacidade</a>
+        </p>
+      </div>
+    </form>
+  );
+
   return <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-16 md:py-24">
       <motion.div className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch px-6 md:px-8" initial="hidden" whileInView="visible" viewport={{
       once: false,
@@ -81,117 +396,7 @@ const CTASection = () => {
     }} variants={scaleCenter}>
         {/* Left Section: Form */}
         <motion.div className="relative lg:w-[55%] lg:-mr-12 mt-[-40px] lg:mt-0 z-10 order-2 lg:order-1" variants={staggerForm}>
-          <form onSubmit={handleSubmit} className="relative rounded-3xl p-8 md:p-10 overflow-hidden h-full" style={{
-          background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
-          border: '1px solid rgba(240, 104, 0, 0.15)',
-          boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
-        }}>
-            {/* Glowing accent */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#f06800]/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#f06800]/5 rounded-full blur-2xl pointer-events-none"></div>
-            
-            {/* Decorative corner elements */}
-            <div className="absolute top-6 right-6 w-16 h-16 overflow-hidden rounded-tr-lg">
-              <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#f06800] to-transparent rounded-r-full" />
-              <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#f06800] to-transparent rounded-t-full" />
-            </div>
-            <div className="absolute bottom-6 left-6 w-16 h-16 overflow-hidden rounded-bl-lg">
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-transparent rounded-l-full" />
-              <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-gray-300 to-transparent rounded-b-full" />
-            </div>
-
-            {/* Premium badge */}
-            <div className="absolute top-6 left-6 flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg">
-              
-              <span>Exclusivo</span>
-            </div>
-
-            {/* Form header */}
-            <div className="mb-8 mt-8">
-              <h3 className="text-2xl md:text-3xl font-medium text-gray-900 mb-2">
-                Agende seu Diagnóstico
-              </h3>
-              <p className="text-gray-500 font-light">
-                Descubra o potencial oculto do seu negócio digital
-              </p>
-            </div>
-
-            {/* Form fields */}
-            <div className="space-y-5">
-              {/* Row 1: Name and Email */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <motion.div className="relative" variants={inputReveal}>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Nome completo
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Seu nome" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" required />
-                  </div>
-                </motion.div>
-
-                <motion.div className="relative" variants={inputReveal}>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    E-mail
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="seu@email.com" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" required />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Row 2: Company and Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <motion.div className="relative" variants={inputReveal}>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Empresa
-                  </label>
-                  <div className="relative">
-                    <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input type="text" name="company" value={formData.company} onChange={handleChange} placeholder="Nome da empresa" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" />
-                  </div>
-                </motion.div>
-
-                <motion.div className="relative" variants={inputReveal}>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Telefone
-                  </label>
-                  <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="(00) 00000-0000" className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300" />
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Row 3: Message */}
-              <motion.div className="relative" variants={inputReveal}>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Mensagem
-                </label>
-                <div className="relative">
-                  <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-                  <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Conte um pouco sobre seu projeto ou desafio atual..." rows={4} className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-white/80 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#f06800] focus:ring-2 focus:ring-[#f06800]/10 transition-all duration-300 resize-none" />
-                </div>
-              </motion.div>
-
-              {/* Submit Button */}
-              <motion.div className="pt-4" variants={inputReveal}>
-                <button type="submit" className="group w-full bg-[#f06800] text-white rounded-xl h-[60px] px-8 flex items-center justify-center gap-3 hover:bg-[#d95c00] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 ease-out cursor-pointer shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]">
-                  <span className="text-lg uppercase tracking-[0.12em] font-medium">
-                    Enviar Solicitação
-                  </span>
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-              </motion.div>
-
-              {/* Privacy note */}
-              <p className="text-center text-xs text-gray-400 mt-4">
-                Ao enviar, você concorda com nossa{' '}
-                <a href="#" className="text-[#f06800] hover:underline">Política de Privacidade</a>
-              </p>
-            </div>
-          </form>
+          {isMobile ? <MobileQuizForm /> : <DesktopForm />}
         </motion.div>
 
         {/* Right Section: Image Card with Text Overlay */}
