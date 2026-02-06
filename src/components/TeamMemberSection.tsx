@@ -70,10 +70,17 @@ const TeamMemberSection = () => {
       image: victorLisboaImage,
     },
     {
-      name: "Marcos Colacino",
+      name: "Angelo Felipe",
+      role: "Growth Specialist",
+      quote: "Crescimento sustentável é construído com dados, criatividade e execução impecável.",
+      description: "Especialista em estratégias de crescimento, combinando análise de dados com ações criativas para escalar negócios.",
+      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+    },
+    {
+      name: "João",
       role: "Head Comercial",
-      quote: "Entender as necessidades do cliente é o primeiro passo para entregar resultados extraordinários.",
-      description: "Conecta empresas às soluções certas, construindo parcerias de longo prazo baseadas em resultados.",
+      quote: "A excelência no atendimento transforma clientes em parceiros de longo prazo.",
+      description: "Lidera a área comercial com foco em construir relacionamentos sólidos e entregar valor real aos clientes.",
       image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
     },
   ];
