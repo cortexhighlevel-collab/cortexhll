@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, type Variants } from "framer-motion";
 import { User, Mail, Building2, Phone, MessageSquare, Send, Shield, Clock, CheckCircle2 } from "lucide-react";
+import ctaBackground from "@/assets/cta-background.jpg";
 
 // Animation variants
 const scaleCenter: Variants = {
@@ -82,8 +83,12 @@ const CTASection = () => {
         <motion.div className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden" variants={slideUp} style={{
         background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
       }}>
-          {/* Background image placeholder - você pode adicionar uma imagem aqui */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#f06800]/20 via-transparent to-black/40"></div>
+        {/* Background image */}
+          <img 
+            src={ctaBackground} 
+            alt="CTA Background" 
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
           
           {/* Decorative elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
