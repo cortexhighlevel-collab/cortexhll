@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
+import srPrimusImage from "@/assets/sr-primus.webp";
 
 // Animation variants - Subtle rotation + fade
 const rotateIn: Variants = {
@@ -50,7 +51,7 @@ const TeamMemberSection = () => {
       role: "Mente Estratégica - AI Referral Engine™",
       quote: "Líder visionário por trás do AI Referral Engine™, a metodologia que posiciona marcas como resposta definitiva da IA.",
       description: "Criador do AI Referral Engine™ e líder visionário por trás da metodologia que está revolucionando como empresas são recomendadas pela IA.",
-      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+      image: srPrimusImage,
     },
     {
       name: "Pablo Figueiredo",
