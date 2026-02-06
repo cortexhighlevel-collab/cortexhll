@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import srPrimusImage from "@/assets/sr-primus.webp";
 import pabloFigueiredoImage from "@/assets/pablo-figueiredo.webp";
+import victorLisboaImage from "@/assets/victor-lisboa.webp";
 
 // Animation variants - Subtle rotation + fade
 const rotateIn: Variants = {
@@ -66,7 +67,7 @@ const TeamMemberSection = () => {
       role: "Dev Lead",
       quote: "Código limpo e arquitetura sólida são a base de qualquer solução digital escalável.",
       description: "Lidera o desenvolvimento técnico, garantindo que cada projeto seja construído com excelência e performance.",
-      image: "https://framerusercontent.com/images/q5btAOUDm33kJ3iWd8LZiVkqSd4.jpg?width=1024&height=1024",
+      image: victorLisboaImage,
     },
     {
       name: "Marcos Colacino",
