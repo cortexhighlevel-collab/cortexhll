@@ -92,12 +92,14 @@ const CTASection = () => {
             
             {/* Decorative corner elements */}
             <div className="absolute top-6 right-6 w-16 h-16">
-              <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#f06800] to-transparent rounded-full"></div>
-              <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#f06800] to-transparent rounded-full"></div>
+              <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#f06800] to-transparent rounded-l-full" />
+              <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#f06800] to-transparent rounded-b-full" />
+              <div className="absolute top-0 right-0 w-2 h-2 rounded-full bg-[#f06800]" />
             </div>
             <div className="absolute bottom-6 left-6 w-16 h-16">
-              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-transparent rounded-full"></div>
-              <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-gray-300 to-transparent rounded-full"></div>
+              <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-transparent rounded-r-full" />
+              <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-gray-300 to-transparent rounded-t-full" />
+              <div className="absolute bottom-0 left-0 w-2 h-2 rounded-full bg-gray-300" />
             </div>
 
             {/* Premium badge */}
@@ -219,9 +221,9 @@ const CTASection = () => {
             {/* Header Line */}
             <div className="flex items-center gap-4 mb-6">
               <div className="h-[23px] w-[80px] flex items-center gap-1">
-                <div className="h-full w-1 bg-[#f06800]"></div>
-                <div className="h-full w-1 bg-[#f06800]/50"></div>
-                <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent"></div>
+                <div className="h-full w-1 bg-[#f06800] rounded-full"></div>
+                <div className="h-full w-1 bg-[#f06800]/50 rounded-full"></div>
+                <div className="h-full w-full bg-gradient-to-r from-[#f06800]/20 to-transparent rounded-full"></div>
               </div>
               <span className="text-sm text-white/60 uppercase tracking-[0.2em] font-medium">Diagnóstico</span>
             </div>
