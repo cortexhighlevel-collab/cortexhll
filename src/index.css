@@ -124,6 +124,7 @@
     color: white;
     border-radius: 2000px;
     --glow-left: 0%;
+    overflow: hidden;
   }
 
   .btn-cta .btn-cta-text {
@@ -135,6 +136,18 @@
   .btn-cta .btn-cta-icon {
     position: relative;
     z-index: 100;
+  }
+
+  /* Noise/grain texture overlay */
+  .btn-cta .btn-cta-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 60;
+    opacity: 0.15;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
   }
 
   .btn-cta::before {
@@ -166,11 +179,11 @@
     top: 50%;
     transform: translate(0%, -50%);
     left: var(--glow-left, 0%);
-    background: rgb(255, 207, 74);
+    background: #f06800;
     width: 15%;
     height: 80%;
     filter: blur(15px);
-    opacity: 70%;
+    opacity: 80%;
     mix-blend-mode: screen;
     transition: none;
     pointer-events: none;
