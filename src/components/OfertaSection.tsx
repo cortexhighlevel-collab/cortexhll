@@ -108,16 +108,15 @@ const OfertaSection = () => {
             className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl md:col-span-2 md:row-span-2 hover:border-white/20 transition-all duration-500"
             variants={fadeUp}
           >
-            <div className="relative">
+            <div className="relative p-5 sm:p-6">
               <img 
                 src={ofertaHero} 
                 alt="Gestão de Tráfego Pago" 
-                className="aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto rounded-2xl object-contain"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/40 to-transparent" />
               
               {/* Floating badge */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
+              <div className="absolute top-8 left-8 sm:top-9 sm:left-9 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs font-medium text-white/90">Campanhas ativas</span>
               </div>
