@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background-blackclub.webp";
 import casesBackground2 from "@/assets/cases-background-valentina.webp";
+import CTAButton from "./CTAButton";
 
 // Animation variants - Slide from sides
 const slideFromLeft: Variants = {
@@ -130,17 +131,9 @@ const CasesSection = () => {
             </h2>
             
             {/* CTA Button - Below title */}
-            <a 
-              href="#contato" 
-              className="group flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300 w-fit"
-            >
-              <span className="text-sm font-medium tracking-wider uppercase text-[#F2F2F2]">Ver Cases</span>
-              <span className="bg-white text-black p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
-                <svg viewBox="0 0 20 20" className="w-3 h-3 fill-current">
-                  <path d="M12.25 6.5L1.75 6.5M1.75 6.5L7 11.75M1.75 6.5L7 1.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </span>
-            </a>
+            <CTAButton href="#contato">
+              Ver Cases
+            </CTAButton>
           </motion.div>
 
           {/* RIGHT COLUMN: Description, Avatars & Decorative */}
