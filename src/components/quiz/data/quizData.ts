@@ -10,6 +10,7 @@ export interface Plan {
   details: string;
   popular: boolean;
   includes?: string[];
+  isStartingPrice?: boolean;
 }
 
 export interface Addon {
@@ -53,7 +54,7 @@ export const PLANS: Record<string, Plan> = {
   landing: {
     id: 'landing',
     label: 'Landing Page',
-    base: 1000,
+    base: 3500,
     pagesIncluded: 1,
     icon: 'Zap',
     help: 'Uma página única com proposta clara, prova social e CTA.',
@@ -63,7 +64,7 @@ export const PLANS: Record<string, Plan> = {
   institucional: {
     id: 'institucional',
     label: 'Site Institucional',
-    base: 3500,
+    base: 6399,
     pagesIncluded: 6,
     icon: 'TrendingUp',
     help: 'Site completo para gerar confiança e autoridade.',
@@ -73,13 +74,14 @@ export const PLANS: Record<string, Plan> = {
   premium: {
     id: 'premium',
     label: 'Site Enterprise + Intranet',
-    base: 6000,
+    base: 8000,
     pagesIncluded: 6,
     includes: ['tracking_avancado', 'crm_integracao'],
     icon: 'Rocket',
     help: 'Solução completa para escalar operações.',
-    details: 'Dashboards, CRM, integrações avançadas',
-    popular: false
+    details: 'A partir de R$ 8.000 - Dashboards, CRM, integrações avançadas',
+    popular: false,
+    isStartingPrice: true
   }
 };
 

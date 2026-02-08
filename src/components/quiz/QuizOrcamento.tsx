@@ -106,12 +106,12 @@ function QuizContent() {
   const showNavigation = currentStep > 0 && !isLastStep;
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full overflow-hidden">
       {/* Progress - só mostra depois do step 0 */}
-      {currentStep > 0 && <QuizProgress className="mb-4 md:mb-6" />}
+      {currentStep > 0 && <QuizProgress className="mb-4 md:mb-6 shrink-0" />}
 
-      {/* Step content */}
-      <div className="flex-1 overflow-y-auto min-h-0 pb-2">
+      {/* Step content - no scrollbar */}
+      <div className="flex-1 min-h-0 overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentStep}
@@ -120,6 +120,7 @@ function QuizContent() {
             initial="enter"
             animate="center"
             exit="exit"
+            className="h-full"
           >
             {renderStep()}
           </motion.div>
@@ -128,7 +129,7 @@ function QuizContent() {
 
       {/* Navigation buttons */}
       {showNavigation && (
-        <div className="flex gap-3 pt-4 border-t border-border shrink-0">
+        <div className="flex gap-2 pt-3 border-t border-border shrink-0">
           {canGoBack && (
             <button
               type="button"
@@ -136,7 +137,7 @@ function QuizContent() {
                 trackQuizEvent('orcamento_passo_voltar', { step: currentStep });
                 prevStep();
               }}
-              className="h-11 px-5 rounded-xl border border-border text-foreground flex items-center justify-center gap-2 hover:bg-muted transition-all duration-300"
+              className="h-10 px-4 rounded-lg border border-border text-foreground flex items-center justify-center gap-1.5 hover:bg-muted transition-all duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm font-medium hidden sm:inline">Voltar</span>
@@ -146,7 +147,7 @@ function QuizContent() {
             type="button"
             onClick={nextStep}
             disabled={!canGoNext}
-            className={`flex-1 h-11 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${
+            className={`flex-1 h-10 rounded-lg flex items-center justify-center gap-1.5 transition-all duration-300 ${
               canGoNext
                 ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_8px_30px_-8px_rgba(240,104,0,0.4)]'
                 : 'bg-muted text-muted-foreground cursor-not-allowed'

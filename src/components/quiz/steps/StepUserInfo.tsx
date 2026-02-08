@@ -20,12 +20,12 @@ export function StepUserInfo() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
-        <h3 className="text-xl md:text-2xl font-medium text-foreground mb-2">
+    <div className="space-y-4">
+      <div className="text-center mb-4">
+        <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
           Vamos começar!
         </h3>
-        <p className="text-muted-foreground text-sm md:text-base">
+        <p className="text-muted-foreground text-sm">
           Primeiro, nos conte um pouco sobre você
         </p>
       </div>
@@ -47,7 +47,7 @@ export function StepUserInfo() {
               value={state.name}
               onChange={(e) => setFormField('name', e.target.value)}
               placeholder="Seu nome"
-              className="pl-10 h-12"
+              className="pl-10 h-11"
               autoFocus
             />
           </div>
@@ -69,29 +69,29 @@ export function StepUserInfo() {
               value={state.email}
               onChange={(e) => setFormField('email', e.target.value)}
               placeholder="seu@email.com"
-              className="pl-10 h-12"
+              className="pl-10 h-11"
             />
           </div>
         </motion.div>
 
         {/* Phone & Company */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             <label className="block text-sm font-medium text-foreground mb-2">
-              Telefone
+              Telefone <span className="text-[#f06800]">*</span>
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
               <Input
                 type="tel"
                 value={state.phone}
                 onChange={(e) => setFormField('phone', e.target.value)}
                 placeholder="(00) 00000-0000"
-                className="pl-10 h-12"
+                className="pl-9 md:pl-10 h-11 text-sm"
               />
             </div>
           </motion.div>
@@ -102,16 +102,16 @@ export function StepUserInfo() {
             transition={{ delay: 0.25 }}
           >
             <label className="block text-sm font-medium text-foreground mb-2">
-              Empresa
+              Empresa <span className="text-[#f06800]">*</span>
             </label>
             <div className="relative">
-              <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+              <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
               <Input
                 type="text"
                 value={state.company}
                 onChange={(e) => setFormField('company', e.target.value)}
-                placeholder="Nome da empresa"
-                className="pl-10 h-12"
+                placeholder="Empresa"
+                className="pl-9 md:pl-10 h-11 text-sm"
               />
             </div>
           </motion.div>
@@ -123,20 +123,20 @@ export function StepUserInfo() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="pt-4"
+        className="pt-2"
       >
         <button
           type="button"
           onClick={handleContinue}
           disabled={!canGoNext}
-          className={`w-full h-14 rounded-xl flex items-center justify-center gap-3 font-medium transition-all duration-300 ${
+          className={`w-full h-12 rounded-xl flex items-center justify-center gap-2 font-medium transition-all duration-300 ${
             canGoNext
               ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]'
               : 'bg-muted text-muted-foreground cursor-not-allowed'
           }`}
         >
-          <span className="text-base">Continuar</span>
-          <ArrowRight className="w-5 h-5" />
+          <span className="text-sm">Continuar</span>
+          <ArrowRight className="w-4 h-4" />
         </button>
       </motion.div>
 

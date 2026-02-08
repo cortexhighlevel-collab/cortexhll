@@ -21,17 +21,17 @@ export function StepTrafficPlatform() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
-        <h3 className="text-xl md:text-2xl font-medium text-foreground mb-2">
+    <div className="space-y-4">
+      <div className="text-center mb-4">
+        <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
           Quais plataformas você quer anunciar?
         </h3>
-        <p className="text-muted-foreground text-sm md:text-base">
+        <p className="text-muted-foreground text-sm">
           Selecione uma ou mais plataformas
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2 md:gap-3">
         {TRAFFIC_CONFIG.platforms.map((platform, index) => {
           const isSelected = state.platforms.includes(platform);
           const info = platformInfo[platform] || { color: 'text-gray-600', bgColor: 'bg-gray-100' };
@@ -41,25 +41,24 @@ export function StepTrafficPlatform() {
               key={platform}
               type="button"
               onClick={() => handleToggle(platform)}
-              className={`relative p-5 rounded-xl border-2 transition-all duration-300 text-left ${
+              className={`relative p-3 md:p-4 rounded-xl border-2 transition-all duration-300 text-left ${
                 isSelected
                   ? 'border-[#f06800] bg-[#f06800]/5'
                   : 'border-border bg-card hover:border-muted-foreground/30'
               }`}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ delay: index * 0.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col items-center gap-2 text-center">
                 {/* Platform icon/badge */}
-                <div className={`w-12 h-12 rounded-xl ${info.bgColor} ${info.color} flex items-center justify-center font-bold text-lg`}>
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl ${info.bgColor} ${info.color} flex items-center justify-center font-bold text-base md:text-lg`}>
                   {platform.charAt(0)}
                 </div>
 
                 {/* Platform name */}
-                <span className="font-medium text-foreground flex-1">
+                <span className="font-medium text-foreground text-xs md:text-sm">
                   {platform}
                 </span>
 
@@ -68,9 +67,9 @@ export function StepTrafficPlatform() {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="w-6 h-6 rounded-full bg-[#f06800] flex items-center justify-center"
+                    className="absolute top-2 right-2 w-5 h-5 rounded-full bg-[#f06800] flex items-center justify-center"
                   >
-                    <Check className="w-4 h-4 text-white" />
+                    <Check className="w-3 h-3 text-white" />
                   </motion.div>
                 )}
               </div>
@@ -83,7 +82,7 @@ export function StepTrafficPlatform() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center text-sm text-muted-foreground"
+          className="text-center text-xs text-muted-foreground"
         >
           {state.platforms.length} {state.platforms.length === 1 ? 'plataforma selecionada' : 'plataformas selecionadas'}
         </motion.p>

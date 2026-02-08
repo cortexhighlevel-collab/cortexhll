@@ -172,9 +172,13 @@ export function QuizProvider({ children }: { children: ReactNode }) {
   
   // Validação para poder avançar
   const canGoNext = (() => {
-    // Passo 0: User Info - precisa de nome e email válidos
+    // Passo 0: User Info - TODOS os campos obrigatórios
     if (state.currentStep === 0) {
-      return state.name.trim().length >= 2 && state.email.includes('@');
+      const nameValid = state.name.trim().length >= 2;
+      const emailValid = state.email.includes('@') && state.email.includes('.');
+      const phoneValid = state.phone.trim().length >= 10;
+      const companyValid = state.company.trim().length >= 2;
+      return nameValid && emailValid && phoneValid && companyValid;
     }
     
     // Passo 1: Service Select - precisa escolher um serviço
@@ -186,7 +190,9 @@ export function QuizProvider({ children }: { children: ReactNode }) {
     if (state.service === 'sites') {
       switch (state.currentStep) {
         case 2: return state.plan !== null; // Plano obrigatório
-        case 3: case 4: case 5: case 6: case 7: case 8: case 9: return true; // Addons opcionais
+        case 3: case 4: case 5: case 6: case 7: case 8: return true; // Addons opcionais
+        case 9: // Hospedagem obrigatória
+          return state.recurring['host_essencial'] === true || state.recurring['host_performance'] === true;
         case 10: return true; // Último passo
         default: return true;
       }
