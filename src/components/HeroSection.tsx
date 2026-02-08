@@ -32,7 +32,7 @@ const AnimatedWord = () => {
     </span>;
 };
 export const HeroSection = () => {
-  return <section className="relative w-full h-[90vh] flex items-center overflow-hidden pb-0">
+  return <section className="relative w-full h-[95vh] flex items-center overflow-hidden pb-16">
       {/* Video Background - Desktop */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0 hidden md:block">
         <source src={heroVideo} type="video/mp4" />
