@@ -131,37 +131,133 @@ const OfertaSection = () => {
                 </a>
               </div>
               
-              {/* Glass ROI Chart */}
-              <div className="mt-6 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
-                <div className="flex items-end justify-between gap-4">
-                  {/* Mini chart bars */}
-                  <div className="flex items-end gap-1.5 h-16">
-                    <div className="w-3 bg-gradient-to-t from-orange-500/40 to-orange-400/60 rounded-t-sm" style={{ height: '25%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/40 to-orange-400/60 rounded-t-sm" style={{ height: '35%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/40 to-orange-400/60 rounded-t-sm" style={{ height: '30%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/50 to-orange-400/70 rounded-t-sm" style={{ height: '50%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/50 to-orange-400/70 rounded-t-sm" style={{ height: '45%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/60 to-orange-400/80 rounded-t-sm" style={{ height: '65%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/70 to-orange-400/90 rounded-t-sm" style={{ height: '75%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500/80 to-orange-400 rounded-t-sm" style={{ height: '85%' }} />
-                    <div className="w-3 bg-gradient-to-t from-orange-500 to-orange-400 rounded-t-sm shadow-lg shadow-orange-500/30" style={{ height: '100%' }} />
-                  </div>
+              {/* 3D Glass ROI Chart */}
+              <motion.div 
+                className="mt-6 relative overflow-hidden rounded-3xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
+                {/* Outer glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-3xl blur-xl" />
+                
+                {/* Main glass container with 3D perspective */}
+                <div 
+                  className="relative p-5 sm:p-6 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-2xl border border-white/20 rounded-3xl shadow-2xl"
+                  style={{ 
+                    transform: 'perspective(1000px) rotateX(2deg)',
+                    boxShadow: '0 25px 50px -12px rgba(240, 104, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.1)'
+                  }}
+                >
+                  {/* Inner glass reflection */}
+                  <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent rounded-t-3xl pointer-events-none" />
                   
-                  {/* ROI indicator */}
-                  <div className="flex flex-col items-end">
-                    <span className="text-xs text-white/50 uppercase tracking-wider">ROI</span>
-                    <span className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">
-                      +145,68%
-                    </span>
-                    <div className="flex items-center gap-1 mt-1">
-                      <svg className="w-3 h-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                  <div className="relative flex items-end justify-between gap-6">
+                    {/* 3D Rising Chart */}
+                    <div className="flex-1 relative h-24 sm:h-28">
+                      {/* Grid lines background */}
+                      <div className="absolute inset-0 flex flex-col justify-between opacity-20">
+                        {[...Array(4)].map((_, i) => (
+                          <div key={i} className="border-t border-white/30 border-dashed" />
+                        ))}
+                      </div>
+                      
+                      {/* Chart area with gradient fill */}
+                      <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 200 100">
+                        <defs>
+                          <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="#f06800" stopOpacity="0.6" />
+                            <stop offset="50%" stopColor="#f06800" stopOpacity="0.2" />
+                            <stop offset="100%" stopColor="#f06800" stopOpacity="0" />
+                          </linearGradient>
+                          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#f06800" stopOpacity="0.5" />
+                            <stop offset="100%" stopColor="#fb923c" stopOpacity="1" />
+                          </linearGradient>
+                          <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                              <feMergeNode in="coloredBlur"/>
+                              <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                          </filter>
+                        </defs>
+                        
+                        {/* Filled area under the line */}
+                        <path
+                          d="M0 85 Q20 80, 30 75 T60 65 T90 55 T120 40 T150 25 T180 15 T200 5 L200 100 L0 100 Z"
+                          fill="url(#chartGradient)"
+                        />
+                        
+                        {/* Main rising line with glow */}
+                        <path
+                          d="M0 85 Q20 80, 30 75 T60 65 T90 55 T120 40 T150 25 T180 15 T200 5"
+                          fill="none"
+                          stroke="url(#lineGradient)"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          filter="url(#glow)"
+                        />
+                        
+                        {/* Glowing endpoint */}
+                        <circle cx="200" cy="5" r="5" fill="#fb923c" filter="url(#glow)" />
+                        <circle cx="200" cy="5" r="3" fill="#fff" />
                       </svg>
-                      <span className="text-xs text-green-400">Crescimento</span>
+                      
+                      {/* Data points */}
+                      <div className="absolute inset-0 flex items-end justify-between px-2">
+                        {[15, 20, 25, 35, 45, 60, 75, 85, 95].map((h, i) => (
+                          <motion.div 
+                            key={i}
+                            className="w-1.5 sm:w-2 rounded-full bg-gradient-to-t from-orange-500/0 via-orange-500/50 to-orange-400"
+                            style={{ height: `${h}%` }}
+                            initial={{ height: 0 }}
+                            whileInView={{ height: `${h}%` }}
+                            transition={{ delay: 0.1 * i, duration: 0.5, ease: "easeOut" }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* ROI Badge - 3D Glass */}
+                    <div 
+                      className="relative flex-shrink-0 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent backdrop-blur-xl border border-white/30"
+                      style={{
+                        boxShadow: '0 8px 32px rgba(240, 104, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)'
+                      }}
+                    >
+                      {/* Glass shine */}
+                      <div className="absolute top-0 left-2 right-2 h-1/3 bg-gradient-to-b from-white/20 to-transparent rounded-t-xl" />
+                      
+                      <div className="relative text-center">
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <motion.svg 
+                            className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                            initial={{ y: 5, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ delay: 0.5, duration: 0.4 }}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                          </motion.svg>
+                          <span className="text-[10px] sm:text-xs text-green-400 font-medium uppercase tracking-wider">ROI</span>
+                        </div>
+                        <motion.div 
+                          className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          whileInView={{ scale: 1, opacity: 1 }}
+                          transition={{ delay: 0.4, duration: 0.5, type: "spring" }}
+                        >
+                          +145,68%
+                        </motion.div>
+                        <span className="text-[10px] text-white/50">média mensal</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
