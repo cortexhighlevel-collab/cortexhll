@@ -153,7 +153,7 @@ export function StepUserInfo() {
         </div>
       </div>
 
-      {/* Continue button - só aparece quando válido */}
+      {/* Continue button - estilo CTA premium */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ 
@@ -164,19 +164,22 @@ export function StepUserInfo() {
         transition={{ delay: 0.3, duration: 0.2 }}
         className="pt-2"
       >
-        <button
-          type="button"
+        <div 
+          className={`btn-cta-wrapper w-full ${!canGoNext ? 'pointer-events-none opacity-50' : ''}`}
           onClick={handleContinue}
-          disabled={!canGoNext}
-          className={`w-full h-12 rounded-xl flex items-center justify-center gap-2 font-medium transition-all duration-300 ${
-            canGoNext
-              ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]'
-              : 'bg-muted text-muted-foreground cursor-not-allowed opacity-60'
-          }`}
         >
-          <span className="text-sm">Continuar</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+          <span className="btn-cta w-full justify-center">
+            <span className="btn-cta-text">Continuar</span>
+            <span className="btn-cta-icon">
+              <svg width="20" height="20" viewBox="0 0 40 41">
+                <path d="M 20 40.549 C 8.954 40.549 0 31.594 0 20.549 L 0 20.549 C 0 9.503 8.954 0.549 20 0.549 L 20 0.549 C 31.046 0.549 40 9.503 40 20.549 L 40 20.549 C 40 31.594 31.046 40.549 20 40.549 Z" fill="rgb(255,255,255)"></path>
+                <path d="M 25.833 20.549 L 14.167 20.549" fill="transparent" strokeWidth="1.5" stroke="rgb(50,50,50)" strokeLinecap="round" strokeLinejoin="round"></path>
+                <path d="M 21.667 24.715 L 25.833 20.549" fill="transparent" strokeWidth="1.5" stroke="rgb(50,50,50)" strokeLinecap="round" strokeLinejoin="round"></path>
+                <path d="M 21.667 16.382 L 25.833 20.549" fill="transparent" strokeWidth="1.5" stroke="rgb(50,50,50)" strokeLinecap="round" strokeLinejoin="round"></path>
+              </svg>
+            </span>
+          </span>
+        </div>
       </motion.div>
 
       <p className="text-center text-xs text-muted-foreground">
