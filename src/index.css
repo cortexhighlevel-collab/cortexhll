@@ -227,6 +227,24 @@
     pointer-events: none;
   }
 
+  /* Nav CTA - Smaller variant for header */
+  .nav-cta .btn-cta {
+    @apply px-5 py-2.5 text-xs;
+  }
+
+  .nav-cta.btn-cta-wrapper {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-cta.btn-cta-wrapper::before {
+    height: 120px;
+    width: 15px;
+  }
+
+  .nav-cta.btn-cta-wrapper:hover {
+    box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.3);
+  }
+
   .profile-bubble {
     @apply w-12 h-12 rounded-full border-[1.5px] border-white overflow-hidden -ml-5 relative;
   }
