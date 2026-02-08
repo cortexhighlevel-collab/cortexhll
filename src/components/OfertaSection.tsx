@@ -33,36 +33,36 @@ const fadeUp: Variants = {
 const OfertaSection = () => {
   const features = [
     {
-      id: "requests",
-      title: "Requests & revisões",
-      description: "Itere rapidamente com solicitações assíncronas e feedback estruturado. Cada rodada termina com raciocínio claro e próximos passos.",
+      id: "segmentacao",
+      title: "Segmentação avançada",
+      description: "Públicos ultra-qualificados com base em dados comportamentais, demográficos e de intenção de compra para maximizar seu ROAS.",
       image: ofertaRequests,
       isNew: true,
     },
     {
       id: "pricing",
-      title: "Preço sem surpresas",
-      description: "Planos simples, sem pegadinhas. Pause quando quiser. Escale quando estiver pronto.",
+      title: "Investimento transparente",
+      description: "Sem taxas ocultas. Você sabe exatamente quanto investe em mídia e quanto paga pela gestão. Relatórios claros e objetivos.",
       image: ofertaPricing,
       isNew: true,
     },
     {
       id: "turnaround",
-      title: "Entrega rápida",
-      description: "A maioria das tarefas é entregue em 48–72 horas sem sacrificar qualidade.",
+      title: "Campanhas em 48h",
+      description: "Da aprovação do briefing ao ar em até 48 horas. Agilidade sem comprometer qualidade dos criativos.",
       image: ofertaTurnaround,
       isNew: true,
     },
     {
-      id: "launch1",
-      title: "Vá ao ar em dias",
-      description: "Do primeiro briefing às campanhas ao vivo em uma semana, com tracking e QA inclusos.",
+      id: "otimizacao",
+      title: "Otimização contínua",
+      description: "Monitoramento diário, testes A/B e ajustes em tempo real para melhorar performance constantemente.",
       image: ofertaLaunch1,
     },
     {
-      id: "launch2",
-      title: "Suporte dedicado",
-      description: "Acompanhamento próximo com especialistas para otimização contínua das suas campanhas.",
+      id: "relatorios",
+      title: "Relatórios semanais",
+      description: "Dashboards completos com métricas de ROI, CPL, CPA e insights acionáveis para tomada de decisão.",
       image: ofertaLaunch2,
     },
   ];
@@ -82,12 +82,12 @@ const OfertaSection = () => {
           variants={fadeUp}
         >
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-white/50">O que você recebe</p>
+            <p className="text-sm font-medium text-white/50">Gestão de Tráfego Pago</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mt-1">
-              Features construídas para crescimento eficiente
+              Escale suas vendas com anúncios que convertem
             </h2>
             <p className="mt-3 text-base text-white/70">
-              De solicitações criativas ilimitadas a preços transparentes, nosso sistema operacional ajuda você a escalar aquisição com confiança.
+              Google Ads, Meta Ads e TikTok Ads gerenciados por especialistas. Estratégias data-driven para maximizar seu retorno sobre investimento.
             </p>
           </div>
         </motion.div>
@@ -102,7 +102,7 @@ const OfertaSection = () => {
             <div className="relative">
               <img 
                 src={ofertaHero} 
-                alt="Launch experiments" 
+                alt="Gestão de Tráfego Pago" 
                 className="aspect-video w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -110,15 +110,15 @@ const OfertaSection = () => {
             <div className="p-5 sm:p-6">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1 rounded-full border border-orange-500/30 bg-orange-500/15 px-2 py-0.5 text-[11px] font-medium text-orange-400">
-                  NOVO
+                  RESULTADOS
                 </span>
-                <span className="text-xs text-white/60">Pipeline ilimitado</span>
+                <span className="text-xs text-white/60">+320% ROAS médio</span>
               </div>
               <h3 className="mt-3 text-2xl sm:text-3xl font-medium tracking-tight">
-                Lance experimentos, não suposições
+                Campanhas que geram vendas reais
               </h3>
               <p className="mt-2 text-sm sm:text-base text-white/70">
-                Envie ideias de teste e solicitações criativas ilimitadas. Priorizamos por impacto, entregamos rápido e reportamos claramente para que aprendizados se acumulem toda semana.
+                Gestão completa das suas campanhas de tráfego pago. Criamos estratégias personalizadas, desenvolvemos criativos de alta conversão e otimizamos diariamente para entregar o máximo de resultado com seu investimento.
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <a 
@@ -126,14 +126,14 @@ const OfertaSection = () => {
                   className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur hover:bg-white/10 transition-colors"
                 >
                   <FileText className="h-4 w-4" />
-                  Ver case studies
+                  Ver resultados
                 </a>
                 <a 
                   href="#contato" 
                   className="inline-flex items-center gap-2 text-sm font-medium text-black bg-orange-500 rounded-lg px-4 py-2 hover:bg-orange-400 transition-colors"
                 >
                   <Send className="h-4 w-4" />
-                  Iniciar solicitação
+                  Solicitar proposta
                 </a>
               </div>
             </div>
