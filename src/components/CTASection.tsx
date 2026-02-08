@@ -53,11 +53,12 @@ const CTASection = () => {
           variants={slideUp}
         >
           <div 
-            className="relative rounded-2xl md:rounded-3xl p-5 md:p-8 overflow-hidden min-h-[500px] md:min-h-[580px]" 
+            className="relative rounded-2xl md:rounded-3xl p-5 md:p-8 overflow-hidden" 
             style={{
               background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
               border: '1px solid rgba(240, 104, 0, 0.15)',
-              boxShadow: '0 20px 60px -15px rgba(0, 0, 0, 0.15), 0 10px 30px -10px rgba(240, 104, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
+              boxShadow: '0 20px 60px -15px rgba(0, 0, 0, 0.15), 0 10px 30px -10px rgba(240, 104, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+              minHeight: isMobile ? 'auto' : '560px'
             }}
           >
             {/* Glowing accents */}
@@ -80,7 +81,7 @@ const CTASection = () => {
             </div>
 
             {/* Quiz content */}
-            <div className="mt-10 md:mt-12 h-[calc(100%-56px)]">
+            <div className="mt-10 md:mt-12">
               <QuizOrcamento />
             </div>
           </div>

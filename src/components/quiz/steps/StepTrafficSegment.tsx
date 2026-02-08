@@ -14,17 +14,17 @@ export function StepTrafficSegment() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
-        <h3 className="text-xl md:text-2xl font-medium text-foreground mb-2">
+    <div className="space-y-4">
+      <div className="text-center mb-4">
+        <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
           Qual é o seu segmento?
         </h3>
-        <p className="text-muted-foreground text-sm md:text-base">
+        <p className="text-muted-foreground text-sm">
           Nos ajuda a entender melhor seu negócio
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2">
         {TRAFFIC_CONFIG.segments.map((segment, index) => {
           const isSelected = state.segment === segment;
 
@@ -33,18 +33,17 @@ export function StepTrafficSegment() {
               key={segment}
               type="button"
               onClick={() => handleSelect(segment)}
-              className={`p-4 rounded-xl border-2 transition-all duration-300 text-left flex items-center justify-between ${
+              className={`p-3 rounded-xl border-2 transition-all duration-300 text-center relative ${
                 isSelected
                   ? 'border-[#f06800] bg-[#f06800]/5'
                   : 'border-border bg-card hover:border-muted-foreground/30'
               }`}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.02 }}
+              transition={{ delay: index * 0.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="font-medium text-foreground">
+              <span className="font-medium text-foreground text-xs md:text-sm">
                 {segment}
               </span>
 
@@ -52,9 +51,9 @@ export function StepTrafficSegment() {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="w-5 h-5 rounded-full bg-[#f06800] flex items-center justify-center"
+                  className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-[#f06800] flex items-center justify-center"
                 >
-                  <Check className="w-3 h-3 text-white" />
+                  <Check className="w-2.5 h-2.5 text-white" />
                 </motion.div>
               )}
             </motion.button>

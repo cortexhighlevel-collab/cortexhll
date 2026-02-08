@@ -29,21 +29,21 @@ export function StepAddons({ category }: StepAddonsProps) {
   const isIncluded = (addon: Addon) => addon.includedIn?.includes(state.plan || '');
 
   return (
-    <div className="space-y-6">
-      <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#f06800]/10 text-[#f06800] rounded-full text-sm font-medium mb-3">
-          <Sparkles className="w-4 h-4" />
+    <div className="space-y-3">
+      <div className="text-center mb-3">
+        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#f06800]/10 text-[#f06800] rounded-full text-xs font-medium mb-2">
+          <Sparkles className="w-3 h-3" />
           {categoryInfo.label}
         </div>
-        <h3 className="text-xl md:text-2xl font-medium text-foreground mb-2">
+        <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
           {categoryInfo.description}
         </h3>
-        <p className="text-muted-foreground text-sm">
+        <p className="text-muted-foreground text-xs">
           Selecione os recursos que deseja adicionar (opcional)
         </p>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         {addons.map((addon, index) => {
           const isToggle = addon.type === 'toggle';
           const isCounter = addon.type === 'counter';
@@ -56,10 +56,10 @@ export function StepAddons({ category }: StepAddonsProps) {
           return (
             <motion.div
               key={addon.id}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+              transition={{ delay: index * 0.03 }}
+              className={`p-3 rounded-lg border-2 transition-all duration-300 ${
                 included
                   ? 'border-green-200 bg-green-50/50'
                   : isActive
@@ -67,36 +67,36 @@ export function StepAddons({ category }: StepAddonsProps) {
                   : 'border-border bg-card hover:border-muted-foreground/30'
               }`}
             >
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center justify-between gap-3">
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="font-medium text-foreground text-sm md:text-base">
+                  <div className="flex items-center gap-1.5">
+                    <h4 className="font-medium text-foreground text-xs md:text-sm">
                       {addon.label}
                     </h4>
                     <span 
                       className="text-muted-foreground cursor-help" 
                       title={addon.help}
                     >
-                      <Info className="w-3.5 h-3.5" />
+                      <Info className="w-3 h-3" />
                     </span>
                     {included && (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 text-xs font-medium rounded-full">
-                        <Check className="w-3 h-3" />
+                      <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                        <Check className="w-2.5 h-2.5" />
                         Incluso
                       </span>
                     )}
                   </div>
                   
                   {/* Pricing info */}
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     {isToggle && addon.setup && !included && (
                       <span>{formatCurrency(addon.setup)}</span>
                     )}
                     {isToggle && addon.monthly && !included && (
-                      <span className="text-xs">+{formatCurrency(addon.monthly)}/mês</span>
+                      <span>+{formatCurrency(addon.monthly)}/mês</span>
                     )}
                     {isCounter && addon.unit && !included && (
-                      <span>{formatCurrency(addon.unit)} /unidade</span>
+                      <span>{formatCurrency(addon.unit)} /un</span>
                     )}
                   </div>
                 </div>
@@ -112,25 +112,25 @@ export function StepAddons({ category }: StepAddonsProps) {
                       />
                     )}
                     {isCounter && (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         <button
                           type="button"
                           onClick={() => handleCounter(addon, -1)}
                           disabled={counterValue <= (addon.min || 0)}
-                          className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-muted-foreground/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                          className="w-7 h-7 rounded-md bg-muted flex items-center justify-center hover:bg-muted-foreground/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
-                          <Minus className="w-4 h-4" />
+                          <Minus className="w-3 h-3" />
                         </button>
-                        <span className="w-8 text-center font-medium text-foreground">
+                        <span className="w-6 text-center font-medium text-foreground text-sm">
                           {counterValue}
                         </span>
                         <button
                           type="button"
                           onClick={() => handleCounter(addon, 1)}
                           disabled={counterValue >= (addon.max || 10)}
-                          className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center hover:bg-muted-foreground/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                          className="w-7 h-7 rounded-md bg-muted flex items-center justify-center hover:bg-muted-foreground/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
-                          <Plus className="w-4 h-4" />
+                          <Plus className="w-3 h-3" />
                         </button>
                       </div>
                     )}
