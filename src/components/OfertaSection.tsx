@@ -133,7 +133,7 @@ const OfertaSection = () => {
               
               {/* 3D Glass ROI Chart */}
               <motion.div 
-                className="mt-6 relative overflow-hidden rounded-3xl"
+                className="mt-6 relative rounded-3xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -163,19 +163,19 @@ const OfertaSection = () => {
                       </div>
                       
                       {/* Chart area with gradient fill */}
-                      <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 200 100">
+                      <svg className="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 200 110">
                         <defs>
-                          <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <linearGradient id="chartGradientFill" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stopColor="#f06800" stopOpacity="0.6" />
                             <stop offset="50%" stopColor="#f06800" stopOpacity="0.2" />
                             <stop offset="100%" stopColor="#f06800" stopOpacity="0" />
                           </linearGradient>
-                          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <linearGradient id="lineGradientStroke" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stopColor="#f06800" stopOpacity="0.5" />
                             <stop offset="100%" stopColor="#fb923c" stopOpacity="1" />
                           </linearGradient>
-                          <filter id="glow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                          <filter id="glowEffect" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                             <feMerge>
                               <feMergeNode in="coloredBlur"/>
                               <feMergeNode in="SourceGraphic"/>
@@ -185,23 +185,23 @@ const OfertaSection = () => {
                         
                         {/* Filled area under the line */}
                         <path
-                          d="M0 85 Q20 80, 30 75 T60 65 T90 55 T120 40 T150 25 T180 15 T200 5 L200 100 L0 100 Z"
-                          fill="url(#chartGradient)"
+                          d="M0 95 Q20 90, 30 85 T60 75 T90 65 T120 50 T150 35 T180 25 T195 15 L195 110 L0 110 Z"
+                          fill="url(#chartGradientFill)"
                         />
                         
                         {/* Main rising line with glow */}
                         <path
-                          d="M0 85 Q20 80, 30 75 T60 65 T90 55 T120 40 T150 25 T180 15 T200 5"
+                          d="M0 95 Q20 90, 30 85 T60 75 T90 65 T120 50 T150 35 T180 25 T195 15"
                           fill="none"
-                          stroke="url(#lineGradient)"
+                          stroke="url(#lineGradientStroke)"
                           strokeWidth="3"
                           strokeLinecap="round"
-                          filter="url(#glow)"
+                          filter="url(#glowEffect)"
                         />
                         
                         {/* Glowing endpoint */}
-                        <circle cx="200" cy="5" r="5" fill="#fb923c" filter="url(#glow)" />
-                        <circle cx="200" cy="5" r="3" fill="#fff" />
+                        <circle cx="195" cy="15" r="5" fill="#fb923c" filter="url(#glowEffect)" />
+                        <circle cx="195" cy="15" r="3" fill="#fff" />
                       </svg>
                       
                       {/* Data points */}
