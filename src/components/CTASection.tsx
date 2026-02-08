@@ -8,13 +8,13 @@ import { QuizOrcamento } from "./quiz/QuizOrcamento";
 const scaleCenter: Variants = {
   hidden: {
     opacity: 0,
-    scale: 0.85
+    scale: 0.9
   },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.805,
+      duration: 0.6,
       ease: [0.25, 0.46, 0.45, 0.94]
     }
   }
@@ -23,13 +23,13 @@ const scaleCenter: Variants = {
 const slideUp: Variants = {
   hidden: {
     opacity: 0,
-    y: 50
+    y: 40
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.69,
+      duration: 0.5,
       ease: "easeOut"
     }
   }
@@ -39,9 +39,9 @@ const CTASection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-16 md:py-24">
+    <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-12 md:py-20 px-4 md:px-6">
       <motion.div 
-        className="w-full max-w-[1280px] relative z-20 flex flex-col lg:flex-row items-stretch px-6 md:px-8" 
+        className="w-full max-w-[1200px] relative z-20 flex flex-col lg:flex-row items-stretch gap-6 lg:gap-0" 
         initial="hidden" 
         whileInView="visible" 
         viewport={{ once: false, amount: 0.2 }} 
@@ -49,46 +49,46 @@ const CTASection = () => {
       >
         {/* Left Section: Quiz Form */}
         <motion.div 
-          className="relative lg:w-[55%] lg:-mr-12 mt-[-40px] lg:mt-0 z-10 order-2 lg:order-1"
+          className="relative lg:w-[58%] lg:-mr-8 z-10 order-2 lg:order-1"
           variants={slideUp}
         >
           <div 
-            className="relative rounded-3xl p-6 md:p-8 overflow-hidden h-full min-h-[600px]" 
+            className="relative rounded-2xl md:rounded-3xl p-5 md:p-8 overflow-hidden min-h-[500px] md:min-h-[580px]" 
             style={{
               background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.99) 0%, rgba(252, 252, 252, 0.98) 100%)',
               border: '1px solid rgba(240, 104, 0, 0.15)',
-              boxShadow: '0 25px 80px -20px rgba(0, 0, 0, 0.18), 0 15px 40px -15px rgba(240, 104, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
+              boxShadow: '0 20px 60px -15px rgba(0, 0, 0, 0.15), 0 10px 30px -10px rgba(240, 104, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
             }}
           >
             {/* Glowing accents */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#f06800]/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#f06800]/5 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute -top-16 -right-16 w-32 h-32 bg-[#f06800]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-[#f06800]/5 rounded-full blur-2xl pointer-events-none"></div>
             
             {/* Decorative corner elements */}
-            <div className="absolute top-6 right-6 w-16 h-16 overflow-hidden rounded-tr-lg">
+            <div className="absolute top-4 right-4 md:top-5 md:right-5 w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-tr-lg">
               <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#f06800] to-transparent rounded-r-full" />
               <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-[#f06800] to-transparent rounded-t-full" />
             </div>
-            <div className="absolute bottom-6 left-6 w-16 h-16 overflow-hidden rounded-bl-lg">
+            <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5 w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-bl-lg">
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-300 to-transparent rounded-l-full" />
               <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-gray-300 to-transparent rounded-b-full" />
             </div>
 
             {/* Premium badge */}
-            <div className="absolute top-6 left-6 flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg z-10">
+            <div className="absolute top-4 left-4 md:top-5 md:left-5 flex items-center gap-2 bg-gradient-to-r from-[#f06800] to-[#ff8c42] text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg z-10">
               <span>Orçamento Interativo</span>
             </div>
 
             {/* Quiz content */}
-            <div className="mt-10 h-[calc(100%-40px)]">
+            <div className="mt-10 md:mt-12 h-[calc(100%-56px)]">
               <QuizOrcamento />
             </div>
           </div>
         </motion.div>
 
-        {/* Right Section: Image Card with Text Overlay */}
+        {/* Right Section: Image Card with Summary */}
         <motion.div 
-          className="relative flex flex-col justify-center lg:w-[50%] min-h-[400px] rounded-3xl overflow-hidden order-1 lg:order-2" 
+          className="relative flex flex-col justify-between lg:w-[48%] min-h-[300px] md:min-h-[400px] rounded-2xl md:rounded-3xl overflow-hidden order-1 lg:order-2" 
           variants={slideUp} 
           style={{
             background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
@@ -102,36 +102,55 @@ const CTASection = () => {
           />
           
           {/* Dark overlay for text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/40 backdrop-blur-[1px]"></div>
           
           {/* Decorative elements */}
-          <div className="absolute top-6 right-6 w-20 h-20 overflow-hidden rounded-tr-lg">
+          <div className="absolute top-4 right-4 md:top-5 md:right-5 w-16 h-16 overflow-hidden rounded-tr-lg">
             <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-white/30 to-transparent rounded-r-full" />
             <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-white/30 to-transparent rounded-t-full" />
           </div>
-          <div className="absolute bottom-6 left-6 w-20 h-20 overflow-hidden rounded-bl-lg">
+          <div className="absolute bottom-4 left-4 md:bottom-5 md:left-5 w-16 h-16 overflow-hidden rounded-bl-lg">
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#f06800]/50 to-transparent rounded-l-full" />
             <div className="absolute bottom-0 left-0 w-[2px] h-full bg-gradient-to-t from-[#f06800]/50 to-transparent rounded-b-full" />
           </div>
 
-          {/* Text content */}
-          <div className="relative z-10 p-8 md:p-12 text-center">
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-[#f06800] bg-[#f06800]/10 backdrop-blur-sm rounded-full border border-[#f06800]/20">
+          {/* Text content - top */}
+          <div className="relative z-10 p-6 md:p-10 text-center lg:text-left">
+            <span className="inline-block px-3 py-1 mb-4 text-xs md:text-sm font-medium text-[#f06800] bg-[#f06800]/10 backdrop-blur-sm rounded-full border border-[#f06800]/20">
               Monte seu projeto
             </span>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-4 leading-tight">
-              Calcule seu
-              <br />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-3 leading-tight">
+              Calcule seu{' '}
               <span className="text-[#f06800]">orçamento</span>
             </h2>
             
-            <p className="text-lg text-white/70 max-w-md mx-auto mb-8">
-              Responda algumas perguntas rápidas e receba uma estimativa personalizada para o seu projeto.
+            <p className="text-sm md:text-base text-white/70 max-w-md mb-6 lg:mb-0">
+              Responda algumas perguntas rápidas e receba uma estimativa personalizada.
             </p>
+          </div>
 
-            {/* Features list */}
-            <div className="flex flex-col gap-3 max-w-xs mx-auto text-left">
+          {/* Features list - bottom */}
+          <div className="relative z-10 p-6 md:p-10 pt-0 lg:hidden">
+            <div className="flex flex-wrap gap-3 justify-center">
+              {[
+                'Orçamento em tempo real',
+                'Personalização completa',
+                'Envio via WhatsApp'
+              ].map((feature, index) => (
+                <div key={index} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  <svg className="w-3 h-3 text-[#f06800]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-xs text-white/90">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop features list */}
+          <div className="relative z-10 p-10 pt-0 hidden lg:block">
+            <div className="flex flex-col gap-2">
               {[
                 'Orçamento em tempo real',
                 'Personalização completa',

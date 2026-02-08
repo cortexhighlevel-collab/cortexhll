@@ -3,7 +3,6 @@ import { Check, Plus, Minus, Info, Sparkles } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { ADDONS, getAddonsByCategory, ADDON_CATEGORIES, type Addon } from '../data/quizData';
 import { formatCurrency, trackQuizEvent } from '@/lib/quizUtils';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Switch } from '@/components/ui/switch';
 
 interface StepAddonsProps {
@@ -74,18 +73,12 @@ export function StepAddons({ category }: StepAddonsProps) {
                     <h4 className="font-medium text-foreground text-sm md:text-base">
                       {addon.label}
                     </h4>
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <button type="button" className="text-muted-foreground hover:text-foreground">
-                            <Info className="w-3.5 h-3.5" />
-                          </button>
-                        </TooltipTrigger>
-                        <TooltipContent side="top" className="max-w-xs">
-                          <p>{addon.help}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
+                    <span 
+                      className="text-muted-foreground cursor-help" 
+                      title={addon.help}
+                    >
+                      <Info className="w-3.5 h-3.5" />
+                    </span>
                     {included && (
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-green-100 text-green-700 text-xs font-medium rounded-full">
                         <Check className="w-3 h-3" />

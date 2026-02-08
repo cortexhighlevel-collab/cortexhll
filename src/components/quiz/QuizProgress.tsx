@@ -10,11 +10,14 @@ export function QuizProgress({ className = '' }: QuizProgressProps) {
   const { state, totalSteps, goToStep } = useQuiz();
   const { currentStep, service } = state;
 
-  // Get step labels based on service
-  const getStepLabels = () => {
+  // Labels dos passos baseado no serviço
+  const getStepLabels = (): string[] => {
+    // Passos comuns: 0 = Info, 1 = Serviço
+    const common = ['Info', 'Serviço'];
+    
     if (service === 'sites') {
       return [
-        'Serviço',
+        ...common,
         'Plano',
         'Conteúdo',
         'Básicas',
@@ -23,86 +26,77 @@ export function QuizProgress({ className = '' }: QuizProgressProps) {
         'Automação',
         'Backend',
         'Recorrentes',
-        'Finalizar'
+        'Enviar'
       ];
     }
     if (service === 'trafego') {
       return [
-        'Serviço',
+        ...common,
         'Plataformas',
         'Investimento',
         'Objetivos',
         'Segmento',
-        'Finalizar'
+        'Enviar'
       ];
     }
-    return ['Serviço'];
+    return common;
   };
 
   const stepLabels = getStepLabels();
-  const displayedSteps = stepLabels.slice(0, totalSteps + 1);
+  
+  // Progresso real baseado no step atual e total
+  const progress = ((currentStep) / totalSteps) * 100;
 
   return (
     <div className={`w-full ${className}`}>
       {/* Progress bar */}
-      <div className="relative h-1 bg-muted rounded-full overflow-hidden mb-4">
+      <div className="relative h-1.5 bg-muted rounded-full overflow-hidden mb-3">
         <motion.div
-          className="absolute inset-y-0 left-0 bg-[#f06800] rounded-full"
+          className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#f06800] to-[#ff8c42] rounded-full"
           initial={{ width: 0 }}
-          animate={{ width: `${((currentStep) / totalSteps) * 100}%` }}
+          animate={{ width: `${progress}%` }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         />
       </div>
 
-      {/* Step indicators - only show on desktop or if few steps */}
-      <div className="hidden md:flex items-center justify-between gap-1">
-        {displayedSteps.map((label, index) => {
-          const isActive = index === currentStep;
-          const isCompleted = index < currentStep;
-          const isClickable = index < currentStep;
-
-          return (
-            <button
-              key={index}
-              type="button"
-              onClick={() => isClickable && goToStep(index)}
-              disabled={!isClickable}
-              className={`flex flex-col items-center gap-1 transition-all duration-300 ${
-                isClickable ? 'cursor-pointer' : 'cursor-default'
-              }`}
-            >
-              <div
-                className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-300 ${
-                  isCompleted
-                    ? 'bg-green-500 text-white'
-                    : isActive
-                    ? 'bg-[#f06800] text-white ring-2 ring-[#f06800]/30 ring-offset-2'
-                    : 'bg-muted text-muted-foreground'
-                }`}
-              >
-                {isCompleted ? <Check className="w-3.5 h-3.5" /> : index + 1}
-              </div>
-              <span
-                className={`text-[10px] font-medium transition-colors duration-300 ${
-                  isActive ? 'text-[#f06800]' : isCompleted ? 'text-foreground' : 'text-muted-foreground'
-                }`}
-              >
-                {label}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Mobile: Simple step counter */}
-      <div className="flex md:hidden items-center justify-between text-sm">
+      {/* Step counter - mobile */}
+      <div className="flex items-center justify-between text-sm">
         <span className="text-muted-foreground">
           Passo {currentStep + 1} de {totalSteps + 1}
         </span>
         <span className="font-medium text-foreground">
-          {displayedSteps[currentStep] || 'Serviço'}
+          {stepLabels[currentStep] || ''}
         </span>
       </div>
+
+      {/* Step dots - desktop only, quando temos serviço definido */}
+      {service && currentStep > 1 && (
+        <div className="hidden md:flex items-center justify-center gap-1.5 mt-3">
+          {stepLabels.slice(2).map((label, index) => {
+            const stepIndex = index + 2;
+            const isActive = stepIndex === currentStep;
+            const isCompleted = stepIndex < currentStep;
+            const isClickable = stepIndex < currentStep;
+
+            return (
+              <button
+                key={stepIndex}
+                type="button"
+                onClick={() => isClickable && goToStep(stepIndex)}
+                disabled={!isClickable}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  isCompleted
+                    ? 'bg-green-500 w-2.5 h-2.5'
+                    : isActive
+                    ? 'bg-[#f06800] w-3 h-3 ring-2 ring-[#f06800]/30 ring-offset-1 ring-offset-background'
+                    : 'bg-muted'
+                } ${isClickable ? 'cursor-pointer hover:scale-125' : 'cursor-default'}`}
+                title={label}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

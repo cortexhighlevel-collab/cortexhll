@@ -3,7 +3,6 @@ import { Zap, TrendingUp, Rocket, Check, Info } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { PLANS, type Plan } from '../data/quizData';
 import { formatCurrency, trackQuizEvent } from '@/lib/quizUtils';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap,
@@ -76,19 +75,12 @@ export function StepPlanSelect() {
                     <h4 className="text-lg font-semibold text-foreground">
                       {plan.label}
                     </h4>
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <button type="button" className="text-muted-foreground hover:text-foreground">
-                            <Info className="w-4 h-4" />
-                          </button>
-                        </TooltipTrigger>
-                        <TooltipContent side="top" className="max-w-xs">
-                          <p className="font-medium mb-1">{plan.help}</p>
-                          <p className="text-xs text-muted-foreground">{plan.details}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
+                    <span 
+                      className="text-muted-foreground cursor-help" 
+                      title={`${plan.help} - ${plan.details}`}
+                    >
+                      <Info className="w-4 h-4" />
+                    </span>
                   </div>
                   
                   <p className="text-sm text-muted-foreground mb-2">
