@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import dnaExclusividade from "@/assets/dna-exclusividade.jpg";
+import dnaSofisticacao from "@/assets/dna-sofisticacao.jpg";
 
 // Animation variants - Blur to clear effect
 const blurFade: Variants = {
@@ -131,6 +132,12 @@ const DNASection = () => {
               <div className="absolute top-0 right-0 w-full h-[2px] bg-white opacity-30"></div>
               <div className="absolute top-0 right-0 w-[2px] h-full bg-white opacity-30"></div>
             </div>
+            {/* Background Image */}
+            <img 
+              src={dnaSofisticacao} 
+              alt="Sofisticação" 
+              className="absolute inset-0 w-full h-full object-cover opacity-70"
+            />
             {/* Dark overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
             <div className="relative z-20">
