@@ -1,210 +1,203 @@
-import { Target, TrendingUp, BarChart3, Zap, ArrowRight, CheckCircle2 } from "lucide-react";
+import { FileText, Send } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-// Animation variants - Spring/Bounce effect
-const springUp: Variants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 87,
-      damping: 13,
-      duration: 0.92,
-    },
-  },
-};
+// Images
+import ofertaHero from "@/assets/oferta-hero.jpg";
+import ofertaRequests from "@/assets/oferta-requests.jpg";
+import ofertaPricing from "@/assets/oferta-pricing.jpg";
+import ofertaTurnaround from "@/assets/oferta-turnaround.jpg";
+import ofertaLaunch1 from "@/assets/oferta-launch-1.jpg";
+import ofertaLaunch2 from "@/assets/oferta-launch-2.jpg";
 
-const staggerCards: Variants = {
+// Animation variants
+const staggerContainer: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.17 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
-const cardBounce: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
       type: "spring",
-      stiffness: 104,
-      damping: 10,
+      stiffness: 80,
+      damping: 15,
     },
-  },
-};
-
-const fadeSlide: Variants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.575, ease: "easeOut" },
   },
 };
 
 const OfertaSection = () => {
-  const metrics = [
-    { value: "+320%", label: "ROAS Médio", icon: TrendingUp },
-    { value: "-47%", label: "Custo por Lead", icon: Target },
-    { value: "3.2x", label: "Taxa de Conversão", icon: BarChart3 },
-  ];
-
-  const methodology = [
+  const features = [
     {
-      step: "01",
-      title: "Auditoria Completa",
-      description: "Análise profunda das suas campanhas atuais, identificando gaps e oportunidades de otimização.",
+      id: "requests",
+      title: "Requests & revisões",
+      description: "Itere rapidamente com solicitações assíncronas e feedback estruturado. Cada rodada termina com raciocínio claro e próximos passos.",
+      image: ofertaRequests,
+      isNew: true,
     },
     {
-      step: "02",
-      title: "Estratégia de Segmentação",
-      description: "Criação de públicos qualificados com base em dados e comportamento do seu cliente ideal.",
+      id: "pricing",
+      title: "Preço sem surpresas",
+      description: "Planos simples, sem pegadinhas. Pause quando quiser. Escale quando estiver pronto.",
+      image: ofertaPricing,
+      isNew: true,
     },
     {
-      step: "03",
-      title: "Criativos de Alta Performance",
-      description: "Desenvolvimento de anúncios que convertem, com copy persuasiva e design premium.",
+      id: "turnaround",
+      title: "Entrega rápida",
+      description: "A maioria das tarefas é entregue em 48–72 horas sem sacrificar qualidade.",
+      image: ofertaTurnaround,
+      isNew: true,
     },
     {
-      step: "04",
-      title: "Otimização Contínua",
-      description: "Monitoramento em tempo real e ajustes semanais para maximizar resultados.",
+      id: "launch1",
+      title: "Vá ao ar em dias",
+      description: "Do primeiro briefing às campanhas ao vivo em uma semana, com tracking e QA inclusos.",
+      image: ofertaLaunch1,
     },
-  ];
-
-  const benefits = [
-    "Google Ads, Meta Ads e TikTok Ads",
-    "Gestão completa de campanhas",
-    "Relatórios semanais detalhados",
-    "Acompanhamento de métricas em tempo real",
-    "Criativos desenvolvidos por especialistas",
-    "Otimização de funil de vendas",
+    {
+      id: "launch2",
+      title: "Suporte dedicado",
+      description: "Acompanhamento próximo com especialistas para otimização contínua das suas campanhas.",
+      image: ofertaLaunch2,
+    },
   ];
 
   return (
     <section className="w-full bg-[#0D0D0D] text-white dark-dotted-fade-in font-dm">
-      <div className="max-w-[1440px] mx-auto px-6 py-16 md:px-12 md:py-28 flex flex-col gap-16 md:gap-24 relative z-10">
-        {/* TOP SECTION: Header & CTA */}
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.15 }}
+        variants={staggerContainer}
+      >
+        {/* Header */}
         <motion.div 
-          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
-          variants={springUp}
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8"
+          variants={fadeUp}
         >
-          {/* Title */}
-          <div className="max-w-xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
-              TRÁFEGO PAGO
-            </span>
-            <h2 className="text-5xl md:text-7xl font-medium leading-[1.0] tracking-tight text-[#F2F2F2]">
-              Escale suas vendas com anúncios
+          <div className="max-w-2xl">
+            <p className="text-sm font-medium text-white/50">O que você recebe</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mt-1">
+              Features construídas para crescimento eficiente
             </h2>
+            <p className="mt-3 text-base text-white/70">
+              De solicitações criativas ilimitadas a preços transparentes, nosso sistema operacional ajuda você a escalar aquisição com confiança.
+            </p>
           </div>
+        </motion.div>
 
-          {/* CTA Button */}
-          <a 
-            href="#contato" 
-            className="group flex items-center gap-2 px-6 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-all duration-300"
+        {/* Bento Grid */}
+        <div className="grid gap-6 md:grid-cols-3">
+          {/* Big feature - spans 2 cols and 2 rows */}
+          <motion.div 
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:col-span-2 md:row-span-2"
+            variants={fadeUp}
           >
-            <span className="text-sm font-medium tracking-wider uppercase text-[#F2F2F2]">Solicitar Proposta</span>
-            <span className="bg-white text-black p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
-              <ArrowRight className="w-3 h-3" />
-            </span>
-          </a>
-        </motion.div>
-
-        {/* METRICS SECTION */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
-          variants={staggerCards}
-        >
-          {metrics.map((metric, index) => {
-            const Icon = metric.icon;
-            return (
-              <motion.div 
-                key={index} 
-                className="flex items-center justify-center gap-4 py-10 px-8 rounded-[24px] border border-white/10 bg-[#141414]" 
-                variants={cardBounce}
-              >
-                <div className="text-orange-500">
-                  <Icon className="w-8 h-8" strokeWidth={1.5} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-4xl md:text-5xl font-bold text-orange-500 leading-none">{metric.value}</span>
-                  <span className="text-[#808080] text-xs tracking-[0.2em] uppercase mt-1 font-medium">{metric.label}</span>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* TWO COLUMNS: Methodology + Benefits */}
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={staggerCards}
-        >
-          {/* METHODOLOGY */}
-          <motion.div className="rounded-[32px] p-8 md:p-10 bg-white/[0.03] border border-white/10" variants={cardBounce}>
-            <div className="flex items-center gap-3 mb-8">
-              <Zap className="w-6 h-6 text-orange-500" />
-              <h3 className="text-2xl font-medium text-white tracking-wide">Nossa Metodologia</h3>
+            <div className="relative">
+              <img 
+                src={ofertaHero} 
+                alt="Launch experiments" 
+                className="aspect-video w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             </div>
-            <div className="space-y-6">
-              {methodology.map((item, index) => (
-                <motion.div key={index} className="flex gap-4" variants={fadeSlide}>
-                  <span className="text-orange-500 font-bold text-lg">{item.step}</span>
-                  <div>
-                    <h4 className="text-white font-medium mb-1">{item.title}</h4>
-                    <p className="text-white/60 text-sm font-light leading-relaxed">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* BENEFITS */}
-          <motion.div className="rounded-[32px] p-8 md:p-10 bg-orange-500/10 border border-orange-500/20" variants={cardBounce}>
-            <div className="flex items-center gap-3 mb-8">
-              <CheckCircle2 className="w-6 h-6 text-orange-500" />
-              <h3 className="text-2xl font-medium text-white tracking-wide">O Que Está Incluso</h3>
-            </div>
-            <ul className="space-y-4">
-              {benefits.map((item, index) => (
-                <motion.li key={index} className="flex items-center gap-3 text-white/80 font-light" variants={fadeSlide}>
-                  <span className="w-2 h-2 rounded-full bg-orange-500 flex-shrink-0"></span>
-                  {item}
-                </motion.li>
-              ))}
-            </ul>
-
-            {/* Platforms */}
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <p className="text-white/50 text-xs uppercase tracking-[0.2em] mb-4">Plataformas</p>
-              <div className="flex flex-wrap gap-2">
-                {["Google Ads", "Meta Ads", "TikTok Ads", "LinkedIn Ads"].map((platform, index) => (
-                  <span 
-                    key={index} 
-                    className="px-3 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-medium"
-                  >
-                    {platform}
-                  </span>
-                ))}
+            <div className="p-5 sm:p-6">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1 rounded-full border border-orange-500/30 bg-orange-500/15 px-2 py-0.5 text-[11px] font-medium text-orange-400">
+                  NOVO
+                </span>
+                <span className="text-xs text-white/60">Pipeline ilimitado</span>
+              </div>
+              <h3 className="mt-3 text-2xl sm:text-3xl font-medium tracking-tight">
+                Lance experimentos, não suposições
+              </h3>
+              <p className="mt-2 text-sm sm:text-base text-white/70">
+                Envie ideias de teste e solicitações criativas ilimitadas. Priorizamos por impacto, entregamos rápido e reportamos claramente para que aprendizados se acumulem toda semana.
+              </p>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <a 
+                  href="#cases" 
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur hover:bg-white/10 transition-colors"
+                >
+                  <FileText className="h-4 w-4" />
+                  Ver case studies
+                </a>
+                <a 
+                  href="#contato" 
+                  className="inline-flex items-center gap-2 text-sm font-medium text-black bg-orange-500 rounded-lg px-4 py-2 hover:bg-orange-400 transition-colors"
+                >
+                  <Send className="h-4 w-4" />
+                  Iniciar solicitação
+                </a>
               </div>
             </div>
           </motion.div>
-        </motion.div>
-      </div>
+
+          {/* Feature cards - right column */}
+          {features.slice(0, 2).map((feature) => (
+            <motion.div 
+              key={feature.id}
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+              variants={fadeUp}
+            >
+              <div className="p-5 sm:p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-medium tracking-tight flex items-center gap-2">
+                    {feature.title}
+                  </h3>
+                  {feature.isNew && (
+                    <span className="inline-flex items-center rounded-full border border-orange-500/30 bg-orange-500/15 px-2 py-0.5 text-[11px] font-medium text-orange-400">
+                      NOVO
+                    </span>
+                  )}
+                </div>
+                <p className="mt-2 text-sm text-white/70">{feature.description}</p>
+                <div className="mt-4 rounded-lg overflow-hidden border border-white/10">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title} 
+                    className="aspect-video w-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Bottom row - small cards */}
+          {features.slice(2).map((feature) => (
+            <motion.div 
+              key={feature.id}
+              className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+              variants={fadeUp}
+            >
+              <div className="p-5 sm:p-6">
+                <h3 className="text-lg font-medium tracking-tight flex items-center gap-2">
+                  {feature.title}
+                  {feature.isNew && (
+                    <span className="ml-2 inline-flex items-center rounded-full border border-orange-500/30 bg-orange-500/15 px-2 py-0.5 text-[11px] font-medium text-orange-400">
+                      NOVO
+                    </span>
+                  )}
+                </h3>
+                <p className="mt-2 text-sm text-white/70">{feature.description}</p>
+                <div className="mt-4 rounded-lg overflow-hidden border border-white/10">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title} 
+                    className="aspect-video w-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };
