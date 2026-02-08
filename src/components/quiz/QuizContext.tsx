@@ -18,7 +18,7 @@ export interface QuizState {
   objective: string | null;
   segment: string | null;
   
-  // Form
+  // Form (coletado no início)
   name: string;
   email: string;
   phone: string;
@@ -64,7 +64,7 @@ const initialState: QuizState = {
 function quizReducer(state: QuizState, action: QuizAction): QuizState {
   switch (action.type) {
     case 'SET_SERVICE':
-      return { ...state, service: action.payload, currentStep: 1, direction: 1 };
+      return { ...state, service: action.payload, direction: 1 };
     case 'SET_STEP':
       return { ...state, currentStep: action.payload };
     case 'SET_DIRECTION':
@@ -132,32 +132,78 @@ interface QuizContextValue {
 
 const QuizContext = createContext<QuizContextValue | undefined>(undefined);
 
+/*
+ * NOVO FLUXO REORGANIZADO:
+ * 
+ * Passo 0: Dados do usuário (nome, email, telefone, empresa)
+ * Passo 1: Escolha do serviço (Sites ou Tráfego)
+ * 
+ * SITES (passos 2-10):
+ *   2: Plano base
+ *   3: Conteúdo
+ *   4: Funcionalidades Básicas
+ *   5: Funcionalidades Avançadas
+ *   6: SEO & Marketing
+ *   7: Automação & IA
+ *   8: Backend
+ *   9: Serviços Recorrentes
+ *   10: Resumo + Envio
+ * 
+ * TRÁFEGO (passos 2-6):
+ *   2: Plataformas
+ *   3: Investimento
+ *   4: Objetivos
+ *   5: Segmento
+ *   6: Resumo + Envio
+ */
+
 export function QuizProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(quizReducer, initialState);
 
-  // Calculate total steps based on service
-  const totalSteps = state.service === 'sites' ? 9 : state.service === 'trafego' ? 5 : 1;
+  // Total de passos baseado no serviço
+  // Passo 0 = User Info, Passo 1 = Service Select
+  const getTotalSteps = () => {
+    if (state.service === 'sites') return 10; // 0-10 (11 passos)
+    if (state.service === 'trafego') return 6; // 0-6 (7 passos)
+    return 1; // Apenas user info e service select
+  };
   
-  // Determine if can proceed based on current step
+  const totalSteps = getTotalSteps();
+  
+  // Validação para poder avançar
   const canGoNext = (() => {
-    if (state.currentStep === 0) return state.service !== null;
+    // Passo 0: User Info - precisa de nome e email válidos
+    if (state.currentStep === 0) {
+      return state.name.trim().length >= 2 && state.email.includes('@');
+    }
+    
+    // Passo 1: Service Select - precisa escolher um serviço
+    if (state.currentStep === 1) {
+      return state.service !== null;
+    }
+    
+    // Sites path
     if (state.service === 'sites') {
       switch (state.currentStep) {
-        case 1: return state.plan !== null;
-        case 2: case 3: case 4: case 5: case 6: case 7: return true; // Addons/recurring are optional
-        case 8: return state.name.trim().length >= 2 && state.email.includes('@');
+        case 2: return state.plan !== null; // Plano obrigatório
+        case 3: case 4: case 5: case 6: case 7: case 8: case 9: return true; // Addons opcionais
+        case 10: return true; // Último passo
         default: return true;
       }
     }
+    
+    // Traffic path
     if (state.service === 'trafego') {
       switch (state.currentStep) {
-        case 1: return state.platforms.length > 0;
-        case 2: return state.investment !== null;
-        case 3: return state.objective !== null;
-        case 4: return state.name.trim().length >= 2 && state.email.includes('@');
+        case 2: return state.platforms.length > 0;
+        case 3: return state.investment !== null;
+        case 4: return state.objective !== null;
+        case 5: return true; // Segmento opcional
+        case 6: return true; // Último passo
         default: return true;
       }
     }
+    
     return false;
   })();
 

@@ -2,7 +2,7 @@ import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { QuizProvider, useQuiz } from './QuizContext';
 import { QuizProgress } from './QuizProgress';
-import { QuizSummary } from './QuizSummary';
+import { StepUserInfo } from './steps/StepUserInfo';
 import { StepServiceSelect } from './steps/StepServiceSelect';
 import { StepPlanSelect } from './steps/StepPlanSelect';
 import { StepAddons } from './steps/StepAddons';
@@ -17,19 +17,19 @@ import { useEffect } from 'react';
 
 const stepVariants: Variants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? 50 : -50,
+    x: direction > 0 ? 40 : -40,
     opacity: 0
   }),
   center: {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 0.3,
+      duration: 0.25,
       ease: 'easeOut'
     }
   },
   exit: (direction: number) => ({
-    x: direction < 0 ? 50 : -50,
+    x: direction < 0 ? 40 : -40,
     opacity: 0,
     transition: {
       duration: 0.2,
@@ -49,63 +49,69 @@ function QuizContent() {
     }
   }, [currentStep, service]);
 
-  // Determine which step component to render
+  /*
+   * FLUXO REORGANIZADO:
+   * Passo 0: Dados do usuário
+   * Passo 1: Escolha do serviço
+   * Sites: 2-10 (Plano, Addons x6, Recorrentes, Final)
+   * Tráfego: 2-6 (Plataformas, Investimento, Objetivos, Segmento, Final)
+   */
   const renderStep = () => {
-    // Step 0: Service selection
+    // Passo 0: Dados do usuário (primeiro!)
     if (currentStep === 0) {
+      return <StepUserInfo />;
+    }
+
+    // Passo 1: Escolha do serviço
+    if (currentStep === 1) {
       return <StepServiceSelect />;
     }
 
-    // Sites path
+    // Sites path (passos 2-10)
     if (service === 'sites') {
       switch (currentStep) {
-        case 1: return <StepPlanSelect />;
-        case 2: return <StepAddons category="conteudo" />;
-        case 3: return <StepAddons category="func_basicas" />;
-        case 4: return <StepAddons category="func_avancadas" />;
-        case 5: return <StepAddons category="seo" />;
-        case 6: return <StepAddons category="automacao" />;
-        case 7: return <StepAddons category="backend" />;
-        case 8: return <StepRecurring />;
-        case 9: return <StepFinalForm />;
+        case 2: return <StepPlanSelect />;
+        case 3: return <StepAddons category="conteudo" />;
+        case 4: return <StepAddons category="func_basicas" />;
+        case 5: return <StepAddons category="func_avancadas" />;
+        case 6: return <StepAddons category="seo" />;
+        case 7: return <StepAddons category="automacao" />;
+        case 8: return <StepAddons category="backend" />;
+        case 9: return <StepRecurring />;
+        case 10: return <StepFinalForm />;
         default: return <StepFinalForm />;
       }
     }
 
-    // Traffic path
+    // Traffic path (passos 2-6)
     if (service === 'trafego') {
       switch (currentStep) {
-        case 1: return <StepTrafficPlatform />;
-        case 2: return <StepTrafficInvestment />;
-        case 3: return <StepTrafficObjective />;
-        case 4: return <StepTrafficSegment />;
-        case 5: return <StepFinalForm />;
+        case 2: return <StepTrafficPlatform />;
+        case 3: return <StepTrafficInvestment />;
+        case 4: return <StepTrafficObjective />;
+        case 5: return <StepTrafficSegment />;
+        case 6: return <StepFinalForm />;
         default: return <StepFinalForm />;
       }
     }
 
-    return <StepServiceSelect />;
+    return <StepUserInfo />;
   };
 
-  const isLastStep = (service === 'sites' && currentStep === 9) || 
-                     (service === 'trafego' && currentStep === 5);
+  // Determinar se é o último passo (não mostrar navegação)
+  const isLastStep = (service === 'sites' && currentStep === 10) || 
+                     (service === 'trafego' && currentStep === 6);
+  
+  // Não mostrar navegação no step 0 (tem botão próprio) nem no último
   const showNavigation = currentStep > 0 && !isLastStep;
-  const showSummary = service === 'sites' && currentStep >= 2 && currentStep < 9;
 
   return (
     <div className="flex flex-col h-full">
-      {/* Progress */}
-      <QuizProgress className="mb-6" />
-
-      {/* Summary - floating on larger screens */}
-      {showSummary && (
-        <div className="mb-4 lg:hidden">
-          <QuizSummary />
-        </div>
-      )}
+      {/* Progress - só mostra depois do step 0 */}
+      {currentStep > 0 && <QuizProgress className="mb-4 md:mb-6" />}
 
       {/* Step content */}
-      <div className="flex-1 overflow-y-auto min-h-0">
+      <div className="flex-1 overflow-y-auto min-h-0 pb-2">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentStep}
@@ -114,7 +120,6 @@ function QuizContent() {
             initial="enter"
             animate="center"
             exit="exit"
-            className="h-full"
           >
             {renderStep()}
           </motion.div>
@@ -123,7 +128,7 @@ function QuizContent() {
 
       {/* Navigation buttons */}
       {showNavigation && (
-        <div className="flex gap-3 mt-6 pt-4 border-t border-border">
+        <div className="flex gap-3 pt-4 border-t border-border shrink-0">
           {canGoBack && (
             <button
               type="button"
@@ -131,19 +136,19 @@ function QuizContent() {
                 trackQuizEvent('orcamento_passo_voltar', { step: currentStep });
                 prevStep();
               }}
-              className="flex-1 h-12 rounded-xl border border-border text-foreground flex items-center justify-center gap-2 hover:bg-muted transition-all duration-300"
+              className="h-11 px-5 rounded-xl border border-border text-foreground flex items-center justify-center gap-2 hover:bg-muted transition-all duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm font-medium">Voltar</span>
+              <span className="text-sm font-medium hidden sm:inline">Voltar</span>
             </button>
           )}
           <button
             type="button"
             onClick={nextStep}
             disabled={!canGoNext}
-            className={`flex-1 h-12 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${
+            className={`flex-1 h-11 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${
               canGoNext
-                ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]'
+                ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_8px_30px_-8px_rgba(240,104,0,0.4)]'
                 : 'bg-muted text-muted-foreground cursor-not-allowed'
             }`}
           >

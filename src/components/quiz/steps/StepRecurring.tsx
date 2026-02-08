@@ -3,7 +3,7 @@ import { Check, Server, Wrench, Info } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { RECURRING, type RecurringService } from '../data/quizData';
 import { formatCurrency, trackQuizEvent } from '@/lib/quizUtils';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   host_essencial: Server,
@@ -67,18 +67,9 @@ export function StepRecurring() {
                     <h4 className="font-semibold text-foreground">
                       {service.label}
                     </h4>
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <span className="text-muted-foreground hover:text-foreground">
-                            <Info className="w-4 h-4" />
-                          </span>
-                        </TooltipTrigger>
-                        <TooltipContent side="top" className="max-w-xs">
-                          <p>{service.help}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
+                    <span className="text-muted-foreground" title={service.help}>
+                      <Info className="w-4 h-4" />
+                    </span>
                   </div>
 
                   {/* Features */}
