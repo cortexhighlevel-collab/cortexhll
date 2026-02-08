@@ -1,11 +1,12 @@
-import { useState, useRef } from "react";
-import { ChevronDown, ArrowRight, X } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, X } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import ContentDropdown from "./ContentDropdown";
 import logoImage from "@/assets/logo_cortex_nova_preta.png";
 import dividerIcon from "@/assets/nav-divider-icon.png";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import CTAButton from "./CTAButton";
 
 const Logo = () => (
   <img src={logoImage} alt="Cortex High Level" className="h-7" />
@@ -65,10 +66,9 @@ export const Header = () => {
 
           {/* Right Group */}
           <div className="flex items-center gap-2 ml-auto">
-            <a href="#contato" className="btn-accent tracking-wider">
+            <CTAButton href="#contato" className="nav-cta">
               Fale Conosco
-              <ArrowRight className="w-2.5 h-2.5" />
-            </a>
+            </CTAButton>
           </div>
         </nav>
 
@@ -197,14 +197,12 @@ export const Header = () => {
                 
                 {/* CTA Button */}
                 <div className="px-6 pb-6 flex flex-col items-center gap-5">
-                  <a 
+                  <CTAButton 
                     href="#contato" 
-                    className="flex items-center justify-center gap-2 w-full py-3.5 px-6 bg-[#f06600] text-white font-medium rounded-full hover:bg-[#d95b00] transition-colors text-sm tracking-wide"
-                    onClick={() => setIsOpen(false)}
+                    className="w-full"
                   >
                     Fale Conosco
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </CTAButton>
                   
                   {/* Language Selector */}
                   <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800 rounded-full">
