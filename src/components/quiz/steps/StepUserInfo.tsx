@@ -2,9 +2,40 @@ import { motion } from 'framer-motion';
 import { User, Mail, Phone, Building2, ArrowRight } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { Input } from '@/components/ui/input';
+import { useState } from 'react';
+
+// Formatar telefone brasileiro: (00) 00000-0000
+const formatPhone = (value: string) => {
+  const numbers = value.replace(/\D/g, '').slice(0, 11);
+  if (numbers.length <= 2) return numbers;
+  if (numbers.length <= 7) return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+  return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7)}`;
+};
+
+// Validar email
+const isValidEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email.trim());
+};
 
 export function StepUserInfo() {
   const { state, setFormField, nextStep, canGoNext } = useQuiz();
+  const [emailError, setEmailError] = useState('');
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setFormField('phone', formatted);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFormField('email', value);
+    if (value && !isValidEmail(value)) {
+      setEmailError('Digite um e-mail válido');
+    } else {
+      setEmailError('');
+    }
+  };
 
   const handleContinue = () => {
     if (canGoNext) {
@@ -67,11 +98,14 @@ export function StepUserInfo() {
             <Input
               type="email"
               value={state.email}
-              onChange={(e) => setFormField('email', e.target.value)}
+              onChange={handleEmailChange}
               placeholder="seu@email.com"
-              className="pl-10 h-11"
+              className={`pl-10 h-11 ${emailError ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
             />
           </div>
+          {emailError && (
+            <p className="text-xs text-red-500 mt-1">{emailError}</p>
+          )}
         </motion.div>
 
         {/* Phone & Company */}
@@ -89,9 +123,10 @@ export function StepUserInfo() {
               <Input
                 type="tel"
                 value={state.phone}
-                onChange={(e) => setFormField('phone', e.target.value)}
+                onChange={handlePhoneChange}
                 placeholder="(00) 00000-0000"
                 className="pl-9 md:pl-10 h-11 text-sm"
+                maxLength={16}
               />
             </div>
           </motion.div>
