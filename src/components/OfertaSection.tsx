@@ -3,7 +3,7 @@ import { motion, type Variants } from "framer-motion";
 
 // Images
 import ofertaHero from "@/assets/oferta-hero.webp";
-import ofertaRequests from "@/assets/oferta-requests.jpg";
+import ofertaSegmentacao from "@/assets/oferta-segmentacao.jpg";
 import ofertaPricing from "@/assets/oferta-pricing.jpg";
 import ofertaTurnaround from "@/assets/oferta-turnaround.jpg";
 import ofertaLaunch1 from "@/assets/oferta-launch-1.jpg";
@@ -37,7 +37,7 @@ const OfertaSection = () => {
       id: "segmentacao",
       title: "Segmentação avançada",
       description: "Públicos ultra-qualificados com base em dados comportamentais, demográficos e de intenção de compra para maximizar seu ROAS.",
-      image: ofertaRequests,
+      image: ofertaSegmentacao,
       icon: Target,
       isNew: true,
     },
