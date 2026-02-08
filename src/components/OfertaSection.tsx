@@ -1,4 +1,5 @@
-import { FileText, Send, Target, LineChart, Bot, BarChart3, Headphones } from "lucide-react";
+import { FileText, Target, LineChart, Bot, BarChart3, Headphones, ArrowRight } from "lucide-react";
+import CTAButton from "./CTAButton";
 import { motion, type Variants } from "framer-motion";
 
 // Images
@@ -120,15 +121,18 @@ const OfertaSection = () => {
                 Gestão completa das suas campanhas de tráfego pago. Criamos estratégias personalizadas, desenvolvemos criativos de alta conversão e otimizamos diariamente.
               </p>
               
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a href="#cases" className="group/btn inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/90 backdrop-blur hover:bg-white/10 hover:border-white/20 transition-all duration-300">
                   <FileText className="h-4 w-4 text-white/60 group-hover/btn:text-white transition-colors" />
                   Ver resultados
                 </a>
-                <a href="#contato" className="group/btn inline-flex items-center gap-2 text-sm font-semibold text-black bg-gradient-to-r from-orange-500 to-orange-400 rounded-xl px-5 py-2.5 hover:from-orange-400 hover:to-orange-300 transition-all duration-300 shadow-lg shadow-orange-500/20">
-                  <Send className="h-4 w-4" />
+                <CTAButton 
+                  href="#contato" 
+                  icon={<ArrowRight className="h-4 w-4" />}
+                  className="nav-cta"
+                >
                   Solicitar proposta
-                </a>
+                </CTAButton>
               </div>
               
               {/* 3D Glass ROI Chart */}
