@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import heroVideo from "@/assets/hero-background.mp4";
 import heroVideoMobile from "@/assets/hero-background-mobile.mp4";
+import CTAButton from "./CTAButton";
 const ProfileStack = () => {
   const profiles = ["https://framerusercontent.com/images/W25OSdXNijQzs6HFOy5Tnx7SI.jpg", "https://framerusercontent.com/images/XkZDFV2RkODhiEIHZaZGoYIBdY.jpg", "https://framerusercontent.com/images/rOuv1z818S3i8SIQTmjJqH3ghKE.jpg"];
   return <div className="flex items-center relative h-12 mr-6 translate-y-[6.5rem] md:translate-y-16">
@@ -72,11 +73,9 @@ export const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4 mt-16 md:mt-16">
-            <a href="#contato" className="btn-cta mt-8 md:mt-0">
+            <CTAButton href="#contato" icon={<CTAArrowIcon />} className="mt-8 md:mt-0">
               Diagnóstico Grátis
-              <CTAArrowIcon />
-            </a>
-            
+            </CTAButton>
           </div>
         </div>
       </main>

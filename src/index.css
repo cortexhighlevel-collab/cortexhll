@@ -118,11 +118,67 @@
   }
 
   .btn-cta {
-    @apply bg-primary text-primary-foreground px-8 py-4.5 rounded-full text-base font-bold transition-all duration-200 inline-flex items-center gap-3 w-fit;
+    @apply px-8 py-4.5 rounded-full text-base font-bold transition-all duration-200 inline-flex items-center gap-3 w-fit;
+    position: relative;
+    background: white !important;
+    color: hsl(var(--foreground));
+    border-radius: 2000px;
+    --glow-left: 0%;
+  }
+
+  .btn-cta .btn-cta-text {
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 100;
+  }
+
+  .btn-cta .btn-cta-icon {
+    position: relative;
+    z-index: 100;
+  }
+
+  .btn-cta::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    z-index: 99;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border-radius: inherit;
+    border: solid 1px white;
+    opacity: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    transition: 0.5s ease;
+    pointer-events: none;
+  }
+
+  .btn-cta:hover::before {
+    opacity: 0%;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .btn-cta::after {
+    content: "";
+    z-index: 50;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    left: var(--glow-left, 0%);
+    background: rgb(255, 207, 74);
+    width: 15%;
+    height: 80%;
+    filter: blur(15px);
+    opacity: 70%;
+    mix-blend-mode: screen;
+    transition: none;
+    pointer-events: none;
+    border-radius: 50%;
   }
 
   .btn-cta:hover {
-    @apply -translate-y-0.5 bg-black;
+    @apply -translate-y-0.5;
   }
 
   .profile-bubble {
