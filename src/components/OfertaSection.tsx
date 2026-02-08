@@ -2,7 +2,7 @@ import { FileText, Send, Target, LineChart, Bot, BarChart3, Headphones } from "l
 import { motion, type Variants } from "framer-motion";
 
 // Images
-import ofertaHero from "@/assets/oferta-hero.jpg";
+import ofertaHero from "@/assets/oferta-hero.webp";
 import ofertaRequests from "@/assets/oferta-requests.jpg";
 import ofertaPricing from "@/assets/oferta-pricing.jpg";
 import ofertaTurnaround from "@/assets/oferta-turnaround.jpg";
