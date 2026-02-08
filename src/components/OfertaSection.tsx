@@ -47,9 +47,9 @@ const OfertaSection = () => {
       isNew: true,
     },
     {
-      id: "turnaround",
-      title: "Campanhas em 48h",
-      description: "Da aprovação do briefing ao ar em até 48 horas. Agilidade sem comprometer qualidade dos criativos.",
+      id: "agent-monitoramento",
+      title: "Agent de análise ativo",
+      description: "A partir da primeira impressão, o agent é ativado para monitorar e acompanhar suas campanhas, sendo atualizado no seu painel de gestão em tempo real.",
       image: ofertaTurnaround,
       isNew: true,
     },
