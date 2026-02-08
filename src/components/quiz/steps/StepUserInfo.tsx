@@ -153,11 +153,15 @@ export function StepUserInfo() {
         </div>
       </div>
 
-      {/* Continue button */}
+      {/* Continue button - só aparece quando válido */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
+        animate={{ 
+          opacity: canGoNext ? 1 : 0.5, 
+          y: 0,
+          scale: canGoNext ? 1 : 0.98
+        }}
+        transition={{ delay: 0.3, duration: 0.2 }}
         className="pt-2"
       >
         <button
@@ -167,7 +171,7 @@ export function StepUserInfo() {
           className={`w-full h-12 rounded-xl flex items-center justify-center gap-2 font-medium transition-all duration-300 ${
             canGoNext
               ? 'bg-[#f06800] text-white hover:bg-[#d95c00] shadow-[0_10px_40px_-10px_rgba(240,104,0,0.4)]'
-              : 'bg-muted text-muted-foreground cursor-not-allowed'
+              : 'bg-muted text-muted-foreground cursor-not-allowed opacity-60'
           }`}
         >
           <span className="text-sm">Continuar</span>
