@@ -164,12 +164,18 @@
 
   /* Inner button */
   .btn-cta {
-    @apply px-8 py-4.5 text-base font-bold inline-flex items-center gap-3 w-fit;
+    @apply px-6 py-3.5 text-sm font-bold inline-flex items-center gap-2 w-fit whitespace-nowrap;
     position: relative;
     background: transparent !important;
     color: white;
     border-radius: 2000px;
     transition: 0.5s ease;
+  }
+
+  @media (min-width: 768px) {
+    .btn-cta {
+      @apply px-8 py-4.5 text-base gap-3;
+    }
   }
 
   .btn-cta .btn-cta-text {
