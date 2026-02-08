@@ -117,68 +117,107 @@
     @apply brightness-95 scale-[1.02];
   }
 
-  .btn-cta {
-    @apply px-8 py-4.5 rounded-full text-base font-bold transition-all duration-200 inline-flex items-center gap-3 w-fit;
+  /* CTA Button - Outer wrapper with glow */
+  .btn-cta-wrapper {
     position: relative;
-    background: white !important;
-    color: hsl(var(--foreground));
+    display: inline-flex;
+    background: radial-gradient(68.5% 119.738% at 49.1% 100%, rgba(0, 85, 255, 0.5) 0%, rgba(82, 139, 255, 0.5) 100%);
+    border-radius: 1000px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 85, 255, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .btn-cta-wrapper:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 80px 10px rgba(0, 85, 255, 0.4);
+  }
+
+  /* Rotating light beam */
+  .btn-cta-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 2;
+    opacity: 1;
+    width: 20px;
+    height: 180px;
+    filter: blur(10px);
+    border-radius: 8px;
+    animation: btn-rotate 5s infinite linear;
+    transform-origin: center bottom;
+    pointer-events: none;
+  }
+
+  @keyframes btn-rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  /* Inner button */
+  .btn-cta {
+    @apply px-8 py-4.5 text-base font-bold inline-flex items-center gap-3 w-fit;
+    position: relative;
+    background: transparent !important;
+    color: white;
     border-radius: 2000px;
-    --glow-left: 0%;
+    transition: 0.5s ease;
   }
 
   .btn-cta .btn-cta-text {
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     position: relative;
-    z-index: 100;
+    z-index: 10;
   }
 
   .btn-cta .btn-cta-icon {
     position: relative;
-    z-index: 100;
+    z-index: 10;
+    transition: 0.3s ease all;
   }
 
+  .btn-cta-wrapper:hover .btn-cta-icon {
+    transform: translate(10px, 10px);
+    opacity: 0;
+  }
+
+  /* Blue gradient background */
   .btn-cta::before {
     content: "";
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%);
     left: 50%;
-    z-index: 99;
-    width: calc(100% + 12px);
-    height: calc(100% + 12px);
-    border-radius: inherit;
-    border: solid 1px white;
-    opacity: 50%;
-    background: rgba(255, 255, 255, 0.25);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(53.6% 100% at 50% 100%, rgb(14, 150, 254) 0%, rgb(0, 85, 255) 100%);
+    z-index: 3;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    border-radius: 800px;
     transition: 0.5s ease;
     pointer-events: none;
   }
 
-  .btn-cta:hover::before {
-    opacity: 0%;
-    background: rgba(255, 255, 255, 0.25);
-  }
-
+  /* Border layer */
   .btn-cta::after {
     content: "";
-    z-index: 50;
     position: absolute;
     top: 50%;
-    transform: translate(0%, -50%);
-    left: var(--glow-left, 0%);
-    background: rgb(255, 207, 74);
-    width: 15%;
-    height: 80%;
-    filter: blur(15px);
-    opacity: 70%;
-    mix-blend-mode: screen;
-    transition: none;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.19);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 800px;
     pointer-events: none;
-    border-radius: 50%;
-  }
-
-  .btn-cta:hover {
-    @apply -translate-y-0.5;
   }
 
   .profile-bubble {
