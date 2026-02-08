@@ -205,7 +205,7 @@ const OfertaSection = () => {
                 className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent backdrop-blur-xl hover:border-white/20 hover:from-white/[0.08] transition-all duration-500"
                 variants={fadeUp}
               >
-                <div className="p-5 sm:p-6">
+                <div className="p-5 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500/20 to-orange-600/5 border border-orange-500/20">
                       <Icon className="h-4 w-4 text-orange-400" />
@@ -220,9 +220,9 @@ const OfertaSection = () => {
                     )}
                   </div>
                   
-                  <p className="text-sm text-white/50 leading-relaxed mb-4">{feature.description}</p>
+                  <p className="text-sm text-white/50 leading-relaxed min-h-[40px] mb-4">{feature.description}</p>
                   
-                  <div className="rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
+                  <div className="mt-auto rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
                     <img 
                       src={feature.image} 
                       alt={feature.title} 
