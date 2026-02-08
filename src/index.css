@@ -227,13 +227,18 @@
     pointer-events: none;
   }
 
-  /* Nav CTA - Smaller variant for header */
+  /* Nav CTA - Orange variant for header */
+  .nav-cta.btn-cta-wrapper {
+    background: radial-gradient(68.5% 119.738% at 49.1% 100%, rgba(240, 104, 0, 0.6) 0%, rgba(255, 140, 66, 0.5) 100%);
+    box-shadow: 0px 0px 20px 0px rgba(240, 104, 0, 0.3);
+  }
+
   .nav-cta .btn-cta {
     @apply px-5 py-2.5 text-xs;
   }
 
-  .nav-cta.btn-cta-wrapper {
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  .nav-cta .btn-cta::before {
+    background: radial-gradient(53.6% 100% at 50% 100%, rgb(255, 140, 66) 0%, rgb(240, 104, 0) 100%);
   }
 
   .nav-cta.btn-cta-wrapper::before {
@@ -242,7 +247,7 @@
   }
 
   .nav-cta.btn-cta-wrapper:hover {
-    box-shadow: 0px 0px 40px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 40px 5px rgba(240, 104, 0, 0.4);
   }
 
   .profile-bubble {
