@@ -37,9 +37,6 @@ const CTAButton = ({ href, children, icon, className = "" }: CTAButtonProps) => 
       style={{ "--glow-left": `${glowPosition}%` } as React.CSSProperties}
       onMouseMove={handleMouseMove}
     >
-      <span className="btn-cta-glass" aria-hidden="true" />
-      <span className="btn-cta-noise" aria-hidden="true" />
-      <span className="btn-cta-glow" aria-hidden="true" />
       <span className="btn-cta-text">{children}</span>
       {icon && <span className="btn-cta-icon">{icon}</span>}
     </a>
