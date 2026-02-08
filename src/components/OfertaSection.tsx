@@ -105,7 +105,7 @@ const OfertaSection = () => {
         <div className="grid gap-5 md:grid-cols-3">
           {/* Big feature - spans 2 cols and 2 rows */}
           <motion.div 
-            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-xl md:col-span-2 md:row-span-2 hover:border-white/20 transition-all duration-500"
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] md:col-span-2 md:row-span-2 hover:border-white/20 transition-all duration-500"
             variants={fadeUp}
           >
             <div className="relative p-5 sm:p-6">
@@ -163,7 +163,7 @@ const OfertaSection = () => {
             return (
               <motion.div 
                 key={feature.id}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-xl hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] hover:border-white/20 hover:bg-[#1a1a1a] transition-all duration-500"
                 variants={fadeUp}
               >
                 <div className="p-5 sm:p-6">
@@ -201,7 +201,7 @@ const OfertaSection = () => {
             return (
               <motion.div 
                 key={feature.id}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-xl hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500"
+                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] hover:border-white/20 hover:bg-[#1a1a1a] transition-all duration-500"
                 variants={fadeUp}
               >
                 <div className="p-5 sm:p-6 h-full flex flex-col">
