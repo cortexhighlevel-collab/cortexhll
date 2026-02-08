@@ -2,32 +2,40 @@
  import { motion } from "framer-motion";
  
  const FAQSection = () => {
-   const faqs = [
-     {
-       question: "Quanto tempo leva para ver resultados?",
-       answer: "Os primeiros resultados começam a aparecer entre 30 a 60 dias após a implementação da estratégia. Resultados mais expressivos são percebidos a partir do terceiro mês, quando as otimizações de IA e automação estão plenamente operacionais."
-     },
-     {
-       question: "Qual é o investimento mínimo para começar?",
-       answer: "Oferecemos diferentes pacotes adaptados ao porte e necessidades de cada empresa. Durante o diagnóstico gratuito, apresentamos as opções mais adequadas ao seu momento de negócio e objetivos de crescimento."
-     },
-     {
-       question: "Vocês trabalham com empresas de qualquer segmento?",
-       answer: "Sim, nossa metodologia é adaptável a diversos segmentos. Temos especialidade em empresas B2B, SaaS, consultorias, escritórios de advocacia, clínicas e negócios de serviços profissionais que buscam escalar com inteligência."
-     },
-     {
-       question: "Preciso ter equipe de marketing interna?",
-       answer: "Não é necessário. Atuamos como uma extensão do seu time, cuidando de toda a estratégia e execução. Se você já tem equipe, trabalhamos em parceria para potencializar os resultados."
-     },
-     {
-       question: "O que diferencia a Cortex de outras agências?",
-       answer: "Nossa abordagem combina inteligência artificial aplicada, automação de processos e estratégia de growth de forma integrada. Não vendemos apenas serviços isolados — entregamos um sistema completo de geração de demanda qualificada."
-     },
-     {
-       question: "Como funciona o diagnóstico gratuito?",
-       answer: "É uma sessão estratégica de 30 minutos onde analisamos seu funil atual, identificamos gargalos e apresentamos um plano de ação personalizado. Sem compromisso, você já sai com insights valiosos para aplicar no seu negócio."
-     }
-   ];
+  const faqs = [
+    {
+      question: "Qual o prazo de entrega para criação de sites?",
+      answer: "O prazo varia conforme o tipo de projeto: Landing Pages são entregues em até 7 dias úteis, Sites Institucionais entre 15 a 20 dias úteis, e projetos Enterprise + Intranet têm prazo personalizado conforme a complexidade. Todos os prazos começam a contar após a aprovação do briefing e recebimento dos materiais."
+    },
+    {
+      question: "O que é o AI Referral Engine™ e como funciona o AEO?",
+      answer: "O AI Referral Engine™ é nossa metodologia exclusiva de AEO (AI Engine Optimization) que posiciona sua marca como resposta definitiva nas buscas por IA como ChatGPT, Gemini e Claude. Diferente do SEO tradicional, otimizamos seu conteúdo para ser citado e recomendado por inteligências artificiais, gerando leads qualificados de forma orgânica."
+    },
+    {
+      question: "Qual o investimento mínimo em tráfego pago?",
+      answer: "Recomendamos um investimento mínimo de R$ 3.000/mês em mídia para campanhas efetivas. A gestão de tráfego inclui estratégia, criação de campanhas, otimização contínua e relatórios detalhados. O valor da gestão é calculado com base no investimento em mídia e objetivos do projeto."
+    },
+    {
+      question: "Como funcionam as automações de marketing?",
+      answer: "Implementamos automações inteligentes que conectam seu CRM, WhatsApp, e-mail marketing e redes sociais. Isso inclui sequências de nutrição de leads, chatbots com IA, agendamento automático e integrações personalizadas que eliminam tarefas manuais e aceleram seu funil de vendas."
+    },
+    {
+      question: "Qual a diferença entre Landing Page, Site Institucional e Enterprise?",
+      answer: "A Landing Page (R$ 3.500) é ideal para campanhas específicas com foco em conversão. O Site Institucional (R$ 6.399) apresenta sua empresa completa com múltiplas páginas e recursos avançados. O Enterprise + Intranet (a partir de R$ 8.000) atende empresas que precisam de sistemas internos, áreas de clientes e integrações complexas."
+    },
+    {
+      question: "A hospedagem está inclusa no valor do site?",
+      answer: "A hospedagem é contratada separadamente em planos mensais: Essencial (R$ 99/mês) para sites menores ou Performance (R$ 199/mês) para projetos que exigem mais velocidade e recursos. Ambos incluem SSL, backups automáticos e suporte técnico."
+    },
+    {
+      question: "Vocês oferecem suporte após a entrega?",
+      answer: "Sim! Oferecemos planos de manutenção mensal que incluem atualizações de segurança, pequenas alterações de conteúdo, monitoramento de performance e suporte prioritário. Para projetos de tráfego e automação, o acompanhamento contínuo já está incluso na gestão."
+    },
+    {
+      question: "Como funciona o diagnóstico gratuito?",
+      answer: "É uma sessão estratégica de 30 minutos onde analisamos sua presença digital atual, identificamos oportunidades de crescimento e apresentamos um plano de ação personalizado. Você recebe insights valiosos sobre sites, tráfego, automações e AEO — sem compromisso."
+    }
+  ];
  
    return (
       <section id="faq" className="w-full py-24 md:py-32 bg-[#0D0D0D] dark-dotted-bg font-dm relative">
