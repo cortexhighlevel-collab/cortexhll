@@ -130,6 +130,38 @@ const OfertaSection = () => {
                   Solicitar proposta
                 </a>
               </div>
+              
+              {/* Glass ROI Chart */}
+              <div className="mt-6 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
+                <div className="flex items-end justify-between gap-4">
+                  {/* Mini chart bars */}
+                  <div className="flex items-end gap-1.5 h-16">
+                    <div className="w-3 bg-gradient-to-t from-orange-500/40 to-orange-400/60 rounded-t-sm" style={{ height: '25%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/40 to-orange-400/60 rounded-t-sm" style={{ height: '35%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/40 to-orange-400/60 rounded-t-sm" style={{ height: '30%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/50 to-orange-400/70 rounded-t-sm" style={{ height: '50%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/50 to-orange-400/70 rounded-t-sm" style={{ height: '45%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/60 to-orange-400/80 rounded-t-sm" style={{ height: '65%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/70 to-orange-400/90 rounded-t-sm" style={{ height: '75%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500/80 to-orange-400 rounded-t-sm" style={{ height: '85%' }} />
+                    <div className="w-3 bg-gradient-to-t from-orange-500 to-orange-400 rounded-t-sm shadow-lg shadow-orange-500/30" style={{ height: '100%' }} />
+                  </div>
+                  
+                  {/* ROI indicator */}
+                  <div className="flex flex-col items-end">
+                    <span className="text-xs text-white/50 uppercase tracking-wider">ROI</span>
+                    <span className="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">
+                      +145,68%
+                    </span>
+                    <div className="flex items-center gap-1 mt-1">
+                      <svg className="w-3 h-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                      </svg>
+                      <span className="text-xs text-green-400">Crescimento</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
 
