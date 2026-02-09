@@ -35,12 +35,12 @@ const AnimatedWord = () => {
 export const HeroSection = () => {
   return <section className="relative w-full h-[95vh] flex items-center overflow-hidden pb-16">
       {/* Video Background - Desktop */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0 hidden md:block">
+      <video autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0 hidden md:block" style={{ backgroundColor: '#f5f5f5' }}>
         <source src={heroVideo} type="video/webm" />
       </video>
       
       {/* Video Background - Mobile */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 md:hidden">
+      <video autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-0 md:hidden" style={{ backgroundColor: '#f5f5f5' }}>
         <source src={heroVideoMobile} type="video/webm" />
       </video>
       
