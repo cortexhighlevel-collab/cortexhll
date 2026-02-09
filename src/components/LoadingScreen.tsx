@@ -6,8 +6,8 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 1800; // ~1.8s loading
-    const interval = 30;
+    const duration = 800;
+    const interval = 20;
     const step = 100 / (duration / interval);
 
     const timer = setInterval(() => {
@@ -22,7 +22,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
 
     const timeout = setTimeout(() => {
       onFinish();
-    }, 2200);
+    }, 1000);
 
     return () => {
       clearInterval(timer);
