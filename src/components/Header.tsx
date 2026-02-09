@@ -197,12 +197,14 @@ export const Header = () => {
                 
                 {/* CTA Button */}
                 <div className="px-6 pb-6 flex flex-col items-center gap-5">
-                  <CTAButton 
-                    href="#contato" 
-                    className="w-full"
-                  >
-                    Fale Conosco
-                  </CTAButton>
+                  <div onClick={() => setIsOpen(false)}>
+                    <CTAButton 
+                      href="#contato" 
+                      className="nav-cta"
+                    >
+                      Fale Conosco
+                    </CTAButton>
+                  </div>
                   
                   {/* Language Selector */}
                   <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800 rounded-full">
