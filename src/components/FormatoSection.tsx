@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import aiIntelligenceImage from "@/assets/ai-intelligence-card.webp";
+import crmCardImage from "@/assets/crm-card.webp";
 
 const ArrowIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M7 17L17 7" />
@@ -116,7 +117,7 @@ const FormatoSection = () => {
     title: "CRM & Gestão de Leads",
     subtitle: "Relacionamento otimizado",
     items: ["Funis de Venda", "Email Automation", "Gestão de Contatos", "Predictions"],
-    imageUrl: "https://framerusercontent.com/images/oVMN8WwOgbNj16xxfJLPAo3jKI.jpg"
+    imageUrl: crmCardImage
   }, {
     tag: "AI REFERRAL",
     title: "AI Referral Genie™",
