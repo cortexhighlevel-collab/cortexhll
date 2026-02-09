@@ -4,8 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background-blackclub.webp";
 import casesBackground2 from "@/assets/cases-background-valentina.webp";
-import CTAButton from "./CTAButton";
-
+import CasesModal from "./CasesModal";
 // Animation variants - Slide from sides
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -80 },
@@ -69,6 +68,7 @@ const DecorativeStar = () => (
 
 const CasesSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const testimonials = [
     {
@@ -131,9 +131,14 @@ const CasesSection = () => {
             </h2>
             
             {/* CTA Button - Below title */}
-            <CTAButton href="#contato">
-              Ver Cases
-            </CTAButton>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="btn-cta-wrapper"
+            >
+              <span className="btn-cta">
+                <span className="btn-cta-text">Ver Cases</span>
+              </span>
+            </button>
           </motion.div>
 
           {/* RIGHT COLUMN: Description, Avatars & Decorative */}
@@ -285,6 +290,9 @@ const CasesSection = () => {
         </motion.div>
 
       </div>
+
+      {/* Cases Modal */}
+      <CasesModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
