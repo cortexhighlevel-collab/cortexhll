@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import aiIntelligenceImage from "@/assets/ai-intelligence-card.webp";
 import crmCardImage from "@/assets/crm-card.webp";
+import aiReferenceEngineImage from "@/assets/ai-reference-engine-card.webp";
 
 const ArrowIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M7 17L17 7" />
@@ -124,7 +125,7 @@ const FormatoSection = () => {
     title: "AI Reference Engine™",
     subtitle: "Sistema de indicações",
     items: ["Referral Engine", "Growth Hacking", "Automação de Indicações", "Rewards System"],
-    imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg",
+    imageUrl: aiReferenceEngineImage,
     link: ""
   }, {
     tag: "DESIGN & PERFORMANCE",
