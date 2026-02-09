@@ -3,6 +3,7 @@ import { Zap, TrendingUp, Rocket, Check, Info } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { PLANS, type Plan } from '../data/quizData';
 import { formatCurrency, trackQuizEvent } from '@/lib/quizUtils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap,
@@ -12,6 +13,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function StepPlanSelect() {
   const { state, setPlan, nextStep } = useQuiz();
+  const { t } = useLanguage();
 
   const handleSelect = (planId: string) => {
     const plan = PLANS[planId];
@@ -26,10 +28,10 @@ export function StepPlanSelect() {
     <div className="space-y-4">
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
-          Escolha seu plano base
+          {t('quiz.plan.title')}
         </h3>
         <p className="text-muted-foreground text-sm">
-          O ponto de partida para seu projeto
+          {t('quiz.plan.subtitle')}
         </p>
       </div>
 
@@ -53,22 +55,19 @@ export function StepPlanSelect() {
               transition={{ delay: index * 0.1 }}
               whileTap={{ scale: 0.99 }}
             >
-              {/* Popular badge */}
               {plan.popular && (
                 <div className="absolute -top-2.5 left-4 px-2 py-0.5 bg-[#f06800] text-white text-xs font-medium rounded-full shadow-lg">
-                  Mais Popular
+                  {t('quiz.plan.popular')}
                 </div>
               )}
 
               <div className="flex items-center gap-3">
-                {/* Icon */}
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${
                   isSelected ? 'bg-[#f06800] text-white' : 'bg-muted text-muted-foreground group-hover:bg-[#f06800]/10 group-hover:text-[#f06800]'
                 } transition-colors`}>
                   <Icon className="w-5 h-5" />
                 </div>
 
-                {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <h4 className="text-sm md:text-base font-semibold text-foreground">
@@ -89,19 +88,17 @@ export function StepPlanSelect() {
                   <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground mt-1 md:hidden">
                     <span className="inline-flex items-center gap-0.5 bg-muted px-1.5 py-0.5 rounded">
                       <Check className="w-2.5 h-2.5" />
-                      {plan.pagesIncluded} pág.
+                      {plan.pagesIncluded} {t('quiz.plan.pages')}
                     </span>
                   </div>
                 </div>
 
-                {/* Price */}
                 <div className="text-right shrink-0">
                   <div className="text-base md:text-lg font-bold text-[#f06800]">
-                    {plan.isStartingPrice ? 'a partir ' : ''}{formatCurrency(plan.base)}
+                    {plan.isStartingPrice ? t('quiz.plan.startingAt') : ''}{formatCurrency(plan.base)}
                   </div>
                 </div>
 
-                {/* Selection indicator */}
                 {isSelected && (
                   <motion.div
                     initial={{ scale: 0 }}

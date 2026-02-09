@@ -3,6 +3,7 @@ import { Check, Server, Wrench } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { RECURRING, type RecurringService } from '../data/quizData';
 import { formatCurrency, trackQuizEvent } from '@/lib/quizUtils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   host_essencial: Server,
@@ -12,6 +13,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function StepRecurring() {
   const { state, setRecurring } = useQuiz();
+  const { t } = useLanguage();
   const services = Object.values(RECURRING);
 
   const handleToggle = (service: RecurringService) => {
@@ -20,7 +22,6 @@ export function StepRecurring() {
     setRecurring(service.id, newValue);
   };
 
-  // Separar hospedagem dos outros serviços
   const hostingServices = services.filter(s => s.id.startsWith('host_'));
   const otherServices = services.filter(s => !s.id.startsWith('host_'));
 
@@ -28,18 +29,17 @@ export function StepRecurring() {
     <div className="space-y-4">
       <div className="text-center mb-3">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
-          Serviços Mensais
+          {t('quiz.recurring.title')}
         </h3>
         <p className="text-muted-foreground text-sm">
-          Escolha ao menos uma opção de hospedagem
+          {t('quiz.recurring.subtitle')}
         </p>
       </div>
 
-      {/* Hospedagem - Obrigatória */}
       <div className="space-y-2">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-sm font-semibold text-foreground">Hospedagem</span>
-          <span className="text-xs text-[#f06800] font-medium">(obrigatório)</span>
+          <span className="text-sm font-semibold text-foreground">{t('quiz.recurring.hosting')}</span>
+          <span className="text-xs text-[#f06800] font-medium">{t('quiz.recurring.required')}</span>
         </div>
         {hostingServices.map((service, index) => {
           const isActive = state.recurring[service.id] === true;
@@ -82,7 +82,7 @@ export function StepRecurring() {
                   <div className="text-base md:text-lg font-bold text-[#f06800]">
                     {formatCurrency(service.monthly)}
                   </div>
-                  <p className="text-xs text-muted-foreground">/mês</p>
+                  <p className="text-xs text-muted-foreground">{t('quiz.recurring.month')}</p>
                 </div>
                 {isActive && (
                   <div className="w-5 h-5 rounded-full bg-[#f06800] flex items-center justify-center shrink-0">
@@ -95,9 +95,8 @@ export function StepRecurring() {
         })}
       </div>
 
-      {/* Outros serviços - Opcionais */}
       <div className="space-y-2 pt-1">
-        <span className="text-sm font-semibold text-foreground">Manutenção (opcional)</span>
+        <span className="text-sm font-semibold text-foreground">{t('quiz.recurring.maintenance')}</span>
         {otherServices.map((service, index) => {
           const isActive = state.recurring[service.id] === true;
           const Icon = iconMap[service.id] || Wrench;
@@ -139,7 +138,7 @@ export function StepRecurring() {
                   <div className="text-base md:text-lg font-bold text-[#f06800]">
                     {formatCurrency(service.monthly)}
                   </div>
-                  <p className="text-xs text-muted-foreground">/mês</p>
+                  <p className="text-xs text-muted-foreground">{t('quiz.recurring.month')}</p>
                 </div>
                 {isActive && (
                   <div className="w-5 h-5 rounded-full bg-[#f06800] flex items-center justify-center shrink-0">

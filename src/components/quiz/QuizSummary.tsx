@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useQuiz } from './QuizContext';
 import { calculatePrice, formatCurrency } from '@/lib/quizUtils';
 import { TRAFFIC_CONFIG } from './data/quizData';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface QuizSummaryProps {
   className?: string;
@@ -12,13 +13,12 @@ interface QuizSummaryProps {
 
 export function QuizSummary({ className = '', expanded: initialExpanded = false }: QuizSummaryProps) {
   const { state } = useQuiz();
+  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(initialExpanded);
   const price = calculatePrice(state);
 
-  // Don't show until after service selection
   if (state.currentStep < 1) return null;
 
-  // For traffic, show simple summary
   if (state.service === 'trafego') {
     return (
       <motion.div
@@ -29,20 +29,19 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Receipt className="w-4 h-4 text-[#f06800]" />
-            <span className="text-sm font-medium text-foreground">Resumo</span>
+            <span className="text-sm font-medium text-foreground">{t('quiz.summary.title')}</span>
           </div>
           <div className="text-right">
             <div className="text-lg font-bold text-[#f06800]">
-              {formatCurrency(TRAFFIC_CONFIG.managementFee)}/mês
+              {formatCurrency(TRAFFIC_CONFIG.managementFee)}{t('quiz.recurring.month')}
             </div>
-            <p className="text-xs text-muted-foreground">+ investimento em mídia</p>
+            <p className="text-xs text-muted-foreground">{t('quiz.summary.mediaInvestment')}</p>
           </div>
         </div>
       </motion.div>
     );
   }
 
-  // For sites, show detailed breakdown
   const hasAddons = price.breakdown.addons.length > 0;
   const hasRecurring = price.breakdown.recurring.length > 0;
   const showDetails = hasAddons || hasRecurring;
@@ -53,7 +52,6 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
       animate={{ opacity: 1, y: 0 }}
       className={`bg-muted/50 rounded-xl border border-border overflow-hidden ${className}`}
     >
-      {/* Header - Always visible */}
       <button
         type="button"
         onClick={() => showDetails && setIsExpanded(!isExpanded)}
@@ -61,7 +59,7 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
       >
         <div className="flex items-center gap-2">
           <Receipt className="w-4 h-4 text-[#f06800]" />
-          <span className="text-sm font-medium text-foreground">Resumo</span>
+          <span className="text-sm font-medium text-foreground">{t('quiz.summary.title')}</span>
           {showDetails && (
             isExpanded ? (
               <ChevronUp className="w-4 h-4 text-muted-foreground" />
@@ -76,13 +74,12 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
           </div>
           {price.monthly > 0 && (
             <p className="text-xs text-muted-foreground">
-              + {formatCurrency(price.monthly)}/mês
+              + {formatCurrency(price.monthly)}{t('quiz.recurring.month')}
             </p>
           )}
         </div>
       </button>
 
-      {/* Expandable details */}
       <AnimatePresence>
         {isExpanded && showDetails && (
           <motion.div
@@ -93,7 +90,6 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
             className="overflow-hidden"
           >
             <div className="px-4 pb-4 space-y-3 border-t border-border pt-3">
-              {/* Plan */}
               {price.breakdown.plan && (
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">{price.breakdown.plan.name}</span>
@@ -101,7 +97,6 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
                 </div>
               )}
 
-              {/* Addons */}
               {hasAddons && (
                 <div className="space-y-1">
                   {price.breakdown.addons.map((addon, i) => (
@@ -111,7 +106,7 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
                         {addon.setup > 0 ? formatCurrency(addon.setup) : ''}
                         {addon.monthly > 0 && (
                           <span className="text-xs text-muted-foreground ml-1">
-                            (+{formatCurrency(addon.monthly)}/mês)
+                            (+{formatCurrency(addon.monthly)}{t('quiz.recurring.month')})
                           </span>
                         )}
                       </span>
@@ -120,14 +115,13 @@ export function QuizSummary({ className = '', expanded: initialExpanded = false 
                 </div>
               )}
 
-              {/* Recurring */}
               {hasRecurring && (
                 <div className="space-y-1 pt-2 border-t border-border">
-                  <p className="text-xs text-muted-foreground font-medium">Mensais:</p>
+                  <p className="text-xs text-muted-foreground font-medium">{t('quiz.summary.monthly')}</p>
                   {price.breakdown.recurring.map((rec, i) => (
                     <div key={i} className="flex justify-between text-sm">
                       <span className="text-muted-foreground">{rec.name}</span>
-                      <span className="font-medium">{formatCurrency(rec.monthly)}/mês</span>
+                      <span className="font-medium">{formatCurrency(rec.monthly)}{t('quiz.recurring.month')}</span>
                     </div>
                   ))}
                 </div>

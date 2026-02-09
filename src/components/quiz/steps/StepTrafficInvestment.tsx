@@ -3,9 +3,11 @@ import { Check, DollarSign } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { TRAFFIC_CONFIG } from '../data/quizData';
 import { trackQuizEvent } from '@/lib/quizUtils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function StepTrafficInvestment() {
   const { state, setInvestment, nextStep } = useQuiz();
+  const { t } = useLanguage();
 
   const handleSelect = (range: string) => {
     trackQuizEvent('orcamento_addon_alterado', { addon: 'investment', value: range });
@@ -17,10 +19,10 @@ export function StepTrafficInvestment() {
     <div className="space-y-4">
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
-          Qual seu investimento mensal em mídia?
+          {t('quiz.traffic.investment.title')}
         </h3>
         <p className="text-muted-foreground text-sm">
-          Valor investido diretamente nas plataformas
+          {t('quiz.traffic.investment.subtitle')}
         </p>
       </div>
 
@@ -69,7 +71,7 @@ export function StepTrafficInvestment() {
       </div>
 
       <p className="text-center text-xs text-muted-foreground">
-        Este valor é pago diretamente às plataformas
+        {t('quiz.traffic.investment.note')}
       </p>
     </div>
   );

@@ -3,6 +3,7 @@ import { User, Mail, Phone, Building2, ArrowRight } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Formatar telefone brasileiro: (00) 00000-0000
 const formatPhone = (value: string) => {
@@ -20,6 +21,7 @@ const isValidEmail = (email: string) => {
 
 export function StepUserInfo() {
   const { state, setFormField, nextStep, canGoNext } = useQuiz();
+  const { t } = useLanguage();
   const [emailError, setEmailError] = useState('');
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +33,7 @@ export function StepUserInfo() {
     const value = e.target.value;
     setFormField('email', value);
     if (value && !isValidEmail(value)) {
-      setEmailError('Digite um e-mail válido');
+      setEmailError(t('quiz.userInfo.emailError'));
     } else {
       setEmailError('');
     }
@@ -54,10 +56,10 @@ export function StepUserInfo() {
     <div className="space-y-4 px-1">
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
-          Vamos começar!
+          {t('quiz.userInfo.title')}
         </h3>
         <p className="text-muted-foreground text-sm">
-          Primeiro, nos conte um pouco sobre você
+          {t('quiz.userInfo.subtitle')}
         </p>
       </div>
 
@@ -69,7 +71,7 @@ export function StepUserInfo() {
           transition={{ delay: 0.1 }}
         >
           <label className="block text-sm font-medium text-foreground mb-2">
-            Nome completo <span className="text-[#f06800]">*</span>
+            {t('quiz.userInfo.name')} <span className="text-[#f06800]">*</span>
           </label>
           <div className="relative">
             <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -77,9 +79,8 @@ export function StepUserInfo() {
               type="text"
               value={state.name}
               onChange={(e) => setFormField('name', e.target.value)}
-              placeholder="Seu nome"
+              placeholder={t('quiz.userInfo.namePlaceholder')}
               className="pl-10 h-11"
-              
             />
           </div>
         </motion.div>
@@ -91,7 +92,7 @@ export function StepUserInfo() {
           transition={{ delay: 0.15 }}
         >
           <label className="block text-sm font-medium text-foreground mb-2">
-            E-mail <span className="text-[#f06800]">*</span>
+            {t('quiz.userInfo.email')} <span className="text-[#f06800]">*</span>
           </label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -99,7 +100,7 @@ export function StepUserInfo() {
               type="email"
               value={state.email}
               onChange={handleEmailChange}
-              placeholder="seu@email.com"
+              placeholder={t('quiz.userInfo.emailPlaceholder')}
               className={`pl-10 h-11 ${emailError ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
             />
           </div>
@@ -116,7 +117,7 @@ export function StepUserInfo() {
             transition={{ delay: 0.2 }}
           >
             <label className="block text-sm font-medium text-foreground mb-2">
-              Telefone <span className="text-[#f06800]">*</span>
+              {t('quiz.userInfo.phone')} <span className="text-[#f06800]">*</span>
             </label>
             <div className="relative">
               <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
@@ -124,7 +125,7 @@ export function StepUserInfo() {
                 type="tel"
                 value={state.phone}
                 onChange={handlePhoneChange}
-                placeholder="(00) 00000-0000"
+                placeholder={t('quiz.userInfo.phonePlaceholder')}
                 className="pl-9 md:pl-10 h-11 text-sm"
                 maxLength={16}
               />
@@ -137,7 +138,7 @@ export function StepUserInfo() {
             transition={{ delay: 0.25 }}
           >
             <label className="block text-sm font-medium text-foreground mb-2">
-              Empresa <span className="text-[#f06800]">*</span>
+              {t('quiz.userInfo.company')} <span className="text-[#f06800]">*</span>
             </label>
             <div className="relative">
               <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-muted-foreground" />
@@ -145,7 +146,7 @@ export function StepUserInfo() {
                 type="text"
                 value={state.company}
                 onChange={(e) => setFormField('company', e.target.value)}
-                placeholder="Empresa"
+                placeholder={t('quiz.userInfo.companyPlaceholder')}
                 className="pl-9 md:pl-10 h-11 text-sm"
               />
             </div>
@@ -153,7 +154,7 @@ export function StepUserInfo() {
         </div>
       </div>
 
-      {/* Continue button - estilo CTA premium */}
+      {/* Continue button */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ 
@@ -169,7 +170,7 @@ export function StepUserInfo() {
           onClick={handleContinue}
         >
           <span className="btn-cta w-full justify-center">
-            <span className="btn-cta-text">Continuar</span>
+            <span className="btn-cta-text">{t('quiz.userInfo.continue')}</span>
             <span className="btn-cta-icon">
               <svg width="20" height="20" viewBox="0 0 40 41">
                 <path d="M 20 40.549 C 8.954 40.549 0 31.594 0 20.549 L 0 20.549 C 0 9.503 8.954 0.549 20 0.549 L 20 0.549 C 31.046 0.549 40 9.503 40 20.549 L 40 20.549 C 40 31.594 31.046 40.549 20 40.549 Z" fill="rgb(255,255,255)"></path>
@@ -183,8 +184,8 @@ export function StepUserInfo() {
       </motion.div>
 
       <p className="text-center text-xs text-muted-foreground">
-        Seus dados estão protegidos conforme nossa{' '}
-        <a href="#" className="text-[#f06800] hover:underline">Política de Privacidade</a>
+        {t('quiz.userInfo.privacy')}{' '}
+        <a href="#" className="text-[#f06800] hover:underline">{t('quiz.userInfo.privacyLink')}</a>
       </p>
     </div>
   );

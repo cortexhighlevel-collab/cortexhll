@@ -14,6 +14,7 @@ import { StepTrafficSegment } from './steps/StepTrafficSegment';
 import { StepFinalForm } from './steps/StepFinalForm';
 import { trackQuizEvent } from '@/lib/quizUtils';
 import { useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const stepVariants: Variants = {
   enter: (direction: number) => ({
@@ -40,6 +41,7 @@ const stepVariants: Variants = {
 
 function QuizContent() {
   const { state, nextStep, prevStep, canGoNext, canGoBack, totalSteps } = useQuiz();
+  const { t } = useLanguage();
   const { currentStep, direction, service } = state;
 
   // Track step changes
@@ -140,7 +142,7 @@ function QuizContent() {
               className="h-10 px-4 rounded-lg border border-border text-foreground flex items-center justify-center gap-1.5 hover:bg-muted transition-all duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm font-medium hidden sm:inline">Voltar</span>
+              <span className="text-sm font-medium hidden sm:inline">{t('quiz.nav.back')}</span>
             </button>
           )}
           <button
@@ -154,7 +156,7 @@ function QuizContent() {
             }`}
           >
             <span className="text-sm font-medium">
-              {currentStep === totalSteps - 1 ? 'Finalizar' : 'Próximo'}
+              {currentStep === totalSteps - 1 ? t('quiz.nav.finish') : t('quiz.nav.next')}
             </span>
             <ArrowRight className="w-4 h-4" />
           </button>
