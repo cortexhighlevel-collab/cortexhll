@@ -79,7 +79,7 @@ export function StepUserInfo() {
               onChange={(e) => setFormField('name', e.target.value)}
               placeholder="Seu nome"
               className="pl-10 h-11"
-              autoFocus
+              
             />
           </div>
         </motion.div>
