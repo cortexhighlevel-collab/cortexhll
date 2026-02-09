@@ -110,7 +110,7 @@ const DNASection = () => {
             objectPosition: 'center 35%'
           }} src="/lovable-uploads/47939c19-85cb-4393-80f4-edfeb862a20c.webp" />
             {/* Dark overlay - always visible on mobile, hover on desktop */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/30 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
             <div className="relative z-20">
               <h3 className="text-2xl md:text-3xl font-medium text-white">
                 Exclusividade
@@ -141,7 +141,7 @@ const DNASection = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-70"
             />
             {/* Dark overlay - always visible on mobile, hover on desktop */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/30 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
             <div className="relative z-20">
               <h3 className="text-xl md:text-2xl font-medium text-white">
                 Sofisticação
@@ -172,7 +172,7 @@ const DNASection = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-70"
             />
             {/* Dark overlay - always visible on mobile, hover on desktop */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/30 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
             <div className="relative z-20">
               <h3 className="text-xl md:text-2xl font-medium text-white">
                 Autoridade
@@ -204,7 +204,7 @@ const DNASection = () => {
               style={{ objectPosition: 'center 10%' }}
             />
             {/* Dark overlay - always visible on mobile, hover on desktop */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/30 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10" />
             <div className="relative z-20">
               <h3 className="text-xl md:text-2xl font-medium text-white">
                 Resultados Comprovados
