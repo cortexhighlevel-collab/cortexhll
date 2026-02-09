@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import heroVideo from "@/assets/hero-background-desktop.webm";
-import heroVideoMobile from "@/assets/hero-background-mobile.mp4";
+import heroVideoMobile from "@/assets/hero-background-mobile.webm";
 import CTAButton from "./CTAButton";
 const ProfileStack = () => {
   const profiles = ["https://framerusercontent.com/images/W25OSdXNijQzs6HFOy5Tnx7SI.jpg", "https://framerusercontent.com/images/XkZDFV2RkODhiEIHZaZGoYIBdY.jpg", "https://framerusercontent.com/images/rOuv1z818S3i8SIQTmjJqH3ghKE.jpg"];
@@ -41,7 +41,7 @@ export const HeroSection = () => {
       
       {/* Video Background - Mobile */}
       <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0 md:hidden">
-        <source src={heroVideoMobile} type="video/mp4" />
+        <source src={heroVideoMobile} type="video/webm" />
       </video>
       
       {/* Overlay for better text readability */}
