@@ -59,34 +59,6 @@ const Footer = () => {
         }
       ` }} />
 
-      {/* Lighting effect - nested sections */}
-      <div className="absolute bottom-[-60px] w-full pointer-events-none overflow-hidden">
-        <div
-          className="rounded-[50%] h-5 w-full relative mx-auto"
-          style={{ animation: "footer-one 5s ease-in-out infinite alternate" }}
-        >
-          <div
-            className="rounded-[50%] h-5 w-[90%] relative mx-auto"
-            style={{ animation: "footer-two 4s ease-in-out infinite alternate" }}
-          >
-            <div
-              className="rounded-[50%] h-5 w-[80%] relative mx-auto"
-              style={{ animation: "footer-three 3s ease-in-out infinite alternate" }}
-            >
-              <div
-                className="rounded-[50%] h-5 w-[70%] relative mx-auto"
-                style={{ animation: "footer-four 2s ease-in-out infinite alternate" }}
-              >
-                <div
-                  className="rounded-[50%] h-5 w-[60%] relative mx-auto"
-                  style={{ animation: "footer-five 1s ease-in-out infinite alternate" }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-12 py-16">
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
@@ -171,6 +143,34 @@ const Footer = () => {
             <a href="#" className="text-white/30 hover:text-white text-sm transition-colors font-light">
               Termos
             </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Lighting effect - nested sections at the very bottom */}
+      <div className="relative w-full pointer-events-none" style={{ marginBottom: '-10px' }}>
+        <div
+          className="rounded-[50%] h-5 w-full relative mx-auto"
+          style={{ animation: "footer-one 5s ease-in-out infinite alternate" }}
+        >
+          <div
+            className="rounded-[50%] h-5 w-[90%] relative mx-auto"
+            style={{ animation: "footer-two 4s ease-in-out infinite alternate" }}
+          >
+            <div
+              className="rounded-[50%] h-5 w-[80%] relative mx-auto"
+              style={{ animation: "footer-three 3s ease-in-out infinite alternate" }}
+            >
+              <div
+                className="rounded-[50%] h-5 w-[70%] relative mx-auto"
+                style={{ animation: "footer-four 2s ease-in-out infinite alternate" }}
+              >
+                <div
+                  className="rounded-[50%] h-5 w-[60%] relative mx-auto"
+                  style={{ animation: "footer-five 1s ease-in-out infinite alternate" }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
