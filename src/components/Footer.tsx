@@ -38,24 +38,24 @@ const Footer = () => {
       {/* Keyframe animations */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes footer-one { 
-          from { box-shadow: 0 0 250px 20px #473C78; } 
-          to { box-shadow: 0 0 100px 15px #F72A3B; } 
+          from { box-shadow: 0 0 250px 20px #FF0000; } 
+          to { box-shadow: 0 0 100px 15px #FF4500; } 
         }
         @keyframes footer-two { 
-          from { box-shadow: 0 0 250px 20px #18C499; } 
-          to { box-shadow: 0 0 100px 15px #D8F05E; } 
+          from { box-shadow: 0 0 250px 20px #FF8C00; } 
+          to { box-shadow: 0 0 100px 15px #FFD700; } 
         }
         @keyframes footer-three { 
-          from { box-shadow: 0 0 250px 20px #FFDD00; } 
-          to { box-shadow: 0 0 100px 15px #3E33FF; } 
+          from { box-shadow: 0 0 250px 20px #FFD700; } 
+          to { box-shadow: 0 0 100px 15px #FF4500; } 
         }
         @keyframes footer-four { 
-          from { box-shadow: 0 0 250px 20px #781848; } 
-          to { box-shadow: 0 0 100px 15px #F2BBE9; } 
+          from { box-shadow: 0 0 250px 20px #B22222; } 
+          to { box-shadow: 0 0 100px 15px #FFA500; } 
         }
         @keyframes footer-five { 
-          from { box-shadow: 0 0 250px 20px #42F2A1; } 
-          to { box-shadow: 0 0 100px 15px #F4F6AD; } 
+          from { box-shadow: 0 0 250px 20px #FF4500; } 
+          to { box-shadow: 0 0 100px 15px #FFFF00; } 
         }
       ` }} />
 
