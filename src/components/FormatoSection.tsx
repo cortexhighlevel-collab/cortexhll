@@ -190,9 +190,9 @@ const FormatoSection = () => {
         {/* Mobile/Tablet: Carousel */}
         <div className="lg:hidden">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-4">
+            <div className="flex">
               {services.map((service, index) => (
-                <div key={index} className="flex-[0_0_78%] min-w-0">
+                <div key={index} className="flex-[0_0_85%] min-w-0 pr-4">
                   <ServiceCard {...service} />
                 </div>
               ))}
