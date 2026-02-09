@@ -121,7 +121,7 @@ const FormatoSection = () => {
     imageUrl: crmCardImage
   }, {
     tag: "AI REFERRAL",
-    title: "AI Referral Genie™",
+    title: "AI Reference Engine™",
     subtitle: "Sistema de indicações",
     items: ["Referral Engine", "Growth Hacking", "Automação de Indicações", "Rewards System"],
     imageUrl: "https://framerusercontent.com/images/gDwvpLGglqXMdntEV9jyyjDmc.jpg",
