@@ -51,7 +51,7 @@ export function StepUserInfo() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 px-1">
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
           Vamos começar!
@@ -61,7 +61,7 @@ export function StepUserInfo() {
         </p>
       </div>
 
-      <div className="space-y-4" onKeyDown={handleKeyDown}>
+      <div className="space-y-4 -mx-1 px-1" onKeyDown={handleKeyDown}>
         {/* Name */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
