@@ -7,6 +7,7 @@ import dividerIcon from "@/assets/nav-divider-icon.png";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import CTAButton from "./CTAButton";
+import { useLanguage, Language } from "@/contexts/LanguageContext";
 
 const Logo = () => (
   <img src={logoImage} alt="Cortex High Level" className="h-7" />
@@ -16,9 +17,54 @@ const LogoWhite = () => (
   <img src={logoImage} alt="Cortex High Level" className="h-7 brightness-0 invert" />
 );
 
+const flags: Record<Language, { src: string; label: string }> = {
+  pt: {
+    src: "https://framerusercontent.com/images/80WuBBdsE94W3tmgnQr2bjV2a2E.png",
+    label: "BR",
+  },
+  en: {
+    src: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png",
+    label: "EN",
+  },
+};
+
+const LanguageSwitcher = ({ dark = false }: { dark?: boolean }) => {
+  const { language, setLanguage } = useLanguage();
+  const [open, setOpen] = useState(false);
+  const current = flags[language];
+  const other = language === "pt" ? "en" : "pt";
+  const otherFlag = flags[other];
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <button className={`region-pill cursor-pointer ${dark ? "bg-zinc-800 border-white/10" : ""}`}>
+          <div className="w-8 h-8 rounded-full overflow-hidden">
+            <img src={current.src} alt={current.label} className="w-full h-full object-cover" />
+          </div>
+          <span className={`text-sm font-medium ${dark ? "text-white/80" : "text-foreground"}`}>{current.label}</span>
+          <ChevronDown className={`w-3 h-3 ${dark ? "text-white/60" : "text-foreground/60"}`} />
+        </button>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-2 rounded-xl" align="end" sideOffset={8}>
+        <button
+          onClick={() => { setLanguage(other); setOpen(false); }}
+          className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted transition-colors w-full"
+        >
+          <div className="w-6 h-6 rounded-full overflow-hidden">
+            <img src={otherFlag.src} alt={otherFlag.label} className="w-full h-full object-cover" />
+          </div>
+          <span className="text-sm font-medium">{otherFlag.label}</span>
+        </button>
+      </PopoverContent>
+    </Popover>
+  );
+};
+
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full bg-white z-50 rounded-b-3xl border-b-4 border-orange-500 shadow-lg">
@@ -32,14 +78,13 @@ export const Header = () => {
         <nav className="nav-pill rounded-full py-1.5 px-2 md:px-2 flex items-center gap-3 h-16 shadow-lg mx-8 flex-1 max-w-[716px] hidden md:flex">
           {/* Left Group */}
           <div className="flex items-center gap-1">
-            <a href="#" className="nav-link tracking-wide">Início</a>
-            
-            <a href="#metodologia" className="nav-link tracking-wide">Método</a>
+            <a href="#" className="nav-link tracking-wide">{t("nav.home")}</a>
+            <a href="#metodologia" className="nav-link tracking-wide">{t("nav.method")}</a>
             
             <Popover>
               <PopoverTrigger asChild>
                 <button className="nav-link flex items-center gap-1 cursor-pointer tracking-wide">
-                  Serviços
+                  {t("nav.services")}
                   <ChevronDown className="w-2.5 h-2.5" />
                 </button>
               </PopoverTrigger>
@@ -52,28 +97,22 @@ export const Header = () => {
               </PopoverContent>
             </Popover>
             
-            {/* Divider Icon */}
-            <img 
-              src={dividerIcon} 
-              alt="" 
-              className="h-6 w-auto object-contain mx-1"
-            />
+            <img src={dividerIcon} alt="" className="h-6 w-auto object-contain mx-1" />
             
-            <a href="#cases" className="nav-link tracking-wide">Cases</a>
-            <a href="#equipe" className="nav-link tracking-wide">Equipe</a>
-             <a href="#faq" className="nav-link tracking-wide">FAQ</a>
+            <a href="#cases" className="nav-link tracking-wide">{t("nav.cases")}</a>
+            <a href="#equipe" className="nav-link tracking-wide">{t("nav.team")}</a>
+            <a href="#faq" className="nav-link tracking-wide">{t("nav.faq")}</a>
           </div>
 
           {/* Right Group */}
           <div className="flex items-center gap-2 ml-auto">
             <CTAButton href="#contato" className="nav-cta">
-              Fale Conosco
+              {t("nav.contact")}
             </CTAButton>
           </div>
         </nav>
 
-        {/* Mobile Menu Button */}
-        {/* Mobile: Region Picker + Menu Button */}
+        {/* Mobile Menu Button + Region */}
         <div className="md:hidden flex items-center gap-2">
           <button className="p-3" onClick={() => setIsOpen(true)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2">
@@ -86,7 +125,6 @@ export const Header = () => {
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogContent className="w-[90%] max-w-[340px] bg-zinc-900 p-0 border-none rounded-2xl top-[35%] translate-y-[-35%]">
               <div className="flex flex-col text-white">
-                {/* Header do menu mobile */}
                 <div className="flex items-center justify-between p-5">
                   <LogoWhite />
                   <DialogClose asChild>
@@ -96,157 +134,68 @@ export const Header = () => {
                   </DialogClose>
                 </div>
                 
-                {/* Links de navegação centralizados */}
                 <nav className="flex flex-col items-center py-6 gap-5">
-                  <a 
-                    href="#" 
-                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    INÍCIO
+                  <a href="#" className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {t("nav.home")}
+                  </a>
+                  <a href="#metodologia" className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {t("nav.method")}
                   </a>
                   
-                  <a 
-                    href="#metodologia" 
-                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    MÉTODO
-                  </a>
-                  
-                  {/* Dropdown de Serviços */}
                   <Collapsible open={servicesOpen} onOpenChange={setServicesOpen}>
                     <CollapsibleTrigger className="flex items-center justify-center gap-2 px-16 py-3 border border-white/30 rounded-full text-white/80 text-sm font-medium tracking-widest uppercase hover:bg-white/10 transition-colors">
-                      SERVIÇOS
+                      {t("nav.services")}
                       <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                     </CollapsibleTrigger>
                     <CollapsibleContent className="mt-4 flex flex-col items-center gap-3">
-                      <a 
-                        href="#servicos" 
-                        className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => {
-                          setIsOpen(false);
-                          setTimeout(() => {
-                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
-                          }, 100);
-                        }}
-                      >
-                        AI Intelligence
-                      </a>
-                      <a 
-                        href="#servicos" 
-                        className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => {
-                          setIsOpen(false);
-                          setTimeout(() => {
-                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
-                          }, 100);
-                        }}
-                      >
-                        Design
-                      </a>
-                      <a 
-                        href="#servicos" 
-                        className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => {
-                          setIsOpen(false);
-                          setTimeout(() => {
-                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
-                          }, 100);
-                        }}
-                      >
-                        Growth
-                      </a>
-                      <a 
-                        href="#servicos" 
-                        className="text-white/60 text-sm hover:text-white transition-colors"
-                        onClick={() => {
-                          setIsOpen(false);
-                          setTimeout(() => {
-                            document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
-                          }, 100);
-                        }}
-                      >
-                        Infraestrutura
-                      </a>
+                      {["mobile.ai", "mobile.design", "mobile.growth", "mobile.infra"].map((key) => (
+                        <a
+                          key={key}
+                          href="#servicos"
+                          className="text-white/60 text-sm hover:text-white transition-colors"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setTimeout(() => {
+                              document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+                            }, 100);
+                          }}
+                        >
+                          {t(key)}
+                        </a>
+                      ))}
                     </CollapsibleContent>
                   </Collapsible>
                   
-                  <a 
-                    href="#cases" 
-                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    CASES
+                  <a href="#cases" className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {t("nav.cases")}
                   </a>
-                  <a 
-                    href="#equipe" 
-                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    EQUIPE
+                  <a href="#equipe" className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {t("nav.team")}
                   </a>
-                  <a 
-                    href="#faq" 
-                    className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    FAQ
+                  <a href="#faq" className="text-white/80 text-sm font-medium tracking-widest uppercase hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {t("nav.faq")}
                   </a>
                 </nav>
                 
-                {/* CTA Button */}
                 <div className="px-6 pb-6 flex flex-col items-center gap-5">
                   <div onClick={() => setIsOpen(false)}>
-                    <CTAButton 
-                      href="#contato" 
-                      className="nav-cta"
-                    >
-                      Fale Conosco
+                    <CTAButton href="#contato" className="nav-cta">
+                      {t("nav.contact")}
                     </CTAButton>
                   </div>
                   
-                  {/* Language Selector */}
-                  <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800 rounded-full">
-                    <div className="w-6 h-6 rounded-full overflow-hidden">
-                      <img 
-                        src="https://framerusercontent.com/images/80WuBBdsE94W3tmgnQr2bjV2a2E.png" 
-                        alt="Brazil Flag"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <span className="text-sm text-white/80">BR</span>
-                    <ChevronDown className="w-3 h-3 text-white/60" />
-                  </div>
+                  <LanguageSwitcher dark />
                 </div>
               </div>
             </DialogContent>
           </Dialog>
-          <div className="region-pill">
-            <div className="w-8 h-8 rounded-full overflow-hidden">
-              <img 
-                src="https://framerusercontent.com/images/80WuBBdsE94W3tmgnQr2bjV2a2E.png" 
-                alt="Brazil Flag"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <span className="text-sm font-medium text-foreground">BR</span>
-          </div>
+          <LanguageSwitcher />
         </div>
 
         {/* Desktop: Region Picker */}
         <div className="hidden md:block">
-          <div className="region-pill">
-            <div className="w-8 h-8 rounded-full overflow-hidden">
-              <img 
-                src="https://framerusercontent.com/images/80WuBBdsE94W3tmgnQr2bjV2a2E.png" 
-                alt="Brazil Flag"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <span className="text-sm font-medium text-foreground">BR</span>
-            </div>
-          </div>
+          <LanguageSwitcher />
+        </div>
       </div>
     </header>
   );
