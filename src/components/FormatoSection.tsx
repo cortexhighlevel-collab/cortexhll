@@ -61,8 +61,8 @@ const ServiceCard = ({
   imageUrl,
   link = "https://fluxo.cortexhl.com/"
 }: ServiceCardProps) => <div className="course-card group font-dm h-[420px] lg:h-[450px]">
-    <img src={imageUrl} alt={title} className="absolute inset-0 w-full h-full object-cover" />
-    <div className="course-overlay absolute inset-0" />
+    <img src={imageUrl} alt={title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-105" />
+    <div className="course-overlay absolute inset-0 transition-opacity duration-300 lg:opacity-60 lg:group-hover:opacity-100" />
     
     <div className="absolute inset-0 p-6 flex flex-col justify-between">
       {/* Tag */}
@@ -77,8 +77,9 @@ const ServiceCard = ({
       <div className="flex flex-col gap-4">
         <div>
           <p className="text-white/80 text-xs lg:text-sm mb-1 font-light">{subtitle}</p>
-          <h3 className="text-white text-xl lg:text-2xl font-medium leading-tight mb-3">{title}</h3>
-          <ul className="space-y-1.5">
+          <h3 className="text-white text-xl lg:text-2xl font-medium leading-tight lg:group-hover:mb-3 lg:mb-0 mb-3 transition-all duration-300">{title}</h3>
+          {/* Items - hidden by default on desktop, revealed on hover */}
+          <ul className="space-y-1.5 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-40 lg:group-hover:opacity-100 max-h-40 opacity-100 overflow-hidden transition-all duration-300 ease-out">
             {items.map((item, index) => <li key={index} className="text-white/70 text-xs lg:text-sm flex items-center gap-2 font-light">
                 <span className="w-1 h-1 rounded-full bg-orange-500"></span>
                 {item}
