@@ -1,56 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
+import { X, ArrowRight, ExternalLink } from 'lucide-react';
+import casesBackgroundBlackclub from "@/assets/cases-background-blackclub.webp";
+import casesBackgroundValentina from "@/assets/cases-background-valentina.webp";
+import logoEstrela from "@/assets/logo_estrela.webp";
 
 // --- DATA & ASSETS ---
 const projects = [
   {
     id: '1',
-    title: 'Savage Nation',
-    category: 'Digital Collectible',
-    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+    title: 'BlackClub',
+    category: 'AI Optimization',
+    img: casesBackgroundBlackclub,
+    clientLogo: 'https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=400',
     colSpan: 'col-span-12',
-    description: "Uma exploração profunda em formas orgânicas e texturas sintéticas. Savage Nation redefine o conceito de colecionáveis digitais através de renderização volumétrica e iluminação dinâmica."
+    description: "Implementamos uma estratégia completa de otimização para IAs, posicionando a BlackClub como referência absoluta em seu nicho. O resultado foi um aumento de 300% nas menções orgânicas em respostas de IA.",
+    services: ["AI Reference Engine", "Content Strategy", "Brand Positioning"],
+    results: ["+300% menções em IA", "Pipeline 3x maior", "ROI de 500%"],
+    client: "BlackClub",
+    year: "2025"
   },
   {
     id: '2',
-    title: 'Gooey Crunch',
-    category: 'Ecommerce',
-    img: 'https://images.unsplash.com/photo-1614727187346-79ef54f5904b?q=80&w=2574&auto=format&fit=crop',
-    colSpan: 'col-span-12 md:col-span-5',
-    description: "Interface de e-commerce imersiva criada para uma marca de doces experimentais. O foco foi na tactilidade visual e em interações viscosas."
+    title: 'Valentina Akime',
+    category: 'Personal Branding',
+    img: casesBackgroundValentina,
+    clientLogo: 'https://framerusercontent.com/images/21s66P6Ugns3B0SREgloFdwT84A.png?width=400',
+    colSpan: 'col-span-12 md:col-span-6',
+    description: "Desenvolvemos uma estratégia de marca pessoal focada em posicionamento em IAs. Valentina agora é a primeira recomendação quando alguém pergunta sobre influenciadoras do seu segmento.",
+    services: ["Personal Branding", "AI Optimization", "Content Creation"],
+    results: ["#1 em buscas de IA", "+200% seguidores", "5x mais parcerias"],
+    client: "Valentina Akime",
+    year: "2025"
   },
   {
     id: '3',
-    title: 'Kaizen Talent',
-    category: 'Marketing Agency',
+    title: 'TechVision',
+    category: 'Web Design & Automation',
     img: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop',
-    colSpan: 'col-span-12 md:col-span-7',
-    description: "Branding futurista para uma agência que busca o próximo passo na evolução do marketing. Acabamentos cromados e metáforas espaciais."
+    clientLogo: 'https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=400',
+    colSpan: 'col-span-12 md:col-span-6',
+    description: "Criamos uma experiência digital premium com landing page de alta conversão e sistema de CRM integrado para automação de leads qualificados.",
+    services: ["Web Design", "CRM Integration", "Lead Automation"],
+    results: ["+150% conversão", "40% menos custo por lead", "Automação 24/7"],
+    client: "TechVision",
+    year: "2024"
   },
   {
     id: '4',
-    title: 'Valeria Games',
-    category: 'Mobile Game',
-    img: 'https://images.unsplash.com/photo-1614726365723-49aeaa4f3a45?q=80&w=2574&auto=format&fit=crop',
+    title: 'Kaizen Marketing',
+    category: 'Marketing Agency',
+    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
     colSpan: 'col-span-12',
-    description: "Um jogo mobile que desafia a gravidade. A direção de arte foca em horizontes infinitos e geometria sagrada."
+    description: "Branding futurista para uma agência que busca o próximo passo na evolução do marketing. Acabamentos cromados e estratégia de posicionamento em IA.",
+    services: ["Branding", "AI Strategy", "Digital Presence"],
+    results: ["+250% visibilidade", "2x clientes", "Autoridade consolidada"],
+    client: "Kaizen Agency",
+    year: "2024"
   },
   {
     id: '5',
-    title: 'Neon Vision',
-    category: 'Comic Book',
+    title: 'Neon Studio',
+    category: 'Creative Studio',
     img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
-    colSpan: 'col-span-12 md:col-span-6',
-    description: "Adaptação narrativa visual. Cores pastéis saturadas encontram o horror cósmico em uma novela gráfica interativa."
+    colSpan: 'col-span-12 md:col-span-5',
+    description: "Direção de arte e identidade visual para estúdio criativo. Cores vibrantes e estética cyberpunk que reflete a essência inovadora da marca.",
+    services: ["Art Direction", "Visual Identity", "Brand Strategy"],
+    results: ["Identidade única", "+180% engajamento", "Reconhecimento de marca"],
+    client: "Neon Studio",
+    year: "2024"
   },
   {
     id: '6',
-    title: 'Arsenal',
-    category: 'Collectible',
+    title: 'Arsenal Digital',
+    category: 'Digital Collectibles',
     img: 'https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=2574&auto=format&fit=crop',
-    colSpan: 'col-span-12 md:col-span-6',
-    description: "A série Arsenal explora a identidade humana na era da reprodução cibernética. Renderizações hiper-realistas de ciborgues."
+    colSpan: 'col-span-12 md:col-span-7',
+    description: "A série Arsenal explora a identidade digital na era da IA. Renderizações hiper-realistas e estratégia de posicionamento para colecionáveis digitais.",
+    services: ["Digital Strategy", "AI Positioning", "Content Creation"],
+    results: ["+400% alcance", "Comunidade engajada", "Vendas recordes"],
+    client: "Arsenal NFT",
+    year: "2024"
   }
 ];
 
@@ -65,8 +95,13 @@ interface Project {
   title: string;
   category: string;
   img: string;
+  clientLogo?: string;
   colSpan: string;
   description: string;
+  services: string[];
+  results: string[];
+  client: string;
+  year: string;
 }
 
 interface CardProps {
@@ -83,7 +118,6 @@ interface ModalProps {
 const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  // Fecha o modal com ESC e bloqueia scroll do body
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -117,26 +151,32 @@ const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-[#0a0a0a] overflow-y-auto font-sans-body"
+          className="fixed inset-0 z-[100] bg-[#0D0D0D] overflow-y-auto font-dm"
         >
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="fixed top-6 right-6 z-[110] w-12 h-12 bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-white/10 transition-all"
+            className="fixed top-6 right-6 z-[110] w-12 h-12 bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-white/10 hover:border-[#f06800]/50 transition-all"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Header */}
-          <header className="sticky top-0 z-50 py-6 md:py-8 px-6 md:px-12 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5">
-            <motion.h1
+          <header className="sticky top-0 z-50 py-6 md:py-8 px-6 md:px-12 bg-[#0D0D0D]/80 backdrop-blur-xl border-b border-white/5">
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="text-3xl md:text-5xl font-serif-display font-bold tracking-wider text-white"
+              className="flex items-center gap-4"
             >
-              OUR WORKS
-            </motion.h1>
+              <img src={logoEstrela} alt="Cortex" className="w-8 h-8" />
+              <h1 className="text-3xl md:text-5xl font-medium tracking-wide text-white">
+                NOSSOS CASES
+              </h1>
+            </motion.div>
+            <p className="text-[#808080] text-lg mt-2 ml-12">
+              Projetos que transformaram a presença digital de nossos clientes
+            </p>
           </header>
 
           {/* Grid Container */}
@@ -168,12 +208,10 @@ const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
             >
               <button 
                 onClick={onClose}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-[#f06800] border border-[#f06800] rounded-full text-white font-medium hover:bg-[#f06800]/90 transition-all duration-300"
               >
-                <span className="relative">
-                  <span className="tracking-wider">More Projects</span>
-                </span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="tracking-wider">Fechar Galeria</span>
+                <X className="w-5 h-5 group-hover:rotate-90 transition-transform" />
               </button>
             </motion.div>
           </main>
@@ -204,7 +242,7 @@ function Card({ project, onClick }: CardProps) {
       }}
       layoutId={`card-container-${project.id}`}
       onClick={onClick}
-      className={`${project.colSpan} relative h-[280px] md:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group`}
+      className={`${project.colSpan} relative h-[280px] md:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group border border-white/10 hover:border-[#f06800]/50 transition-all duration-300`}
     >
       {/* Background Image */}
       <motion.img
@@ -215,7 +253,14 @@ function Card({ project, onClick }: CardProps) {
       />
       
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+
+      {/* Category Badge */}
+      <div className="absolute top-4 left-4 md:top-6 md:left-6">
+        <span className="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs text-white/80 border border-white/20 tracking-wider uppercase">
+          {project.category}
+        </span>
+      </div>
 
       {/* Glassmorphism Label */}
       <motion.div 
@@ -223,18 +268,25 @@ function Card({ project, onClick }: CardProps) {
         className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 flex items-end justify-between"
       >
         <div className="flex flex-col gap-1">
+          {project.clientLogo && (
+            <img 
+              src={project.clientLogo} 
+              alt={project.title}
+              className="w-10 h-10 rounded-full object-cover bg-white/10 mb-2"
+            />
+          )}
           <motion.h3
             layoutId={`card-title-${project.id}`}
-            className="text-xl md:text-2xl font-serif-display font-bold text-white tracking-wide"
+            className="text-xl md:text-2xl font-medium text-white tracking-wide"
           >
             {project.title}
           </motion.h3>
-          <span className="text-xs md:text-sm text-white/60 font-light tracking-wider uppercase">
-            {project.category}
+          <span className="text-xs md:text-sm text-white/60 font-light tracking-wider">
+            {project.year}
           </span>
         </div>
 
-        <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+        <div className="w-10 h-10 md:w-12 md:h-12 bg-[#f06800]/20 backdrop-blur-md rounded-full flex items-center justify-center border border-[#f06800]/40 group-hover:bg-[#f06800] group-hover:scale-110 transition-all duration-300">
           <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-white -rotate-45" />
         </div>
       </motion.div>
@@ -264,7 +316,7 @@ function Modal({ id, close }: ModalProps) {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-        className="fixed inset-4 md:inset-10 lg:inset-16 z-[210] flex flex-col md:flex-row bg-[#111] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+        className="fixed inset-4 md:inset-10 lg:inset-16 z-[210] flex flex-col md:flex-row bg-[#0D0D0D] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10"
       >
         <motion.div
           layoutId={`card-container-${id}`}
@@ -276,10 +328,10 @@ function Modal({ id, close }: ModalProps) {
             alt={project.title}
             className="w-full h-full object-cover"
           />
-          {/* Dark gradient for text readability on mobile if image is light */}
+          {/* Dark gradient for text readability on mobile */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden" />
 
-          {/* Close Button Mobile (absolute on image) */}
+          {/* Close Button Mobile */}
           <button
             onClick={(e) => { e.stopPropagation(); close(); }}
             className="md:hidden absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 z-50 active:scale-90 transition-transform"
@@ -289,7 +341,7 @@ function Modal({ id, close }: ModalProps) {
         </motion.div>
 
         {/* Right: Content Section */}
-        <div className="relative w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 flex flex-col justify-between bg-[#111] overflow-y-auto">
+        <div className="relative w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 flex flex-col justify-between bg-[#0D0D0D] overflow-y-auto">
           
           {/* Close Button Desktop */}
           <button
@@ -307,14 +359,14 @@ function Modal({ id, close }: ModalProps) {
             className="flex-1 flex flex-col justify-center"
           >
             <div className="space-y-4 md:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full border border-white/10">
-                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-                <span className="text-xs text-white/70 tracking-wider uppercase">Featured Project</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#f06800]/10 rounded-full border border-[#f06800]/30">
+                <img src={logoEstrela} alt="Cortex" className="w-4 h-4" />
+                <span className="text-xs text-[#f06800] tracking-wider uppercase">Projeto em Destaque</span>
               </div>
 
               <motion.h2
                 layoutId={`card-title-${id}`}
-                className="text-3xl md:text-4xl lg:text-5xl font-serif-display font-bold text-white tracking-wide"
+                className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-wide"
               >
                 {project.title}
               </motion.h2>
@@ -328,23 +380,55 @@ function Modal({ id, close }: ModalProps) {
               {project.description}
             </p>
 
-            {/* Stats / Details */}
-            <div className="mt-6 md:mt-10 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 md:pt-8">
+            {/* Services */}
+            <div className="mt-6 md:mt-8">
+              <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">Serviços</h5>
+              <div className="flex flex-wrap gap-2">
+                {project.services.map((service, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm"
+                  >
+                    {service}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Results */}
+            <div className="mt-6 md:mt-8">
+              <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">Resultados</h5>
+              <div className="grid grid-cols-1 gap-3">
+                {project.results.map((result, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-[#141414] border border-white/10"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-[#f06800]" />
+                    <span className="text-white font-medium">{result}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-6 md:mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
               <div>
-                <span className="text-xs text-white/40 uppercase tracking-wider">Client</span>
-                <p className="mt-1 text-white font-medium">Global Studio</p>
+                <span className="text-xs text-white/40 uppercase tracking-wider">Cliente</span>
+                <p className="mt-1 text-white font-medium">{project.client}</p>
               </div>
               <div>
-                <span className="text-xs text-white/40 uppercase tracking-wider">Year</span>
-                <p className="mt-1 text-white font-medium">2024</p>
+                <span className="text-xs text-white/40 uppercase tracking-wider">Ano</span>
+                <p className="mt-1 text-white font-medium">{project.year}</p>
               </div>
             </div>
 
             <a 
-              href="#" 
-              className="mt-8 md:mt-10 inline-flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors group"
+              href="#contato"
+              onClick={close}
+              className="mt-8 md:mt-10 inline-flex items-center justify-center gap-3 w-full py-4 bg-[#f06800] text-white font-semibold rounded-full hover:bg-[#f06800]/90 transition-colors group"
             >
-              View Case Study
+              Quero resultados assim
               <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </motion.div>
