@@ -126,7 +126,7 @@ const DNASection = () => {
           background: 'rgba(13, 13, 13, 0.65)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          border: '1px solid #f06800',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
@@ -136,7 +136,7 @@ const DNASection = () => {
             </div>
             {/* Background Image */}
             <img 
-              src={dnaSofisticacao} 
+              src={dnaSofisticacao}
               alt="Sofisticação" 
               className="absolute inset-0 w-full h-full object-cover opacity-70"
             />
@@ -157,7 +157,7 @@ const DNASection = () => {
           background: 'rgba(13, 13, 13, 0.65)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          border: '1px solid #f06800',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
@@ -167,7 +167,7 @@ const DNASection = () => {
             </div>
             {/* Background Image */}
             <img 
-              src={dnaAutoridade} 
+              src={dnaAutoridade}
               alt="Autoridade" 
               className="absolute inset-0 w-full h-full object-cover opacity-70"
             />
@@ -188,7 +188,7 @@ const DNASection = () => {
           background: 'linear-gradient(135deg, rgba(13, 13, 13, 0.75) 0%, rgba(13, 13, 13, 0.65) 100%)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
+          border: '1px solid #f06800',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
         }} variants={cardFloat}>
             {/* Decorative L-shaped corner */}
