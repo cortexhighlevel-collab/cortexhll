@@ -1,13 +1,10 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const LogoMarquee = () => {
+  const { t } = useLanguage();
   const painPoints = [
-    "Meu site não aparece na IA",
-    "Investi em tráfego e não vendeu",
-    "Dependemos só de indicação",
-    "Site bonito mas zero conversão",
-    "ChatGPT não recomenda minha empresa",
-    "Concorrentes dominam o Google",
-    "Não sei como escalar com IA",
-    "Meu marketing não gera ROI",
+    t("marquee.1"), t("marquee.2"), t("marquee.3"), t("marquee.4"),
+    t("marquee.5"), t("marquee.6"), t("marquee.7"), t("marquee.8"),
   ];
 
   const PainItem = ({ text }: { text: string }) => (
@@ -18,20 +15,14 @@ const LogoMarquee = () => {
 
   return (
     <section className="w-full relative">
-      {/* Área branca acima da linha */}
       <div className="w-full h-0 bg-white"></div>
-      {/* Linha divisória */}
       <div className="w-full h-px bg-[#f06800]"></div>
-      {/* Área laranja com as dores */}
       <div className="w-full bg-[#f06800] py-4">
-        {/* Marquee Container */}
         <div className="marquee-container relative overflow-hidden marquee-mask">
           <div className="marquee-content flex">
-            {/* First set */}
             {painPoints.map((text, index) => (
               <PainItem key={`first-${index}`} text={text} />
             ))}
-            {/* Duplicate set for seamless loop */}
             {painPoints.map((text, index) => (
               <PainItem key={`second-${index}`} text={text} />
             ))}
