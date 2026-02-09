@@ -192,7 +192,7 @@ const FormatoSection = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-4">
               {services.map((service, index) => (
-                <div key={index} className="flex-[0_0_85%] min-w-0">
+                <div key={index} className="flex-[0_0_78%] min-w-0">
                   <ServiceCard {...service} />
                 </div>
               ))}
