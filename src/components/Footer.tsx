@@ -37,53 +37,51 @@ const Footer = () => {
     <footer className="relative w-full bg-[#050505] text-white font-dm overflow-hidden">
       {/* Keyframe animations */}
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes one-anim { 
-          from { box-shadow: 0 0 250px 20px #FF0000; } 
-          to { box-shadow: 0 0 100px 15px #FF4500; } 
+        @keyframes footer-one { 
+          from { box-shadow: 0 0 250px 20px #473C78; } 
+          to { box-shadow: 0 0 100px 15px #F72A3B; } 
         }
-        @keyframes two-anim { 
-          from { box-shadow: 0 0 250px 20px #FF8C00; } 
-          to { box-shadow: 0 0 100px 15px #FFD700; } 
+        @keyframes footer-two { 
+          from { box-shadow: 0 0 250px 20px #18C499; } 
+          to { box-shadow: 0 0 100px 15px #D8F05E; } 
         }
-        @keyframes three-anim { 
-          from { box-shadow: 0 0 250px 20px #FFD700; } 
-          to { box-shadow: 0 0 100px 15px #FF4500; } 
+        @keyframes footer-three { 
+          from { box-shadow: 0 0 250px 20px #FFDD00; } 
+          to { box-shadow: 0 0 100px 15px #3E33FF; } 
         }
-        @keyframes four-anim { 
-          from { box-shadow: 0 0 250px 20px #B22222; } 
-          to { box-shadow: 0 0 100px 15px #FFA500; } 
+        @keyframes footer-four { 
+          from { box-shadow: 0 0 250px 20px #781848; } 
+          to { box-shadow: 0 0 100px 15px #F2BBE9; } 
         }
-        @keyframes five-anim { 
-          from { box-shadow: 0 0 250px 20px #FF4500; } 
-          to { box-shadow: 0 0 100px 15px #FFFF00; } 
+        @keyframes footer-five { 
+          from { box-shadow: 0 0 250px 20px #42F2A1; } 
+          to { box-shadow: 0 0 100px 15px #F4F6AD; } 
         }
       ` }} />
 
-      {/* Lighting effect */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="absolute top-[-60%] w-full flex justify-center gap-8">
-            <div className="relative">
+      {/* Lighting effect - nested sections */}
+      <div className="absolute bottom-[-60px] w-full pointer-events-none overflow-hidden">
+        <div
+          className="rounded-[50%] h-5 w-full relative mx-auto"
+          style={{ animation: "footer-one 5s ease-in-out infinite alternate" }}
+        >
+          <div
+            className="rounded-[50%] h-5 w-[90%] relative mx-auto"
+            style={{ animation: "footer-two 4s ease-in-out infinite alternate" }}
+          >
+            <div
+              className="rounded-[50%] h-5 w-[80%] relative mx-auto"
+              style={{ animation: "footer-three 3s ease-in-out infinite alternate" }}
+            >
               <div
-                className="w-1 h-1 rounded-full absolute"
-                style={{ animation: "one-anim 3s ease-in-out infinite alternate", left: "-100px" }}
-              />
-              <div
-                className="w-1 h-1 rounded-full absolute"
-                style={{ animation: "two-anim 4s ease-in-out infinite alternate", left: "-50px" }}
-              />
-              <div
-                className="w-1 h-1 rounded-full absolute"
-                style={{ animation: "three-anim 3.5s ease-in-out infinite alternate", left: "0px" }}
-              />
-              <div
-                className="w-1 h-1 rounded-full absolute"
-                style={{ animation: "four-anim 2.5s ease-in-out infinite alternate", left: "50px" }}
-              />
-              <div
-                className="w-1 h-1 rounded-full absolute"
-                style={{ animation: "five-anim 4.5s ease-in-out infinite alternate", left: "100px" }}
-              />
+                className="rounded-[50%] h-5 w-[70%] relative mx-auto"
+                style={{ animation: "footer-four 2s ease-in-out infinite alternate" }}
+              >
+                <div
+                  className="rounded-[50%] h-5 w-[60%] relative mx-auto"
+                  style={{ animation: "footer-five 1s ease-in-out infinite alternate" }}
+                />
+              </div>
             </div>
           </div>
         </div>
