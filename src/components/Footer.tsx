@@ -59,13 +59,13 @@ const Footer = () => {
         }
       ` }} />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-12 py-16">
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-12 py-12 md:py-16">
+        {/* Mobile: centered single-column / Desktop: grid */}
+        <div className="flex flex-col items-center text-center md:text-left md:items-start md:grid md:grid-cols-12 gap-10 md:gap-8">
           {/* Column 1: Company Info */}
-          <div className="lg:col-span-5">
-            <img src={logoImage} alt="Cortex" className="h-10 mb-6" />
-            <p className="text-white/50 text-sm leading-relaxed font-light mb-8 max-w-[320px]">
+          <div className="md:col-span-5 flex flex-col items-center md:items-start">
+            <img src={logoImage} alt="Cortex" className="h-8 md:h-10 mb-4 md:mb-6" />
+            <p className="text-white/50 text-xs md:text-sm leading-relaxed font-light mb-6 max-w-[280px] md:max-w-[320px]">
               {data.company.description}
             </p>
 
@@ -77,70 +77,73 @@ const Footer = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 hover:border-orange-500 transition-all duration-300 group"
+                  className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500 hover:border-orange-500 transition-all duration-300 group"
                   aria-label={label}
                 >
-                  <Icon className="w-[18px] h-[18px] text-white/50 group-hover:text-white transition-colors" />
+                  <Icon className="w-4 h-4 md:w-[18px] md:h-[18px] text-white/50 group-hover:text-white transition-colors" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Column 2: Navigation */}
-          <div className="lg:col-span-3">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-orange-500" />
-              <h4 className="text-white font-medium uppercase text-xs tracking-[0.2em]">
-                Navegação
-              </h4>
+          {/* Mobile: Nav + Services side by side */}
+          <div className="w-full grid grid-cols-2 gap-6 md:contents">
+            {/* Column 2: Navigation */}
+            <div className="md:col-span-3 text-left">
+              <div className="flex items-center gap-2 mb-4 md:mb-6">
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-orange-500" />
+                <h4 className="text-white font-medium uppercase text-[10px] md:text-xs tracking-[0.2em]">
+                  Navegação
+                </h4>
+              </div>
+              <ul className="space-y-2.5 md:space-y-3.5">
+                {data.navigation.map((item) => (
+                  <li key={item.text}>
+                    <a
+                      href={item.href}
+                      className="text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 text-xs md:text-sm font-light inline-block"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-3.5">
-              {data.navigation.map((item) => (
-                <li key={item.text}>
-                  <a
-                    href={item.href}
-                    className="text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm font-light inline-block"
-                  >
-                    {item.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          {/* Column 3: Services */}
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-orange-500" />
-              <h4 className="text-white font-medium uppercase text-xs tracking-[0.2em]">
-                Serviços
-              </h4>
+            {/* Column 3: Services */}
+            <div className="md:col-span-4 text-left">
+              <div className="flex items-center gap-2 mb-4 md:mb-6">
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-orange-500" />
+                <h4 className="text-white font-medium uppercase text-[10px] md:text-xs tracking-[0.2em]">
+                  Serviços
+                </h4>
+              </div>
+              <ul className="space-y-2.5 md:space-y-3.5">
+                {data.services.map((item) => (
+                  <li key={item.text}>
+                    <a
+                      href={item.href}
+                      className="text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 text-xs md:text-sm font-light inline-block"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-3.5">
-              {data.services.map((item) => (
-                <li key={item.text}>
-                  <a
-                    href={item.href}
-                    className="text-white/50 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm font-light inline-block"
-                  >
-                    {item.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/30 text-sm font-light">
+        <div className="mt-10 md:mt-16 pt-5 md:pt-6 border-t border-white/10 flex flex-col items-center gap-3 md:flex-row md:justify-between md:gap-4">
+          <p className="text-white/30 text-xs md:text-sm font-light">
             © {new Date().getFullYear()} Cortex Digital. Todos os direitos reservados.
           </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-white/30 hover:text-white text-sm transition-colors font-light">
+          <div className="flex items-center gap-5">
+            <a href="#" className="text-white/30 hover:text-white text-xs md:text-sm transition-colors font-light">
               Privacidade
             </a>
-            <a href="#" className="text-white/30 hover:text-white text-sm transition-colors font-light">
+            <a href="#" className="text-white/30 hover:text-white text-xs md:text-sm transition-colors font-light">
               Termos
             </a>
           </div>
