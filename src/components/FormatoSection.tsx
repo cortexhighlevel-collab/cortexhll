@@ -5,6 +5,7 @@ import { motion, type Variants } from "framer-motion";
 import aiIntelligenceImage from "@/assets/ai-intelligence-card.webp";
 import crmCardImage from "@/assets/crm-card.webp";
 import aiReferenceEngineImage from "@/assets/ai-reference-engine-card.webp";
+import designPerformanceImage from "@/assets/design-performance-card.jpg";
 
 const ArrowIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M7 17L17 7" />
@@ -132,7 +133,7 @@ const FormatoSection = () => {
     title: "Design & Performance",
     subtitle: "Experiências premium",
     items: ["Landing Pages", "Sites Premium", "Tráfego Pago", "SEO Avançado", "APIs & Integrações", "Segurança"],
-    imageUrl: "https://framerusercontent.com/images/IB4CnbF9zAC2ERLBGxhUt8Jmwcs.jpg",
+    imageUrl: designPerformanceImage,
     link: ""
   }];
 
