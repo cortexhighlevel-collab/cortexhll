@@ -12,7 +12,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
  import FAQSection from "@/components/FAQSection";
 const Index = () => {
-  return <div className="min-h-screen flex flex-col items-center pt-3">
+  return <div className="min-h-screen flex flex-col items-center pt-3 overflow-x-hidden">
       {/* Seção 1: Header/Navbar */}
       <Header />
       
