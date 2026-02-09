@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { useQuiz } from './QuizContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface QuizProgressProps {
   className?: string;
@@ -8,48 +9,44 @@ interface QuizProgressProps {
 
 export function QuizProgress({ className = '' }: QuizProgressProps) {
   const { state, totalSteps, goToStep } = useQuiz();
+  const { t } = useLanguage();
   const { currentStep, service } = state;
 
-  // Labels dos passos baseado no serviço
   const getStepLabels = (): string[] => {
-    // Passos comuns: 0 = Info, 1 = Serviço
-    const common = ['Info', 'Serviço'];
+    const common = [t('quiz.progress.info'), t('quiz.progress.service')];
     
     if (service === 'sites') {
       return [
         ...common,
-        'Plano',
-        'Conteúdo',
-        'Básicas',
-        'Avançadas',
-        'SEO',
-        'Automação',
-        'Backend',
-        'Recorrentes',
-        'Enviar'
+        t('quiz.progress.plan'),
+        t('quiz.progress.content'),
+        t('quiz.progress.basic'),
+        t('quiz.progress.advanced'),
+        t('quiz.progress.seo'),
+        t('quiz.progress.automation'),
+        t('quiz.progress.backend'),
+        t('quiz.progress.recurring'),
+        t('quiz.progress.submit')
       ];
     }
     if (service === 'trafego') {
       return [
         ...common,
-        'Plataformas',
-        'Investimento',
-        'Objetivos',
-        'Segmento',
-        'Enviar'
+        t('quiz.progress.platforms'),
+        t('quiz.progress.investmentLabel'),
+        t('quiz.progress.objectives'),
+        t('quiz.progress.segment'),
+        t('quiz.progress.submit')
       ];
     }
     return common;
   };
 
   const stepLabels = getStepLabels();
-  
-  // Progresso real baseado no step atual e total
   const progress = ((currentStep) / totalSteps) * 100;
 
   return (
     <div className={`w-full ${className}`}>
-      {/* Progress bar */}
       <div className="relative h-1.5 bg-muted rounded-full overflow-hidden mb-3">
         <motion.div
           className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#f06800] to-[#ff8c42] rounded-full"
@@ -59,17 +56,15 @@ export function QuizProgress({ className = '' }: QuizProgressProps) {
         />
       </div>
 
-      {/* Step counter - mobile */}
       <div className="flex items-center justify-between text-sm">
         <span className="text-muted-foreground">
-          Passo {currentStep + 1} de {totalSteps + 1}
+          {t('quiz.progress.step').replace('{current}', String(currentStep + 1)).replace('{total}', String(totalSteps + 1))}
         </span>
         <span className="font-medium text-foreground">
           {stepLabels[currentStep] || ''}
         </span>
       </div>
 
-      {/* Step dots - desktop only, quando temos serviço definido */}
       {service && currentStep > 1 && (
         <div className="hidden md:flex items-center justify-center gap-1.5 mt-3">
           {stepLabels.slice(2).map((label, index) => {

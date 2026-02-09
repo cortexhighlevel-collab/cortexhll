@@ -3,9 +3,11 @@ import { Check } from 'lucide-react';
 import { useQuiz } from '../QuizContext';
 import { TRAFFIC_CONFIG } from '../data/quizData';
 import { trackQuizEvent } from '@/lib/quizUtils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export function StepTrafficSegment() {
   const { state, setSegment, nextStep } = useQuiz();
+  const { t } = useLanguage();
 
   const handleSelect = (segment: string) => {
     trackQuizEvent('orcamento_addon_alterado', { addon: 'segment', value: segment });
@@ -17,10 +19,10 @@ export function StepTrafficSegment() {
     <div className="space-y-4">
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
-          Qual é o seu segmento?
+          {t('quiz.traffic.segment.title')}
         </h3>
         <p className="text-muted-foreground text-sm">
-          Nos ajuda a entender melhor seu negócio
+          {t('quiz.traffic.segment.subtitle')}
         </p>
       </div>
 

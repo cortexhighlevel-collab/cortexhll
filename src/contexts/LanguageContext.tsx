@@ -202,6 +202,118 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.service2": "CRM & Leads",
     "footer.service3": "AI Referral Genie™",
     "footer.service4": "Design & Performance",
+
+    // Quiz - User Info
+    "quiz.userInfo.title": "Vamos começar!",
+    "quiz.userInfo.subtitle": "Primeiro, nos conte um pouco sobre você",
+    "quiz.userInfo.name": "Nome completo",
+    "quiz.userInfo.namePlaceholder": "Seu nome",
+    "quiz.userInfo.email": "E-mail",
+    "quiz.userInfo.emailPlaceholder": "seu@email.com",
+    "quiz.userInfo.emailError": "Digite um e-mail válido",
+    "quiz.userInfo.phone": "Telefone",
+    "quiz.userInfo.phonePlaceholder": "(00) 00000-0000",
+    "quiz.userInfo.company": "Empresa",
+    "quiz.userInfo.companyPlaceholder": "Empresa",
+    "quiz.userInfo.continue": "Continuar",
+    "quiz.userInfo.privacy": "Seus dados estão protegidos conforme nossa",
+    "quiz.userInfo.privacyLink": "Política de Privacidade",
+
+    // Quiz - Service Select
+    "quiz.service.greeting": "Olá, {name}! 👋",
+    "quiz.service.title": "Qual serviço você precisa?",
+    "quiz.service.subtitle": "Selecione para continuar com o orçamento",
+    "quiz.service.sites": "Criação de Sites",
+    "quiz.service.sites.desc": "Landing pages, sites institucionais e sistemas web",
+    "quiz.service.sites.steps": "9 passos",
+    "quiz.service.traffic": "Gestão de Tráfego",
+    "quiz.service.traffic.desc": "Google Ads, Meta Ads, TikTok e mais",
+    "quiz.service.traffic.steps": "5 passos",
+
+    // Quiz - Plan Select
+    "quiz.plan.title": "Escolha seu plano base",
+    "quiz.plan.subtitle": "O ponto de partida para seu projeto",
+    "quiz.plan.popular": "Mais Popular",
+    "quiz.plan.startingAt": "a partir ",
+    "quiz.plan.pages": "pág.",
+
+    // Quiz - Addons
+    "quiz.addons.subtitle": "Selecione os recursos que deseja adicionar (opcional)",
+    "quiz.addons.included": "Incluso",
+
+    // Quiz - Recurring
+    "quiz.recurring.title": "Serviços Mensais",
+    "quiz.recurring.subtitle": "Escolha ao menos uma opção de hospedagem",
+    "quiz.recurring.hosting": "Hospedagem",
+    "quiz.recurring.required": "(obrigatório)",
+    "quiz.recurring.maintenance": "Manutenção (opcional)",
+    "quiz.recurring.month": "/mês",
+
+    // Quiz - Traffic Platform
+    "quiz.traffic.platform.title": "Quais plataformas você quer anunciar?",
+    "quiz.traffic.platform.subtitle": "Selecione uma ou mais plataformas",
+    "quiz.traffic.platform.selected1": "plataforma selecionada",
+    "quiz.traffic.platform.selectedN": "plataformas selecionadas",
+
+    // Quiz - Traffic Investment
+    "quiz.traffic.investment.title": "Qual seu investimento mensal em mídia?",
+    "quiz.traffic.investment.subtitle": "Valor investido diretamente nas plataformas",
+    "quiz.traffic.investment.note": "Este valor é pago diretamente às plataformas",
+
+    // Quiz - Traffic Objective
+    "quiz.traffic.objective.title": "Qual seu principal objetivo?",
+    "quiz.traffic.objective.subtitle": "Isso define a melhor estratégia",
+
+    // Quiz - Traffic Segment
+    "quiz.traffic.segment.title": "Qual é o seu segmento?",
+    "quiz.traffic.segment.subtitle": "Nos ajuda a entender melhor seu negócio",
+
+    // Quiz - Final Form
+    "quiz.final.title": "Tudo pronto! 🎉",
+    "quiz.final.subtitle": "Confira o resumo e envie seu orçamento",
+    "quiz.final.yourData": "Seus dados:",
+    "quiz.final.message": "Mensagem adicional (opcional)",
+    "quiz.final.messagePlaceholder": "Algo mais que gostaria de compartilhar?",
+    "quiz.final.submit": "Enviar via WhatsApp",
+    "quiz.final.privacy": "Ao enviar, você concorda com nossa",
+    "quiz.final.privacyLink": "Política de Privacidade",
+
+    // Quiz - Summary
+    "quiz.summary.title": "Resumo",
+    "quiz.summary.mediaInvestment": "+ investimento em mídia",
+    "quiz.summary.monthly": "Mensais:",
+
+    // Quiz - Floating Summary
+    "quiz.floating.title": "Seu Orçamento",
+    "quiz.floating.setup": "Setup",
+    "quiz.floating.monthly": "Mensal",
+    "quiz.floating.monthlyMgmt": "Gestão Mensal",
+    "quiz.floating.platforms1": "plataforma",
+    "quiz.floating.platformsN": "plataformas",
+    "quiz.floating.investment": "Investimento:",
+
+    // Quiz - Progress
+    "quiz.progress.step": "Passo {current} de {total}",
+    "quiz.progress.info": "Info",
+    "quiz.progress.service": "Serviço",
+    "quiz.progress.plan": "Plano",
+    "quiz.progress.content": "Conteúdo",
+    "quiz.progress.basic": "Básicas",
+    "quiz.progress.advanced": "Avançadas",
+    "quiz.progress.seo": "SEO",
+    "quiz.progress.automation": "Automação",
+    "quiz.progress.backend": "Backend",
+    "quiz.progress.recurring": "Recorrentes",
+    "quiz.progress.submit": "Enviar",
+    "quiz.progress.platforms": "Plataformas",
+    "quiz.progress.investmentLabel": "Investimento",
+    "quiz.progress.objectives": "Objetivos",
+    "quiz.progress.segment": "Segmento",
+
+    // Quiz - Navigation
+    "quiz.nav.back": "Voltar",
+    "quiz.nav.next": "Próximo",
+    "quiz.nav.finish": "Finalizar",
   },
   en: {
     // Header
@@ -396,6 +508,118 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.service2": "CRM & Leads",
     "footer.service3": "AI Referral Genie™",
     "footer.service4": "Design & Performance",
+
+    // Quiz - User Info
+    "quiz.userInfo.title": "Let's get started!",
+    "quiz.userInfo.subtitle": "First, tell us a little about yourself",
+    "quiz.userInfo.name": "Full name",
+    "quiz.userInfo.namePlaceholder": "Your name",
+    "quiz.userInfo.email": "Email",
+    "quiz.userInfo.emailPlaceholder": "your@email.com",
+    "quiz.userInfo.emailError": "Enter a valid email",
+    "quiz.userInfo.phone": "Phone",
+    "quiz.userInfo.phonePlaceholder": "(00) 00000-0000",
+    "quiz.userInfo.company": "Company",
+    "quiz.userInfo.companyPlaceholder": "Company",
+    "quiz.userInfo.continue": "Continue",
+    "quiz.userInfo.privacy": "Your data is protected under our",
+    "quiz.userInfo.privacyLink": "Privacy Policy",
+
+    // Quiz - Service Select
+    "quiz.service.greeting": "Hello, {name}! 👋",
+    "quiz.service.title": "What service do you need?",
+    "quiz.service.subtitle": "Select to continue with the quote",
+    "quiz.service.sites": "Website Creation",
+    "quiz.service.sites.desc": "Landing pages, institutional sites, and web systems",
+    "quiz.service.sites.steps": "9 steps",
+    "quiz.service.traffic": "Traffic Management",
+    "quiz.service.traffic.desc": "Google Ads, Meta Ads, TikTok and more",
+    "quiz.service.traffic.steps": "5 steps",
+
+    // Quiz - Plan Select
+    "quiz.plan.title": "Choose your base plan",
+    "quiz.plan.subtitle": "The starting point for your project",
+    "quiz.plan.popular": "Most Popular",
+    "quiz.plan.startingAt": "from ",
+    "quiz.plan.pages": "pg.",
+
+    // Quiz - Addons
+    "quiz.addons.subtitle": "Select the features you want to add (optional)",
+    "quiz.addons.included": "Included",
+
+    // Quiz - Recurring
+    "quiz.recurring.title": "Monthly Services",
+    "quiz.recurring.subtitle": "Choose at least one hosting option",
+    "quiz.recurring.hosting": "Hosting",
+    "quiz.recurring.required": "(required)",
+    "quiz.recurring.maintenance": "Maintenance (optional)",
+    "quiz.recurring.month": "/mo",
+
+    // Quiz - Traffic Platform
+    "quiz.traffic.platform.title": "Which platforms do you want to advertise on?",
+    "quiz.traffic.platform.subtitle": "Select one or more platforms",
+    "quiz.traffic.platform.selected1": "platform selected",
+    "quiz.traffic.platform.selectedN": "platforms selected",
+
+    // Quiz - Traffic Investment
+    "quiz.traffic.investment.title": "What is your monthly media investment?",
+    "quiz.traffic.investment.subtitle": "Amount invested directly on platforms",
+    "quiz.traffic.investment.note": "This amount is paid directly to the platforms",
+
+    // Quiz - Traffic Objective
+    "quiz.traffic.objective.title": "What is your main objective?",
+    "quiz.traffic.objective.subtitle": "This defines the best strategy",
+
+    // Quiz - Traffic Segment
+    "quiz.traffic.segment.title": "What is your industry?",
+    "quiz.traffic.segment.subtitle": "Helps us better understand your business",
+
+    // Quiz - Final Form
+    "quiz.final.title": "All set! 🎉",
+    "quiz.final.subtitle": "Review the summary and send your quote",
+    "quiz.final.yourData": "Your details:",
+    "quiz.final.message": "Additional message (optional)",
+    "quiz.final.messagePlaceholder": "Anything else you'd like to share?",
+    "quiz.final.submit": "Send via WhatsApp",
+    "quiz.final.privacy": "By submitting, you agree to our",
+    "quiz.final.privacyLink": "Privacy Policy",
+
+    // Quiz - Summary
+    "quiz.summary.title": "Summary",
+    "quiz.summary.mediaInvestment": "+ media investment",
+    "quiz.summary.monthly": "Monthly:",
+
+    // Quiz - Floating Summary
+    "quiz.floating.title": "Your Quote",
+    "quiz.floating.setup": "Setup",
+    "quiz.floating.monthly": "Monthly",
+    "quiz.floating.monthlyMgmt": "Monthly Management",
+    "quiz.floating.platforms1": "platform",
+    "quiz.floating.platformsN": "platforms",
+    "quiz.floating.investment": "Investment:",
+
+    // Quiz - Progress
+    "quiz.progress.step": "Step {current} of {total}",
+    "quiz.progress.info": "Info",
+    "quiz.progress.service": "Service",
+    "quiz.progress.plan": "Plan",
+    "quiz.progress.content": "Content",
+    "quiz.progress.basic": "Basic",
+    "quiz.progress.advanced": "Advanced",
+    "quiz.progress.seo": "SEO",
+    "quiz.progress.automation": "Automation",
+    "quiz.progress.backend": "Backend",
+    "quiz.progress.recurring": "Recurring",
+    "quiz.progress.submit": "Submit",
+    "quiz.progress.platforms": "Platforms",
+    "quiz.progress.investmentLabel": "Investment",
+    "quiz.progress.objectives": "Objectives",
+    "quiz.progress.segment": "Segment",
+
+    // Quiz - Navigation
+    "quiz.nav.back": "Back",
+    "quiz.nav.next": "Next",
+    "quiz.nav.finish": "Finish",
   },
 };
 

@@ -4,6 +4,7 @@ import { useQuiz } from '../QuizContext';
 import { ADDONS, getAddonsByCategory, ADDON_CATEGORIES, type Addon } from '../data/quizData';
 import { formatCurrency, trackQuizEvent } from '@/lib/quizUtils';
 import { Switch } from '@/components/ui/switch';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface StepAddonsProps {
   category: 'conteudo' | 'func_basicas' | 'func_avancadas' | 'seo' | 'automacao' | 'backend';
@@ -11,6 +12,7 @@ interface StepAddonsProps {
 
 export function StepAddons({ category }: StepAddonsProps) {
   const { state, setAddon } = useQuiz();
+  const { t } = useLanguage();
   const categoryInfo = ADDON_CATEGORIES[category];
   const addons = getAddonsByCategory(category);
 
@@ -39,7 +41,7 @@ export function StepAddons({ category }: StepAddonsProps) {
           {categoryInfo.description}
         </h3>
         <p className="text-muted-foreground text-xs">
-          Selecione os recursos que deseja adicionar (opcional)
+          {t('quiz.addons.subtitle')}
         </p>
       </div>
 
@@ -82,18 +84,17 @@ export function StepAddons({ category }: StepAddonsProps) {
                     {included && (
                       <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-green-100 text-green-700 text-xs font-medium rounded-full">
                         <Check className="w-2.5 h-2.5" />
-                        Incluso
+                        {t('quiz.addons.included')}
                       </span>
                     )}
                   </div>
                   
-                  {/* Pricing info */}
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     {isToggle && addon.setup && !included && (
                       <span>{formatCurrency(addon.setup)}</span>
                     )}
                     {isToggle && addon.monthly && !included && (
-                      <span>+{formatCurrency(addon.monthly)}/mês</span>
+                      <span>+{formatCurrency(addon.monthly)}{t('quiz.recurring.month')}</span>
                     )}
                     {isCounter && addon.unit && !included && (
                       <span>{formatCurrency(addon.unit)} /un</span>
@@ -101,7 +102,6 @@ export function StepAddons({ category }: StepAddonsProps) {
                   </div>
                 </div>
 
-                {/* Toggle or Counter control */}
                 {!included && (
                   <div className="shrink-0">
                     {isToggle && (

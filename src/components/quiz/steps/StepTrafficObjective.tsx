@@ -3,6 +3,7 @@ import { Check, Target, ShoppingCart, Eye, MousePointer, Smartphone } from 'luci
 import { useQuiz } from '../QuizContext';
 import { TRAFFIC_CONFIG } from '../data/quizData';
 import { trackQuizEvent } from '@/lib/quizUtils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const objectiveIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   'Geração de Leads': Target,
@@ -14,6 +15,7 @@ const objectiveIcons: Record<string, React.ComponentType<{ className?: string }>
 
 export function StepTrafficObjective() {
   const { state, setObjective, nextStep } = useQuiz();
+  const { t } = useLanguage();
 
   const handleSelect = (objective: string) => {
     trackQuizEvent('orcamento_addon_alterado', { addon: 'objective', value: objective });
@@ -25,10 +27,10 @@ export function StepTrafficObjective() {
     <div className="space-y-4">
       <div className="text-center mb-4">
         <h3 className="text-lg md:text-xl font-medium text-foreground mb-1">
-          Qual seu principal objetivo?
+          {t('quiz.traffic.objective.title')}
         </h3>
         <p className="text-muted-foreground text-sm">
-          Isso define a melhor estratégia
+          {t('quiz.traffic.objective.subtitle')}
         </p>
       </div>
 
