@@ -191,13 +191,23 @@ const CasesSection = () => {
           viewport={{ once: false, amount: 0.3 }}
           variants={scaleUp}
         >
+          {/* Preload all background images */}
+          {testimonials.map((t, i) => (
+            <link key={i} rel="preload" as="image" href={t.background} />
+          ))}
+          
           {/* Full Background Image - covers the right side */}
-          <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end transition-opacity duration-500">
-            <img 
-              src={currentTestimonial.background} 
-              alt="Background" 
-              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            />
+          <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end">
+            {testimonials.map((t, i) => (
+              <img 
+                key={i}
+                src={t.background} 
+                alt="Background" 
+                className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 group-hover:scale-105 ${
+                  i === currentIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            ))}
           </div>
 
           {/* Glass Card Content - positioned on left side */}
