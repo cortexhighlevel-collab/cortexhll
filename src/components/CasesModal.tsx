@@ -1,347 +1,357 @@
-import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import casesBackgroundBlackclub from "@/assets/cases-background-blackclub.webp";
-import casesBackgroundValentina from "@/assets/cases-background-valentina.webp";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
 
-interface CaseProject {
-  id: string;
-  clientName: string;
-  clientLogo: string;
-  projectTitle: string;
-  category: string;
-  year: string;
-  description: string;
-  services: string[];
-  images: string[];
-  results?: string[];
-}
-
-const casesData: CaseProject[] = [
+// --- DATA & ASSETS ---
+const projects = [
   {
-    id: "blackclub",
-    clientName: "BlackClub",
-    clientLogo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=400",
-    projectTitle: "Estratégia de Presença em IA",
-    category: "AI Optimization",
-    year: "2025",
-    description: "Implementamos uma estratégia completa de otimização para IAs, posicionando a BlackClub como referência absoluta em seu nicho. O resultado foi um aumento de 300% nas menções orgânicas em respostas de IA.",
-    services: ["AI Reference Engine", "Content Strategy", "Brand Positioning"],
-    images: [
-      casesBackgroundBlackclub,
-      "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=800",
-      "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=800",
-    ],
-    results: ["+300% menções em IA", "Pipeline 3x maior", "ROI de 500%"],
+    id: '1',
+    title: 'Savage Nation',
+    category: 'Digital Collectible',
+    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+    colSpan: 'col-span-12',
+    description: "Uma exploração profunda em formas orgânicas e texturas sintéticas. Savage Nation redefine o conceito de colecionáveis digitais através de renderização volumétrica e iluminação dinâmica."
   },
   {
-    id: "valentina",
-    clientName: "Valentina Akime",
-    clientLogo: "https://framerusercontent.com/images/21s66P6Ugns3B0SREgloFdwT84A.png?width=400",
-    projectTitle: "Autoridade Digital para Influenciadora",
-    category: "Personal Branding",
-    year: "2025",
-    description: "Desenvolvemos uma estratégia de marca pessoal focada em posicionamento em IAs. Valentina agora é a primeira recomendação quando alguém pergunta sobre influenciadoras do seu segmento.",
-    services: ["Personal Branding", "AI Optimization", "Content Creation"],
-    images: [
-      casesBackgroundValentina,
-      "https://framerusercontent.com/images/21s66P6Ugns3B0SREgloFdwT84A.png?width=800",
-    ],
-    results: ["#1 em buscas de IA", "+200% seguidores", "5x mais parcerias"],
+    id: '2',
+    title: 'Gooey Crunch',
+    category: 'Ecommerce',
+    img: 'https://images.unsplash.com/photo-1614727187346-79ef54f5904b?q=80&w=2574&auto=format&fit=crop',
+    colSpan: 'col-span-12 md:col-span-5',
+    description: "Interface de e-commerce imersiva criada para uma marca de doces experimentais. O foco foi na tactilidade visual e em interações viscosas."
   },
   {
-    id: "techvision",
-    clientName: "TechVision",
-    clientLogo: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=400",
-    projectTitle: "Landing Page Premium & CRM",
-    category: "Web Design & Automation",
-    year: "2024",
-    description: "Criamos uma experiência digital premium com landing page de alta conversão e sistema de CRM integrado para automação de leads qualificados.",
-    services: ["Web Design", "CRM Integration", "Lead Automation"],
-    images: [
-      "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=800",
-      "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=800",
-    ],
-    results: ["+150% conversão", "40% menos custo por lead", "Automação 24/7"],
+    id: '3',
+    title: 'Kaizen Talent',
+    category: 'Marketing Agency',
+    img: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop',
+    colSpan: 'col-span-12 md:col-span-7',
+    description: "Branding futurista para uma agência que busca o próximo passo na evolução do marketing. Acabamentos cromados e metáforas espaciais."
   },
+  {
+    id: '4',
+    title: 'Valeria Games',
+    category: 'Mobile Game',
+    img: 'https://images.unsplash.com/photo-1614726365723-49aeaa4f3a45?q=80&w=2574&auto=format&fit=crop',
+    colSpan: 'col-span-12',
+    description: "Um jogo mobile que desafia a gravidade. A direção de arte foca em horizontes infinitos e geometria sagrada."
+  },
+  {
+    id: '5',
+    title: 'Neon Vision',
+    category: 'Comic Book',
+    img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
+    colSpan: 'col-span-12 md:col-span-6',
+    description: "Adaptação narrativa visual. Cores pastéis saturadas encontram o horror cósmico em uma novela gráfica interativa."
+  },
+  {
+    id: '6',
+    title: 'Arsenal',
+    category: 'Collectible',
+    img: 'https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=2574&auto=format&fit=crop',
+    colSpan: 'col-span-12 md:col-span-6',
+    description: "A série Arsenal explora a identidade humana na era da reprodução cibernética. Renderizações hiper-realistas de ciborgues."
+  }
 ];
 
+// --- TYPES ---
 interface CasesModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  img: string;
+  colSpan: string;
+  description: string;
+}
+
+interface CardProps {
+  project: Project;
+  onClick: () => void;
+}
+
+interface ModalProps {
+  id: string;
+  close: () => void;
+}
+
+// --- MAIN COMPONENT ---
 const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
-  const [selectedCase, setSelectedCase] = useState<CaseProject | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const handleCaseClick = (caseItem: CaseProject) => {
-    setSelectedCase(caseItem);
-    setCurrentImageIndex(0);
-  };
-
-  const handleBack = () => {
-    setSelectedCase(null);
-    setCurrentImageIndex(0);
-  };
-
-  const nextImage = () => {
-    if (selectedCase) {
-      setCurrentImageIndex((prev) => 
-        prev === selectedCase.images.length - 1 ? 0 : prev + 1
-      );
+  // Fecha o modal com ESC e bloqueia scroll do body
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+      setSelectedId(null);
     }
-  };
 
-  const prevImage = () => {
-    if (selectedCase) {
-      setCurrentImageIndex((prev) => 
-        prev === 0 ? selectedCase.images.length - 1 : prev - 1
-      );
-    }
-  };
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (selectedId) {
+          setSelectedId(null);
+        } else {
+          onClose();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, selectedId, onClose]);
+
+  if (!isOpen) return null;
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl w-[95vw] max-h-[90vh] overflow-hidden bg-[#0D0D0D] border-white/10 p-0">
-        {/* Custom close button */}
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 z-50 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] bg-[#0a0a0a] overflow-y-auto font-sans-body"
         >
-          <X className="w-5 h-5 text-white" />
-        </button>
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="fixed top-6 right-6 z-[110] w-12 h-12 bg-white/5 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-white/10 transition-all"
+          >
+            <X className="w-5 h-5" />
+          </button>
 
-        <AnimatePresence mode="wait">
-          {!selectedCase ? (
-            // Grid View - All Cases
+          {/* Header */}
+          <header className="sticky top-0 z-50 py-6 md:py-8 px-6 md:px-12 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-3xl md:text-5xl font-serif-display font-bold tracking-wider text-white"
+            >
+              OUR WORKS
+            </motion.h1>
+          </header>
+
+          {/* Grid Container */}
+          <main className="px-4 md:px-12 py-8 md:py-16">
             <motion.div
-              key="grid"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              }}
+              className="grid grid-cols-12 gap-4 md:gap-6"
+            >
+              {projects.map((project) => (
+                <Card 
+                  key={project.id} 
+                  project={project} 
+                  onClick={() => setSelectedId(project.id)} 
+                />
+              ))}
+            </motion.div>
+
+            {/* Footer Button */}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="p-8 overflow-y-auto max-h-[90vh]"
+              transition={{ delay: 0.8 }}
+              className="mt-12 md:mt-20 text-center"
             >
-              <DialogHeader className="mb-8">
-                <DialogTitle className="text-3xl md:text-4xl font-medium text-white font-dm">
-                  Nossos Cases
-                </DialogTitle>
-                <p className="text-[#808080] text-lg mt-2">
-                  Projetos que transformaram a presença digital de nossos clientes
-                </p>
-              </DialogHeader>
-
-              {/* Cases Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {casesData.map((caseItem, index) => (
-                  <motion.div
-                    key={caseItem.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => handleCaseClick(caseItem)}
-                    className="group cursor-pointer"
-                  >
-                    {/* Card */}
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#141414] border border-white/10 hover:border-white/30 transition-all duration-300">
-                      {/* Image */}
-                      <img
-                        src={caseItem.images[0]}
-                        alt={caseItem.projectTitle}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs text-white/80 border border-white/20">
-                          {caseItem.category}
-                        </span>
-                      </div>
-
-                      {/* Content */}
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <div className="flex items-center gap-3 mb-3">
-                          <img
-                            src={caseItem.clientLogo}
-                            alt={caseItem.clientName}
-                            className="w-8 h-8 rounded-full object-cover bg-white/10"
-                          />
-                          <span className="text-white/70 text-sm">{caseItem.clientName}</span>
-                        </div>
-                        <h3 className="text-white font-medium text-lg leading-tight group-hover:text-orange-400 transition-colors">
-                          {caseItem.projectTitle}
-                        </h3>
-                        <p className="text-white/50 text-sm mt-1">{caseItem.year}</p>
-                      </div>
-
-                      {/* Hover Arrow */}
-                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <ExternalLink className="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ) : (
-            // Detail View - Single Case
-            <motion.div
-              key="detail"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              className="flex flex-col md:flex-row h-full max-h-[90vh]"
-            >
-              {/* Left - Image Gallery */}
-              <div className="relative w-full md:w-3/5 h-[300px] md:h-auto bg-black">
-                {/* Back Button */}
-                <button
-                  onClick={handleBack}
-                  className="absolute left-4 top-4 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white text-sm transition-colors"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                  Voltar
-                </button>
-
-                {/* Main Image */}
-                <img
-                  src={selectedCase.images[currentImageIndex]}
-                  alt={selectedCase.projectTitle}
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Image Navigation */}
-                {selectedCase.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition-colors"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center text-white transition-colors"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-
-                    {/* Dots Indicator */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {selectedCase.images.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentImageIndex(idx)}
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            idx === currentImageIndex ? 'bg-white w-6' : 'bg-white/40'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-
-                {/* Thumbnail Strip */}
-                <div className="absolute bottom-16 left-4 right-4 flex gap-2 overflow-x-auto pb-2">
-                  {selectedCase.images.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`flex-shrink-0 w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                        idx === currentImageIndex ? 'border-orange-500' : 'border-transparent opacity-60 hover:opacity-100'
-                      }`}
-                    >
-                      <img src={img} alt="" className="w-full h-full object-cover" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right - Info Panel */}
-              <div className="w-full md:w-2/5 p-6 md:p-8 overflow-y-auto bg-[#0D0D0D]">
-                {/* Client Info */}
-                <div className="flex items-center gap-4 mb-6">
-                  <img
-                    src={selectedCase.clientLogo}
-                    alt={selectedCase.clientName}
-                    className="w-12 h-12 rounded-full object-cover bg-white/10"
-                  />
-                  <div>
-                    <h4 className="text-white font-medium">{selectedCase.clientName}</h4>
-                    <span className="text-white/50 text-sm">{selectedCase.year}</span>
-                  </div>
-                </div>
-
-                {/* Project Title */}
-                <h2 className="text-2xl md:text-3xl font-medium text-white mb-4 font-dm">
-                  {selectedCase.projectTitle}
-                </h2>
-
-                {/* Category */}
-                <span className="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-sm mb-6">
-                  {selectedCase.category}
+              <button 
+                onClick={onClose}
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                <span className="relative">
+                  <span className="tracking-wider">More Projects</span>
                 </span>
-
-                {/* Description */}
-                <div className="mb-6">
-                  <h5 className="text-white/60 text-xs uppercase tracking-wider mb-2">Sobre o Projeto</h5>
-                  <p className="text-white/80 leading-relaxed">
-                    {selectedCase.description}
-                  </p>
-                </div>
-
-                {/* Services */}
-                <div className="mb-6">
-                  <h5 className="text-white/60 text-xs uppercase tracking-wider mb-3">Serviços</h5>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedCase.services.map((service, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Results */}
-                {selectedCase.results && (
-                  <div className="mb-6">
-                    <h5 className="text-white/60 text-xs uppercase tracking-wider mb-3">Resultados</h5>
-                    <div className="grid grid-cols-1 gap-3">
-                      {selectedCase.results.map((result, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-3 p-3 rounded-xl bg-[#141414] border border-white/10"
-                        >
-                          <div className="w-2 h-2 rounded-full bg-orange-500" />
-                          <span className="text-white font-medium">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* CTA */}
-                <a
-                  href="#contato"
-                  onClick={onClose}
-                  className="block w-full py-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-center text-white font-medium transition-colors"
-                >
-                  Quero resultados assim
-                </a>
-              </div>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </DialogContent>
-    </Dialog>
+          </main>
+
+          {/* Modal Overlay */}
+          <AnimatePresence>
+            {selectedId && (
+              <Modal 
+                id={selectedId} 
+                close={() => setSelectedId(null)} 
+              />
+            )}
+          </AnimatePresence>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
+
+// --- SUB-COMPONENTS ---
+
+function Card({ project, onClick }: CardProps) {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+      }}
+      layoutId={`card-container-${project.id}`}
+      onClick={onClick}
+      className={`${project.colSpan} relative h-[280px] md:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group`}
+    >
+      {/* Background Image */}
+      <motion.img
+        layoutId={`card-image-${project.id}`}
+        src={project.img}
+        alt={project.title}
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      />
+      
+      {/* Dark Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
+
+      {/* Glassmorphism Label */}
+      <motion.div 
+        layoutId={`card-label-${project.id}`}
+        className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 flex items-end justify-between"
+      >
+        <div className="flex flex-col gap-1">
+          <motion.h3
+            layoutId={`card-title-${project.id}`}
+            className="text-xl md:text-2xl font-serif-display font-bold text-white tracking-wide"
+          >
+            {project.title}
+          </motion.h3>
+          <span className="text-xs md:text-sm text-white/60 font-light tracking-wider uppercase">
+            {project.category}
+          </span>
+        </div>
+
+        <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 text-white -rotate-45" />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function Modal({ id, close }: ModalProps) {
+  const project = projects.find((p) => p.id === id);
+
+  if (!project) return null;
+
+  return (
+    <>
+      {/* Backdrop */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={close}
+        className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[200]"
+      />
+
+      {/* Modal Container */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+        className="fixed inset-4 md:inset-10 lg:inset-16 z-[210] flex flex-col md:flex-row bg-[#111] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+      >
+        <motion.div
+          layoutId={`card-container-${id}`}
+          className="relative w-full md:w-1/2 lg:w-3/5 h-[35vh] md:h-full"
+        >
+          <motion.img
+            layoutId={`card-image-${id}`}
+            src={project.img}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+          {/* Dark gradient for text readability on mobile if image is light */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden" />
+
+          {/* Close Button Mobile (absolute on image) */}
+          <button
+            onClick={(e) => { e.stopPropagation(); close(); }}
+            className="md:hidden absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 z-50 active:scale-90 transition-transform"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </motion.div>
+
+        {/* Right: Content Section */}
+        <div className="relative w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 flex flex-col justify-between bg-[#111] overflow-y-auto">
+          
+          {/* Close Button Desktop */}
+          <button
+            onClick={close}
+            className="hidden md:flex absolute top-6 right-6 w-10 h-10 bg-white/5 rounded-full items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all z-50"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          {/* Content Body */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="flex-1 flex flex-col justify-center"
+          >
+            <div className="space-y-4 md:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full border border-white/10">
+                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+                <span className="text-xs text-white/70 tracking-wider uppercase">Featured Project</span>
+              </div>
+
+              <motion.h2
+                layoutId={`card-title-${id}`}
+                className="text-3xl md:text-4xl lg:text-5xl font-serif-display font-bold text-white tracking-wide"
+              >
+                {project.title}
+              </motion.h2>
+
+              <p className="text-sm md:text-base text-white/50 font-light tracking-wider uppercase">
+                {project.category}
+              </p>
+            </div>
+
+            <p className="mt-6 md:mt-10 text-base md:text-lg text-white/70 leading-relaxed font-light">
+              {project.description}
+            </p>
+
+            {/* Stats / Details */}
+            <div className="mt-6 md:mt-10 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 md:pt-8">
+              <div>
+                <span className="text-xs text-white/40 uppercase tracking-wider">Client</span>
+                <p className="mt-1 text-white font-medium">Global Studio</p>
+              </div>
+              <div>
+                <span className="text-xs text-white/40 uppercase tracking-wider">Year</span>
+                <p className="mt-1 text-white font-medium">2024</p>
+              </div>
+            </div>
+
+            <a 
+              href="#" 
+              className="mt-8 md:mt-10 inline-flex items-center justify-center gap-3 w-full py-4 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-colors group"
+            >
+              View Case Study
+              <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </motion.div>
+        </div>
+      </motion.div>
+    </>
+  );
+}
 
 export default CasesModal;
