@@ -77,9 +77,9 @@ const TeamMemberSection = () => {
     image: victorLisboaImage
   }, {
     name: "Angelo Felipe",
-    role: "Growth Specialist",
+    role: "Designer Visual | UI/UX & Web Design",
     quote: "Crescimento sustentável é construído com dados, criatividade e execução impecável.",
-    description: "Especialista em estratégias de crescimento, combinando análise de dados com ações criativas para escalar negócios.",
+    description: "Designer com foco em Web Design, UI/UX e Design de Conversão. Produz em alta escala (+200 peças/mês) sem perder qualidade, criando landing pages e criativos de alta performance que geram resultados mensuráveis.",
     image: angeloFelipeImage
   }, {
     name: "João",
