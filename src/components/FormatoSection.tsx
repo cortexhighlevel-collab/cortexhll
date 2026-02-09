@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+import aiIntelligenceImage from "@/assets/ai-intelligence-card.webp";
 
 const ArrowIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M7 17L17 7" />
@@ -108,7 +109,7 @@ const FormatoSection = () => {
     title: "Inteligência Estratégica com IA",
     subtitle: "Automação inteligente",
     items: ["Automação", "Análise", "AEO & SEO", "Agentes de IA", "Engenharia de Prompt"],
-    imageUrl: "https://framerusercontent.com/images/LLEdm7hWVMfprlCCIi2LHXlJKE.jpg",
+    imageUrl: aiIntelligenceImage,
     link: "https://ops.cortexhl.com/"
   }, {
     tag: "CRM",
