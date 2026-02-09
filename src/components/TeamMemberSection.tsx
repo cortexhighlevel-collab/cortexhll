@@ -155,8 +155,17 @@ const TeamMemberSection = () => {
           once: false,
           amount: 0.3
         }} variants={scaleRotate}>
-            {/* Background Image */}
-            <img src={currentMember.image} alt={currentMember.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" />
+            {/* All member images preloaded, toggle visibility */}
+            {teamMembers.map((member, i) => (
+              <img 
+                key={i}
+                src={member.image} 
+                alt={member.name} 
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  i === currentIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            ))}
             
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
