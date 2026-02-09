@@ -94,7 +94,7 @@ const OfertaSection = () => {
         {/* Bento Grid */}
         <div className="grid gap-5 md:grid-cols-3">
           {/* Big feature - spans 2 cols and 2 rows */}
-          <motion.div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] md:col-span-2 md:row-span-2 hover:border-white/20 transition-all duration-500" variants={fadeUp}>
+          <motion.div className="group relative overflow-hidden rounded-3xl border border-[#f06800] bg-[#141414] md:col-span-2 md:row-span-2 hover:border-[#f06800] transition-all duration-500" variants={fadeUp}>
             <div className="relative p-5 sm:p-6">
               <img src={ofertaHero} alt="Gestão de Tráfego Pago" className="w-full h-auto rounded-2xl object-contain" />
               
@@ -268,7 +268,7 @@ const OfertaSection = () => {
           {/* Feature cards - right column */}
           {features.slice(0, 2).map(feature => {
           const Icon = feature.icon;
-          return <motion.div key={feature.id} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] hover:border-white/20 hover:bg-[#1a1a1a] transition-all duration-500" variants={fadeUp}>
+          return <motion.div key={feature.id} className="group relative overflow-hidden rounded-3xl border border-[#f06800] bg-[#141414] hover:border-[#f06800] hover:bg-[#1a1a1a] transition-all duration-500" variants={fadeUp}>
                 <div className="p-5 sm:p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-2.5 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/5 border border-orange-500/20">
@@ -294,7 +294,7 @@ const OfertaSection = () => {
           {/* Bottom row - small cards */}
           {features.slice(2).map(feature => {
           const Icon = feature.icon;
-          return <motion.div key={feature.id} className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] hover:border-white/20 hover:bg-[#1a1a1a] transition-all duration-500" variants={fadeUp}>
+          return <motion.div key={feature.id} className="group relative overflow-hidden rounded-3xl border border-[#f06800] bg-[#141414] hover:border-[#f06800] hover:bg-[#1a1a1a] transition-all duration-500" variants={fadeUp}>
                 <div className="p-5 sm:p-6 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500/20 to-orange-600/5 border border-orange-500/20">
