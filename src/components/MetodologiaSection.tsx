@@ -30,7 +30,7 @@ const MetodologiaSection = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div className="video-radius overflow-hidden mb-5 md:mb-8 relative w-full aspect-[4/3] md:aspect-auto" variants={fadeScale}>
+          <motion.div className="video-radius overflow-hidden mb-5 md:mb-8 relative w-full aspect-[3/3] md:aspect-auto" variants={fadeScale}>
             <video
               src={metodologiaVideo}
               autoPlay
