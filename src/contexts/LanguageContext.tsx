@@ -116,6 +116,7 @@ const translations: Record<Language, Record<string, string>> = {
     "creative.motion.item2": "Vídeos Institucionais",
     "creative.motion.item3": "Social Media Motion",
     "creative.motion.item4": "Motion para Ads",
+    "creative.cta": "Solicitar Proposta",
 
     // DNA
     "dna.badge": "DNA Cortex",
@@ -488,6 +489,7 @@ const translations: Record<Language, Record<string, string>> = {
     "creative.motion.item2": "Institutional Videos",
     "creative.motion.item3": "Social Media Motion",
     "creative.motion.item4": "Motion for Ads",
+    "creative.cta": "Request Proposal",
 
     // DNA
     "dna.badge": "Cortex DNA",

@@ -1,8 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import { Palette, Play } from "lucide-react";
-import angeloFelipeImage from "@/assets/angelo-felipe.webp";
-import joaoImage from "@/assets/joao.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
+import CTAButton from "@/components/CTAButton";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -22,47 +21,31 @@ interface StudioCardProps {
   title: string;
   text: string;
   items: string[];
-  image: string;
-  name: string;
-  role: string;
   icon: React.ReactNode;
+  cta: string;
 }
 
-const StudioCard = ({ tag, title, text, items, image, name, role, icon }: StudioCardProps) => (
-  <motion.div variants={cardSlide} className="group relative rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/[0.02] hover:border-foreground/20 transition-all duration-500">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-      {/* Content */}
-      <div className="p-8 md:p-10 flex flex-col justify-between order-2 md:order-1">
-        <div>
-          <div className="flex items-center gap-2 mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium uppercase tracking-[0.15em]">
-              {icon}
-              {tag}
-            </span>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-medium text-foreground leading-tight mb-4">{title}</h3>
-          <p className="text-foreground/60 text-sm md:text-base leading-relaxed mb-6 font-light">{text}</p>
-          <ul className="grid grid-cols-2 gap-2.5">
-            {items.map((item, i) => (
-              <li key={i} className="flex items-center gap-2 text-foreground/70 text-sm font-light">
-                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex items-center gap-3 mt-8 pt-6 border-t border-foreground/10">
-          <img src={image} alt={name} className="w-10 h-10 rounded-full object-cover" />
-          <div>
-            <span className="text-foreground text-sm font-medium block">{name}</span>
-            <span className="text-foreground/50 text-xs font-light">{role}</span>
-          </div>
-        </div>
+const StudioCard = ({ tag, title, text, items, icon, cta }: StudioCardProps) => (
+  <motion.div variants={cardSlide} className="group relative rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/[0.02] hover:border-foreground/20 transition-all duration-500 p-8 md:p-10">
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center gap-2">
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium uppercase tracking-[0.15em]">
+          {icon}
+          {tag}
+        </span>
       </div>
-      {/* Image */}
-      <div className="relative h-[280px] md:h-auto min-h-[350px] order-1 md:order-2">
-        <img src={image} alt={name} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-background/80 via-transparent to-transparent" />
+      <h3 className="text-2xl md:text-3xl font-medium text-foreground leading-tight">{title}</h3>
+      <p className="text-foreground/60 text-sm md:text-base leading-relaxed font-light max-w-[600px]">{text}</p>
+      <ul className="grid grid-cols-2 gap-2.5">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-center gap-2 text-foreground/70 text-sm font-light">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
+            {item}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-2">
+        <CTAButton href="#contato">{cta}</CTAButton>
       </div>
     </div>
   </motion.div>
@@ -86,26 +69,22 @@ const CreativeStudioSection = () => {
           </p>
         </motion.div>
 
-        <motion.div className="flex flex-col gap-6" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.15 }} variants={stagger}>
+        <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-6" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.15 }} variants={stagger}>
           <StudioCard
             tag={t("creative.uiux.tag")}
             title={t("creative.uiux.title")}
             text={t("creative.uiux.text")}
             items={[t("creative.uiux.item1"), t("creative.uiux.item2"), t("creative.uiux.item3"), t("creative.uiux.item4")]}
-            image={angeloFelipeImage}
-            name="Angelo Felipe"
-            role={t("team.member4.role")}
             icon={<Palette className="w-3.5 h-3.5" />}
+            cta={t("creative.cta")}
           />
           <StudioCard
             tag={t("creative.motion.tag")}
             title={t("creative.motion.title")}
             text={t("creative.motion.text")}
             items={[t("creative.motion.item1"), t("creative.motion.item2"), t("creative.motion.item3"), t("creative.motion.item4")]}
-            image={joaoImage}
-            name="João Perci"
-            role={t("team.member5.role")}
             icon={<Play className="w-3.5 h-3.5" />}
+            cta={t("creative.cta")}
           />
         </motion.div>
       </div>
