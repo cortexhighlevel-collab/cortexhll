@@ -43,13 +43,13 @@ function toColumns(items: MediaItemData[], cols: number): MediaItemData[][] {
 
 const MOBILE_INITIAL_ITEMS = 4;
 
-const MediaItem = ({ item }: { item: MediaItemData }) => (
+const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
   <motion.div
-    layout
-    initial={{ opacity: 0, scale: 0.92 }}
-    animate={{ opacity: 1, scale: 1 }}
+    initial={{ opacity: 0, y: 30, scale: 0.92 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    viewport={{ once: true, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
-    transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+    transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu"
   >
     {item.type === "video" ? (
@@ -175,7 +175,7 @@ const CreativeStudioSection = () => {
             {columns.map((column, colIndex) => (
               <div key={colIndex} className="flex flex-col gap-2 sm:gap-2.5 min-w-0">
                 {column.map((item, itemIndex) => (
-                  <MediaItem key={`${activeFilter}-${colIndex}-${itemIndex}`} item={item} />
+                  <MediaItem key={`${activeFilter}-${colIndex}-${itemIndex}`} item={item} index={colIndex + itemIndex * 2} />
                 ))}
               </div>
             ))}
