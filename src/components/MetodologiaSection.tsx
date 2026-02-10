@@ -38,8 +38,8 @@ const MetodologiaSection = () => {
               muted
               playsInline
               className="w-full h-auto block"
-              style={{ playbackRate: 0.5 } as any}
-              ref={(el) => { if (el) el.playbackRate = 0.5; }}
+              style={{ playbackRate: 0.65 } as any}
+              ref={(el) => { if (el) el.playbackRate = 0.65; }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-start px-8 md:px-12 pb-8 md:pb-12">
               <p className="text-lg md:text-xl lg:text-2xl text-left leading-relaxed max-w-[800px] font-light text-white" dangerouslySetInnerHTML={{ __html: t("metodo.quote") }} />
