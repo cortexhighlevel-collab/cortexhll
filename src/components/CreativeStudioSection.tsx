@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion, type Variants, AnimatePresence } from "framer-motion";
-import { Sparkles, ChevronDown } from "lucide-react";
+import { Sparkles, ChevronDown, Plus } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import CTAButton from "@/components/CTAButton";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -18,32 +19,29 @@ interface MediaItemData {
 }
 
 const allMedia: MediaItemData[] = [
-  // Column 1 items
   { type: "image", src: "https://framerusercontent.com/images/MYA3NSlJ1OHKHWRfG7JD8KZQqM.jpg?width=1200&height=1200", category: "uiux" },
   { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
   { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/wFWbCdGaeADzLFVqtkI4OruEZwY.jpg?width=736&height=976", category: "uiux" },
-  // Column 2 items
   { type: "image", src: "https://framerusercontent.com/images/SOn8NLbtWMVUYycYwmdHWaspbo.jpg?width=736&height=981", category: "uiux" },
   { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/644Vl1YBiMs9zHomUwKPTJH4w.jpg?width=736&height=894", category: "uiux" },
   { type: "image", src: "https://framerusercontent.com/images/Q3N0rdGxebbQfpELTbYO9qVbzA.jpg?width=1080&height=1350", category: "uiux" },
-  // Column 3 items
   { type: "image", src: "https://framerusercontent.com/images/RiP7wUAIv97LXPq9l3AtDnzI.jpg?width=1200&height=1799", category: "uiux" },
   { type: "image", src: "https://framerusercontent.com/images/yMVImAhtIOTHkwoL94xH1sCbskE.jpg?width=709&height=829", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/FJAZ9aQdGTJrYSypOQJTCCc3eA.jpg?width=593&height=758", category: "uiux" },
-  // Column 4 items
   { type: "image", src: "https://framerusercontent.com/images/wwrQeEg2zOC7BRjcGKCLmwIATww.jpg?width=960&height=1200", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/D4jLtTlQV72gcoOmmPs4GNuOZo.jpg?width=736&height=1104", category: "uiux" },
   { type: "image", src: "https://framerusercontent.com/images/Zaw0BeVZq8vPmwMG4ds4HKU3xYM.jpg?width=1000&height=1333", category: "uiux" },
 ];
 
-// Distribute items into 4 columns for masonry
 function toColumns(items: MediaItemData[], cols: number): MediaItemData[][] {
   const columns: MediaItemData[][] = Array.from({ length: cols }, () => []);
   items.forEach((item, i) => columns[i % cols].push(item));
   return columns;
 }
+
+const MOBILE_INITIAL_ITEMS = 8;
 
 const MediaItem = ({ item }: { item: MediaItemData }) => (
   <motion.div
@@ -52,7 +50,7 @@ const MediaItem = ({ item }: { item: MediaItemData }) => (
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className="group relative w-full overflow-hidden rounded-2xl cursor-pointer transform-gpu"
+    className="group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu"
   >
     {item.type === "video" ? (
       <video
@@ -77,8 +75,10 @@ const MediaItem = ({ item }: { item: MediaItemData }) => (
 
 const CreativeStudioSection = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const [activeFilter, setActiveFilter] = useState<Category>("all");
   const [filterOpen, setFilterOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const filters: { key: Category; labelKey: string }[] = [
     { key: "all", labelKey: "creative.filter.all" },
@@ -87,8 +87,12 @@ const CreativeStudioSection = () => {
   ];
 
   const filtered = activeFilter === "all" ? allMedia : allMedia.filter(m => m.category === activeFilter);
-  const columns = toColumns(filtered, 4);
 
+  // On mobile: 4-column grid with limited items initially, show more on click
+  const mobileItems = showAll ? filtered : filtered.slice(0, MOBILE_INITIAL_ITEMS);
+  const hasMore = filtered.length > MOBILE_INITIAL_ITEMS;
+
+  const columns = toColumns(isMobile ? mobileItems : filtered, 4);
   const activeLabel = filters.find(f => f.key === activeFilter)!;
 
   return (
@@ -114,7 +118,7 @@ const CreativeStudioSection = () => {
       <div className="max-w-[1200px] mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          className="mb-12 md:mb-16"
+          className="mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.5 }}
@@ -150,7 +154,7 @@ const CreativeStudioSection = () => {
                   {filters.map(f => (
                     <button
                       key={f.key}
-                      onClick={() => { setActiveFilter(f.key); setFilterOpen(false); }}
+                      onClick={() => { setActiveFilter(f.key); setFilterOpen(false); setShowAll(false); }}
                       className={`w-full px-5 py-3 text-left text-[13px] font-medium transition-colors duration-200 ${
                         activeFilter === f.key
                           ? "text-[#f06800] bg-[#f06800]/10"
@@ -166,11 +170,11 @@ const CreativeStudioSection = () => {
           </div>
         </motion.div>
 
-        {/* Masonry Grid */}
-        <div className="flex flex-col sm:flex-row gap-2.5 w-full">
+        {/* Masonry Grid - always 4 columns */}
+        <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5 w-full auto-rows-auto">
           <AnimatePresence mode="popLayout">
             {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex-1 flex flex-col gap-2.5 min-w-0">
+              <div key={colIndex} className="flex flex-col gap-1.5 sm:gap-2.5 min-w-0">
                 {column.map((item, itemIndex) => (
                   <MediaItem key={`${activeFilter}-${colIndex}-${itemIndex}`} item={item} />
                 ))}
@@ -178,6 +182,24 @@ const CreativeStudioSection = () => {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* "Ver mais" button - mobile only */}
+        {isMobile && hasMore && !showAll && (
+          <motion.div
+            className="mt-6 flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] text-white/70 text-sm font-medium hover:bg-white/[0.1] hover:text-white transition-all duration-300"
+            >
+              <Plus className="w-4 h-4" />
+              {t("creative.showMore")}
+            </button>
+          </motion.div>
+        )}
 
         {/* Bottom CTA */}
         <motion.div
