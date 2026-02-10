@@ -47,7 +47,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30, scale: 0.92 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
-    viewport={{ once: true, amount: 0.15 }}
+    viewport={{ once: false, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
     className="group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu"
