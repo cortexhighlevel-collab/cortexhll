@@ -1,5 +1,6 @@
 import { motion, type Variants } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import metodologiaVideo from "@/assets/metodologia-video.webm";
 
 const fadeScale: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -29,8 +30,18 @@ const MetodologiaSection = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div className="video-radius overflow-hidden px-8 md:px-12 mb-5 md:mb-8 flex flex-col items-center justify-center bg-secondary-foreground text-primary-foreground w-full py-[150px]" variants={fadeScale}>
-            <p className="text-lg md:text-xl lg:text-2xl text-center leading-relaxed max-w-[800px] font-light" dangerouslySetInnerHTML={{ __html: t("metodo.quote") }} />
+          <motion.div className="video-radius overflow-hidden mb-5 md:mb-8 relative w-full" variants={fadeScale}>
+            <video
+              src={metodologiaVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto block"
+            />
+            <div className="absolute inset-0 bg-black/60 flex items-center justify-center px-8 md:px-12">
+              <p className="text-lg md:text-xl lg:text-2xl text-center leading-relaxed max-w-[800px] font-light text-white" dangerouslySetInnerHTML={{ __html: t("metodo.quote") }} />
+            </div>
           </motion.div>
 
           <motion.div className="grid grid-cols-1 lg:grid-cols-[minmax(200px,280px)_1fr] gap-4 md:gap-8" variants={staggerContainer}>
