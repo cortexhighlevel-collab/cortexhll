@@ -30,18 +30,18 @@ const MetodologiaSection = () => {
             </motion.p>
           </motion.div>
 
-          <motion.div className="video-radius overflow-hidden mb-5 md:mb-8 relative w-full" variants={fadeScale}>
+          <motion.div className="video-radius overflow-hidden mb-5 md:mb-8 relative w-full min-h-[280px] md:min-h-0" variants={fadeScale}>
             <video
               src={metodologiaVideo}
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-auto block"
+              className="w-full h-full object-cover block md:h-auto md:object-fill"
               style={{ playbackRate: 0.8 } as any}
               ref={(el) => { if (el) el.playbackRate = 0.8; }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-start px-8 md:px-12 pb-8 md:pb-12">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent hidden md:flex items-end justify-start px-8 md:px-12 pb-8 md:pb-12">
               <p className="text-lg md:text-xl lg:text-2xl text-left leading-relaxed max-w-[800px] font-light text-white" dangerouslySetInnerHTML={{ __html: t("metodo.quote") }} />
             </div>
           </motion.div>
