@@ -127,7 +127,6 @@ const CreativeStudioSection = () => {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f06800]/10 border border-[#f06800]/20 text-[#f06800] text-xs font-semibold mb-5 uppercase tracking-[0.25em]">
-                <Sparkles className="w-3.5 h-3.5" />
                 {t("creative.badge")}
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight max-w-[600px]">
