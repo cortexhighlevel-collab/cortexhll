@@ -18,22 +18,37 @@ interface MediaItemData {
   category: Category;
 }
 
-const allMedia: MediaItemData[] = [
-  { type: "image", src: "https://framerusercontent.com/images/MYA3NSlJ1OHKHWRfG7JD8KZQqM.jpg?width=1200&height=1200", category: "uiux" },
-  { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
-  { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
-  { type: "image", src: "https://framerusercontent.com/images/wFWbCdGaeADzLFVqtkI4OruEZwY.jpg?width=736&height=976", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/SOn8NLbtWMVUYycYwmdHWaspbo.jpg?width=736&height=981", category: "uiux" },
-  { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
-  { type: "image", src: "https://framerusercontent.com/images/644Vl1YBiMs9zHomUwKPTJH4w.jpg?width=736&height=894", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/Q3N0rdGxebbQfpELTbYO9qVbzA.jpg?width=1080&height=1350", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/RiP7wUAIv97LXPq9l3AtDnzI.jpg?width=1200&height=1799", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/yMVImAhtIOTHkwoL94xH1sCbskE.jpg?width=709&height=829", category: "motion" },
-  { type: "image", src: "https://framerusercontent.com/images/FJAZ9aQdGTJrYSypOQJTCCc3eA.jpg?width=593&height=758", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/D4jLtTlQV72gcoOmmPs4GNuOZo.jpg?width=736&height=1104", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/wwrQeEg2zOC7BRjcGKCLmwIATww.jpg?width=960&height=1200", category: "motion" },
-  { type: "image", src: "https://framerusercontent.com/images/Zaw0BeVZq8vPmwMG4ds4HKU3xYM.jpg?width=1000&height=1333", category: "uiux" },
+const columnsData: MediaItemData[][] = [
+  // Column 1
+  [
+    { type: "image", src: "https://framerusercontent.com/images/MYA3NSlJ1OHKHWRfG7JD8KZQqM.jpg?width=1200&height=1200", category: "uiux" },
+    { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
+    { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
+    { type: "image", src: "https://framerusercontent.com/images/wFWbCdGaeADzLFVqtkI4OruEZwY.jpg?width=736&height=976", category: "uiux" },
+  ],
+  // Column 2
+  [
+    { type: "image", src: "https://framerusercontent.com/images/SOn8NLbtWMVUYycYwmdHWaspbo.jpg?width=736&height=981", category: "uiux" },
+    { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
+    { type: "image", src: "https://framerusercontent.com/images/644Vl1YBiMs9zHomUwKPTJH4w.jpg?width=736&height=894", category: "uiux" },
+    { type: "image", src: "https://framerusercontent.com/images/Q3N0rdGxebbQfpELTbYO9qVbzA.jpg?width=1080&height=1350", category: "uiux" },
+  ],
+  // Column 3
+  [
+    { type: "image", src: "https://framerusercontent.com/images/RiP7wUAIv97LXPq9l3AtDnzI.jpg?width=1200&height=1799", category: "uiux" },
+    { type: "image", src: "https://framerusercontent.com/images/yMVImAhtIOTHkwoL94xH1sCbskE.jpg?width=709&height=829", category: "motion" },
+    { type: "image", src: "https://framerusercontent.com/images/FJAZ9aQdGTJrYSypOQJTCCc3eA.jpg?width=593&height=758", category: "uiux" },
+  ],
+  // Column 4
+  [
+    { type: "image", src: "https://framerusercontent.com/images/wwrQeEg2zOC7BRjcGKCLmwIATww.jpg?width=960&height=1200", category: "motion" },
+    { type: "image", src: "https://framerusercontent.com/images/D4jLtTlQV72gcoOmmPs4GNuOZo.jpg?width=736&height=1104", category: "uiux" },
+    { type: "image", src: "https://framerusercontent.com/images/Zaw0BeVZq8vPmwMG4ds4HKU3xYM.jpg?width=1000&height=1333", category: "uiux" },
+  ],
 ];
+
+// Flatten for filtering and mobile
+const allMedia = columnsData.flat();
 
 function toColumns(items: MediaItemData[], cols: number): MediaItemData[][] {
   const columns: MediaItemData[][] = Array.from({ length: cols }, () => []);
@@ -88,11 +103,16 @@ const CreativeStudioSection = () => {
 
   const filtered = activeFilter === "all" ? allMedia : allMedia.filter(m => m.category === activeFilter);
 
-  // On mobile: 4-column grid with limited items initially, show more on click
+  // On mobile: 2-column grid with limited items, show more on click
   const mobileItems = showAll ? filtered : filtered.slice(0, MOBILE_INITIAL_ITEMS);
   const hasMore = filtered.length > MOBILE_INITIAL_ITEMS;
 
-  const columns = toColumns(isMobile ? mobileItems : filtered, isMobile ? 2 : 4);
+  // Desktop: use fixed columns; when filtered, redistribute. Mobile: always redistribute into 2 cols.
+  const columns = isMobile
+    ? toColumns(mobileItems, 2)
+    : activeFilter === "all"
+      ? columnsData
+      : toColumns(filtered, 4);
   const activeLabel = filters.find(f => f.key === activeFilter)!;
 
   return (
