@@ -30,8 +30,8 @@ const allMedia: MediaItemData[] = [
   { type: "image", src: "https://framerusercontent.com/images/RiP7wUAIv97LXPq9l3AtDnzI.jpg?width=1200&height=1799", category: "uiux" },
   { type: "image", src: "https://framerusercontent.com/images/yMVImAhtIOTHkwoL94xH1sCbskE.jpg?width=709&height=829", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/FJAZ9aQdGTJrYSypOQJTCCc3eA.jpg?width=593&height=758", category: "uiux" },
-  { type: "image", src: "https://framerusercontent.com/images/wwrQeEg2zOC7BRjcGKCLmwIATww.jpg?width=960&height=1200", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/D4jLtTlQV72gcoOmmPs4GNuOZo.jpg?width=736&height=1104", category: "uiux" },
+  { type: "image", src: "https://framerusercontent.com/images/wwrQeEg2zOC7BRjcGKCLmwIATww.jpg?width=960&height=1200", category: "motion" },
   { type: "image", src: "https://framerusercontent.com/images/Zaw0BeVZq8vPmwMG4ds4HKU3xYM.jpg?width=1000&height=1333", category: "uiux" },
 ];
 
