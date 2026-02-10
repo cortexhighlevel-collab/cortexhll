@@ -98,6 +98,25 @@ const translations: Record<Language, Record<string, string>> = {
     "services.design.subtitle": "Experiências premium",
     "services.learnMore": "Saiba Mais",
 
+    // Creative Studio Section
+    "creative.badge": "ESTÚDIO CRIATIVO",
+    "creative.title": "Design que converte. Movimento que conecta.",
+    "creative.subtitle": "Duas disciplinas que elevam sua marca a outro nível.",
+    "creative.uiux.tag": "UI/UX & WEB DESIGN",
+    "creative.uiux.title": "Design Visual & Web Design",
+    "creative.uiux.text": "Criamos interfaces premium com foco em conversão. Landing pages, sites institucionais e sistemas web com design estratégico que transforma visitantes em clientes. +200 peças produzidas por mês sem perder qualidade.",
+    "creative.uiux.item1": "Landing Pages de Alta Conversão",
+    "creative.uiux.item2": "UI/UX Design Estratégico",
+    "creative.uiux.item3": "Web Design Premium",
+    "creative.uiux.item4": "Design de Conversão",
+    "creative.motion.tag": "MOTION DESIGN",
+    "creative.motion.title": "Motion Design & Animação",
+    "creative.motion.text": "Transformamos conceitos estáticos em narrativas visuais dinâmicas. Movimento estratégico que dá ritmo à informação, fluidez à estética e impacto a cada frame da sua marca.",
+    "creative.motion.item1": "Animações de Marca",
+    "creative.motion.item2": "Vídeos Institucionais",
+    "creative.motion.item3": "Social Media Motion",
+    "creative.motion.item4": "Motion para Ads",
+
     // DNA
     "dna.badge": "DNA Cortex",
     "dna.tagline": "Excelência sem concessões",
@@ -450,6 +469,25 @@ const translations: Record<Language, Record<string, string>> = {
     "services.design.title": "Design & Performance",
     "services.design.subtitle": "Premium experiences",
     "services.learnMore": "Learn More",
+
+    // Creative Studio Section
+    "creative.badge": "CREATIVE STUDIO",
+    "creative.title": "Design that converts. Motion that connects.",
+    "creative.subtitle": "Two disciplines that elevate your brand to another level.",
+    "creative.uiux.tag": "UI/UX & WEB DESIGN",
+    "creative.uiux.title": "Visual Design & Web Design",
+    "creative.uiux.text": "We create premium interfaces focused on conversion. Landing pages, institutional websites, and web systems with strategic design that transforms visitors into customers. +200 pieces produced per month without losing quality.",
+    "creative.uiux.item1": "High-Conversion Landing Pages",
+    "creative.uiux.item2": "Strategic UI/UX Design",
+    "creative.uiux.item3": "Premium Web Design",
+    "creative.uiux.item4": "Conversion Design",
+    "creative.motion.tag": "MOTION DESIGN",
+    "creative.motion.title": "Motion Design & Animation",
+    "creative.motion.text": "We transform static concepts into dynamic visual narratives. Strategic motion that gives rhythm to information, fluidity to aesthetics, and impact to every frame of your brand.",
+    "creative.motion.item1": "Brand Animations",
+    "creative.motion.item2": "Institutional Videos",
+    "creative.motion.item3": "Social Media Motion",
+    "creative.motion.item4": "Motion for Ads",
 
     // DNA
     "dna.badge": "Cortex DNA",

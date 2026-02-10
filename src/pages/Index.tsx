@@ -7,6 +7,7 @@ import ProblemSection from "@/components/ProblemSection";
 import MetodologiaSection from "@/components/MetodologiaSection";
 import DNASection from "@/components/DNASection";
 import FormatoSection from "@/components/FormatoSection";
+import CreativeStudioSection from "@/components/CreativeStudioSection";
 import CasesSection from "@/components/CasesSection";
 import OfertaSection from "@/components/OfertaSection";
 import TeamMemberSection from "@/components/TeamMemberSection";
@@ -41,6 +42,9 @@ const Index = () => {
       
       {/* Seção 7: Serviços */}
       <FormatoSection />
+      
+      {/* Seção 7b: Estúdio Criativo */}
+      <CreativeStudioSection />
       
       {/* Seção 8: Cases/Resultados */}
       <CasesSection />
