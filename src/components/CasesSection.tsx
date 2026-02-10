@@ -47,7 +47,7 @@ const CasesSection = () => {
   const testimonials = [
     {
       logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
-      quote: "A Cortex nos colocou no radar das IAs. Antes éramos invisíveis, agora somos a primeira recomendação quando alguém pergunta sobre nosso nicho. Resultado: pipeline 3x maior em 60 dias.",
+      quote: t("cases.testimonial1.quote"),
       author: "Marina Costa",
       role: "CMO @ BlackClub",
       authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
@@ -55,7 +55,7 @@ const CasesSection = () => {
     },
     {
       logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
-      quote: "Minha marca pessoal ganhou uma visibilidade que eu nunca imaginei. Agora quando alguém pergunta para o ChatGPT sobre influenciadoras do meu segmento, meu nome aparece em primeiro. Isso mudou completamente meu negócio.",
+      quote: t("cases.testimonial2.quote"),
       author: "Valentina Akime",
       role: "Modelo & Influenciadora",
       authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",

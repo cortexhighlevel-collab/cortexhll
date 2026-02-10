@@ -6,15 +6,20 @@ import casesBackgroundValentina from "@/assets/cases-background-valentina.webp";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const projects = [
+interface CasesModalProps { isOpen: boolean; onClose: () => void; }
+interface Project { id: string; title: string; category: string; img: string; clientLogo?: string; colSpan: string; descKey: string; services: string[]; resultKeys: string[]; client: string; year: string; }
+interface CardProps { project: Project; onClick: () => void; }
+interface ModalProps { id: string; close: () => void; }
+
+const projectsData: Project[] = [
   {
     id: '1', title: 'BlackClub', category: 'AI Optimization',
     img: casesBackgroundBlackclub,
     clientLogo: 'https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=400',
     colSpan: 'col-span-12',
-    description: "Implementamos uma estratégia completa de otimização para IAs, posicionando a BlackClub como referência absoluta em seu nicho. O resultado foi um aumento de 300% nas menções orgânicas em respostas de IA.",
+    descKey: 'cases.project1.desc',
     services: ["AI Reference Engine", "Content Strategy", "Brand Positioning"],
-    results: ["+300% menções em IA", "Pipeline 3x maior", "ROI de 500%"],
+    resultKeys: ['cases.project1.r1', 'cases.project1.r2', 'cases.project1.r3'],
     client: "BlackClub", year: "2025"
   },
   {
@@ -22,9 +27,9 @@ const projects = [
     img: casesBackgroundValentina,
     clientLogo: 'https://framerusercontent.com/images/21s66P6Ugns3B0SREgloFdwT84A.png?width=400',
     colSpan: 'col-span-12 md:col-span-6',
-    description: "Desenvolvemos uma estratégia de marca pessoal focada em posicionamento em IAs. Valentina agora é a primeira recomendação quando alguém pergunta sobre influenciadoras do seu segmento.",
+    descKey: 'cases.project2.desc',
     services: ["Personal Branding", "AI Optimization", "Content Creation"],
-    results: ["#1 em buscas de IA", "+200% seguidores", "5x mais parcerias"],
+    resultKeys: ['cases.project2.r1', 'cases.project2.r2', 'cases.project2.r3'],
     client: "Valentina Akime", year: "2025"
   },
   {
@@ -32,44 +37,39 @@ const projects = [
     img: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop',
     clientLogo: 'https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=400',
     colSpan: 'col-span-12 md:col-span-6',
-    description: "Criamos uma experiência digital premium com landing page de alta conversão e sistema de CRM integrado para automação de leads qualificados.",
+    descKey: 'cases.project3.desc',
     services: ["Web Design", "CRM Integration", "Lead Automation"],
-    results: ["+150% conversão", "40% menos custo por lead", "Automação 24/7"],
+    resultKeys: ['cases.project3.r1', 'cases.project3.r2', 'cases.project3.r3'],
     client: "TechVision", year: "2024"
   },
   {
     id: '4', title: 'Kaizen Marketing', category: 'Marketing Agency',
     img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
     colSpan: 'col-span-12',
-    description: "Branding futurista para uma agência que busca o próximo passo na evolução do marketing. Acabamentos cromados e estratégia de posicionamento em IA.",
+    descKey: 'cases.project4.desc',
     services: ["Branding", "AI Strategy", "Digital Presence"],
-    results: ["+250% visibilidade", "2x clientes", "Autoridade consolidada"],
+    resultKeys: ['cases.project4.r1', 'cases.project4.r2', 'cases.project4.r3'],
     client: "Kaizen Agency", year: "2024"
   },
   {
     id: '5', title: 'Neon Studio', category: 'Creative Studio',
     img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
     colSpan: 'col-span-12 md:col-span-5',
-    description: "Direção de arte e identidade visual para estúdio criativo. Cores vibrantes e estética cyberpunk que reflete a essência inovadora da marca.",
+    descKey: 'cases.project5.desc',
     services: ["Art Direction", "Visual Identity", "Brand Strategy"],
-    results: ["Identidade única", "+180% engajamento", "Reconhecimento de marca"],
+    resultKeys: ['cases.project5.r1', 'cases.project5.r2', 'cases.project5.r3'],
     client: "Neon Studio", year: "2024"
   },
   {
     id: '6', title: 'Arsenal Digital', category: 'Digital Collectibles',
     img: 'https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=2574&auto=format&fit=crop',
     colSpan: 'col-span-12 md:col-span-7',
-    description: "A série Arsenal explora a identidade digital na era da IA. Renderizações hiper-realistas e estratégia de posicionamento para colecionáveis digitais.",
+    descKey: 'cases.project6.desc',
     services: ["Digital Strategy", "AI Positioning", "Content Creation"],
-    results: ["+400% alcance", "Comunidade engajada", "Vendas recordes"],
+    resultKeys: ['cases.project6.r1', 'cases.project6.r2', 'cases.project6.r3'],
     client: "Arsenal NFT", year: "2024"
   }
 ];
-
-interface CasesModalProps { isOpen: boolean; onClose: () => void; }
-interface Project { id: string; title: string; category: string; img: string; clientLogo?: string; colSpan: string; description: string; services: string[]; results: string[]; client: string; year: string; }
-interface CardProps { project: Project; onClick: () => void; }
-interface ModalProps { id: string; close: () => void; }
 
 const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -104,7 +104,7 @@ const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
 
           <main className="px-4 md:px-12 py-8 md:py-16">
             <motion.div initial="hidden" animate="visible" variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} className="grid grid-cols-12 gap-4 md:gap-6">
-              {projects.map((project) => (<Card key={project.id} project={project} onClick={() => setSelectedId(project.id)} />))}
+              {projectsData.map((project) => (<Card key={project.id} project={project} onClick={() => setSelectedId(project.id)} />))}
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="mt-12 md:mt-20 text-center">
               <button onClick={onClose} className="group inline-flex items-center gap-3 px-8 py-4 bg-[#f06800] border border-[#f06800] rounded-full text-white font-medium hover:bg-[#f06800]/90 transition-all duration-300">
@@ -115,7 +115,7 @@ const CasesModal = ({ isOpen, onClose }: CasesModalProps) => {
           </main>
 
           <AnimatePresence>
-            {selectedId && (<DetailModal id={selectedId} close={() => setSelectedId(null)} t={t} />)}
+            {selectedId && (<DetailModal id={selectedId} close={() => setSelectedId(null)} />)}
           </AnimatePresence>
         </motion.div>
       )}
@@ -145,8 +145,9 @@ function Card({ project, onClick }: CardProps) {
   );
 }
 
-function DetailModal({ id, close, t }: ModalProps & { t: (key: string) => string }) {
-  const project = projects.find((p) => p.id === id);
+function DetailModal({ id, close }: ModalProps) {
+  const { t } = useLanguage();
+  const project = projectsData.find((p) => p.id === id);
   if (!project) return null;
 
   return (
@@ -173,7 +174,7 @@ function DetailModal({ id, close, t }: ModalProps & { t: (key: string) => string
               <motion.h2 layoutId={`card-title-${id}`} className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-wide">{project.title}</motion.h2>
               <p className="text-sm md:text-base text-white/50 font-light tracking-wider uppercase">{project.category}</p>
             </div>
-            <p className="mt-6 md:mt-10 text-base md:text-lg text-white/70 leading-relaxed font-light">{project.description}</p>
+            <p className="mt-6 md:mt-10 text-base md:text-lg text-white/70 leading-relaxed font-light">{t(project.descKey)}</p>
             <div className="mt-6 md:mt-8">
               <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">{t("casesModal.services")}</h5>
               <div className="flex flex-wrap gap-2">
@@ -183,9 +184,9 @@ function DetailModal({ id, close, t }: ModalProps & { t: (key: string) => string
             <div className="mt-6 md:mt-8">
               <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">{t("casesModal.results")}</h5>
               <div className="grid grid-cols-1 gap-3">
-                {project.results.map((result, idx) => (
+                {project.resultKeys.map((key, idx) => (
                   <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-[#141414] border border-white/10">
-                    <div className="w-2 h-2 rounded-full bg-[#f06800]" /><span className="text-white font-medium">{result}</span>
+                    <div className="w-2 h-2 rounded-full bg-[#f06800]" /><span className="text-white font-medium">{t(key)}</span>
                   </div>
                 ))}
               </div>
