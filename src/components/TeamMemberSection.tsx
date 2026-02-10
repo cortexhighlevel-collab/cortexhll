@@ -51,7 +51,7 @@ const TeamMemberSection = () => {
     description: t("team.member4.description"),
     image: angeloFelipeImage
   }, {
-    name: "João",
+    name: "João Perci",
     role: t("team.member5.role"),
     quote: t("team.member5.quote"),
     description: t("team.member5.description"),
