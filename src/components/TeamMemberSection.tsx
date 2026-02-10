@@ -28,33 +28,33 @@ const TeamMemberSection = () => {
 
   const teamMembers = [{
     name: "Sr. Primus",
-    role: "Mente Estratégica - AI Referral Engine™",
-    quote: "Líder visionário por trás do AI Referral Engine™, a metodologia que posiciona marcas como resposta definitiva da IA.",
-    description: "Criador do AI Referral Engine™ e líder visionário por trás da metodologia que está revolucionando como empresas são recomendadas pela IA.",
+    role: t("team.member1.role"),
+    quote: t("team.member1.quote"),
+    description: t("team.member1.description"),
     image: srPrimusImage
   }, {
     name: "Pablo Figueiredo",
-    role: "Diretor Criativo",
-    quote: "A criatividade é a ponte entre a estratégia e a conexão emocional com o público.",
-    description: "Responsável por transformar conceitos em experiências visuais impactantes que conectam marcas ao seu público.",
+    role: t("team.member2.role"),
+    quote: t("team.member2.quote"),
+    description: t("team.member2.description"),
     image: pabloFigueiredoImage
   }, {
     name: "Victor Lisboa",
-    role: "Dev Lead",
-    quote: "Código limpo e arquitetura sólida são a base de qualquer solução digital escalável.",
-    description: "Lidera o desenvolvimento técnico, garantindo que cada projeto seja construído com excelência e performance.",
+    role: t("team.member3.role"),
+    quote: t("team.member3.quote"),
+    description: t("team.member3.description"),
     image: victorLisboaImage
   }, {
     name: "Angelo Felipe",
-    role: "Designer Visual | UI/UX & Web Design",
-    quote: "Crescimento sustentável é construído com dados, criatividade e execução impecável.",
-    description: "Designer com foco em Web Design, UI/UX e Design de Conversão. Produz em alta escala (+200 peças/mês) sem perder qualidade, criando landing pages e criativos de alta performance que geram resultados mensuráveis.",
+    role: t("team.member4.role"),
+    quote: t("team.member4.quote"),
+    description: t("team.member4.description"),
     image: angeloFelipeImage
   }, {
     name: "João",
-    role: "Head Comercial",
-    quote: "A excelência no atendimento transforma clientes em parceiros de longo prazo.",
-    description: "Lidera a área comercial com foco em construir relacionamentos sólidos e entregar valor real aos clientes.",
+    role: t("team.member5.role"),
+    quote: t("team.member5.quote"),
+    description: t("team.member5.description"),
     image: joaoImage
   }];
 
