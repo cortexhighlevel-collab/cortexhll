@@ -41,7 +41,7 @@ function toColumns(items: MediaItemData[], cols: number): MediaItemData[][] {
   return columns;
 }
 
-const MOBILE_INITIAL_ITEMS = 8;
+const MOBILE_INITIAL_ITEMS = 4;
 
 const MediaItem = ({ item }: { item: MediaItemData }) => (
   <motion.div
@@ -92,7 +92,7 @@ const CreativeStudioSection = () => {
   const mobileItems = showAll ? filtered : filtered.slice(0, MOBILE_INITIAL_ITEMS);
   const hasMore = filtered.length > MOBILE_INITIAL_ITEMS;
 
-  const columns = toColumns(isMobile ? mobileItems : filtered, 4);
+  const columns = toColumns(isMobile ? mobileItems : filtered, isMobile ? 2 : 4);
   const activeLabel = filters.find(f => f.key === activeFilter)!;
 
   return (
@@ -170,11 +170,11 @@ const CreativeStudioSection = () => {
           </div>
         </motion.div>
 
-        {/* Masonry Grid - always 4 columns */}
-        <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5 w-full auto-rows-auto">
+        {/* Masonry Grid - 2 cols mobile, 4 cols desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 w-full auto-rows-auto">
           <AnimatePresence mode="popLayout">
             {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex flex-col gap-1.5 sm:gap-2.5 min-w-0">
+              <div key={colIndex} className="flex flex-col gap-2 sm:gap-2.5 min-w-0">
                 {column.map((item, itemIndex) => (
                   <MediaItem key={`${activeFilter}-${colIndex}-${itemIndex}`} item={item} />
                 ))}
