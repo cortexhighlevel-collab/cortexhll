@@ -149,9 +149,9 @@ const translations: Record<Language, Record<string, string>> = {
     "team.member4.role": "Designer Visual | UI/UX & Web Design",
     "team.member4.quote": "Crescimento sustentável é construído com dados, criatividade e execução impecável.",
     "team.member4.description": "Designer com foco em Web Design, UI/UX e Design de Conversão. Produz em alta escala (+200 peças/mês) sem perder qualidade, criando landing pages e criativos de alta performance que geram resultados mensuráveis.",
-    "team.member5.role": "Head Comercial",
-    "team.member5.quote": "A excelência no atendimento transforma clientes em parceiros de longo prazo.",
-    "team.member5.description": "Lidera a área comercial com foco em construir relacionamentos sólidos e entregar valor real aos clientes.",
+    "team.member5.role": "Motion Designer",
+    "team.member5.quote": "O movimento estratégico transforma conceitos estáticos em narrativas que conectam e convertem.",
+    "team.member5.description": "Projeta o comportamento das marcas no tempo e no espaço. Utiliza movimento estratégico para transformar conceitos em narrativas dinâmicas, dando ritmo à informação e fluidez à estética em cada frame.",
 
     // Case Testimonials
     "cases.testimonial1.quote": "A Cortex nos colocou no radar das IAs. Antes éramos invisíveis, agora somos a primeira recomendação quando alguém pergunta sobre nosso nicho. Resultado: pipeline 3x maior em 60 dias.",
@@ -502,9 +502,9 @@ const translations: Record<Language, Record<string, string>> = {
     "team.member4.role": "Visual Designer | UI/UX & Web Design",
     "team.member4.quote": "Sustainable growth is built with data, creativity, and flawless execution.",
     "team.member4.description": "Designer focused on Web Design, UI/UX and Conversion Design. Produces at high scale (+200 pieces/month) without losing quality, creating high-performance landing pages and creatives that deliver measurable results.",
-    "team.member5.role": "Head of Sales",
-    "team.member5.quote": "Excellence in service transforms clients into long-term partners.",
-    "team.member5.description": "Leads the sales department focused on building solid relationships and delivering real value to clients.",
+    "team.member5.role": "Motion Designer",
+    "team.member5.quote": "Strategic motion transforms static concepts into narratives that connect and convert.",
+    "team.member5.description": "Designs brand behavior in time and space. Uses strategic motion to turn concepts into dynamic narratives, giving rhythm to information and fluidity to aesthetics in every frame.",
 
     // Case Testimonials
     "cases.testimonial1.quote": "Cortex put us on the AI radar. We used to be invisible, now we're the first recommendation when someone asks about our niche. Result: 3x larger pipeline in 60 days.",
