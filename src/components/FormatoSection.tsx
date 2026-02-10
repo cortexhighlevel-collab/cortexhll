@@ -93,7 +93,7 @@ const FormatoSection = () => {
     tag: "DESIGN & PERFORMANCE",
     title: t("services.design.title"),
     subtitle: t("services.design.subtitle"),
-    items: ["Landing Pages", "Sites Premium", "Tráfego Pago", "SEO Avançado", "APIs & Integrações", "Segurança"],
+    items: ["UI/UX & Web Design", "Motion Design", "Landing Pages", "Sites Premium", "Tráfego Pago", "SEO Avançado"],
     imageUrl: designPerformanceImage,
     link: "",
     learnMore: t("services.learnMore")
