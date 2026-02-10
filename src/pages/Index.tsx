@@ -1,5 +1,3 @@
-import { useState, useCallback } from "react";
-import { AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -14,17 +12,10 @@ import TeamMemberSection from "@/components/TeamMemberSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQSection";
-import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const handleFinish = useCallback(() => setIsLoading(false), []);
-
-  return <>
-    <AnimatePresence>
-      {isLoading && <LoadingScreen onFinish={handleFinish} />}
-    </AnimatePresence>
-    <div className={`min-h-screen flex flex-col items-center pt-3 overflow-x-hidden ${isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
+  return (
+    <div className="min-h-screen flex flex-col items-center pt-3 overflow-x-hidden">
       {/* Seção 1: Header/Navbar */}
       <Header />
       
@@ -67,6 +58,6 @@ const Index = () => {
        {/* Seção 14: Footer */}
       <Footer />
     </div>
-  </>;
+  );
 };
 export default Index;
