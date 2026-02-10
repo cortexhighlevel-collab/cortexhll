@@ -1,3 +1,4 @@
+// Language context provider
 import { createContext, useContext, useState, ReactNode } from "react";
 
 export type Language = "pt" | "en";
