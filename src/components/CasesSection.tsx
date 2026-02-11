@@ -171,7 +171,7 @@ const CasesSection = () => {
   ];
 
   const stats = [
-    { value: "+500%", label: t("cases.stat1.label"), icon: Globe },
+    { value: "165,8%", label: t("cases.stat1.label"), icon: Globe },
     { value: "47", label: t("cases.stat2.label"), icon: FileText },
     { value: "30", label: t("cases.stat3.label"), icon: Terminal },
   ];
