@@ -3,6 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight, ExternalLink } from 'lucide-react';
 import casesBackgroundBlackclub from "@/assets/cases-background-blackclub.webp";
 import casesBackgroundValentina from "@/assets/cases-background-valentina.webp";
+import casesBackgroundTupa from "@/assets/cases-background-tupa.png";
+import casesCreditshub from "@/assets/cases-creditshub.png";
+import casesKube from "@/assets/cases-kube.png";
+import casesEliore from "@/assets/cases-eliore.png";
+import casesLiteti from "@/assets/cases-liteti.png";
+import casesJovemhub from "@/assets/cases-jovemhub.png";
+import casesScolty from "@/assets/cases-scolty.png";
+import casesSrprimus from "@/assets/cases-srprimus.png";
+import casesXscale from "@/assets/cases-xscale.png";
+import casesRentfy from "@/assets/cases-rentfy.png";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -13,61 +23,112 @@ interface ModalProps { id: string; close: () => void; }
 
 const projectsData: Project[] = [
   {
-    id: '1', title: 'BlackClub', category: 'AI Optimization',
+    id: '1', title: 'BlackClub', category: 'Web Design',
     img: casesBackgroundBlackclub,
-    clientLogo: 'https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=400',
     colSpan: 'col-span-12',
     descKey: 'cases.project1.desc',
-    services: ["AI Reference Engine", "Content Strategy", "Brand Positioning"],
+    services: ["Web Design", "Branding", "UX/UI"],
     resultKeys: ['cases.project1.r1', 'cases.project1.r2', 'cases.project1.r3'],
     client: "BlackClub", year: "2025"
   },
   {
     id: '2', title: 'Valentina Akime', category: 'Personal Branding',
     img: casesBackgroundValentina,
-    clientLogo: 'https://framerusercontent.com/images/21s66P6Ugns3B0SREgloFdwT84A.png?width=400',
     colSpan: 'col-span-12 md:col-span-6',
     descKey: 'cases.project2.desc',
-    services: ["Personal Branding", "AI Optimization", "Content Creation"],
+    services: ["Personal Branding", "Web Design", "Content Creation"],
     resultKeys: ['cases.project2.r1', 'cases.project2.r2', 'cases.project2.r3'],
     client: "Valentina Akime", year: "2025"
   },
   {
-    id: '3', title: 'TechVision', category: 'Web Design & Automation',
-    img: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop',
-    clientLogo: 'https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=400',
+    id: '3', title: 'Tupã FC', category: 'Web Design Esportivo',
+    img: casesBackgroundTupa,
     colSpan: 'col-span-12 md:col-span-6',
     descKey: 'cases.project3.desc',
-    services: ["Web Design", "CRM Integration", "Lead Automation"],
+    services: ["Web Design", "Identidade Visual", "UX Esportivo"],
     resultKeys: ['cases.project3.r1', 'cases.project3.r2', 'cases.project3.r3'],
-    client: "TechVision", year: "2024"
+    client: "Tupã Futebol Clube", year: "2025"
   },
   {
-    id: '4', title: 'Kaizen Marketing', category: 'Marketing Agency',
-    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+    id: '4', title: 'Credits Hub', category: 'Plataforma SaaS',
+    img: casesCreditshub,
     colSpan: 'col-span-12',
     descKey: 'cases.project4.desc',
-    services: ["Branding", "AI Strategy", "Digital Presence"],
+    services: ["Web Design", "SaaS Platform", "Dark UI"],
     resultKeys: ['cases.project4.r1', 'cases.project4.r2', 'cases.project4.r3'],
-    client: "Kaizen Agency", year: "2024"
+    client: "Credits Hub", year: "2025"
   },
   {
-    id: '5', title: 'Neon Studio', category: 'Creative Studio',
-    img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2670&auto=format&fit=crop',
-    colSpan: 'col-span-12 md:col-span-5',
+    id: '5', title: 'Kube Projetos', category: 'Impressão 3D Industrial',
+    img: casesKube,
+    colSpan: 'col-span-12 md:col-span-6',
     descKey: 'cases.project5.desc',
-    services: ["Art Direction", "Visual Identity", "Brand Strategy"],
+    services: ["Web Design", "Branding Industrial", "UX/UI"],
     resultKeys: ['cases.project5.r1', 'cases.project5.r2', 'cases.project5.r3'],
-    client: "Neon Studio", year: "2024"
+    client: "Kube Projetos", year: "2025"
   },
   {
-    id: '6', title: 'Arsenal Digital', category: 'Digital Collectibles',
-    img: 'https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?q=80&w=2574&auto=format&fit=crop',
-    colSpan: 'col-span-12 md:col-span-7',
+    id: '6', title: 'Eliore Studio', category: 'Arquitetura & Engenharia',
+    img: casesEliore,
+    colSpan: 'col-span-12 md:col-span-6',
     descKey: 'cases.project6.desc',
-    services: ["Digital Strategy", "AI Positioning", "Content Creation"],
+    services: ["Web Design", "Portfólio Digital", "Branding"],
     resultKeys: ['cases.project6.r1', 'cases.project6.r2', 'cases.project6.r3'],
-    client: "Arsenal NFT", year: "2024"
+    client: "Eliore Studio", year: "2025"
+  },
+  {
+    id: '7', title: 'Lite TI', category: 'Consultoria em TI',
+    img: casesLiteti,
+    colSpan: 'col-span-12 md:col-span-5',
+    descKey: 'cases.project7.desc',
+    services: ["Web Design", "Segurança Digital", "UX/UI"],
+    resultKeys: ['cases.project7.r1', 'cases.project7.r2', 'cases.project7.r3'],
+    client: "Lite TI", year: "2025"
+  },
+  {
+    id: '8', title: 'Jovem Hub', category: 'Comunidade & Educação',
+    img: casesJovemhub,
+    colSpan: 'col-span-12 md:col-span-7',
+    descKey: 'cases.project8.desc',
+    services: ["Web Design", "Landing Page", "Branding"],
+    resultKeys: ['cases.project8.r1', 'cases.project8.r2', 'cases.project8.r3'],
+    client: "Jovem Hub", year: "2025"
+  },
+  {
+    id: '9', title: 'Scolty Vision', category: 'Produção de Vídeos',
+    img: casesScolty,
+    colSpan: 'col-span-12 md:col-span-6',
+    descKey: 'cases.project9.desc',
+    services: ["Web Design", "Portfolio", "Motion Design"],
+    resultKeys: ['cases.project9.r1', 'cases.project9.r2', 'cases.project9.r3'],
+    client: "Scolty Vision", year: "2025"
+  },
+  {
+    id: '10', title: 'Sr. Primus', category: 'Mentoria em IA',
+    img: casesSrprimus,
+    colSpan: 'col-span-12 md:col-span-6',
+    descKey: 'cases.project10.desc',
+    services: ["Web Design", "Personal Branding", "Landing Page"],
+    resultKeys: ['cases.project10.r1', 'cases.project10.r2', 'cases.project10.r3'],
+    client: "Sr. Primus", year: "2025"
+  },
+  {
+    id: '11', title: 'XScale AI', category: 'Consultoria Estratégica',
+    img: casesXscale,
+    colSpan: 'col-span-12',
+    descKey: 'cases.project11.desc',
+    services: ["Web Design", "AI Branding", "UX Strategy"],
+    resultKeys: ['cases.project11.r1', 'cases.project11.r2', 'cases.project11.r3'],
+    client: "XScale AI", year: "2025"
+  },
+  {
+    id: '12', title: 'RentFy', category: 'Gestão de Aluguéis',
+    img: casesRentfy,
+    colSpan: 'col-span-12',
+    descKey: 'cases.project12.desc',
+    services: ["Web Design", "SaaS Platform", "UX/UI"],
+    resultKeys: ['cases.project12.r1', 'cases.project12.r2', 'cases.project12.r3'],
+    client: "RentFy", year: "2025"
   }
 ];
 
