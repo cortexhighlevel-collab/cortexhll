@@ -65,6 +65,24 @@ const CasesSection = () => {
       authorImage: valentinaAkimeImage,
       background: casesBackground2,
     },
+    {
+      logo: null,
+      logoText: "STUDIO 3",
+      quote: t("cases.testimonial3.quote"),
+      author: "Ricardo Mendes",
+      role: "CEO — Studio 3",
+      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      background: casesBackground,
+    },
+    {
+      logo: null,
+      logoText: "NOVA HAUS",
+      quote: t("cases.testimonial4.quote"),
+      author: "Carolina Steiner",
+      role: "Diretora Criativa — Nova Haus",
+      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      background: casesBackground2,
+    },
   ];
 
   const stats = [

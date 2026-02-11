@@ -179,8 +179,10 @@ const translations: Record<Language, Record<string, string>> = {
     "team.member5.description": "Projeta o comportamento das marcas no tempo e no espaço. Utiliza movimento estratégico para transformar conceitos em narrativas dinâmicas, dando ritmo à informação e fluidez à estética em cada frame.",
 
     // Case Testimonials
-    "cases.testimonial1.quote": "A Cortex nos colocou no radar das IAs. Antes éramos invisíveis, agora somos a primeira recomendação quando alguém pergunta sobre nosso nicho. Resultado: pipeline 3x maior em 60 dias.",
-    "cases.testimonial2.quote": "Minha marca pessoal ganhou uma visibilidade que eu nunca imaginei. Agora quando alguém pergunta para o ChatGPT sobre influenciadoras do meu segmento, meu nome aparece em primeiro. Isso mudou completamente meu negócio.",
+    "cases.testimonial1.quote": "A Cortex criou um site que traduziu perfeitamente a essência da BlackClub. Design impecável, performance absurda e uma experiência que nossos clientes elogiam todos os dias. Resultado: conversão 3x maior em 60 dias.",
+    "cases.testimonial2.quote": "Meu site ficou exatamente como eu imaginava — sofisticado, rápido e com a minha cara. A Cortex entendeu minha marca e entregou algo que impressiona qualquer um que acessa. Mudou completamente meu posicionamento digital.",
+    "cases.testimonial3.quote": "Precisávamos de um site que transmitisse credibilidade e sofisticação. A Cortex entregou além das expectativas — cada detalhe foi pensado para converter visitantes em clientes.",
+    "cases.testimonial4.quote": "O site que a Cortex desenvolveu para nós não é apenas bonito, é uma máquina de vendas. A experiência do usuário é tão fluida que nosso tempo de permanência triplicou.",
 
     // Case Modal Projects
     "cases.project1.desc": "Implementamos uma estratégia completa de otimização para IAs, posicionando a BlackClub como referência absoluta em seu nicho. O resultado foi um aumento de 300% nas menções orgânicas em respostas de IA.",
@@ -556,8 +558,10 @@ const translations: Record<Language, Record<string, string>> = {
     "team.member5.description": "Designs brand behavior in time and space. Uses strategic motion to turn concepts into dynamic narratives, giving rhythm to information and fluidity to aesthetics in every frame.",
 
     // Case Testimonials
-    "cases.testimonial1.quote": "Cortex put us on the AI radar. We used to be invisible, now we're the first recommendation when someone asks about our niche. Result: 3x larger pipeline in 60 days.",
-    "cases.testimonial2.quote": "My personal brand gained visibility I never imagined. Now when someone asks ChatGPT about influencers in my segment, my name comes up first. This completely changed my business.",
+    "cases.testimonial1.quote": "Cortex created a website that perfectly translated BlackClub's essence. Flawless design, insane performance, and an experience our clients praise every day. Result: 3x higher conversion in 60 days.",
+    "cases.testimonial2.quote": "My website turned out exactly as I imagined — sophisticated, fast, and totally me. Cortex understood my brand and delivered something that impresses everyone who visits. It completely changed my digital positioning.",
+    "cases.testimonial3.quote": "We needed a website that conveyed credibility and sophistication. Cortex delivered beyond expectations — every detail was designed to convert visitors into clients.",
+    "cases.testimonial4.quote": "The website Cortex built for us isn't just beautiful, it's a sales machine. The user experience is so seamless that our time on site tripled.",
 
     // Case Modal Projects
     "cases.project1.desc": "We implemented a complete AI optimization strategy, positioning BlackClub as the absolute reference in their niche. The result was a 300% increase in organic mentions in AI responses.",
