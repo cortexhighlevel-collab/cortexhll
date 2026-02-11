@@ -181,7 +181,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Case Testimonials
     "cases.testimonial1.quote": "A Cortex criou um site que traduziu perfeitamente a essência da BlackClub. Design impecável, performance absurda e uma experiência que nossos clientes elogiam todos os dias. Resultado: conversão 3x maior em 60 dias.",
     "cases.testimonial2.quote": "Meu site ficou exatamente como eu imaginava — sofisticado, rápido e com a minha cara. A Cortex entendeu minha marca e entregou algo que impressiona qualquer um que acessa. Mudou completamente meu posicionamento digital.",
-    "cases.testimonial3.quote": "A Cortex criou um site que representa a alma do Tupã FC — garra, tradição e união desde 1936. O design transmite a força do nosso tricolor e fez a torcida se sentir em casa no digital. Um verdadeiro gol de placa.",
+    "cases.testimonial3.quote": "A Cortex, junto à agência Biomo, criou um site que representa a alma do Tupã FC — garra, tradição e união desde 1936. O design transmite a força do nosso tricolor e fez a torcida se sentir em casa no digital. Um verdadeiro gol de placa.",
     "cases.testimonial4.quote": "O site que a Cortex desenvolveu para nós não é apenas bonito, é uma máquina de vendas. A experiência do usuário é tão fluida que nosso tempo de permanência triplicou.",
 
     // Case Modal Projects
@@ -560,7 +560,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Case Testimonials
     "cases.testimonial1.quote": "Cortex created a website that perfectly translated BlackClub's essence. Flawless design, insane performance, and an experience our clients praise every day. Result: 3x higher conversion in 60 days.",
     "cases.testimonial2.quote": "My website turned out exactly as I imagined — sophisticated, fast, and totally me. Cortex understood my brand and delivered something that impresses everyone who visits. It completely changed my digital positioning.",
-    "cases.testimonial3.quote": "Cortex built a website that represents the soul of Tupã FC — grit, tradition, and unity since 1936. The design conveys the strength of our tricolor and made fans feel at home in the digital world. A true masterpiece.",
+    "cases.testimonial3.quote": "Cortex, together with Biomo agency, built a website that represents the soul of Tupã FC — grit, tradition, and unity since 1936. The design conveys the strength of our tricolor and made fans feel at home in the digital world. A true masterpiece.",
     "cases.testimonial4.quote": "The website Cortex built for us isn't just beautiful, it's a sales machine. The user experience is so seamless that our time on site tripled.",
 
     // Case Modal Projects
