@@ -182,7 +182,15 @@ const translations: Record<Language, Record<string, string>> = {
     "cases.testimonial1.quote": "A Cortex criou um site que traduziu perfeitamente a essência da BlackClub. Design impecável, performance absurda e uma experiência que nossos clientes elogiam todos os dias. Resultado: conversão 3x maior em 60 dias.",
     "cases.testimonial2.quote": "Meu site ficou exatamente como eu imaginava — sofisticado, rápido e com a minha cara. A Cortex entendeu minha marca e entregou algo que impressiona qualquer um que acessa. Mudou completamente meu posicionamento digital.",
     "cases.testimonial3.quote": "A Cortex, junto à agência Biomo, criou um site que representa a alma do Tupã FC — garra, tradição e união desde 1936. O design transmite a força do nosso tricolor e fez a torcida se sentir em casa no digital. Um verdadeiro gol de placa.",
-    "cases.testimonial4.quote": "O site que a Cortex desenvolveu para nós não é apenas bonito, é uma máquina de vendas. A experiência do usuário é tão fluida que nosso tempo de permanência triplicou.",
+    "cases.testimonial4.quote": "A Credits Hub precisava de um site que passasse confiança e profissionalismo. A Cortex entregou uma plataforma dark premium que converteu desde o primeiro dia. Nossos clientes adoram a experiência.",
+    "cases.testimonial5.quote": "A Cortex criou um site que mostra a inovação da Kube em impressão 3D. O visual tecnológico e a navegação impecável nos posicionaram como líderes no segmento industrial.",
+    "cases.testimonial6.quote": "A Cortex traduziu perfeitamente a união entre arquitetura e engenharia do Eliore Studio. O site é elegante, funcional e transmite exatamente a credibilidade que precisávamos.",
+    "cases.testimonial7.quote": "A Cortex desenvolveu um site que reflete a segurança e a sofisticação que a Lite TI entrega. Design escuro, moderno e com uma presença digital que inspira confiança nos nossos clientes.",
+    "cases.testimonial8.quote": "O site da Jovem Hub ficou impactante. A Cortex capturou a essência da nossa comunidade com um design poderoso que conecta e inspira quem acessa.",
+    "cases.testimonial9.quote": "A Scolty Vision precisava de um site à altura dos nossos vídeos de elite. A Cortex entregou algo cinematográfico — cada scroll é uma experiência visual que converte visitantes em clientes.",
+    "cases.testimonial10.quote": "A Cortex criou o site do Sr. Primus com a identidade premium que a marca exige. O design quente e impactante comunica autoridade e posiciona a mentoria como referência no mercado.",
+    "cases.testimonial11.quote": "O site da XScale AI transmite inovação desde o primeiro pixel. A Cortex criou algo futurista e funcional que comunica perfeitamente nossa proposta de consultoria estratégica em IA.",
+    "cases.testimonial12.quote": "A RentFy precisava de um site que transmitisse simplicidade e confiança para hosts da Turo. A Cortex entregou uma landing page clean, profissional e que converte visitantes em usuários.",
 
     // Case Modal Projects
     "cases.project1.desc": "Implementamos uma estratégia completa de otimização para IAs, posicionando a BlackClub como referência absoluta em seu nicho. O resultado foi um aumento de 300% nas menções orgânicas em respostas de IA.",
@@ -561,7 +569,15 @@ const translations: Record<Language, Record<string, string>> = {
     "cases.testimonial1.quote": "Cortex created a website that perfectly translated BlackClub's essence. Flawless design, insane performance, and an experience our clients praise every day. Result: 3x higher conversion in 60 days.",
     "cases.testimonial2.quote": "My website turned out exactly as I imagined — sophisticated, fast, and totally me. Cortex understood my brand and delivered something that impresses everyone who visits. It completely changed my digital positioning.",
     "cases.testimonial3.quote": "Cortex, together with Biomo agency, built a website that represents the soul of Tupã FC — grit, tradition, and unity since 1936. The design conveys the strength of our tricolor and made fans feel at home in the digital world. A true masterpiece.",
-    "cases.testimonial4.quote": "The website Cortex built for us isn't just beautiful, it's a sales machine. The user experience is so seamless that our time on site tripled.",
+    "cases.testimonial4.quote": "Credits Hub needed a website that conveyed trust and professionalism. Cortex delivered a dark premium platform that converted from day one. Our clients love the experience.",
+    "cases.testimonial5.quote": "Cortex created a website that showcases Kube's innovation in 3D printing. The tech-forward visuals and flawless navigation positioned us as leaders in the industrial segment.",
+    "cases.testimonial6.quote": "Cortex perfectly translated the union of architecture and engineering at Eliore Studio. The site is elegant, functional, and conveys exactly the credibility we needed.",
+    "cases.testimonial7.quote": "Cortex built a website that reflects the security and sophistication Lite TI delivers. Dark, modern design with a digital presence that inspires trust in our clients.",
+    "cases.testimonial8.quote": "Jovem Hub's website turned out impactful. Cortex captured the essence of our community with a powerful design that connects and inspires everyone who visits.",
+    "cases.testimonial9.quote": "Scolty Vision needed a website worthy of our elite videos. Cortex delivered something cinematic — every scroll is a visual experience that converts visitors into clients.",
+    "cases.testimonial10.quote": "Cortex built the Sr. Primus website with the premium identity the brand demands. The warm, impactful design communicates authority and positions the mentorship as a market reference.",
+    "cases.testimonial11.quote": "XScale AI's website conveys innovation from the very first pixel. Cortex created something futuristic and functional that perfectly communicates our strategic AI consulting proposition.",
+    "cases.testimonial12.quote": "RentFy needed a website that conveyed simplicity and trust for Turo hosts. Cortex delivered a clean, professional landing page that converts visitors into users.",
 
     // Case Modal Projects
     "cases.project1.desc": "We implemented a complete AI optimization strategy, positioning BlackClub as the absolute reference in their niche. The result was a 300% increase in organic mentions in AI responses.",

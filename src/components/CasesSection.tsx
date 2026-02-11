@@ -5,6 +5,15 @@ import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background-blackclub.webp";
 import casesBackground2 from "@/assets/cases-background-valentina.webp";
 import casesBackgroundTupa from "@/assets/cases-background-tupa.png";
+import casesCreditshub from "@/assets/cases-creditshub.png";
+import casesKube from "@/assets/cases-kube.png";
+import casesEliore from "@/assets/cases-eliore.png";
+import casesLiteti from "@/assets/cases-liteti.png";
+import casesJovemhub from "@/assets/cases-jovemhub.png";
+import casesScolty from "@/assets/cases-scolty.png";
+import casesSrprimus from "@/assets/cases-srprimus.png";
+import casesXscale from "@/assets/cases-xscale.png";
+import casesRentfy from "@/assets/cases-rentfy.png";
 import CasesModal from "./CasesModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import luizMilionImage from "@/assets/luiz-milion.png";
@@ -78,12 +87,84 @@ const CasesSection = () => {
     },
     {
       logo: null,
-      logoText: "NOVA HAUS",
+      logoText: "CREDITS HUB",
       quote: t("cases.testimonial4.quote"),
-      author: "Carolina Steiner",
-      role: "Diretora Criativa — Nova Haus",
+      author: "Credits Hub",
+      role: "Plataforma SaaS",
       authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
-      background: casesBackground2,
+      background: casesCreditshub,
+    },
+    {
+      logo: null,
+      logoText: "KUBE",
+      quote: t("cases.testimonial5.quote"),
+      author: "Kube Projetos",
+      role: "Impressão 3D Industrial",
+      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      background: casesKube,
+    },
+    {
+      logo: null,
+      logoText: "ELIORE STUDIO",
+      quote: t("cases.testimonial6.quote"),
+      author: "Eliore Studio",
+      role: "Arquitetura & Engenharia",
+      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      background: casesEliore,
+    },
+    {
+      logo: null,
+      logoText: "LITE TI",
+      quote: t("cases.testimonial7.quote"),
+      author: "Lite TI",
+      role: "Consultoria em TI",
+      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      background: casesLiteti,
+    },
+    {
+      logo: null,
+      logoText: "JOVEM HUB",
+      quote: t("cases.testimonial8.quote"),
+      author: "Jovem Hub",
+      role: "Comunidade & Educação",
+      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      background: casesJovemhub,
+    },
+    {
+      logo: null,
+      logoText: "SCOLTY VISION",
+      quote: t("cases.testimonial9.quote"),
+      author: "Scolty Vision",
+      role: "Produção de Vídeos",
+      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      background: casesScolty,
+    },
+    {
+      logo: null,
+      logoText: "SR. PRIMUS",
+      quote: t("cases.testimonial10.quote"),
+      author: "Sr. Primus",
+      role: "Mentoria em IA",
+      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      background: casesSrprimus,
+    },
+    {
+      logo: null,
+      logoText: "XSCALE AI",
+      quote: t("cases.testimonial11.quote"),
+      author: "XScale AI",
+      role: "Consultoria Estratégica em IA",
+      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      background: casesXscale,
+    },
+    {
+      logo: null,
+      logoText: "RENTFY",
+      quote: t("cases.testimonial12.quote"),
+      author: "RentFy",
+      role: "Plataforma de Gestão de Aluguéis",
+      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      background: casesRentfy,
     },
   ];
 
