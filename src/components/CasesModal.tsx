@@ -214,56 +214,48 @@ function DetailModal({ id, close }: ModalProps) {
   return (
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[200]" />
-      <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ type: 'spring', damping: 30, stiffness: 300 }} className="fixed inset-4 md:inset-10 lg:inset-16 z-[210] flex flex-col md:flex-row bg-[#0D0D0D] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-        <motion.div layoutId={`card-container-${id}`} className="relative w-full md:w-1/2 lg:w-3/5 h-[35vh] md:h-full">
-          <div className="w-full h-full bg-[#0a0a0a] flex items-center justify-center">
-            <motion.img layoutId={`card-image-${id}`} src={project.img} alt={project.title} className="w-full h-full object-contain" />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden" />
-          <button onClick={(e) => { e.stopPropagation(); close(); }} className="md:hidden absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 z-50 active:scale-90 transition-transform">
-            <X className="w-5 h-5" />
-          </button>
+      <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ type: 'spring', damping: 30, stiffness: 300 }} className="fixed inset-4 md:inset-8 lg:inset-12 z-[210] bg-[#0D0D0D] rounded-2xl md:rounded-3xl overflow-y-auto shadow-2xl border border-white/10">
+        <button onClick={close} className="sticky top-4 right-4 ml-auto mr-4 mt-4 z-50 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-white/10 transition-all">
+          <X className="w-5 h-5" />
+        </button>
+        <motion.div layoutId={`card-container-${id}`} className="w-full bg-[#0a0a0a] -mt-14 pt-14">
+          <motion.img layoutId={`card-image-${id}`} src={project.img} alt={project.title} className="w-full h-auto object-contain" />
         </motion.div>
-        <div className="relative w-full md:w-1/2 lg:w-2/5 p-6 md:p-10 lg:p-12 flex flex-col justify-between bg-[#0D0D0D] overflow-y-auto">
-          <button onClick={close} className="hidden md:flex absolute top-6 right-6 w-10 h-10 bg-white/5 rounded-full items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all z-50">
-            <X className="w-5 h-5" />
-          </button>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }} className="flex-1 flex flex-col justify-center">
-            <div className="space-y-4 md:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#f06800]/10 rounded-full border border-[#f06800]/30">
-                <img src={logoEstrela} alt="Cortex" className="w-4 h-4" />
-                <span className="text-xs text-[#f06800] tracking-wider uppercase">{t("casesModal.featured")}</span>
-              </div>
-              <motion.h2 layoutId={`card-title-${id}`} className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-wide">{project.title}</motion.h2>
-              <p className="text-sm md:text-base text-white/50 font-light tracking-wider uppercase">{project.category}</p>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }} className="p-6 md:p-10 lg:p-16 max-w-3xl">
+          <div className="space-y-4 md:space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#f06800]/10 rounded-full border border-[#f06800]/30">
+              <img src={logoEstrela} alt="Cortex" className="w-4 h-4" />
+              <span className="text-xs text-[#f06800] tracking-wider uppercase">{t("casesModal.featured")}</span>
             </div>
-            <p className="mt-6 md:mt-10 text-base md:text-lg text-white/70 leading-relaxed font-light">{t(project.descKey)}</p>
-            <div className="mt-6 md:mt-8">
-              <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">{t("casesModal.services")}</h5>
-              <div className="flex flex-wrap gap-2">
-                {project.services.map((service, idx) => (<span key={idx} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm">{service}</span>))}
-              </div>
+            <motion.h2 layoutId={`card-title-${id}`} className="text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-wide">{project.title}</motion.h2>
+            <p className="text-sm md:text-base text-white/50 font-light tracking-wider uppercase">{project.category}</p>
+          </div>
+          <p className="mt-6 md:mt-10 text-base md:text-lg text-white/70 leading-relaxed font-light">{t(project.descKey)}</p>
+          <div className="mt-6 md:mt-8">
+            <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">{t("casesModal.services")}</h5>
+            <div className="flex flex-wrap gap-2">
+              {project.services.map((service, idx) => (<span key={idx} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-sm">{service}</span>))}
             </div>
-            <div className="mt-6 md:mt-8">
-              <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">{t("casesModal.results")}</h5>
-              <div className="grid grid-cols-1 gap-3">
-                {project.resultKeys.map((key, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-[#141414] border border-white/10">
-                    <div className="w-2 h-2 rounded-full bg-[#f06800]" /><span className="text-white font-medium">{t(key)}</span>
-                  </div>
-                ))}
-              </div>
+          </div>
+          <div className="mt-6 md:mt-8">
+            <h5 className="text-white/40 text-xs uppercase tracking-wider mb-3">{t("casesModal.results")}</h5>
+            <div className="grid grid-cols-1 gap-3">
+              {project.resultKeys.map((key, idx) => (
+                <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-[#141414] border border-white/10">
+                  <div className="w-2 h-2 rounded-full bg-[#f06800]" /><span className="text-white font-medium">{t(key)}</span>
+                </div>
+              ))}
             </div>
-            <div className="mt-6 md:mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
-              <div><span className="text-xs text-white/40 uppercase tracking-wider">{t("casesModal.client")}</span><p className="mt-1 text-white font-medium">{project.client}</p></div>
-              <div><span className="text-xs text-white/40 uppercase tracking-wider">{t("casesModal.year")}</span><p className="mt-1 text-white font-medium">{project.year}</p></div>
-            </div>
-            <a href="#contato" onClick={close} className="mt-8 md:mt-10 inline-flex items-center justify-center gap-3 w-full py-4 bg-[#f06800] text-white font-semibold rounded-full hover:bg-[#f06800]/90 transition-colors group">
-              {t("casesModal.wantResults")}
-              <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
-          </motion.div>
-        </div>
+          </div>
+          <div className="mt-6 md:mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
+            <div><span className="text-xs text-white/40 uppercase tracking-wider">{t("casesModal.client")}</span><p className="mt-1 text-white font-medium">{project.client}</p></div>
+            <div><span className="text-xs text-white/40 uppercase tracking-wider">{t("casesModal.year")}</span><p className="mt-1 text-white font-medium">{project.year}</p></div>
+          </div>
+          <a href="#contato" onClick={close} className="mt-8 md:mt-10 inline-flex items-center justify-center gap-3 w-full py-4 bg-[#f06800] text-white font-semibold rounded-full hover:bg-[#f06800]/90 transition-colors group">
+            {t("casesModal.wantResults")}
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </motion.div>
       </motion.div>
     </>
   );
