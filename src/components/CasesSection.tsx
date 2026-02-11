@@ -9,6 +9,7 @@ import CasesModal from "./CasesModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import luizMilionImage from "@/assets/luiz-milion.png";
 import valentinaAkimeImage from "@/assets/valentina-akime.png";
+import marceloZaparoliImage from "@/assets/marcelo-zaparoli.png";
 
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -80 },
@@ -70,9 +71,9 @@ const CasesSection = () => {
       logo: null,
       logoText: "TUPÃ FC",
       quote: t("cases.testimonial3.quote"),
-      author: "Diretoria Tupã FC",
-      role: "Tupã Futebol Clube",
-      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      author: "Marcelo Zaparoli",
+      role: "CEO — Tupã Futebol Clube",
+      authorImage: marceloZaparoliImage,
       background: casesBackgroundTupa,
     },
     {
