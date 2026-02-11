@@ -101,7 +101,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial5.quote"),
       author: "Kube Projetos",
       role: "Impressão 3D Industrial",
-      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      authorInitial: "K",
       background: casesKube,
     },
     {
@@ -110,7 +110,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial6.quote"),
       author: "Eliore Studio",
       role: "Arquitetura & Engenharia",
-      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      authorInitial: "E",
       background: casesEliore,
     },
     {
@@ -119,7 +119,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial7.quote"),
       author: "Lite TI",
       role: "Consultoria em TI",
-      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      authorInitial: "L",
       background: casesLiteti,
     },
     {
@@ -128,7 +128,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial8.quote"),
       author: "Jovem Hub",
       role: "Comunidade & Educação",
-      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      authorInitial: "J",
       background: casesJovemhub,
     },
     {
@@ -137,7 +137,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial9.quote"),
       author: "Scolty Vision",
       role: "Produção de Vídeos",
-      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      authorInitial: "S",
       background: casesScolty,
     },
     {
@@ -155,7 +155,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial11.quote"),
       author: "XScale AI",
       role: "Consultoria Estratégica em IA",
-      authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
+      authorInitial: "X",
       background: casesXscale,
     },
     {
@@ -164,7 +164,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial12.quote"),
       author: "RentFy",
       role: "Plataforma de Gestão de Aluguéis",
-      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      authorInitial: "R",
       background: casesRentfy,
     },
   ];
@@ -250,8 +250,12 @@ const CasesSection = () => {
                 <p className="text-lg md:text-[18px] leading-relaxed text-white/90 font-light transition-opacity duration-300 tracking-wide">"{currentTestimonial.quote}"</p>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full overflow-hidden">
-                  <img src={currentTestimonial.authorImage} alt={currentTestimonial.author} className="w-full h-full object-cover" />
+                <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-white/10">
+                  {currentTestimonial.authorInitial ? (
+                    <span className="text-white font-bold text-lg">{currentTestimonial.authorInitial}</span>
+                  ) : (
+                    <img src={currentTestimonial.authorImage} alt={currentTestimonial.author} className="w-full h-full object-cover" />
+                  )}
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white font-medium text-sm leading-tight">{currentTestimonial.author}</span>
