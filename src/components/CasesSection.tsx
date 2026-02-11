@@ -20,6 +20,7 @@ import luizMilionImage from "@/assets/luiz-milion.png";
 import valentinaAkimeImage from "@/assets/valentina-akime.png";
 import marceloZaparoliImage from "@/assets/marcelo-zaparoli.png";
 import creditshubAuthorImage from "@/assets/creditshub-author.jpeg";
+import srprimusAuthorImage from "@/assets/srprimus-author.jpeg";
 
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -80 },
@@ -146,7 +147,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial10.quote"),
       author: "Sr. Primus",
       role: "Mentoria em IA",
-      authorImage: "https://framerusercontent.com/images/Ph8T3MKJ0xH6YyaKa6fvuc2hye4.png?width=512&height=669",
+      authorImage: srprimusAuthorImage,
       background: casesSrprimus,
     },
     {
