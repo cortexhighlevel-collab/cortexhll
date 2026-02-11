@@ -6,6 +6,7 @@ import casesBackground from "@/assets/cases-background-blackclub.webp";
 import casesBackground2 from "@/assets/cases-background-valentina.webp";
 import CasesModal from "./CasesModal";
 import { useLanguage } from "@/contexts/LanguageContext";
+import luizMilionImage from "@/assets/luiz-milion.png";
 
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -80 },
@@ -51,7 +52,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial1.quote"),
       author: "Luiz Milion",
       role: "BlackClub",
-      authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
+      authorImage: luizMilionImage,
       background: casesBackground,
     },
     {
