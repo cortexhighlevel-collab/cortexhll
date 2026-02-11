@@ -216,7 +216,9 @@ function DetailModal({ id, close }: ModalProps) {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={close} className="fixed inset-0 bg-black/90 backdrop-blur-xl z-[200]" />
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ type: 'spring', damping: 30, stiffness: 300 }} className="fixed inset-4 md:inset-10 lg:inset-16 z-[210] flex flex-col md:flex-row bg-[#0D0D0D] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/10">
         <motion.div layoutId={`card-container-${id}`} className="relative w-full md:w-1/2 lg:w-3/5 h-[35vh] md:h-full">
-          <motion.img layoutId={`card-image-${id}`} src={project.img} alt={project.title} className="w-full h-full object-cover" />
+          <div className="w-full h-full bg-[#0a0a0a] flex items-center justify-center">
+            <motion.img layoutId={`card-image-${id}`} src={project.img} alt={project.title} className="w-full h-full object-contain" />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden" />
           <button onClick={(e) => { e.stopPropagation(); close(); }} className="md:hidden absolute top-4 right-4 w-10 h-10 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 z-50 active:scale-90 transition-transform">
             <X className="w-5 h-5" />
