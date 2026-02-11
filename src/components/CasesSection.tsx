@@ -46,15 +46,17 @@ const CasesSection = () => {
 
   const testimonials = [
     {
-      logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
+      logo: null,
+      logoText: "BLACKCLUB",
       quote: t("cases.testimonial1.quote"),
-      author: "Marina Costa",
-      role: "CMO @ BlackClub",
+      author: "Luiz Milion",
+      role: "BlackClub",
       authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
       background: casesBackground,
     },
     {
-      logo: "https://framerusercontent.com/images/4wtV8GFtM9cMCc7wLhXjMsg59o.png?width=1820&height=573",
+      logo: null,
+      logoText: "VALENTINA",
       quote: t("cases.testimonial2.quote"),
       author: "Valentina Akime",
       role: "Modelo & Influenciadora",
@@ -128,8 +130,12 @@ const CasesSection = () => {
             <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
             <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-between">
               <div className="flex justify-between items-center">
-                <div className="w-24 opacity-90">
-                  <img src={currentTestimonial.logo} alt="Client Logo" className="w-full h-auto object-contain" />
+                <div className="opacity-90">
+                  {currentTestimonial.logo ? (
+                    <img src={currentTestimonial.logo} alt="Client Logo" className="w-24 h-auto object-contain" />
+                  ) : (
+                    <span className="text-white font-bold text-xl tracking-wider">{currentTestimonial.logoText}</span>
+                  )}
                 </div>
                 <div className="flex gap-3">
                   <button onClick={handlePrev} className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition text-white"><ArrowNavLeft /></button>
