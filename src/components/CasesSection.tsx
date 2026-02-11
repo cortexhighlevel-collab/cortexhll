@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import logoEstrela from "@/assets/logo_estrela.webp";
 import casesBackground from "@/assets/cases-background-blackclub.webp";
 import casesBackground2 from "@/assets/cases-background-valentina.webp";
+import casesBackgroundTupa from "@/assets/cases-background-tupa.png";
 import CasesModal from "./CasesModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import luizMilionImage from "@/assets/luiz-milion.png";
@@ -67,12 +68,12 @@ const CasesSection = () => {
     },
     {
       logo: null,
-      logoText: "STUDIO 3",
+      logoText: "TUPÃ FC",
       quote: t("cases.testimonial3.quote"),
-      author: "Ricardo Mendes",
-      role: "CEO — Studio 3",
+      author: "Diretoria Tupã FC",
+      role: "Tupã Futebol Clube",
       authorImage: "https://framerusercontent.com/images/DHRdJy9IiR2aQoCcMbaxWS1Sbfs.png?width=381&height=301",
-      background: casesBackground,
+      background: casesBackgroundTupa,
     },
     {
       logo: null,
