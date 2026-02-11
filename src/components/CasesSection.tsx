@@ -7,6 +7,7 @@ import casesBackground2 from "@/assets/cases-background-valentina.webp";
 import CasesModal from "./CasesModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import luizMilionImage from "@/assets/luiz-milion.png";
+import valentinaAkimeImage from "@/assets/valentina-akime.png";
 
 const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -80 },
@@ -61,7 +62,7 @@ const CasesSection = () => {
       quote: t("cases.testimonial2.quote"),
       author: "Valentina Akime",
       role: "Modelo & Influenciadora",
-      authorImage: "https://framerusercontent.com/images/wTyKIHPDLvKHIu74YHBt7Hm44A.jpeg?width=200&height=200",
+      authorImage: valentinaAkimeImage,
       background: casesBackground2,
     },
   ];
