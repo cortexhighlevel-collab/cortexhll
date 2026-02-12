@@ -40,26 +40,26 @@ interface MediaItemData {
 }
 
 const columnsData: MediaItemData[][] = [
-  // Column 1 — Cortex (dark/orange) + Blue (AI Comet)
+  // Column 1 — Cortex + Blue
   [
     { type: "image", src: studioCortex01, category: "uiux" },
     { type: "image", src: studioCortex04, category: "uiux" },
     { type: "image", src: studio01, category: "uiux" },
+    { type: "image", src: studio02, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
   ],
-  // Column 2 — Cortex (dark/orange) + Blue (AI Comet)
+  // Column 2 — Cortex + Blue
   [
     { type: "image", src: studioCortex05, category: "uiux" },
     { type: "image", src: studioCortex02, category: "uiux" },
-    { type: "image", src: studio02, category: "uiux" },
     { type: "image", src: studio03, category: "uiux" },
+    { type: "image", src: studio04, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
   ],
   // Column 3 — Cortex + Warm (Houzie)
   [
     { type: "image", src: studioCortex03, category: "uiux" },
     { type: "image", src: studioCortex06, category: "uiux" },
-    { type: "image", src: studio04, category: "uiux" },
     { type: "image", src: studio05, category: "uiux" },
     { type: "image", src: studio06, category: "uiux" },
     { type: "image", src: studio07, category: "uiux" },
