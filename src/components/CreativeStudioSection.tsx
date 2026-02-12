@@ -15,6 +15,10 @@ import studio07 from "@/assets/studio-07.webp";
 import studio08 from "@/assets/studio-08.webp";
 import studio09 from "@/assets/studio-09.webp";
 import studio10 from "@/assets/studio-10.webp";
+import studio11 from "@/assets/studio-11.webp";
+import studio12 from "@/assets/studio-12.webp";
+import studio13 from "@/assets/studio-13.webp";
+import studio14 from "@/assets/studio-14.webp";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -36,23 +40,27 @@ const columnsData: MediaItemData[][] = [
     { type: "image", src: studio02, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
   ],
-  // Column 2 — Blue (AI Comet)
+  // Column 2 — Blue (AI Comet) + Warm (Houzie)
   [
     { type: "image", src: studio03, category: "uiux" },
     { type: "image", src: studio04, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
-  ],
-  // Column 3 — Warm tones (Houzie)
-  [
     { type: "image", src: studio05, category: "uiux" },
+  ],
+  // Column 3 — Warm (Houzie) + Green (PipeClinic)
+  [
     { type: "image", src: studio06, category: "uiux" },
     { type: "image", src: studio07, category: "uiux" },
+    { type: "image", src: studio13, category: "uiux" },
+    { type: "image", src: studio14, category: "uiux" },
   ],
   // Column 4 — Green (PipeClinic)
   [
+    { type: "image", src: studio11, category: "uiux" },
     { type: "image", src: studio08, category: "uiux" },
     { type: "image", src: studio09, category: "motion" },
     { type: "image", src: studio10, category: "uiux" },
+    { type: "image", src: studio12, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
   ],
 ];
