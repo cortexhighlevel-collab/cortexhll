@@ -26,11 +26,11 @@ import studio12 from "@/assets/studio-12.webp";
 import studio13 from "@/assets/studio-13.webp";
 import studio14 from "@/assets/studio-14.webp";
 
-import studioVideo01 from "@/assets/studio-video-01.mp4";
-import studioVideo02 from "@/assets/studio-video-02.mp4";
-import studioVideo03 from "@/assets/studio-video-03.mp4";
-import studioVideo04 from "@/assets/studio-video-04.mp4";
-import studioVideo05 from "@/assets/studio-video-05.mp4";
+import studioVideo01 from "@/assets/studio-video-01.webm";
+import studioVideo02 from "@/assets/studio-video-02.webm";
+import studioVideo03 from "@/assets/studio-video-03.webm";
+import studioVideo04 from "@/assets/studio-video-04.webm";
+import studioVideo05 from "@/assets/studio-video-05.webm";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
