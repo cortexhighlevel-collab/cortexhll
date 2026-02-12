@@ -11,6 +11,10 @@ import studioCortex03 from "@/assets/studio-cortex-03.jpeg";
 import studioCortex04 from "@/assets/studio-cortex-04.jpg";
 import studioCortex05 from "@/assets/studio-cortex-05.jpg";
 import studioCortex06 from "@/assets/studio-cortex-06.jpg";
+import studio01 from "@/assets/studio-01.webp";
+import studio02 from "@/assets/studio-02.webp";
+import studio03 from "@/assets/studio-03.webp";
+import studio04 from "@/assets/studio-04.webp";
 import studio05 from "@/assets/studio-05.webp";
 import studio06 from "@/assets/studio-06.webp";
 import studio07 from "@/assets/studio-07.webp";
@@ -36,22 +40,26 @@ interface MediaItemData {
 }
 
 const columnsData: MediaItemData[][] = [
-  // Column 1 — Cortex (dark/orange)
+  // Column 1 — Cortex (dark/orange) + Blue (AI Comet)
   [
     { type: "image", src: studioCortex01, category: "uiux" },
     { type: "image", src: studioCortex04, category: "uiux" },
+    { type: "image", src: studio01, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
   ],
-  // Column 2 — Cortex (dark/orange)
+  // Column 2 — Cortex (dark/orange) + Blue (AI Comet)
   [
     { type: "image", src: studioCortex05, category: "uiux" },
     { type: "image", src: studioCortex02, category: "uiux" },
-    { type: "image", src: studioCortex03, category: "uiux" },
+    { type: "image", src: studio02, category: "uiux" },
+    { type: "image", src: studio03, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
   ],
-  // Column 3 — Warm (Houzie) + transition
+  // Column 3 — Cortex + Warm (Houzie)
   [
+    { type: "image", src: studioCortex03, category: "uiux" },
     { type: "image", src: studioCortex06, category: "uiux" },
+    { type: "image", src: studio04, category: "uiux" },
     { type: "image", src: studio05, category: "uiux" },
     { type: "image", src: studio06, category: "uiux" },
     { type: "image", src: studio07, category: "uiux" },
