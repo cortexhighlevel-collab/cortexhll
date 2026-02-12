@@ -26,6 +26,12 @@ import studio12 from "@/assets/studio-12.webp";
 import studio13 from "@/assets/studio-13.webp";
 import studio14 from "@/assets/studio-14.webp";
 
+import studioVideo01 from "@/assets/studio-video-01.mp4";
+import studioVideo02 from "@/assets/studio-video-02.mp4";
+import studioVideo03 from "@/assets/studio-video-03.mp4";
+import studioVideo04 from "@/assets/studio-video-04.mp4";
+import studioVideo05 from "@/assets/studio-video-05.mp4";
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.69, ease: "easeOut" } },
@@ -46,7 +52,8 @@ const columnsData: MediaItemData[][] = [
     { type: "image", src: studioCortex04, category: "uiux" },
     { type: "image", src: studio01, category: "uiux" },
     { type: "image", src: studio02, category: "uiux" },
-    { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
+    { type: "video", src: studioVideo01, category: "motion" },
+    { type: "video", src: studioVideo05, category: "motion" },
   ],
   // Column 2 — Cortex + Blue
   [
@@ -54,7 +61,8 @@ const columnsData: MediaItemData[][] = [
     { type: "image", src: studioCortex02, category: "uiux" },
     { type: "image", src: studio03, category: "uiux" },
     { type: "image", src: studio04, category: "uiux" },
-    { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
+    { type: "video", src: studioVideo02, category: "motion" },
+    { type: "video", src: studioVideo03, category: "motion" },
   ],
   // Column 3 — Cortex + Warm (Houzie)
   [
@@ -63,6 +71,7 @@ const columnsData: MediaItemData[][] = [
     { type: "image", src: studio05, category: "uiux" },
     { type: "image", src: studio06, category: "uiux" },
     { type: "image", src: studio07, category: "uiux" },
+    { type: "video", src: studioVideo04, category: "motion" },
   ],
   // Column 4 — Green (PipeClinic)
   [
