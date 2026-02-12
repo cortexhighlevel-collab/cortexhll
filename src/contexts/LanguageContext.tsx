@@ -306,7 +306,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.terms": "Termos",
     "footer.service1": "Inteligência com IA",
     "footer.service2": "CRM & Leads",
-    "footer.service3": "AI Referral Genie™",
+    "footer.service3": "AI Referral Engine™",
     "footer.service4": "Design & Performance",
 
     // Quiz - User Info
@@ -717,7 +717,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.terms": "Terms",
     "footer.service1": "AI Intelligence",
     "footer.service2": "CRM & Leads",
-    "footer.service3": "AI Referral Genie™",
+    "footer.service3": "AI Referral Engine™",
     "footer.service4": "Design & Performance",
 
     // Quiz - User Info
