@@ -30,30 +30,30 @@ interface MediaItemData {
 }
 
 const columnsData: MediaItemData[][] = [
-  // Column 1
+  // Column 1 — Blue (AI Comet)
   [
     { type: "image", src: studio01, category: "uiux" },
-    { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
     { type: "image", src: studio02, category: "uiux" },
+    { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
   ],
-  // Column 2
+  // Column 2 — Blue (AI Comet)
   [
     { type: "image", src: studio03, category: "uiux" },
-    { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
     { type: "image", src: studio04, category: "uiux" },
-    { type: "image", src: studio05, category: "uiux" },
+    { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
   ],
-  // Column 3
+  // Column 3 — Warm tones (Houzie)
   [
+    { type: "image", src: studio05, category: "uiux" },
     { type: "image", src: studio06, category: "uiux" },
-    { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
     { type: "image", src: studio07, category: "uiux" },
   ],
-  // Column 4
+  // Column 4 — Green (PipeClinic)
   [
     { type: "image", src: studio08, category: "uiux" },
     { type: "image", src: studio09, category: "motion" },
     { type: "image", src: studio10, category: "uiux" },
+    { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
   ],
 ];
 
