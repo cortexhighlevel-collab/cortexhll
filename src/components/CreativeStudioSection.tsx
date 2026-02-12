@@ -104,7 +104,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
     viewport={{ once: false, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className="group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu"
+    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-[3/4]" : ""}`}
   >
     {item.type === "video" ? (
       <video
@@ -113,7 +113,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
         loop
         muted
         playsInline
-        className="w-full h-auto object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
+        className="absolute inset-0 w-full h-full object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
       />
     ) : (
       <img
@@ -229,10 +229,10 @@ const CreativeStudioSection = () => {
         </motion.div>
 
         {/* Masonry Grid - 2 cols mobile, 4 cols desktop */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 w-full auto-rows-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full auto-rows-auto">
           <AnimatePresence mode="popLayout">
             {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex flex-col gap-2 sm:gap-2.5 min-w-0">
+              <div key={colIndex} className="flex flex-col gap-3 sm:gap-4 min-w-0">
                 {column.map((item, itemIndex) => (
                   <MediaItem key={`${activeFilter}-${colIndex}-${itemIndex}`} item={item} index={colIndex + itemIndex * 2} />
                 ))}
