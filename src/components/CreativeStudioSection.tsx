@@ -93,7 +93,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
     viewport={{ once: false, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-video" : ""}`}
+    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-video" : "aspect-[3/4]"}`}
   >
     {item.type === "video" ? (
       <video
@@ -109,7 +109,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
         src={item.src}
         alt=""
         loading="lazy"
-        className="w-full h-auto object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
+        className="absolute inset-0 w-full h-full object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
       />
     )}
     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/45 opacity-0 transition-opacity duration-[420ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 pointer-events-none" />
