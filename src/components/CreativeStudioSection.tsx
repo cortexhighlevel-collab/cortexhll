@@ -74,13 +74,13 @@ const gridItems: MediaItemData[] = [
   { type: "image", src: studio04, category: "uiux" },
   { type: "image", src: studio06, category: "uiux" },
   { type: "image", src: studio09, category: "motion" },
-  // Row 7: 1 video span 2 + 2 images
-  { type: "video", src: studioVideo05, category: "motion", span: 2 },
+  // Row 7: 4 images
   { type: "image", src: studio07, category: "uiux" },
   { type: "image", src: studio10, category: "uiux" },
-  // Row 8: remaining
   { type: "image", src: studio14, category: "uiux" },
   { type: "image", src: studio12, category: "uiux" },
+  // Row 8: 2 videos spanning 2 cols each
+  { type: "video", src: studioVideo05, category: "motion", span: 2 },
   { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion", span: 2 },
 ];
 
