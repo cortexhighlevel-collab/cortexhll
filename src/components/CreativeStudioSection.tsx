@@ -5,6 +5,17 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import CTAButton from "@/components/CTAButton";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+import studio01 from "@/assets/studio-01.webp";
+import studio02 from "@/assets/studio-02.webp";
+import studio03 from "@/assets/studio-03.webp";
+import studio04 from "@/assets/studio-04.webp";
+import studio05 from "@/assets/studio-05.webp";
+import studio06 from "@/assets/studio-06.webp";
+import studio07 from "@/assets/studio-07.webp";
+import studio08 from "@/assets/studio-08.webp";
+import studio09 from "@/assets/studio-09.webp";
+import studio10 from "@/assets/studio-10.webp";
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.69, ease: "easeOut" } },
@@ -21,29 +32,28 @@ interface MediaItemData {
 const columnsData: MediaItemData[][] = [
   // Column 1
   [
-    { type: "image", src: "https://framerusercontent.com/images/MYA3NSlJ1OHKHWRfG7JD8KZQqM.jpg?width=1200&height=1200", category: "uiux" },
+    { type: "image", src: studio01, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/DzVq1DOIhaPOvrEffNwhytOlZo.mp4", category: "motion" },
-    { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
-    { type: "image", src: "https://framerusercontent.com/images/wFWbCdGaeADzLFVqtkI4OruEZwY.jpg?width=736&height=976", category: "uiux" },
+    { type: "image", src: studio02, category: "uiux" },
   ],
   // Column 2
   [
-    { type: "image", src: "https://framerusercontent.com/images/SOn8NLbtWMVUYycYwmdHWaspbo.jpg?width=736&height=981", category: "uiux" },
+    { type: "image", src: studio03, category: "uiux" },
     { type: "video", src: "https://framerusercontent.com/assets/ULUP3WoAdRgBzSNR8jCf8sZL0Lk.mp4", category: "motion" },
-    { type: "image", src: "https://framerusercontent.com/images/644Vl1YBiMs9zHomUwKPTJH4w.jpg?width=736&height=894", category: "uiux" },
-    { type: "image", src: "https://framerusercontent.com/images/Q3N0rdGxebbQfpELTbYO9qVbzA.jpg?width=1080&height=1350", category: "uiux" },
+    { type: "image", src: studio04, category: "uiux" },
+    { type: "image", src: studio05, category: "uiux" },
   ],
   // Column 3
   [
-    { type: "image", src: "https://framerusercontent.com/images/RiP7wUAIv97LXPq9l3AtDnzI.jpg?width=1200&height=1799", category: "uiux" },
-    { type: "image", src: "https://framerusercontent.com/images/yMVImAhtIOTHkwoL94xH1sCbskE.jpg?width=709&height=829", category: "motion" },
-    { type: "image", src: "https://framerusercontent.com/images/FJAZ9aQdGTJrYSypOQJTCCc3eA.jpg?width=593&height=758", category: "uiux" },
+    { type: "image", src: studio06, category: "uiux" },
+    { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
+    { type: "image", src: studio07, category: "uiux" },
   ],
   // Column 4
   [
-    { type: "image", src: "https://framerusercontent.com/images/wwrQeEg2zOC7BRjcGKCLmwIATww.jpg?width=960&height=1200", category: "motion" },
-    { type: "image", src: "https://framerusercontent.com/images/D4jLtTlQV72gcoOmmPs4GNuOZo.jpg?width=736&height=1104", category: "uiux" },
-    { type: "image", src: "https://framerusercontent.com/images/Zaw0BeVZq8vPmwMG4ds4HKU3xYM.jpg?width=1000&height=1333", category: "uiux" },
+    { type: "image", src: studio08, category: "uiux" },
+    { type: "image", src: studio09, category: "motion" },
+    { type: "image", src: studio10, category: "uiux" },
   ],
 ];
 
