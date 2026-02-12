@@ -43,57 +43,46 @@ interface MediaItemData {
   type: "image" | "video";
   src: string;
   category: Category;
+  span?: 2; // videos can span 2 columns
 }
 
-const columnsData: MediaItemData[][] = [
-  // Column 1 — Cortex + Blue
-  [
-    { type: "image", src: studioCortex01, category: "uiux" },
-    { type: "image", src: studioCortex04, category: "uiux" },
-    { type: "image", src: studio01, category: "uiux" },
-    { type: "image", src: studio02, category: "uiux" },
-    { type: "video", src: studioVideo01, category: "motion" },
-    { type: "video", src: studioVideo05, category: "motion" },
-  ],
-  // Column 2 — Cortex + Blue
-  [
-    { type: "image", src: studioCortex05, category: "uiux" },
-    { type: "image", src: studioCortex02, category: "uiux" },
-    { type: "image", src: studio03, category: "uiux" },
-    { type: "image", src: studio04, category: "uiux" },
-    { type: "video", src: studioVideo02, category: "motion" },
-    { type: "video", src: studioVideo03, category: "motion" },
-  ],
-  // Column 3 — Cortex + Warm (Houzie)
-  [
-    { type: "image", src: studioCortex03, category: "uiux" },
-    { type: "image", src: studioCortex06, category: "uiux" },
-    { type: "image", src: studio05, category: "uiux" },
-    { type: "image", src: studio06, category: "uiux" },
-    { type: "image", src: studio07, category: "uiux" },
-    { type: "video", src: studioVideo04, category: "motion" },
-  ],
-  // Column 4 — Green (PipeClinic)
-  [
-    { type: "image", src: studio11, category: "uiux" },
-    { type: "image", src: studio08, category: "uiux" },
-    { type: "image", src: studio13, category: "uiux" },
-    { type: "image", src: studio09, category: "motion" },
-    { type: "image", src: studio10, category: "uiux" },
-    { type: "image", src: studio14, category: "uiux" },
-    { type: "image", src: studio12, category: "uiux" },
-    { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion" },
-  ],
+// Flat grid items — videos span 2 columns for visual impact
+const gridItems: MediaItemData[] = [
+  // Row 1: 4 images
+  { type: "image", src: studioCortex01, category: "uiux" },
+  { type: "image", src: studioCortex05, category: "uiux" },
+  { type: "image", src: studioCortex03, category: "uiux" },
+  { type: "image", src: studio11, category: "uiux" },
+  // Row 2: 4 images
+  { type: "image", src: studioCortex04, category: "uiux" },
+  { type: "image", src: studioCortex02, category: "uiux" },
+  { type: "image", src: studioCortex06, category: "uiux" },
+  { type: "image", src: studio08, category: "uiux" },
+  // Row 3: 2 videos spanning 2 cols each
+  { type: "video", src: studioVideo01, category: "motion", span: 2 },
+  { type: "video", src: studioVideo02, category: "motion", span: 2 },
+  // Row 4: 4 images (blue)
+  { type: "image", src: studio01, category: "uiux" },
+  { type: "image", src: studio03, category: "uiux" },
+  { type: "image", src: studio05, category: "uiux" },
+  { type: "image", src: studio13, category: "uiux" },
+  // Row 5: 2 videos spanning 2 cols each
+  { type: "video", src: studioVideo03, category: "motion", span: 2 },
+  { type: "video", src: studioVideo04, category: "motion", span: 2 },
+  // Row 6: 4 images
+  { type: "image", src: studio02, category: "uiux" },
+  { type: "image", src: studio04, category: "uiux" },
+  { type: "image", src: studio06, category: "uiux" },
+  { type: "image", src: studio09, category: "motion" },
+  // Row 7: 1 video span 2 + 2 images
+  { type: "video", src: studioVideo05, category: "motion", span: 2 },
+  { type: "image", src: studio07, category: "uiux" },
+  { type: "image", src: studio10, category: "uiux" },
+  // Row 8: remaining
+  { type: "image", src: studio14, category: "uiux" },
+  { type: "image", src: studio12, category: "uiux" },
+  { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion", span: 2 },
 ];
-
-// Flatten for filtering and mobile
-const allMedia = columnsData.flat();
-
-function toColumns(items: MediaItemData[], cols: number): MediaItemData[][] {
-  const columns: MediaItemData[][] = Array.from({ length: cols }, () => []);
-  items.forEach((item, i) => columns[i % cols].push(item));
-  return columns;
-}
 
 const MOBILE_INITIAL_ITEMS = 4;
 
@@ -104,7 +93,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
     viewport={{ once: false, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-[3/4]" : ""}`}
+    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-video" : ""}`}
   >
     {item.type === "video" ? (
       <video
@@ -140,18 +129,13 @@ const CreativeStudioSection = () => {
     { key: "motion", labelKey: "creative.filter.motion" },
   ];
 
-  const filtered = activeFilter === "all" ? allMedia : allMedia.filter(m => m.category === activeFilter);
+  const filtered = activeFilter === "all" ? gridItems : gridItems.filter(m => m.category === activeFilter);
 
-  // On mobile: 2-column grid with limited items, show more on click
+  // On mobile: flat grid with limited items, show more on click
   const mobileItems = showAll ? filtered : filtered.slice(0, MOBILE_INITIAL_ITEMS);
   const hasMore = filtered.length > MOBILE_INITIAL_ITEMS;
 
-  // Desktop: use fixed columns; when filtered, redistribute. Mobile: always redistribute into 2 cols.
-  const columns = isMobile
-    ? toColumns(mobileItems, 2)
-    : activeFilter === "all"
-      ? columnsData
-      : toColumns(filtered, 4);
+  const displayItems = isMobile ? mobileItems : filtered;
   const activeLabel = filters.find(f => f.key === activeFilter)!;
 
   return (
@@ -228,14 +212,12 @@ const CreativeStudioSection = () => {
           </div>
         </motion.div>
 
-        {/* Masonry Grid - 2 cols mobile, 4 cols desktop */}
+        {/* Grid - 2 cols mobile, 4 cols desktop; videos span 2 cols */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full auto-rows-auto">
           <AnimatePresence mode="popLayout">
-            {columns.map((column, colIndex) => (
-              <div key={colIndex} className="flex flex-col gap-3 sm:gap-4 min-w-0">
-                {column.map((item, itemIndex) => (
-                  <MediaItem key={`${activeFilter}-${colIndex}-${itemIndex}`} item={item} index={colIndex + itemIndex * 2} />
-                ))}
+            {displayItems.map((item, index) => (
+              <div key={`${activeFilter}-${index}`} className={item.span === 2 ? "col-span-2" : ""}>
+                <MediaItem item={item} index={index} />
               </div>
             ))}
           </AnimatePresence>
