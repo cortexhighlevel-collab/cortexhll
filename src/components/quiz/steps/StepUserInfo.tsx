@@ -78,9 +78,10 @@ export function StepUserInfo() {
             <Input
               type="text"
               value={state.name}
-              onChange={(e) => setFormField('name', e.target.value)}
+              onChange={(e) => setFormField('name', e.target.value.replace(/[<>{}]/g, ''))}
               placeholder={t('quiz.userInfo.namePlaceholder')}
               className="pl-10 h-11"
+              maxLength={100}
             />
           </div>
         </motion.div>
@@ -96,13 +97,14 @@ export function StepUserInfo() {
           </label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-            <Input
-              type="email"
-              value={state.email}
-              onChange={handleEmailChange}
-              placeholder={t('quiz.userInfo.emailPlaceholder')}
-              className={`pl-10 h-11 ${emailError ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
-            />
+              <Input
+                type="email"
+                value={state.email}
+                onChange={handleEmailChange}
+                placeholder={t('quiz.userInfo.emailPlaceholder')}
+                className={`pl-10 h-11 ${emailError ? 'border-red-500 focus-visible:ring-red-500' : ''}`}
+                maxLength={255}
+              />
           </div>
           {emailError && (
             <p className="text-xs text-red-500 mt-1">{emailError}</p>
@@ -145,9 +147,10 @@ export function StepUserInfo() {
               <Input
                 type="text"
                 value={state.company}
-                onChange={(e) => setFormField('company', e.target.value)}
+                onChange={(e) => setFormField('company', e.target.value.replace(/[<>{}]/g, ''))}
                 placeholder={t('quiz.userInfo.companyPlaceholder')}
                 className="pl-9 md:pl-10 h-11 text-sm"
+                maxLength={100}
               />
             </div>
           </motion.div>

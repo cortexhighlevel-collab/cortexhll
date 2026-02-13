@@ -61,7 +61,7 @@ export function StepFinalForm() {
           <MessageSquare className="absolute left-3 top-2.5 w-4 h-4 text-muted-foreground" />
           <Textarea
             value={state.message}
-            onChange={(e) => setFormField('message', e.target.value)}
+            onChange={(e) => setFormField('message', e.target.value.replace(/[<>]/g, ''))}
             placeholder={t('quiz.final.messagePlaceholder')}
             className="pl-9 min-h-[60px] resize-none text-sm"
             maxLength={500}
