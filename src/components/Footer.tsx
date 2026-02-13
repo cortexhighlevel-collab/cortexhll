@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const socialLinks = [
   { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/5547997422069" },
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com/cortex" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/cortexhighlevel/" },
   { icon: Mail, label: "E-mail", href: "mailto:contacto@cortex.com" },
 ];
 
