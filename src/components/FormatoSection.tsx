@@ -87,7 +87,7 @@ const FormatoSection = () => {
     subtitle: t("services.referral.subtitle"),
     items: ["Referral Engine", "Growth Hacking", "Automação de Indicações", "Rewards System"],
     imageUrl: aiReferenceEngineImage,
-    link: "",
+    link: "https://aeo.cortexhl.com/",
     learnMore: t("services.learnMore")
   }, {
     tag: "DESIGN & PERFORMANCE",
