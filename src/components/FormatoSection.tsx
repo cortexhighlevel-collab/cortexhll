@@ -95,7 +95,7 @@ const FormatoSection = () => {
     subtitle: t("services.design.subtitle"),
     items: ["UI/UX & Web Design", "Motion Design", "Landing Pages", "Sites Premium", "Tráfego Pago", "SEO Avançado"],
     imageUrl: designPerformanceImage,
-    link: "",
+    link: "https://link.cortexhl.com/",
     learnMore: t("services.learnMore")
   }];
 
