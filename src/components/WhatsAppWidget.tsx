@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const WHATSAPP_LINK = "https://wa.me/5547974220069";
+const WHATSAPP_LINK = "https://wa.me/5547997422069";
 
 const WhatsAppWidget = () => {
   const [tooltipVisible, setTooltipVisible] = useState(false);

@@ -3,7 +3,7 @@ import logoImage from "@/assets/logo-cortex-branco.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const socialLinks = [
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/5547974220069" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/5547997422069" },
   { icon: Instagram, label: "Instagram", href: "https://instagram.com/cortex" },
   { icon: Mail, label: "E-mail", href: "mailto:contacto@cortex.com" },
 ];
