@@ -12,6 +12,7 @@ import TeamMemberSection from "@/components/TeamMemberSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import FAQSection from "@/components/FAQSection";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const Index = () => {
   return (
@@ -57,6 +58,7 @@ const Index = () => {
       
        {/* Seção 14: Footer */}
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 };

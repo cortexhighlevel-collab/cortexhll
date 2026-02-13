@@ -348,4 +348,4 @@ export const getAddonsByCategory = (category: string) =>
   Object.values(ADDONS).filter(addon => addon.category === category);
 
 // WhatsApp number
-export const WHATSAPP_NUMBER = '5547996067992';
+export const WHATSAPP_NUMBER = '5547974220069';
