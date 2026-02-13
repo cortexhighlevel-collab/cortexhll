@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MessageCircle, Instagram, Mail } from "lucide-react";
 import logoImage from "@/assets/logo-cortex-branco.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -84,8 +85,8 @@ const Footer = () => {
             {t("footer.copyright").replace("{year}", new Date().getFullYear().toString())}
           </p>
           <div className="flex items-center gap-5">
-            <a href="#" className="text-white/30 hover:text-white text-xs md:text-sm transition-colors font-light">{t("footer.privacy")}</a>
-            <a href="#" className="text-white/30 hover:text-white text-xs md:text-sm transition-colors font-light">{t("footer.terms")}</a>
+            <Link to="/politica-de-privacidade" className="text-white/30 hover:text-white text-xs md:text-sm transition-colors font-light">{t("footer.privacy")}</Link>
+            <Link to="/termos-de-uso" className="text-white/30 hover:text-white text-xs md:text-sm transition-colors font-light">{t("footer.terms")}</Link>
           </div>
         </div>
       </div>
