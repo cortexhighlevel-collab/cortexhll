@@ -23,7 +23,7 @@ const DNASection = () => {
   return <section className="w-full py-16 md:py-24 px-4 md:px-8 font-dm light-dotted-fade-in">
       <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center relative z-10" style={{ gap: '48px' }}>
         
-        <motion.div className="flex flex-col items-center justify-center w-full" style={{ gap: '24px' }} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} variants={blurFade}>
+        <motion.div className="flex flex-col items-center justify-center w-full" style={{ gap: '24px' }} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={blurFade}>
           <div className="px-5 py-2 rounded-full flex items-center justify-center" style={{
             background: 'rgba(200, 200, 200, 0.3)', backdropFilter: 'blur(10px)',
             border: '1px solid rgba(150, 150, 150, 0.3)', boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 8px 0px inset'
@@ -36,7 +36,7 @@ const DNASection = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-center font-medium text-[#1f1f1f] leading-tight">{t("dna.title")}</h2>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full" style={{ gridTemplateRows: 'auto auto' }} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={staggerGrid}>
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full" style={{ gridTemplateRows: 'auto auto' }} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerGrid}>
           
           {/* Card 1 - Exclusividade */}
           <motion.div className="group relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" style={{

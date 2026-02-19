@@ -64,7 +64,7 @@ const TeamMemberSection = () => {
 
   return <section id="equipe" className="w-full py-16 md:py-24 px-5 md:px-12 font-dm light-dotted-bg">
       <div className="max-w-[1400px] mx-auto relative z-10">
-        <motion.div className="text-center mb-12" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} variants={fadeUp}>
+        <motion.div className="text-center mb-12" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={fadeUp}>
           <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
             {t("team.badge")}
           </span>
@@ -77,7 +77,7 @@ const TeamMemberSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 min-h-[500px]">
-          <motion.div className="flex flex-col justify-between py-4" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={rotateIn}>
+          <motion.div className="flex flex-col justify-between py-4" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={rotateIn}>
             <div className="mb-8">
               <img src={logoEstrela} alt="" className="w-14 h-14 object-contain" />
             </div>
@@ -100,7 +100,7 @@ const TeamMemberSection = () => {
             </div>
           </motion.div>
 
-          <motion.div className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden border border-foreground/20" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={scaleRotate}>
+          <motion.div className="relative h-[450px] lg:h-auto rounded-3xl overflow-hidden border border-foreground/20" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={scaleRotate}>
             {teamMembers.map((member, i) => (
               <img key={i} src={member.image} alt={member.name} className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${i === currentIndex ? 'opacity-100' : 'opacity-0'}`} />
             ))}

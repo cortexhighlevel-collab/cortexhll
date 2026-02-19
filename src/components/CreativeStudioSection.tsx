@@ -90,7 +90,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
   <motion.div
     initial={{ opacity: 0, y: 30, scale: 0.92 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
-    viewport={{ once: false, amount: 0.15 }}
+    viewport={{ once: true, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
     className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-video" : "aspect-[3/4]"}`}
@@ -102,6 +102,7 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
         loop
         muted
         playsInline
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
       />
     ) : (
@@ -164,7 +165,7 @@ const CreativeStudioSection = () => {
           className="mb-8 md:mb-16"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           variants={fadeUp}
         >
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">

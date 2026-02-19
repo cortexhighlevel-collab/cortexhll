@@ -20,7 +20,7 @@ const MetodologiaSection = () => {
 
   return <section id="metodologia" className="w-full px-5 md:px-12 py-10 rounded-b-[40px] font-dm">
       <div className="max-w-[1200px] mx-auto">
-        <motion.div className="card-radius p-4 md:p-6 lg:p-8" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={staggerContainer}>
+        <motion.div className="card-radius p-4 md:p-6 lg:p-8" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerContainer}>
           <motion.div className="mb-5 md:mb-8" variants={fadeUp}>
             <motion.h2 className="text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight font-medium" variants={fadeUp}>
               {t("metodo.title")}
@@ -37,6 +37,7 @@ const MetodologiaSection = () => {
               loop
               muted
               playsInline
+              preload="none"
               className="w-full h-full object-cover block md:h-auto md:object-fill"
               style={{ playbackRate: 0.8 } as any}
               ref={(el) => { if (el) el.playbackRate = 0.8; }}

@@ -191,7 +191,7 @@ const CasesSection = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col gap-16 md:gap-32 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-          <motion.div className="flex flex-col gap-8 max-w-xl" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} variants={slideFromLeft}>
+          <motion.div className="flex flex-col gap-8 max-w-xl" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideFromLeft}>
             <h2 className="text-5xl md:text-7xl font-medium leading-[1.0] tracking-tight text-[#F2F2F2]">
               {t("cases.title")}
             </h2>
@@ -200,7 +200,7 @@ const CasesSection = () => {
             </button>
           </motion.div>
 
-          <motion.div className="flex flex-col gap-6 items-end w-full md:w-auto" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} variants={slideFromRight}>
+          <motion.div className="flex flex-col gap-6 items-end w-full md:w-auto" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={slideFromRight}>
             <p className="text-xl md:text-2xl text-[#C9C9C9] text-right max-w-md leading-relaxed font-light">
               {t("cases.description")}
             </p>
@@ -222,7 +222,7 @@ const CasesSection = () => {
         </div>
 
         {/* Testimonial Card */}
-        <motion.div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black border border-white/40" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={scaleUp}>
+        <motion.div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black border border-white/40" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={scaleUp}>
           {testimonials.map((testi, i) => (
             <link key={i} rel="preload" as="image" href={testi.background} />
           ))}
@@ -273,7 +273,7 @@ const CasesSection = () => {
         </motion.div>
 
         {/* Stats */}
-        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-3" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={staggerStats}>
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-3" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerStats}>
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
