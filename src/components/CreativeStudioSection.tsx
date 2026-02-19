@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, type Variants, AnimatePresence } from "framer-motion";
-import { Sparkles, ChevronDown, Plus } from "lucide-react";
+import { ChevronDown, Plus } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import CTAButton from "@/components/CTAButton";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -43,48 +43,79 @@ interface MediaItemData {
   type: "image" | "video";
   src: string;
   category: Category;
-  span?: 2; // videos can span 2 columns
+  span?: 2;
 }
 
-// Flat grid items — videos span 2 columns for visual impact
 const gridItems: MediaItemData[] = [
-  // Row 1: 4 images
   { type: "image", src: studioCortex01, category: "uiux" },
   { type: "image", src: studioCortex05, category: "uiux" },
   { type: "image", src: studioCortex03, category: "uiux" },
   { type: "image", src: studio11, category: "uiux" },
-  // Row 2: 4 images
   { type: "image", src: studioCortex04, category: "uiux" },
   { type: "image", src: studioCortex02, category: "uiux" },
   { type: "image", src: studioCortex06, category: "uiux" },
   { type: "image", src: studio08, category: "uiux" },
-  // Row 3: 2 videos spanning 2 cols each
   { type: "video", src: studioVideo01, category: "motion", span: 2 },
   { type: "video", src: studioVideo02, category: "motion", span: 2 },
-  // Row 4: 4 images (blue)
   { type: "image", src: studio01, category: "uiux" },
   { type: "image", src: studio03, category: "uiux" },
   { type: "image", src: studio05, category: "uiux" },
   { type: "image", src: studio13, category: "uiux" },
-  // Row 5: 2 videos spanning 2 cols each
   { type: "video", src: studioVideo03, category: "motion", span: 2 },
   { type: "video", src: studioVideo04, category: "motion", span: 2 },
-  // Row 6: 4 images
   { type: "image", src: studio02, category: "uiux" },
   { type: "image", src: studio04, category: "uiux" },
   { type: "image", src: studio06, category: "uiux" },
   { type: "image", src: studio09, category: "motion" },
-  // Row 7: 4 images
   { type: "image", src: studio07, category: "uiux" },
   { type: "image", src: studio10, category: "uiux" },
   { type: "image", src: studio14, category: "uiux" },
   { type: "image", src: studio12, category: "uiux" },
-  // Row 8: 2 videos spanning 2 cols each
   { type: "video", src: studioVideo05, category: "motion", span: 2 },
   { type: "video", src: "https://framerusercontent.com/assets/PLBLmxyZt7f4zxfhneunbFq13AQ.mp4", category: "motion", span: 2 },
 ];
 
 const MOBILE_INITIAL_ITEMS = 4;
+
+/** Video that only loads & plays when visible in viewport */
+const LazyVideo = ({ src }: { src: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="absolute inset-0 w-full h-full">
+      {isVisible && (
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          className="absolute inset-0 w-full h-full object-cover block"
+        />
+      )}
+    </div>
+  );
+};
 
 const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
   <motion.div
@@ -93,27 +124,18 @@ const MediaItem = ({ item, index }: { item: MediaItemData; index: number }) => (
     viewport={{ once: true, amount: 0.15 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer transform-gpu ${item.type === "video" ? "aspect-video" : "aspect-[3/4]"}`}
+    className={`group relative w-full overflow-hidden rounded-lg sm:rounded-2xl cursor-pointer ${item.type === "video" ? "aspect-video" : "aspect-[3/4]"}`}
   >
     {item.type === "video" ? (
-      <video
-        src={item.src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="none"
-        className="absolute inset-0 w-full h-full object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
-      />
+      <LazyVideo src={item.src} />
     ) : (
       <img
         src={item.src}
         alt=""
         loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover block transform transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-105 will-change-transform"
+        className="absolute inset-0 w-full h-full object-cover block"
       />
     )}
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/45 opacity-0 transition-opacity duration-[420ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:opacity-100 pointer-events-none" />
   </motion.div>
 );
 
@@ -131,11 +153,8 @@ const CreativeStudioSection = () => {
   ];
 
   const filtered = activeFilter === "all" ? gridItems : gridItems.filter(m => m.category === activeFilter);
-
-  // On mobile: flat grid with limited items, show more on click
   const mobileItems = showAll ? filtered : filtered.slice(0, MOBILE_INITIAL_ITEMS);
   const hasMore = filtered.length > MOBILE_INITIAL_ITEMS;
-
   const displayItems = isMobile ? mobileItems : filtered;
   const activeLabel = filters.find(f => f.key === activeFilter)!;
 
@@ -144,7 +163,6 @@ const CreativeStudioSection = () => {
       className="w-full px-5 md:px-12 py-20 md:py-28 font-dm relative overflow-hidden"
       style={{ background: "#0D0D0D" }}
     >
-      {/* Dotted background pattern */}
       <div
         className="absolute inset-0 opacity-[0.35]"
         style={{
@@ -152,15 +170,12 @@ const CreativeStudioSection = () => {
           backgroundSize: "30px 30px",
         }}
       />
-
-      {/* Subtle orange glow */}
       <div
         className="absolute top-0 left-1/3 w-[700px] h-[700px] rounded-full opacity-[0.04]"
         style={{ background: "radial-gradient(circle, #f06800, transparent 70%)" }}
       />
 
       <div className="max-w-[1200px] mx-auto relative z-10">
-        {/* Header */}
         <motion.div
           className="mb-8 md:mb-16"
           initial="hidden"
@@ -181,19 +196,16 @@ const CreativeStudioSection = () => {
               </p>
             </div>
 
-            {/* Filter Dropdown */}
             <div className="relative">
               <button
                 onClick={() => setFilterOpen(!filterOpen)}
-                className="w-[200px] px-5 py-3 rounded-xl bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] flex justify-between items-center text-white font-medium text-[14px] tracking-[-0.01em] hover:bg-white/[0.1] transition-colors duration-300"
+                className="w-[200px] px-5 py-3 rounded-xl bg-white/[0.06] border border-white/[0.1] flex justify-between items-center text-white font-medium text-[14px] tracking-[-0.01em] hover:bg-white/[0.1] transition-colors duration-300"
               >
                 <span>{t(activeLabel.labelKey)}</span>
-                <ChevronDown
-                  className={`w-4 h-4 text-white/50 transition-transform duration-300 ${filterOpen ? "rotate-180" : ""}`}
-                />
+                <ChevronDown className={`w-4 h-4 text-white/50 transition-transform duration-300 ${filterOpen ? "rotate-180" : ""}`} />
               </button>
               {filterOpen && (
-                <div className="absolute top-full right-0 mt-2 w-[200px] rounded-xl bg-[#1a1a1a]/90 backdrop-blur-md border border-white/[0.1] overflow-hidden z-50 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+                <div className="absolute top-full right-0 mt-2 w-[200px] rounded-xl bg-[#1a1a1a]/90 border border-white/[0.1] overflow-hidden z-50 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
                   {filters.map(f => (
                     <button
                       key={f.key}
@@ -213,7 +225,6 @@ const CreativeStudioSection = () => {
           </div>
         </motion.div>
 
-        {/* Grid - 2 cols mobile, 4 cols desktop; videos span 2 cols */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full auto-rows-auto">
           <AnimatePresence mode="popLayout">
             {displayItems.map((item, index) => (
@@ -224,7 +235,6 @@ const CreativeStudioSection = () => {
           </AnimatePresence>
         </div>
 
-        {/* "Ver mais" button - mobile only */}
         {isMobile && hasMore && !showAll && (
           <motion.div
             className="mt-6 flex justify-center"
@@ -234,7 +244,7 @@ const CreativeStudioSection = () => {
           >
             <button
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] text-white/70 text-sm font-medium hover:bg-white/[0.1] hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] border border-white/[0.1] text-white/70 text-sm font-medium hover:bg-white/[0.1] hover:text-white transition-all duration-300"
             >
               <Plus className="w-4 h-4" />
               {t("creative.showMore")}
@@ -242,12 +252,11 @@ const CreativeStudioSection = () => {
           </motion.div>
         )}
 
-        {/* Bottom CTA */}
         <motion.div
           className="mt-14 text-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           variants={fadeUp}
         >
           <CTAButton href="#contato">{t("creative.cta")}</CTAButton>

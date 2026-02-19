@@ -60,114 +60,18 @@ const CasesSection = () => {
   const { t } = useLanguage();
 
   const testimonials = [
-    {
-      logo: null,
-      logoText: "BLACKCLUB",
-      quote: t("cases.testimonial1.quote"),
-      author: "Luiz Milion",
-      role: "BlackClub",
-      authorImage: luizMilionImage,
-      background: casesBackground,
-    },
-    {
-      logo: null,
-      logoText: "VALENTINA",
-      quote: t("cases.testimonial2.quote"),
-      author: "Valentina Akime",
-      role: "Modelo & Influenciadora",
-      authorImage: valentinaAkimeImage,
-      background: casesBackground2,
-    },
-    {
-      logo: null,
-      logoText: "TUPÃ FC",
-      quote: t("cases.testimonial3.quote"),
-      author: "Marcelo Zaparoli",
-      role: "CEO — Tupã Futebol Clube",
-      authorImage: marceloZaparoliImage,
-      background: casesBackgroundTupa,
-    },
-    {
-      logo: null,
-      logoText: "CREDITS HUB",
-      quote: t("cases.testimonial4.quote"),
-      author: "Credits Hub",
-      role: "Plataforma SaaS",
-      authorImage: creditshubAuthorImage,
-      background: casesCreditshub,
-    },
-    {
-      logo: null,
-      logoText: "KUBE",
-      quote: t("cases.testimonial5.quote"),
-      author: "Kube Projetos",
-      role: "Impressão 3D Industrial",
-      authorInitial: "K",
-      background: casesKube,
-    },
-    {
-      logo: null,
-      logoText: "ELIORE STUDIO",
-      quote: t("cases.testimonial6.quote"),
-      author: "Eliore Studio",
-      role: "Arquitetura & Engenharia",
-      authorInitial: "E",
-      background: casesEliore,
-    },
-    {
-      logo: null,
-      logoText: "LITE TI",
-      quote: t("cases.testimonial7.quote"),
-      author: "Lite TI",
-      role: "Consultoria em TI",
-      authorInitial: "L",
-      background: casesLiteti,
-    },
-    {
-      logo: null,
-      logoText: "JOVEM HUB",
-      quote: t("cases.testimonial8.quote"),
-      author: "Jovem Hub",
-      role: "Comunidade & Educação",
-      authorInitial: "J",
-      background: casesJovemhub,
-    },
-    {
-      logo: null,
-      logoText: "SCOLTY VISION",
-      quote: t("cases.testimonial9.quote"),
-      author: "Scolty Vision",
-      role: "Produção de Vídeos",
-      authorInitial: "S",
-      background: casesScolty,
-    },
-    {
-      logo: null,
-      logoText: "SR. PRIMUS",
-      quote: t("cases.testimonial10.quote"),
-      author: "Sr. Primus",
-      role: "Mentoria em IA",
-      authorImage: srprimusAuthorImage,
-      background: casesSrprimus,
-    },
-    {
-      logo: null,
-      logoText: "XSCALE AI",
-      quote: t("cases.testimonial11.quote"),
-      author: "XScale AI",
-      role: "Consultoria Estratégica em IA",
-      authorInitial: "X",
-      background: casesXscale,
-    },
-    {
-      logo: null,
-      logoText: "RENTFY",
-      quote: t("cases.testimonial12.quote"),
-      author: "RentFy",
-      role: "Plataforma de Gestão de Aluguéis",
-      authorInitial: "R",
-      background: casesRentfy,
-    },
+    { logo: null, logoText: "BLACKCLUB", quote: t("cases.testimonial1.quote"), author: "Luiz Milion", role: "BlackClub", authorImage: luizMilionImage, background: casesBackground },
+    { logo: null, logoText: "VALENTINA", quote: t("cases.testimonial2.quote"), author: "Valentina Akime", role: "Modelo & Influenciadora", authorImage: valentinaAkimeImage, background: casesBackground2 },
+    { logo: null, logoText: "TUPÃ FC", quote: t("cases.testimonial3.quote"), author: "Marcelo Zaparoli", role: "CEO — Tupã Futebol Clube", authorImage: marceloZaparoliImage, background: casesBackgroundTupa },
+    { logo: null, logoText: "CREDITS HUB", quote: t("cases.testimonial4.quote"), author: "Credits Hub", role: "Plataforma SaaS", authorImage: creditshubAuthorImage, background: casesCreditshub },
+    { logo: null, logoText: "KUBE", quote: t("cases.testimonial5.quote"), author: "Kube Projetos", role: "Impressão 3D Industrial", authorInitial: "K", background: casesKube },
+    { logo: null, logoText: "ELIORE STUDIO", quote: t("cases.testimonial6.quote"), author: "Eliore Studio", role: "Arquitetura & Engenharia", authorInitial: "E", background: casesEliore },
+    { logo: null, logoText: "LITE TI", quote: t("cases.testimonial7.quote"), author: "Lite TI", role: "Consultoria em TI", authorInitial: "L", background: casesLiteti },
+    { logo: null, logoText: "JOVEM HUB", quote: t("cases.testimonial8.quote"), author: "Jovem Hub", role: "Comunidade & Educação", authorInitial: "J", background: casesJovemhub },
+    { logo: null, logoText: "SCOLTY VISION", quote: t("cases.testimonial9.quote"), author: "Scolty Vision", role: "Produção de Vídeos", authorInitial: "S", background: casesScolty },
+    { logo: null, logoText: "SR. PRIMUS", quote: t("cases.testimonial10.quote"), author: "Sr. Primus", role: "Mentoria em IA", authorImage: srprimusAuthorImage, background: casesSrprimus },
+    { logo: null, logoText: "XSCALE AI", quote: t("cases.testimonial11.quote"), author: "XScale AI", role: "Consultoria Estratégica em IA", authorInitial: "X", background: casesXscale },
+    { logo: null, logoText: "RENTFY", quote: t("cases.testimonial12.quote"), author: "RentFy", role: "Plataforma de Gestão de Aluguéis", authorInitial: "R", background: casesRentfy },
   ];
 
   const stats = [
@@ -204,12 +108,12 @@ const CasesSection = () => {
             <p className="text-xl md:text-2xl text-[#C9C9C9] text-right max-w-md leading-relaxed font-light">
               {t("cases.description")}
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-6 p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <div className="flex flex-col md:flex-row items-center gap-6 p-4 rounded-2xl border border-white/10 bg-white/5">
               <span className="text-xs font-medium tracking-[0.2em] text-[#C9C9C9] uppercase">{t("cases.counter")}</span>
               <div className="flex items-center -space-x-3">
                 {avatars.map((avatar, index) => (
                   <div key={index} className="w-9 h-9 rounded-full border border-[#F1F1F1] overflow-hidden bg-gray-800">
-                    <img src={avatar} alt="User" className="w-full h-full object-cover" />
+                    <img src={avatar} alt="User" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -221,18 +125,17 @@ const CasesSection = () => {
           </motion.div>
         </div>
 
-        {/* Testimonial Card */}
+        {/* Testimonial Card — only render current image */}
         <motion.div className="relative w-full h-[550px] md:h-[520px] rounded-[40px] overflow-hidden group bg-black border border-white/40" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={scaleUp}>
-          {testimonials.map((testi, i) => (
-            <link key={i} rel="preload" as="image" href={testi.background} />
-          ))}
           <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-end">
-            {testimonials.map((testi, i) => (
-              <img key={i} src={testi.background} alt="Background" className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 group-hover:scale-105 ${i === currentIndex ? 'opacity-100' : 'opacity-0'}`} />
-            ))}
+            <img
+              src={currentTestimonial.background}
+              alt="Background"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
           </div>
           <div className="absolute left-0 top-0 bottom-0 w-full md:w-[45%] overflow-hidden">
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-black/70 md:bg-black/50" />
             <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-between">
               <div className="flex justify-between items-center">
                 <div className="opacity-90">

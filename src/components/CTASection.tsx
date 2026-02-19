@@ -51,7 +51,7 @@ const CTASection = () => {
         {/* Right: Image */}
         <motion.div className="relative flex flex-col justify-between lg:w-[48%] min-h-[300px] md:min-h-[400px] rounded-2xl md:rounded-3xl overflow-hidden order-1 lg:order-2" variants={slideUp} style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)' }}>
           <img src={ctaBackground} alt="CTA Background" className="absolute inset-0 w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/40 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/40"></div>
           <div className="absolute top-4 right-4 md:top-5 md:right-5 w-16 h-16 overflow-hidden rounded-tr-lg">
             <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-white/30 to-transparent rounded-r-full" />
             <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-white/30 to-transparent rounded-t-full" />
@@ -62,7 +62,7 @@ const CTASection = () => {
           </div>
 
           <div className="relative z-10 p-6 md:p-10 text-center lg:text-left">
-            <span className="inline-block px-3 py-1 mb-4 text-xs md:text-sm font-medium text-[#f06800] bg-[#f06800]/10 backdrop-blur-sm rounded-full border border-[#f06800]/20">
+            <span className="inline-block px-3 py-1 mb-4 text-xs md:text-sm font-medium text-[#f06800] bg-[#f06800]/10 rounded-full border border-[#f06800]/20">
               {t("cta.buildProject")}
             </span>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-3 leading-tight">
@@ -74,7 +74,7 @@ const CTASection = () => {
           <div className="relative z-10 p-6 md:p-10 pt-0 lg:hidden">
             <div className="flex flex-wrap gap-3 justify-center">
               {[t("cta.feature1"), t("cta.feature2"), t("cta.feature3")].map((feature, index) => (
-                <div key={index} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                <div key={index} className="flex items-center gap-2 bg-white/20 px-3 py-1.5 rounded-full">
                   <svg className="w-3 h-3 text-[#f06800]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
