@@ -115,7 +115,7 @@ const FormatoSection = () => {
 
   return <section id="servicos" className="w-full px-5 md:px-12 py-16 md:py-24 font-dm scroll-mt-24">
       <div className="max-w-[1400px] mx-auto">
-        <motion.div className="mb-10 md:mb-16" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.5 }} variants={headerSlide}>
+        <motion.div className="mb-10 md:mb-16" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={headerSlide}>
           <span className="inline-block px-4 py-2 rounded-full bg-orange-500/10 text-orange-500 text-xs font-medium mb-4 uppercase tracking-[0.2em]">
             {t("services.badge")}
           </span>
@@ -124,7 +124,7 @@ const FormatoSection = () => {
           </h2>
         </motion.div>
 
-        <motion.div className="hidden lg:grid lg:grid-cols-4 gap-4" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={staggerCards}>
+        <motion.div className="hidden lg:grid lg:grid-cols-4 gap-4" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={staggerCards}>
           {services.map((service, index) => (
             <motion.div key={index} variants={cardReveal}><ServiceCard {...service} /></motion.div>
           ))}

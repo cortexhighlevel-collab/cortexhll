@@ -42,11 +42,11 @@ export const HeroSection = () => {
   const { t } = useLanguage();
   
   return <section className="relative w-full h-[95vh] flex items-center overflow-hidden pb-16">
-      <video autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0 hidden md:block" style={{ backgroundColor: '#f5f5f5' }}>
+      <video autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover object-[center_55%] z-0 hidden md:block" style={{ backgroundColor: '#f5f5f5' }}>
         <source src={heroVideo} type="video/webm" />
       </video>
       
-      <video autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover z-0 md:hidden" style={{ backgroundColor: '#f5f5f5' }}>
+      <video autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover z-0 md:hidden" style={{ backgroundColor: '#f5f5f5' }}>
         <source src={heroVideoMobile} type="video/webm" />
       </video>
       

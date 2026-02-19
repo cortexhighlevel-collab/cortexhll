@@ -20,7 +20,7 @@ const CTASection = () => {
 
   return (
     <div id="contato" className="w-full min-h-screen text-black flex items-center justify-center font-dm antialiased selection:bg-[#f06800] selection:text-white light-dotted-fade-in py-12 md:py-20 px-4 md:px-6">
-      <motion.div className="w-full max-w-[1200px] relative z-20 flex flex-col lg:flex-row items-stretch gap-6 lg:gap-0" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={scaleCenter}>
+      <motion.div className="w-full max-w-[1200px] relative z-20 flex flex-col lg:flex-row items-stretch gap-6 lg:gap-0" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={scaleCenter}>
         {/* Left: Quiz */}
         <motion.div className="relative lg:w-[58%] lg:-mr-8 z-10 order-2 lg:order-1" variants={slideUp}>
           <div className="relative rounded-2xl md:rounded-3xl p-5 md:p-8 overflow-hidden" style={{

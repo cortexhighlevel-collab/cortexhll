@@ -38,7 +38,7 @@ const OfertaSection = () => {
   }];
 
   return <section className="w-full bg-[#0D0D0D] text-white dark-dotted-fade-in font-dm">
-      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24" initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.15 }} variants={staggerContainer}>
+      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={staggerContainer}>
         <motion.div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12" variants={fadeUp}>
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
