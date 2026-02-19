@@ -55,7 +55,7 @@ const OfertaSection = () => {
           <motion.div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#141414] md:col-span-2 md:row-span-2 hover:border-white/20 transition-all duration-500" variants={fadeUp}>
             <div className="relative p-5 sm:p-6">
               <img src={ofertaHero} alt={t("oferta.badge")} className="w-full h-auto rounded-2xl object-contain" />
-              <div className="absolute top-8 left-8 sm:top-9 sm:left-9 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10">
+              <div className="absolute top-8 left-8 sm:top-9 sm:left-9 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 md:bg-black/50 md:backdrop-blur-md border border-white/10">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-xs font-medium text-white/90">{t("oferta.campaigns")}</span>
               </div>
@@ -79,7 +79,7 @@ const OfertaSection = () => {
               {/* ROI Chart */}
               <motion.div className="mt-6 relative rounded-3xl" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}>
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-orange-400/10 to-orange-500/20 rounded-3xl blur-xl" />
-                <div className="relative p-5 sm:p-6 bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-2xl border border-white/20 rounded-3xl shadow-2xl" style={{ transform: 'perspective(1000px) rotateX(2deg)', boxShadow: '0 25px 50px -12px rgba(240, 104, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
+                <div className="relative p-5 sm:p-6 bg-gradient-to-br from-white/10 via-white/5 to-transparent md:backdrop-blur-2xl border border-white/20 rounded-3xl shadow-2xl" style={{ transform: 'perspective(1000px) rotateX(2deg)', boxShadow: '0 25px 50px -12px rgba(240, 104, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
                   <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent rounded-t-3xl pointer-events-none" />
                   <div className="relative flex items-end justify-between gap-6">
                     <div className="flex-1 relative h-24 sm:h-28">
@@ -113,7 +113,7 @@ const OfertaSection = () => {
                         ))}
                       </div>
                     </div>
-                    <div className="relative flex-shrink-0 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent backdrop-blur-xl border border-white/30" style={{ boxShadow: '0 8px 32px rgba(240, 104, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)' }}>
+                    <div className="relative flex-shrink-0 p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-white/15 via-white/5 to-transparent md:backdrop-blur-xl border border-white/30" style={{ boxShadow: '0 8px 32px rgba(240, 104, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)' }}>
                       <div className="absolute top-0 left-2 right-2 h-1/3 bg-gradient-to-b from-white/20 to-transparent rounded-t-xl" />
                       <div className="relative text-center">
                         <div className="flex items-center justify-center gap-1 mb-1">

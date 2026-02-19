@@ -41,7 +41,6 @@ const DNASection = () => {
           {/* Card 1 - Exclusividade */}
           <motion.div className="group relative md:row-span-2 rounded-2xl overflow-hidden min-h-[280px] md:min-h-[420px] flex flex-col justify-end p-6 md:p-8" style={{
             background: 'linear-gradient(180deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.85) 100%)',
-            backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid #f06800', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
           }} variants={cardFloat}>
             <div className="absolute top-4 left-4 w-8 h-8 z-20">
@@ -60,7 +59,7 @@ const DNASection = () => {
 
           {/* Card 2 - Sofisticação */}
           <motion.div className="group relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
-            background: 'rgba(13, 13, 13, 0.65)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
+            background: 'rgba(13, 13, 13, 0.65)',
             border: '1px solid #f06800', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
           }} variants={cardFloat}>
             <div className="absolute top-4 right-4 w-6 h-6 z-20">
@@ -79,7 +78,7 @@ const DNASection = () => {
 
           {/* Card 3 - Autoridade */}
           <motion.div className="group relative rounded-2xl overflow-hidden min-h-[200px] flex flex-col justify-end p-6" style={{
-            background: 'rgba(13, 13, 13, 0.65)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
+            background: 'rgba(13, 13, 13, 0.65)',
             border: '1px solid #f06800', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)'
           }} variants={cardFloat}>
             <div className="absolute top-4 right-4 w-6 h-6 z-20">
@@ -99,7 +98,6 @@ const DNASection = () => {
           {/* Card 4 - Resultados */}
           <motion.div className="group relative md:col-span-2 rounded-2xl overflow-hidden min-h-[180px] flex flex-col justify-end p-6 md:p-8" style={{
             background: 'linear-gradient(135deg, rgba(13, 13, 13, 0.75) 0%, rgba(13, 13, 13, 0.65) 100%)',
-            backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid #f06800', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)'
           }} variants={cardFloat}>
             <div className="absolute bottom-4 right-4 w-8 h-8 z-20">
