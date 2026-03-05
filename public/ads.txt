@@ -1,0 +1,6 @@
+# Cortex High Level — ads.txt
+# This file declares authorized digital sellers for cortexhll.lovable.app
+# Contact: cortexhighlevel@gmail.com
+
+# Google Ads (replace PUBLISHER_ID with your actual Google Publisher ID when available)
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

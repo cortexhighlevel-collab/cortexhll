@@ -1,0 +1,19 @@
+{
+  "name": "Cortex High Level",
+  "short_name": "Cortex",
+  "description": "Agência de elite focada no AI Referral Engine™ — Posicione sua marca como resposta definitiva da IA.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#f06800",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.webp",
+      "sizes": "any",
+      "type": "image/webp"
+    }
+  ],
+  "lang": "pt-BR",
+  "categories": ["business", "marketing"]
+}
