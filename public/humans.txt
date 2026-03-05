@@ -1,0 +1,28 @@
+/* TEAM */
+
+Founder & Strategist: Sr. Primus
+Role: AI Referral Engine™ Creator
+Contact: cortexhighlevel@gmail.com
+Instagram: @cortexhighlevel
+
+Creative Director: Angelo Felipe
+Role: Visual Strategy & Branding
+
+Dev Lead: João
+Role: Technical Architecture & Development
+
+Visual Designer: Victor Lisboa
+Role: UI/UX & Web Design
+
+Motion Designer: Pablo Figueiredo
+Role: Motion Design & Visual Narratives
+
+/* SITE */
+
+Standards: HTML5, CSS3, JavaScript ES2024
+Components: React, Vite, Tailwind CSS, TypeScript, Framer Motion
+Software: Lovable, Figma, After Effects
+
+/* THANKS */
+
+Built with Lovable — AI-powered web development
